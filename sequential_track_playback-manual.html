@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset=utf-8>
+  <title>Sequential track playback</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+
+<body>
+  <video style="height: 400px"></video>
+  <div>Please press Enter on your Keyboard or OK on your remote to continue</div>
+  <div id="debug"></div>
+  <div id=log></div>
+</body>
+<script src="lib/utils/test_helper.js"></script>
+<script src="lib/player.js"></script>
+<script src="lib/manifest_parser.js"></script>
+<script src="lib/mpd-parser.js"></script>
+<script src="sub-tests/every_sample_should_be_rendered.js"></script>
+<script src="sub-tests/playback_duration_matches_cmaf_duration.js"></script>
+<script src="sub-tests/low_startup_delay.js"></script>
+<script>
+  setup({
+    explicit_timeout: true
+  });
+
+  var video = document.querySelector('video');
+  player = new Player(video);
+  var playerSettings = {fullScreen: "false", buffer: 30, numberOfSegmentBeforePlay: 2};
+  player.init(playerSettings);
+
+
+  //every_sample_shall_be_rendered();
+  //playback_duration_matches_cmaf_duration();
+  low_startup_delay(120, playerSettings.numberOfSegmentBeforePlay);
+
+  var contentModel = urlParams["content_model"];
+  player.load(contentModel);
+
+  async_test(function (test) {
+    document.addEventListener("keydown", test.step_func(function (event) {
+      assert_true(event.keyCode === 13);
+      test.done();
+    }));
+  }, "Placeholder subtest: Press Enter");
+
+</script>
+</body>
+
+</html>
