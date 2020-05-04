@@ -14,6 +14,8 @@
   <div id="debug"></div>
   <div id=log></div>
 </body>
+<script src="lib/mozilla/object-keys-polyfill.js"></script>
+<script src="lib/stefanpenner/es6-promise.min.js"></script>
 <script src="lib/utils/test_helper.js"></script>
 <script src="lib/player.js"></script>
 <script src="lib/manifest_parser.js"></script>
@@ -28,16 +30,31 @@
 
   var video = document.querySelector('video');
   player = new Player(video);
-  var playerSettings = {fullScreen: "false", buffer: 30, numberOfSegmentBeforePlay: 2};
-  player.init(playerSettings);
+  player.init({bufferTime: 30, numberOfSegmentBeforePlay: 2});
 
 
   //every_sample_shall_be_rendered();
   //playback_duration_matches_cmaf_duration();
-  low_startup_delay(120, playerSettings.numberOfSegmentBeforePlay);
+  low_startup_delay(120, player.settings.numberOfSegmentBeforePlay);
 
   var contentModel = urlParams["content_model"];
   player.load(contentModel);
+  player.addEventListener("onManifestParsed", function (manifest) {
+    var totalSegmentsCount = manifest
+      .getRepresentation(0)
+      .getTotalSegmentsCount();
+    player.setVideoSegments({
+      representationIndex: 0,
+      startSegment: 20,
+      endSegment: totalSegmentsCount - 1,
+    });
+    player.startBuffering();
+  });
+  player.addEventListener("onSegmentLoaded", function (event) {
+    if (event.totalSegmentsLoaded === 2) {
+      player.play();
+    }
+  });
 
   async_test(function (test) {
     document.addEventListener("keydown", test.step_func(function (event) {
@@ -45,7 +62,6 @@
       test.done();
     }));
   }, "Placeholder subtest: Press Enter");
-
 </script>
 </body>
 

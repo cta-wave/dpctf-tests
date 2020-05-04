@@ -11,13 +11,13 @@ function low_startup_delay(max_delay, numberOfSegmentBeforePlay) {
   video.addEventListener("canplay", handleEvent);
   video.addEventListener("oncanplay", handleEvent);
 
-  function onSourceBufferAdded(sourceBuffer) {
+  function handleSourceBufferAdded(sourceBuffer) {
     var video = document.querySelector("video");
     if (sourceBuffer) {
       sourceBuffer.addEventListener("updateend", function () {
         var segmentsNumber = player.getCurrentManifest().playlists[0].segments
           .length;
-        if (numberOfAppendedVideoSegment == numberOfSegmentBeforePlay - 1) {
+        if (numberOfAppendedVideoSegment === numberOfSegmentBeforePlay - 1) {
           load_time = new Date();
         }
         numberOfAppendedVideoSegment++;
@@ -25,8 +25,7 @@ function low_startup_delay(max_delay, numberOfSegmentBeforePlay) {
     }
   }
 
-  var callbacks = [onSourceBufferAdded];
-  player.registerCallbacks(callbacks);
+  player.addEventListener("onSourceBufferAdded", handleSourceBufferAdded);
 
   function handleEvent(event) {
     console.log(event.name);

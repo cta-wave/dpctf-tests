@@ -1,18 +1,19 @@
-function every_sample_shall_be_rendered () {
+function every_sample_shall_be_rendered() {
   var numberOfAppendedVideoSegment = 0;
   var t = {
-    "playback_triggered": async_test("Video playback is triggered"),
-    "gap_test": async_test("No gap in Buffer")
+    playback_triggered: async_test("Video playback is triggered"),
+    gap_test: async_test("No gap in Buffer"),
   };
 
-  var onSourceBufferAdded = function(sourceBuffer) {
-    var video = document.querySelector('video');
+  var handleSourceBufferAdded = function (sourceBuffer) {
+    var video = document.querySelector("video");
     if (sourceBuffer) {
-      sourceBuffer.addEventListener('updateend', function() {
-        var segmentsNumber = player.getCurrentManifest().playlists[0].segments.length;
+      sourceBuffer.addEventListener("updateend", function () {
+        var segmentsNumber = player.getCurrentManifest().playlists[0].segments
+          .length;
         if (numberOfAppendedVideoSegment >= segmentsNumber) {
-          console.log("ALL SEGMENT APPENDED")
-          t.gap_test.step(function() {
+          console.log("ALL SEGMENT APPENDED");
+          t.gap_test.step(function () {
             assert_equals(video.buffered.length, 1);
           });
           t.gap_test.done();
@@ -20,22 +21,21 @@ function every_sample_shall_be_rendered () {
         numberOfAppendedVideoSegment++;
       });
     }
-  }
+  };
 
-  video.addEventListener('loadstart', handleEvent);
-  video.addEventListener('play', handleEvent);
-  video.addEventListener('progress', handleEvent);
-  video.addEventListener('canplay', handleEvent);
-  video.addEventListener('canplaythrough', handleEvent);
-  video.addEventListener('ended', handleEvent);
-  var callbacks = [onSourceBufferAdded];
-  player.registerCallbacks(callbacks);
+  video.addEventListener("loadstart", handleEvent);
+  video.addEventListener("play", handleEvent);
+  video.addEventListener("progress", handleEvent);
+  video.addEventListener("canplay", handleEvent);
+  video.addEventListener("canplaythrough", handleEvent);
+  video.addEventListener("ended", handleEvent);
+  player.addEventListener("onSourceBufferAdded", handleSourceBufferAdded);
 
   function handleEvent(event) {
-    var video = document.querySelector('video');
+    var video = document.querySelector("video");
     switch (event.type) {
       case "play":
-        t.playback_triggered.step(function() {
+        t.playback_triggered.step(function () {
           assert_true(true);
         });
         t.playback_triggered.done();
@@ -44,4 +44,4 @@ function every_sample_shall_be_rendered () {
         console.log("video: ", event.type);
     }
   }
-};
+}
