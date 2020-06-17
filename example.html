@@ -20,17 +20,36 @@
     <script src="lib/manifest_parser.js"></script>
     <script src="lib/mpd-parser.js"></script>
     <script src="lib/info-overlay.js"></script>
+    <script src="lib/wave-service.js"></script>
     <script>
-      // Specify workflow
-      setupTest().then(executeTest);
+      // Global variables
+      var TEST_INFO = {
+        title: "Example Test",
+        description: "This is an example test",
+        path: location.pathname,
+      };
 
-      function setupTest() {
+      var waveService = null;
+      var video = null;
+      var player = null;
+
+      // Specify workflow
+      setupTest()
+        //.then(initializeWaveService)
+        //.then(sendTestReadyEvent)
+        //.then(waitForObservationReady)
+        .then(executeTest)
+        .then(handleError);
+
+      function handleError(error) {
+        if (!error) return;
+        throw new Error(error);
+      }
+
+      function setupTest(error) {
+        if (error) return error;
         return new Promise(function (resolve) {
           //// Meta Info ////
-          var TEST_INFO = {
-            title: "Example Test",
-            description: "This is an example test",
-          };
           document.getElementsByTagName("title")[0].innerText = TEST_INFO.title;
 
           //// Configure Test Harness ////
@@ -39,7 +58,7 @@
           });
 
           //// Player Setup ////
-          var video = document.querySelector("video");
+          video = document.querySelector("video");
           player = new Player(video);
           player.init({ bufferTime: 30, numberOfSegmentBeforePlay: 2 });
 
@@ -60,7 +79,8 @@
 
           player.addEventListener("onSegmentLoaded", function (event) {
             if (event.totalSegmentsLoaded === 2) {
-              player.play();
+              // Finish setup
+              resolve();
             }
           });
 
@@ -95,14 +115,15 @@
           ) {
             infoOverlay.updateOverlayInfo(player, TEST_INFO);
           });
-
-          // Finish setup
-          resolve();
         });
       }
 
-      function executeTest() {
+      function executeTest(error) {
+        if (error) return error;
         return new Promise(function (resolve) {
+          // Start video playback
+          player.play();
+
           // Placeholder test
           async_test(function (test) {
             document.addEventListener(
@@ -117,6 +138,58 @@
 
           // Finish test execution
           resolve();
+        });
+      }
+
+      function initializeWaveService(error) {
+        if (error) return error;
+        return new Promise(function (resolve) {
+          waveService = new WaveService();
+          waveService
+            .initialize("resources/wave-config")
+            .then(function (error) {
+              if (error) resolve("Failed to initialize wave service: " + error);
+              resolve();
+            });
+        });
+      }
+
+      function sendTestReadyEvent(error) {
+        if (error) return error;
+        return new Promise(function (resolve) {
+          var token = urlParams["token"];
+          if (!token) {
+            resolve("No session token provided");
+            return;
+          }
+          var testInfo = {
+            test_path: TEST_INFO.path,
+            test_name: TEST_INFO.title,
+            test_description: TEST_INFO.description,
+          };
+          waveService
+            .sendSessionEvent(token, WaveService.TEST_READY_EVENT, testInfo)
+            .then(function () {
+              resolve();
+            });
+        });
+      }
+
+      function waitForObservationReady(error) {
+        if (error) return error;
+        return new Promise(function (resolve) {
+          var listener = function (event) {
+            if (event.type !== WaveService.OBSERVATION_READY_EVENT) return;
+            if (event.data.test_path !== TEST_INFO.path) return;
+            waveService.removeSessionEventListener(listener);
+            resolve();
+          };
+          var token = urlParams["token"];
+          if (!token) {
+            resolve("No session token provided");
+            return;
+          }
+          waveService.addSessionEventListener(token, listener);
         });
       }
     </script>
