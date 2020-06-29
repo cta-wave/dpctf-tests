@@ -21,6 +21,7 @@
     <script src="lib/mpd-parser.js"></script>
     <script src="lib/info-overlay.js"></script>
     <script src="lib/wave-service.js"></script>
+    <script src="lib/mse-support.js"></script>
     <script>
       // Global variables
       var TEST_INFO = {
@@ -46,6 +47,12 @@
       function handleError(error) {
         if (!error) return;
         throw new Error(error);
+      }
+
+      function checkMseAvailable(error) {
+        if (error) return error;
+        checkMseSupport();
+        resolve();
       }
 
       function setupTest(error) {
