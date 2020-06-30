@@ -28,6 +28,8 @@
         description:
           "Out of order loading refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization, but CMAF fragments are loaded out of order within the buffer duration.",
         path: location.pathname,
+        params: urlParams,
+        observations: [],
       };
 
       var waveService = null;
@@ -166,13 +168,8 @@
             resolve("No session token provided");
             return;
           }
-          var testInfo = {
-            test_path: TEST_INFO.path,
-            test_name: TEST_INFO.title,
-            test_description: TEST_INFO.description,
-          };
           waveService
-            .sendSessionEvent(token, WaveService.TEST_READY_EVENT, testInfo)
+            .sendSessionEvent(token, WaveService.TEST_READY_EVENT, TEST_INFO)
             .then(function () {
               resolve();
             });
