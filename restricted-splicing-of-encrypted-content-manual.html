@@ -22,6 +22,7 @@
     <script src="lib/info-overlay.js"></script>
     <script src="lib/wave-service.js"></script>
     <script src="lib/mse-support.js"></script>
+    <script src="lib/mime-codec-support.js"></script>
     <script>
       // Global variables
       var TEST_INFO = {
@@ -38,6 +39,8 @@
 
       // Specify workflow
       setupTest()
+        .then(checkMseSupport)
+        .then(checkCodecs)
         .then(initializeWaveService)
         .then(sendTestReadyEvent)
         .then(waitForObservationReady)
@@ -53,6 +56,12 @@
         if (error) return error;
         checkMseSupport();
         resolve();
+      }
+
+      function checkCodecs(error) {
+        if (error) return error;
+        var manifest = player.getManifest();
+        checkMimeAndCodecSupport(manifest);
       }
 
       function setupTest(error) {
