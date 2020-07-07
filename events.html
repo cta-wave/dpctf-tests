@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+
+  <body>
+    <video style="height: 400px;"></video>
+    <div>Press Enter/Ok to continue or Up/Down to show/hide debug overlay</div>
+    <div id="debug"></div>
+    <div id="log"></div>
+    <div id="info-overlay"></div>
+    <script src="lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="lib/utils/test_helper.js"></script>
+    <script src="lib/player.js"></script>
+    <script src="lib/manifest_parser.js"></script>
+    <script src="lib/mpd-parser.js"></script>
+    <script src="lib/info-overlay.js"></script>
+    <script src="lib/wave-service.js"></script>
+    <script>
+      // Global variables
+      var waveService = null;
+
+      var currentListener = null;
+      var currentToken = null;
+
+      var receivedTestPath = null;
+      var receivedObservations = null;
+
+      // Specify workflow
+      initializeWaveService().then(notifyInitialization).then(handleError);
+
+      function listen(token) {
+        if (currentListener) {
+          waveService.removeSessionEventListener(currentListener);
+        }
+        currentListener = function (event) {
+          console.log("");
+          console.log("Event received:");
+          console.log("Type:", event.type);
+          console.log("Data:", JSON.stringify(event.data, null, 2));
+          if (event.type === WaveService.TEST_READY_EVENT) {
+            receivedTestPath = event.data.path;
+            receivedObservations = event.data.observations;
+          }
+        };
+        waveService.addSessionEventListener(token, currentListener);
+        currentToken = token;
+        console.log(
+          "Successfully registered event listener for session '" + token + "'"
+        );
+      }
+
+      function sendObservationReadyEvent() {
+        sendEvent(WaveService.OBSERVATION_READY_EVENT, {
+          test_path: receivedTestPath,
+        });
+      }
+
+      function sendObservationResults() {
+        var results = [];
+        for (var observation of receivedObservations) {
+          results.push({
+            id: observation.id,
+            name: observation.name,
+            status: "PASS",
+            message: null,
+          });
+        }
+        sendEvent(WaveService.OBSERVATION_COMPLETED_EVENT, results);
+      }
+
+      function sendEvent(type, data) {
+        waveService
+          .sendSessionEvent(currentToken, type, data)
+          .then(function (error) {
+            if (error) {
+              console.log("Failed to send event:", error);
+              return;
+            }
+            console.log("Event successfully sent");
+          });
+      }
+
+      function handleError(error) {
+        if (!error) return;
+        throw new Error(error);
+      }
+
+      function initializeWaveService(error) {
+        if (error) return error;
+        return new Promise(function (resolve) {
+          waveService = new WaveService();
+          waveService
+            .initialize("resources/wave-config")
+            .then(function (error) {
+              if (error) resolve("Failed to initialize wave service: " + error);
+              resolve();
+            });
+        });
+      }
+
+      function notifyInitialization(error) {
+        if (error) return error;
+        console.log("Wave Service successfully initialized.");
+      }
+    </script>
+  </body>
+</html>

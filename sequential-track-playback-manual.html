@@ -131,7 +131,7 @@
           });
 
           player.addEventListener("onSegmentLoaded", function (event) {
-            if (event.totalSegmentsLoaded === 2) {
+            if (event.totalSegmentsLoaded >= 2) {
               // Finish setup
               resolve();
             }
