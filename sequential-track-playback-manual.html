@@ -80,14 +80,6 @@
           player.load(contentModel);
 
           player.addEventListener("onManifestParsed", function (manifest) {
-            var totalSegmentsCount = manifest
-              .getRepresentation(1)
-              .getTotalSegmentsCount();
-            player.setVideoSegments({
-              representationNumber: 1,
-              startSegment: 10,
-              endSegment: totalSegmentsCount - 1,
-            });
             player.startBuffering();
             resolve();
           });
@@ -130,7 +122,9 @@
           playbackDurationMatchesCMAFTrackDuration();
 
           player.addEventListener("onSegmentLoaded", function (event) {
-            if (event.totalSegmentsLoaded >= 2) {
+            if (
+              player.getPreBufferedTime() >= urlParams["min_buffer_duration"]
+            ) {
               // Finish setup
               player.play();
             }

@@ -5,6 +5,8 @@
     <title></title>
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
+    <script src="subtests/start-up-delay-should-be-sufficiently-low.js"></script>
+    <script src="subtests/playback-duration-matches-cmaf-track-duration.js"></script>
   </head>
 
   <body>
@@ -21,6 +23,7 @@
     <script src="lib/mpd-parser.js"></script>
     <script src="lib/info-overlay.js"></script>
     <script src="lib/wave-service.js"></script>
+    <script src="lib/mse-support.js"></script>
     <script>
       // Global variables
       var TEST_INFO = {
@@ -38,6 +41,7 @@
 
       // Specify workflow
       setupTest()
+        .then(checkMseAvailable)
         .then(initializeWaveService)
         .then(sendTestReadyEvent)
         .then(waitForObservationReady)
@@ -47,6 +51,12 @@
       function handleError(error) {
         if (!error) return;
         throw new Error(error);
+      }
+
+      function checkMseAvailable(error) {
+        if (error) return error;
+        checkMseSupport();
+        resolve();
       }
 
       function setupTest(error) {
@@ -63,7 +73,10 @@
           //// Player Setup ////
           video = document.querySelector("video");
           player = new Player(video);
-          player.init({ bufferTime: 30, numberOfSegmentBeforePlay: 2 });
+          player.init({
+            bufferTime: urlParams["min_buffer_duration"],
+            numberOfSegmentBeforePlay: 2,
+          });
 
           var contentModel = urlParams["content_model"];
           if (!contentModel)
@@ -76,22 +89,12 @@
               .getRepresentation(1)
               .getTotalSegmentsCount();
             player.setVideoSegments({
-              representationNumber: 1,
-              startSegment: 10,
+              representationNumber: urlParams["playout"],
+              startSegment: 0,
               endSegment: totalSegmentsCount - 1,
             });
             player.startBuffering();
-          });
-
-          player.addEventListener("onSegmentLoaded", function (event) {
-            if (event.totalSegmentsLoaded >= 2) {
-              // Finish setup
-              resolve();
-            }
-          });
-
-          player.addEventListener("onPlayingSegmentChange", function (segment) {
-            //console.log(segment);
+            resolve();
           });
 
           //// Info Overlay Setup ////
@@ -105,6 +108,27 @@
             }
             if (event.keyCode === 40) {
               infoOverlay.hide();
+            }
+          });
+
+          document.addEventListener("keydown", function (event) {
+            if (event.keyCode === 13) {
+              var repIndex =
+                player
+                  .getManifest()
+                  .representations.indexOf(player.playingRepresentation) + 1;
+              if (repIndex >= player.getManifest().representations.length) {
+                repIndex = 0;
+              }
+              var totalSegmentsCount = player
+                .getManifest()
+                .getRepresentation(1)
+                .getTotalSegmentsCount();
+              player.setVideoSegments({
+                representationNumber: repIndex,
+                startSegment: player.getPlayingSegment().number,
+                endSegment: totalSegmentsCount - 1,
+              });
             }
           });
 
@@ -127,22 +151,19 @@
       function executeTest(error) {
         if (error) return error;
         return new Promise(function (resolve) {
-          // Start video playback
-          player.play();
+          var tsMax = urlParams["tsMax"];
+          startUpDelaySmallEnough(tsMax);
+          playbackDurationMatchesCMAFTrackDuration();
 
-          // Placeholder test
-          async_test(function (test) {
-            document.addEventListener(
-              "keydown",
-              test.step_func(function (event) {
-                if (event.keyCode !== 13) return;
-                assert_true(true);
-                test.done();
-              })
-            );
-          }, "Placeholder subtest: Press Enter");
+          player.addEventListener("onSegmentLoaded", function (event) {
+            if (
+              player.getPreBufferedTime() >= urlParams["min_buffer_duration"]
+            ) {
+              // Finish setup
+              player.play();
+            }
+          });
 
-          // Finish test execution
           resolve();
         });
       }
@@ -168,8 +189,13 @@
             resolve("No session token provided");
             return;
           }
+          var testInfo = {
+            test_path: TEST_INFO.path,
+            test_name: TEST_INFO.title,
+            test_description: TEST_INFO.description,
+          };
           waveService
-            .sendSessionEvent(token, WaveService.TEST_READY_EVENT, TEST_INFO)
+            .sendSessionEvent(token, WaveService.TEST_READY_EVENT, testInfo)
             .then(function () {
               resolve();
             });
