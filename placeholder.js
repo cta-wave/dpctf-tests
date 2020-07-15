@@ -90,6 +90,7 @@ function setupTest(error) {
       bufferTime: 30,
       numberOfSegmentBeforePlay: 2,
       parallelLoading: false,
+      concatAndSplit: false,
     });
 
     player.load(contentModel);
