@@ -6,10 +6,8 @@ function startUpDelaySmallEnough(tsMax) {
     "The start-up delay should be sufficiently low (120ms max)."
   );
 
-  player.addEventListener("onSegmentLoaded", function (event) {
-    if (player.getPreBufferedTime() >= minBufferDuration) {
-      playbackInitiated = new Date().getTime();
-    }
+  player.addEventListener("playbackInitiated", function (event) {
+    playbackInitiated = new Date().getTime();
   });
 
   video.addEventListener("playing", function () {
