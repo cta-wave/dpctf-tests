@@ -41,9 +41,7 @@ function playbackDurationMatchesCMAFTrackDuration() {
   }, "Playback-Duration matches CMAF-Track-Duration");
 }
 
-function playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessTime(
-  randomAccessTime
-) {
+function playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessTime() {
   var sumTime = 0;
   var startSegment = null;
   var videoSegments = [];
@@ -75,9 +73,6 @@ function playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessTime(
     if (randomAccessTime > cmafTackLength || randomAccessTime < 0) {
       test.done();
     }
-
-    player.video.currentTime = randomAccessTime;
-    player.handleTimeUpdate();
     startSegment = player.getPlayingSegment();
 
     for (var i = 0; i < videoSegments.length; i++) {

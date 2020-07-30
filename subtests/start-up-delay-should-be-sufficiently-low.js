@@ -7,8 +7,7 @@ function startUpDelaySmallEnough(tsMax) {
   );
 
   player.addEventListener("onSegmentLoaded", function (event) {
-    if (event.totalSegmentsLoaded === 2) {
-      player.play();
+    if (player.getPreBufferedTime() >= minBufferDuration) {
       playbackInitiated = new Date().getTime();
     }
   });
