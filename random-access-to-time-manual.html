@@ -55,11 +55,11 @@
       setupTest()
         .then(checkMseAvailable)
         .then(checkCodecs)
-        //.then(initializeWaveService)
-        //.then(sendTestReadyEvent)
-        //.then(waitForObservationReady)
+        .then(initializeWaveService)
+        .then(sendTestReadyEvent)
+        .then(waitForObservationReady)
         .then(executeTest)
-        //.then(waitForObservationResults)
+        .then(waitForObservationResults)
         .then(handleError)
         .then(finishTest);
 
