@@ -56,7 +56,7 @@
       var contentModel =
         urlParams["content_model"] ||
         "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd"; // Temporary fix
-      var playout = urlParams["playout"] || 0
+      var playout = urlParams["playout"] || 0;
       var minBufferDuration = urlParams["min_buffer_duration"] || 30;
 
       // Specify workflow
@@ -71,7 +71,7 @@
         .then(handleError)
         .then(finishTest);
 
-        function handleError(error) {
+      function handleError(error) {
         if (!error) return;
         throw new Error(error);
       }
@@ -146,10 +146,14 @@
             player.startBuffering();
             resolve();
 
-            player.addEventListener("onPlayingSegmentChange", function (segment) {
+            player.addEventListener("onPlayingSegmentChange", function (
+              segment
+            ) {
               if (segment.number === totalSegmentsCount / 2 - 1) {
                 playout++;
-                if (playout >= manifest.representations.length) { playout = 0; }
+                if (playout >= manifest.representations.length) {
+                  playout = 0;
+                }
 
                 player.setVideoSegments({
                   representationNumber: playout,
@@ -196,6 +200,20 @@
             infoOverlay.updateOverlayInfo(player, TEST_INFO);
           });
         });
+
+        if (!video.requestFullscreen) {
+          resolve();
+          return;
+        }
+        video
+          .requestFullscreen()
+          .then(function () {
+            resolve();
+          })
+          .catch(function (error) {
+            console.error(error);
+            resolve();
+          });
       }
 
       function executeTest(error) {
@@ -206,20 +224,17 @@
           playbackDurationMatchesCMAFTrackDuration();
           sampleShallBeRenderedInIncreasingTimeTest(player);
 
-          if (video.requestFullscreen) video.requestFullscreen();
-
           if (player.getPreBufferedTime() >= minBufferDuration) {
             player.play();
-            player.dispatchEvent("playbackInitiated")
+            player.dispatchEvent("playbackInitiated");
           } else {
             player.addEventListener("onSegmentLoaded", function (event) {
               if (player.getPreBufferedTime() >= minBufferDuration) {
                 player.play();
-                player.dispatchEvent("playbackInitiated")
+                player.dispatchEvent("playbackInitiated");
               }
             });
           }
-
           resolve();
         });
       }
@@ -246,13 +261,8 @@
             resolve("No session token provided");
             return;
           }
-          var testInfo = {
-            test_path: TEST_INFO.path,
-            test_name: TEST_INFO.title,
-            test_description: TEST_INFO.description,
-          };
           waveService
-            .sendSessionEvent(token, WaveService.TEST_READY_EVENT, testInfo)
+            .sendSessionEvent(token, WaveService.TEST_READY_EVENT, TEST_INFO)
             .then(function () {
               resolve();
             });

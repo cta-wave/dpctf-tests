@@ -211,13 +211,8 @@ function sendTestReadyEvent(error) {
       resolve("No session token provided");
       return;
     }
-    var testInfo = {
-      test_path: TEST_INFO.path,
-      test_name: TEST_INFO.title,
-      test_description: TEST_INFO.description,
-    };
     waveService
-      .sendSessionEvent(token, WaveService.TEST_READY_EVENT, testInfo)
+      .sendSessionEvent(token, WaveService.TEST_READY_EVENT, TEST_INFO)
       .then(function () {
         resolve();
       });
