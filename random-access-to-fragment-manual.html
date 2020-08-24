@@ -45,7 +45,6 @@
 
       var tsMax = urlParams["tsMax"] || 120;
       var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var randomAccessFragment = Number(urlParams["random_access_fragment"]);
       var contentModel =
         urlParams["content_model"] ||
         "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd"; // Temporary fix
@@ -125,25 +124,24 @@
 
           player.load(contentModel);
 
-          var videoSegments = [];
+          var self = this;
 
           player.addEventListener("onManifestParsed", function (manifest) {
-            videoSegments = Object.keys(player.videoSegments).map(function (
-              key
-            ) {
-              return player.videoSegments[key];
-            });
+            var videoSegments = self.player.getVideoSegments();
+            var totalSegments = self.player.getVideoSegmentsCount();
+            var cmafTrackLength = player.getManifest().getDuration();
+            var variance = cmafTrackLength * 0.5;
+            var randomAccessTime =
+              cmafTrackLength * 0.5 +
+              (Math.random() * variance - variance * 0.5);
 
-            if (
-              randomAccessFragment < videoSegments.length &&
-              randomAccessFragment >= 0
-            ) {
-              var sum = 0;
-              for (var i = 0; i < randomAccessFragment; i++) {
-                sum += videoSegments[i].duration;
-              }
-              player.setCurrentTime(sum);
+            var fragmentTime = 0;
+            for (var i = 0; i < totalSegments; i++) {
+              var segmentDuration = videoSegments[i].getDuration();
+              if (fragmentTime + segmentDuration > randomAccessTime) break;
+              fragmentTime += segmentDuration;
             }
+            player.setCurrentTime(fragmentTime);
 
             player.startBuffering();
             resolve();
