@@ -45,7 +45,6 @@
 
       var tsMax = urlParams["tsMax"] || 120;
       var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var randomAccessTime = Number(urlParams["random_access_time"]);
       var contentModel =
         urlParams["content_model"] ||
         "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd"; // Temporary fix
@@ -127,9 +126,9 @@
 
           player.addEventListener("onManifestParsed", function (manifest) {
             var cmafTrackLength = player.getManifest().getDuration();
-            if (randomAccessTime < cmafTrackLength && randomAccessTime > 0) {
-              player.setCurrentTime(randomAccessTime);
-            }
+            var variance = cmafTrackLength * 0.5;
+            var randomAccessTime = cmafTrackLength * 0.5 + (Math.random() * variance - variance * 0.5);
+            player.setCurrentTime(randomAccessTime);
             player.startBuffering();
             resolve();
           });
