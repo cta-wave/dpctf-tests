@@ -21,5 +21,7 @@ function startUpDelaySmallEnough(tsMax) {
       playingEventCounter++;
     }
   });
+
+  return t;
 }
 

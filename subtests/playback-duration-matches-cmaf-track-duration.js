@@ -7,12 +7,12 @@ function playbackDurationMatchesCMAFTrackDuration() {
   });
 
   expectedResult = videosegments
-      .map(function (segment) {
-        return segment.duration;
-      })
-      .reduce(function (sum, value) {
-        return sum + value;
-      });
+    .map(function (segment) {
+      return segment.duration;
+    })
+    .reduce(function (sum, value) {
+      return sum + value;
+    });
 
   //add first segment (number:0)
   sumTime += player.getPlayingSegment().duration;
@@ -21,24 +21,24 @@ function playbackDurationMatchesCMAFTrackDuration() {
     sumTime += segment.duration;
   });
 
-  async_test(function (test) {
-    player.video.addEventListener(
-        "ended",
-        test.step_func(function () {
-          assert_equals(
-              sumTime,
-              expectedResult,
-              "Sum of duration matches playback duration"
-          );
-          assert_equals(
-              player.video.currentTime,
-              expectedResult,
-              "Current time matches playback duration"
-          );
-          test.done();
-        })
-    );
-  }, "Playback-Duration matches CMAF-Track-Duration");
+  var test = async_test("Playback-Duration matches CMAF-Track-Duration");
+  player.video.addEventListener(
+    "ended",
+    test.step_func(function () {
+      assert_equals(
+        sumTime,
+        expectedResult,
+        "Sum of duration matches playback duration"
+      );
+      assert_equals(
+        player.video.currentTime,
+        expectedResult,
+        "Current time matches playback duration"
+      );
+      test.done();
+    })
+  );
+  return test;
 }
 
 function playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessTime() {
@@ -51,121 +51,127 @@ function playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessTime() {
   var remainingTimeInSegment = 0;
   var cmafTackLength = 0;
 
-  async_test(function (test) {
-    videoSegments = Object.keys(player.videoSegments).map(function (key) {
-      return player.videoSegments[key];
+  var test = async_test(
+    "Playback-Duration matches CMAF-Track-Duration by random access time"
+  );
+
+  videoSegments = Object.keys(player.videoSegments).map(function (key) {
+    return player.videoSegments[key];
+  });
+  cmafTackLength = videoSegments
+    .map(function (segment) {
+      return segment.duration;
+    })
+    .reduce(function (sum, value) {
+      return sum + value;
     });
-    cmafTackLength = videoSegments
-        .map(function (segment) {
-          return segment.duration;
-        })
-        .reduce(function (sum, value) {
-          return sum + value;
-        });
 
-    assert_between_exclusive(
-        randomAccessTime,
-        0,
+  assert_between_exclusive(
+    randomAccessTime,
+    0,
+    cmafTackLength,
+    "random access time is in the range of video duration"
+  );
+
+  if (randomAccessTime > cmafTackLength || randomAccessTime < 0) {
+    test.done();
+  }
+  startSegment = player.getPlayingSegment();
+
+  for (var i = 0; i < videoSegments.length; i++) {
+    if (videoSegments[i] === startSegment) break;
+    pastTime += videoSegments[i].duration;
+  }
+
+  passedTimeInSegment = randomAccessTime - pastTime;
+  expectedResult = cmafTackLength - randomAccessTime;
+  remainingTimeInSegment = startSegment.duration - passedTimeInSegment;
+
+  var result;
+  player.addEventListener(
+    "onPlayingSegmentChange",
+    test.step_func(function () {
+      if (!startSegment) return;
+      sumTime += player.getPlayingSegment().duration;
+    })
+  );
+
+  player.video.addEventListener(
+    "ended",
+    test.step_func(function () {
+      assert_equals(
+        sumTime + remainingTimeInSegment,
+        expectedResult,
+        "playing duration equals CMAF Track duration."
+      );
+      assert_equals(
+        player.video.currentTime,
         cmafTackLength,
-        "random access time is in the range of video duration"
-    );
-
-    if (randomAccessTime > cmafTackLength || randomAccessTime < 0) {
+        "current time equals CMAF Track duration."
+      );
       test.done();
-    }
-    startSegment = player.getPlayingSegment();
-
-    for (var i = 0; i < videoSegments.length; i++) {
-      if (videoSegments[i] === startSegment) break;
-      pastTime += videoSegments[i].duration;
-    }
-
-    passedTimeInSegment = randomAccessTime - pastTime;
-    expectedResult = cmafTackLength - randomAccessTime;
-    remainingTimeInSegment = startSegment.duration - passedTimeInSegment;
-
-    var result;
-    player.addEventListener(
-        "onPlayingSegmentChange",
-        test.step_func(function () {
-          if (!startSegment) return;
-          sumTime += player.getPlayingSegment().duration;
-        })
-    );
-
-    player.video.addEventListener(
-        "ended",
-        test.step_func(function () {
-          assert_equals(
-              sumTime + remainingTimeInSegment,
-              expectedResult,
-              "playing duration equals CMAF Track duration."
-          );
-          assert_equals(
-              player.video.currentTime,
-              cmafTackLength,
-              "current time equals CMAF Track duration."
-          );
-          test.done();
-        })
-    );
-  }, "Playback-Duration matches CMAF-Track-Duration by random access time");
+    })
+  );
+  return test;
 }
 
 function playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessFragment(
-    randomAccessFragmentIndex
+  randomAccessFragmentIndex
 ) {
   var sumTime = 0;
   var videosegments = [];
   var expectedResult = 0;
   var randomAccessFragment = null;
 
-  async_test(function (test) {
-    videosegments = Object.keys(player.videoSegments).map(function (key) {
-      return player.videoSegments[key];
+  var test = async_test(
+    "Playback-Duration matches CMAF-Track-Duration by random access fragment"
+  );
+
+  videosegments = Object.keys(player.videoSegments).map(function (key) {
+    return player.videoSegments[key];
+  });
+  randomAccessFragment = player.getPlayingSegment();
+
+  var cmafTackLength = videosegments
+    .map(function (segment) {
+      return segment.duration;
+    })
+    .reduce(function (sum, value) {
+      return sum + value;
     });
-    randomAccessFragment = player.getPlayingSegment();
 
-    var cmafTackLength = videosegments
-        .map(function (segment) {
-          return segment.duration;
-        })
-        .reduce(function (sum, value) {
-          return sum + value;
-        });
+  expectedResult = cmafTackLength - player.video.currentTime;
 
-    expectedResult = cmafTackLength - player.video.currentTime;
+  if (randomAccessFragmentIndex === 0)
+    sumTime += player.getPlayingSegment().duration;
 
-    if (randomAccessFragmentIndex === 0)
+  player.addEventListener(
+    "onPlayingSegmentChange",
+    test.step_func(function (segment) {
+      if (isEqual(segment, randomAccessFragment)) return;
       sumTime += player.getPlayingSegment().duration;
+    })
+  );
 
-    player.addEventListener(
-        "onPlayingSegmentChange",
-        test.step_func(function (segment) {
-          if (isEqual(segment, randomAccessFragment)) return;
-          sumTime += player.getPlayingSegment().duration;
-        })
-    );
+  player.video.addEventListener(
+    "ended",
+    test.step_func(function () {
+      assert_equals(
+        sumTime,
+        expectedResult,
+        "Sum of fragment duration matches cmaf duration"
+      );
 
-    player.video.addEventListener(
-        "ended",
-        test.step_func(function () {
-          assert_equals(
-              sumTime,
-              expectedResult,
-              "Sum of fragment duration matches cmaf duration"
-          );
+      assert_equals(
+        player.video.currentTime,
+        cmafTackLength,
+        "playback duration matches cmaf track duration"
+      );
 
-          assert_equals(
-              player.video.currentTime,
-              cmafTackLength,
-              "playback duration matches cmaf track duration"
-          );
-
-          test.done();
-        })
-    );
-  }, "Playback-Duration matches CMAF-Track-Duration by random access fragment");
+      test.done();
+    })
+  );
+  return test;
 }
 
 function isEqual(a, b) {

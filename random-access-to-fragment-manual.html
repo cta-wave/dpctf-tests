@@ -49,6 +49,7 @@
         urlParams["content_model"] ||
         "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd"; // Temporary fix
       var token = urlParams["token"];
+      var randomAccessFragment = null; // set in setup
 
       // Specify workflow
       setupTest()
@@ -138,12 +139,14 @@
             var fragmentTime = 0;
             for (var i = 0; i < totalSegments; i++) {
               var segmentDuration = videoSegments[i].getDuration();
-              if (fragmentTime + segmentDuration > randomAccessTime) break;
+              if (fragmentTime + segmentDuration > randomAccessTime) {
+                randomAccessFragment = i + 1; // fragments start from 1
+                break;
+              }
               fragmentTime += segmentDuration;
             }
             player.setCurrentTime(fragmentTime);
 
-            player.startBuffering();
             resolve();
           });
 
@@ -186,6 +189,7 @@
         if (error) return error;
         log("Executing test");
         return new Promise(function (resolve) {
+          player.startBuffering();
           startUpDelaySmallEnough(tsMax);
           playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessFragment(
             randomAccessFragment

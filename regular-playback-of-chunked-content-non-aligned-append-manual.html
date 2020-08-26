@@ -8,6 +8,7 @@
     <script src="subtests/start-up-delay-should-be-sufficiently-low.js"></script>
     <script src="subtests/playback-duration-matches-cmaf-track-duration.js"></script>
     <script src="subtests/every-sample-shall-be-rendered.js"></script>
+    <script src="subtests/no-video-errors.js"></script>
   </head>
 
   <body>
@@ -50,6 +51,8 @@
       var contentModel =
         urlParams["content_model"] ||
         "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd"; // Temporary fix
+
+      var runningTests = [];
 
       // Specify workflow
       setupTest()
@@ -127,7 +130,6 @@
           player.load(contentModel);
 
           player.addEventListener("onManifestParsed", function (manifest) {
-            player.startBuffering();
             resolve();
           });
 
@@ -170,9 +172,12 @@
         if (error) return error;
         log("Executing test");
         return new Promise(function (resolve) {
-          startUpDelaySmallEnough(tsMax);
-          playbackDurationMatchesCMAFTrackDuration();
-          sampleShallBeRenderedInIncreasingTimeTest(player);
+          runningTests.push(startUpDelaySmallEnough(tsMax));
+          runningTests.push(playbackDurationMatchesCMAFTrackDuration());
+          runningTests.push(sampleShallBeRenderedInIncreasingTimeTest(player));
+          runningTests.push(noVideoError(player));
+
+          player.startBuffering();
 
           if (player.getPreBufferedTime() >= minBufferDuration) {
             player.play();
@@ -272,6 +277,16 @@
 
       function finishTest() {
         done();
+      }
+
+      function abortRunningTests() {
+        for (var test of runningTests) {
+          if (test.phase < 2) {
+            test.status = 3;
+            test.phase = 2;
+          }
+          test.done();
+        }
       }
 
       function log() {
