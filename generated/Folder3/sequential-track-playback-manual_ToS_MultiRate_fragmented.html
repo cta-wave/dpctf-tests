@@ -28,12 +28,43 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Random Access to Fragment",
+        title: "Sequential Track Playback",
         description:
-          "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
+          "Sequential track playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization.",
         path: location.pathname,
         params: urlParams,
-        observations: [],
+        observations: [
+          {
+            name: "Low start-up delay",
+            description:
+              "The start-up delay should be sufficiently low, i.e., TR [k, 1] – Ti < TSMax.",
+            id: "start-up-delay",
+          },
+          {
+            name: "Render every sample",
+            description:
+              "Every sample S[k,s] shall be rendered and the samples shall be rendered in increasing presentation time order.",
+            id: "every-sample-rendered",
+          },
+          {
+            name: "Duration matches CMAF track",
+            description:
+              "The playback duration of the playback matches the duration of the CMAF Track, i.e. TR[k, S] = TR [k, 1] + td[k].",
+            id: "duration-matches-cmaf-track",
+          },
+          {
+            name: "Presented sample correct",
+            description:
+              "The presented sample matches the one reported by the currentTime value within the tolerance of the sample duration.",
+            id: "sample-matches-current-time",
+          },
+          {
+            name: "Video rendered in entire window",
+            description:
+              "Every video frame S[k,s] shall be rendered such that it fills the entire video output window.",
+            id: "video-fills-entire-output-window",
+          },
+        ],
       };
 
       var waveService = null;
@@ -45,9 +76,8 @@
 
       var tsMax = urlParams["tsMax"] || 120;
       var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var contentModel = "{{MPD_URL}}";
       var token = urlParams["token"];
-      var randomAccessFragment = null; // set in setup
+      var contentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
 
       // Specify workflow
       setupTest()
@@ -123,28 +153,8 @@
 
           player.load(contentModel);
 
-          var self = this;
-
           player.addEventListener("onManifestParsed", function (manifest) {
-            var videoSegments = self.player.getVideoSegments();
-            var totalSegments = self.player.getVideoSegmentsCount();
-            var cmafTrackLength = player.getManifest().getDuration();
-            var variance = cmafTrackLength * 0.5;
-            var randomAccessTime =
-              cmafTrackLength * 0.5 +
-              (Math.random() * variance - variance * 0.5);
-
-            var fragmentTime = 0;
-            for (var i = 0; i < totalSegments; i++) {
-              var segmentDuration = videoSegments[i].getDuration();
-              if (fragmentTime + segmentDuration > randomAccessTime) {
-                randomAccessFragment = i + 1; // fragments start from 1
-                break;
-              }
-              fragmentTime += segmentDuration;
-            }
-            player.setCurrentTime(fragmentTime);
-
+            player.startBuffering();
             resolve();
           });
 
@@ -187,11 +197,9 @@
         if (error) return error;
         log("Executing test");
         return new Promise(function (resolve) {
-          player.startBuffering();
           startUpDelaySmallEnough(tsMax);
-          playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessFragment(
-            randomAccessFragment
-          );
+          playbackDurationMatchesCMAFTrackDuration();
+
           if (player.getPreBufferedTime() >= minBufferDuration) {
             player.play();
           } else {

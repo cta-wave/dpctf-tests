@@ -5,8 +5,8 @@
     <title></title>
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
-    <script src="subtests/start-up-delay-should-be-sufficiently-low.js"></script>
-    <script src="subtests/playback-duration-matches-cmaf-track-duration.js"></script>
+    <script src="../subtests/start-up-delay-should-be-sufficiently-low.js"></script>
+    <script src="../subtests/playback-duration-matches-cmaf-track-duration.js"></script>
   </head>
 
   <body>
@@ -15,16 +15,16 @@
     <div id="debug"></div>
     <div id="log"></div>
     <div id="info-overlay"></div>
-    <script src="lib/mozilla/object-keys-polyfill.js"></script>
-    <script src="lib/stefanpenner/es6-promise.min.js"></script>
-    <script src="lib/utils/test_helper.js"></script>
-    <script src="lib/player.js"></script>
-    <script src="lib/manifest_parser.js"></script>
-    <script src="lib/mpd-parser.js"></script>
-    <script src="lib/info-overlay.js"></script>
-    <script src="lib/wave-service.js"></script>
-    <script src="lib/mse-support.js"></script>
-    <script src="lib/mime-codec-support.js"></script>
+    <script src="../lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/utils/test_helper.js"></script>
+    <script src="../lib/player.js"></script>
+    <script src="../lib/manifest_parser.js"></script>
+    <script src="../lib/mpd-parser.js"></script>
+    <script src="../lib/info-overlay.js"></script>
+    <script src="../lib/wave-service.js"></script>
+    <script src="../lib/mse-support.js"></script>
+    <script src="../lib/mime-codec-support.js"></script>
     <script>
       // Global variables
       var TEST_INFO = {
@@ -45,9 +45,7 @@
 
       var tsMax = urlParams["tsMax"] || 120;
       var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var contentModel =
-        urlParams["content_model"] ||
-        "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd"; // Temporary fix
+      var contentModel = "{{MPD_URL}}";
       var playout = urlParams["playout"] || 0;
       var token = urlParams["token"];
 
@@ -126,7 +124,6 @@
           player.load(contentModel);
 
           player.addEventListener("onManifestParsed", function (manifest) {
-            console.log("PLAYOUT", playout);
             var totalSegmentsCount = manifest
               .getRepresentation(playout)
               .getTotalSegmentsCount();
@@ -139,8 +136,6 @@
             if (playout >= totalSegmentsCount) {
               playout = 0;
             }
-            console.log("PLAYOUT", playout);
-            console.log(totalSegmentsCount / 2);
             player.setVideoSegments({
               representationNumber: playout,
               startSegment: totalSegmentsCount / 2,

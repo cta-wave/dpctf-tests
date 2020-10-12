@@ -7,6 +7,7 @@
     <script src="/resources/testharnessreport.js"></script>
     <script src="../subtests/start-up-delay-should-be-sufficiently-low.js"></script>
     <script src="../subtests/playback-duration-matches-cmaf-track-duration.js"></script>
+    <script src="../subtests/every-sample-shall-be-rendered.js"></script>
   </head>
 
   <body>
@@ -28,9 +29,9 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Random Access to Fragment",
+        title: "Playback over WAVE Baseline Splice Constraints",
         description:
-          "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
+          "Playback over splices enables the content provider to offer a sequence of Switching Sets with less restricted encoding requirements than a track. This feature is especially important in case of program changes and ad insertion.",
         path: location.pathname,
         params: urlParams,
         observations: [],
@@ -45,9 +46,10 @@
 
       var tsMax = urlParams["tsMax"] || 120;
       var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var contentModel = "{{MPD_URL}}";
       var token = urlParams["token"];
-      var randomAccessFragment = null; // set in setup
+      var contentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
+      var playout = urlParams["playout"] || "";
+      playout = playout.split(",");
 
       // Specify workflow
       setupTest()
@@ -123,28 +125,26 @@
 
           player.load(contentModel);
 
-          var self = this;
-
           player.addEventListener("onManifestParsed", function (manifest) {
-            var videoSegments = self.player.getVideoSegments();
-            var totalSegments = self.player.getVideoSegmentsCount();
-            var cmafTrackLength = player.getManifest().getDuration();
-            var variance = cmafTrackLength * 0.5;
-            var randomAccessTime =
-              cmafTrackLength * 0.5 +
-              (Math.random() * variance - variance * 0.5);
-
-            var fragmentTime = 0;
-            for (var i = 0; i < totalSegments; i++) {
-              var segmentDuration = videoSegments[i].getDuration();
-              if (fragmentTime + segmentDuration > randomAccessTime) {
-                randomAccessFragment = i + 1; // fragments start from 1
-                break;
-              }
-              fragmentTime += segmentDuration;
+            var periods = manifest.getPeriods();
+            var currentSegment = 0;
+            for (var i = 0; i < periods.length; i++) {
+              var period = periods[i];
+              var representationNumber = playout[i] || 0;
+              var representation = period[representationNumber];
+              var startSegment = currentSegment;
+              var endSegment = startSegment + representation.getTotalSegmentsCount() - 1;
+              var offset = -currentSegment;
+              currentSegment = endSegment + 1;
+              player.setVideoSegments({
+                representationNumber: representationNumber,
+                representationOffset: offset,
+                periodNumber: i,
+                startSegment: startSegment,
+                endSegment: endSegment,
+              });
             }
-            player.setCurrentTime(fragmentTime);
-
+            player.startBuffering();
             resolve();
           });
 
@@ -187,11 +187,9 @@
         if (error) return error;
         log("Executing test");
         return new Promise(function (resolve) {
-          player.startBuffering();
           startUpDelaySmallEnough(tsMax);
-          playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessFragment(
-            randomAccessFragment
-          );
+          playbackDurationMatchesCMAFTrackDuration();
+
           if (player.getPreBufferedTime() >= minBufferDuration) {
             player.play();
           } else {

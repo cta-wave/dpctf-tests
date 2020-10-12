@@ -28,9 +28,9 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Random Access to Fragment",
+        title: "Out-Of-Order Loading",
         description:
-          "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
+          "Out of order loading refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization, but CMAF fragments are loaded out of order within the buffer duration.",
         path: location.pathname,
         params: urlParams,
         observations: [],
@@ -45,9 +45,8 @@
 
       var tsMax = urlParams["tsMax"] || 120;
       var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var contentModel = "{{MPD_URL}}";
       var token = urlParams["token"];
-      var randomAccessFragment = null; // set in setup
+      var contentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
 
       // Specify workflow
       setupTest()
@@ -119,32 +118,13 @@
           player.init({
             bufferTime: minBufferDuration,
             numberOfSegmentBeforePlay: 2,
+            outOfOrderLoading: true,
           });
 
           player.load(contentModel);
 
-          var self = this;
-
           player.addEventListener("onManifestParsed", function (manifest) {
-            var videoSegments = self.player.getVideoSegments();
-            var totalSegments = self.player.getVideoSegmentsCount();
-            var cmafTrackLength = player.getManifest().getDuration();
-            var variance = cmafTrackLength * 0.5;
-            var randomAccessTime =
-              cmafTrackLength * 0.5 +
-              (Math.random() * variance - variance * 0.5);
-
-            var fragmentTime = 0;
-            for (var i = 0; i < totalSegments; i++) {
-              var segmentDuration = videoSegments[i].getDuration();
-              if (fragmentTime + segmentDuration > randomAccessTime) {
-                randomAccessFragment = i + 1; // fragments start from 1
-                break;
-              }
-              fragmentTime += segmentDuration;
-            }
-            player.setCurrentTime(fragmentTime);
-
+            player.startBuffering();
             resolve();
           });
 
@@ -187,11 +167,9 @@
         if (error) return error;
         log("Executing test");
         return new Promise(function (resolve) {
-          player.startBuffering();
           startUpDelaySmallEnough(tsMax);
-          playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessFragment(
-            randomAccessFragment
-          );
+          playbackDurationMatchesCMAFTrackDuration();
+
           if (player.getPreBufferedTime() >= minBufferDuration) {
             player.play();
           } else {

@@ -7,6 +7,8 @@
     <script src="/resources/testharnessreport.js"></script>
     <script src="../subtests/start-up-delay-should-be-sufficiently-low.js"></script>
     <script src="../subtests/playback-duration-matches-cmaf-track-duration.js"></script>
+    <script src="../subtests/every-sample-shall-be-rendered.js"></script>
+    <script src="../subtests/no-video-errors.js"></script>
   </head>
 
   <body>
@@ -28,9 +30,9 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Random Access to Fragment",
+        title: "Regular Playback of Chunked Content, non-aligned append",
         description:
-          "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
+          "Sequential Chunked Playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF chunks to the source buffer after initialization.  Non-aligned refers to the situation where the data that is appended to the source buffer is appended progressively in pieces that do not necessarily align with the boundaries of the CMAF chunks.",
         path: location.pathname,
         params: urlParams,
         observations: [],
@@ -45,9 +47,10 @@
 
       var tsMax = urlParams["tsMax"] || 120;
       var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var contentModel = "{{MPD_URL}}";
       var token = urlParams["token"];
-      var randomAccessFragment = null; // set in setup
+      var contentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
+
+      var runningTests = [];
 
       // Specify workflow
       setupTest()
@@ -119,32 +122,12 @@
           player.init({
             bufferTime: minBufferDuration,
             numberOfSegmentBeforePlay: 2,
+            concatAndSplit: true,
           });
 
           player.load(contentModel);
 
-          var self = this;
-
           player.addEventListener("onManifestParsed", function (manifest) {
-            var videoSegments = self.player.getVideoSegments();
-            var totalSegments = self.player.getVideoSegmentsCount();
-            var cmafTrackLength = player.getManifest().getDuration();
-            var variance = cmafTrackLength * 0.5;
-            var randomAccessTime =
-              cmafTrackLength * 0.5 +
-              (Math.random() * variance - variance * 0.5);
-
-            var fragmentTime = 0;
-            for (var i = 0; i < totalSegments; i++) {
-              var segmentDuration = videoSegments[i].getDuration();
-              if (fragmentTime + segmentDuration > randomAccessTime) {
-                randomAccessFragment = i + 1; // fragments start from 1
-                break;
-              }
-              fragmentTime += segmentDuration;
-            }
-            player.setCurrentTime(fragmentTime);
-
             resolve();
           });
 
@@ -187,11 +170,13 @@
         if (error) return error;
         log("Executing test");
         return new Promise(function (resolve) {
+          runningTests.push(startUpDelaySmallEnough(tsMax));
+          runningTests.push(playbackDurationMatchesCMAFTrackDuration());
+          runningTests.push(sampleShallBeRenderedInIncreasingTimeTest(player));
+          runningTests.push(noVideoError(player));
+
           player.startBuffering();
-          startUpDelaySmallEnough(tsMax);
-          playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessFragment(
-            randomAccessFragment
-          );
+
           if (player.getPreBufferedTime() >= minBufferDuration) {
             player.play();
           } else {
@@ -290,6 +275,16 @@
 
       function finishTest() {
         done();
+      }
+
+      function abortRunningTests() {
+        for (var test of runningTests) {
+          if (test.phase < 2) {
+            test.status = 3;
+            test.phase = 2;
+          }
+          test.done();
+        }
       }
 
       function log() {

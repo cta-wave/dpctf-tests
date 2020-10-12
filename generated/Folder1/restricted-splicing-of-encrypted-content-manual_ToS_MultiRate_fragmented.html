@@ -23,16 +23,18 @@
     <script src="../lib/wave-service.js"></script>
     <script src="../lib/mse-support.js"></script>
     <script src="../lib/mime-codec-support.js"></script>
+    <script src="../lib/mse-support.js"></script>
+    <script src="../lib/mime-codec-support.js"></script>
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Playback of Encrypted Content",
+        title: "Restricted Splicing of Encrypted Content",
         description: "",
         path: location.pathname,
         params: urlParams,
         observations: [],
       };
-      var contentModel = "{{MPD_URL}}";
+      var contentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
     </script>
     <script src="../placeholder.js"></script>
   </body>

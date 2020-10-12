@@ -7,6 +7,7 @@
     <script src="/resources/testharnessreport.js"></script>
     <script src="../subtests/start-up-delay-should-be-sufficiently-low.js"></script>
     <script src="../subtests/playback-duration-matches-cmaf-track-duration.js"></script>
+    <script src="../subtests/every-sample-shall-be-rendered.js"></script>
   </head>
 
   <body>
@@ -28,12 +29,19 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Random Access to Fragment",
+        title: "8.11 Full Screen Playback of Switching Sets",
         description:
-          "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
+          "Fullscreen playback ensures that the device provide proper scaling and letter boxing.",
         path: location.pathname,
         params: urlParams,
-        observations: [],
+        observations: [
+          {
+            name: "Video rendered in entire window",
+            description:
+              "Every video frame S[k,s] shall be rendered such that it fills the entire video output window.",
+            id: "video-fills-entire-output-window",
+          },
+        ],
       };
 
       var waveService = null;
@@ -44,10 +52,10 @@
       var resolveWaitingForResults = null;
 
       var tsMax = urlParams["tsMax"] || 120;
+      var token = urlParams["token"] || "test";
+      var contentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
+      var playout = urlParams["playout"] || 0;
       var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var contentModel = "{{MPD_URL}}";
-      var token = urlParams["token"];
-      var randomAccessFragment = null; // set in setup
 
       // Specify workflow
       setupTest()
@@ -119,33 +127,39 @@
           player.init({
             bufferTime: minBufferDuration,
             numberOfSegmentBeforePlay: 2,
+            outOfOrderLoading: true,
           });
 
           player.load(contentModel);
 
-          var self = this;
-
           player.addEventListener("onManifestParsed", function (manifest) {
-            var videoSegments = self.player.getVideoSegments();
-            var totalSegments = self.player.getVideoSegmentsCount();
-            var cmafTrackLength = player.getManifest().getDuration();
-            var variance = cmafTrackLength * 0.5;
-            var randomAccessTime =
-              cmafTrackLength * 0.5 +
-              (Math.random() * variance - variance * 0.5);
-
-            var fragmentTime = 0;
-            for (var i = 0; i < totalSegments; i++) {
-              var segmentDuration = videoSegments[i].getDuration();
-              if (fragmentTime + segmentDuration > randomAccessTime) {
-                randomAccessFragment = i + 1; // fragments start from 1
-                break;
-              }
-              fragmentTime += segmentDuration;
-            }
-            player.setCurrentTime(fragmentTime);
-
+            var totalSegmentsCount = manifest
+              .getRepresentation(playout)
+              .getTotalSegmentsCount();
+            player.setVideoSegments({
+              representationNumber: playout,
+              startSegment: 0,
+              endSegment: totalSegmentsCount / 2 - 1,
+            });
+            player.startBuffering();
             resolve();
+
+            player.addEventListener("onPlayingSegmentChange", function (
+              segment
+            ) {
+              if (segment.number === totalSegmentsCount / 2 - 1) {
+                playout++;
+                if (playout >= manifest.representations.length) {
+                  playout = 0;
+                }
+
+                player.setVideoSegments({
+                  representationNumber: playout,
+                  startSegment: totalSegmentsCount / 2,
+                  endSegment: totalSegmentsCount - 1,
+                });
+              }
+            });
           });
 
           //// Info Overlay Setup ////
@@ -165,6 +179,9 @@
               if (resolveWaitForObservation) resolveWaitForObservation();
               if (resolveWaitingForResults) resolveWaitingForResults();
             }
+            if (event.keyCode === 70) {
+              if (video.requestFullscreen) video.requestFullscreen();
+            }
           });
 
           player.addEventListener("onManifestParsed", function (manifest) {
@@ -181,27 +198,41 @@
             infoOverlay.updateOverlayInfo(player, TEST_INFO);
           });
         });
+
+        if (!video.requestFullscreen) {
+          resolve();
+          return;
+        }
+        video
+          .requestFullscreen()
+          .then(function () {
+            resolve();
+          })
+          .catch(function (error) {
+            console.error(error);
+            resolve();
+          });
       }
 
       function executeTest(error) {
         if (error) return error;
         log("Executing test");
         return new Promise(function (resolve) {
-          player.startBuffering();
           startUpDelaySmallEnough(tsMax);
-          playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessFragment(
-            randomAccessFragment
-          );
+          playbackDurationMatchesCMAFTrackDuration();
+          sampleShallBeRenderedInIncreasingTimeTest(player);
+
           if (player.getPreBufferedTime() >= minBufferDuration) {
             player.play();
+            player.dispatchEvent("playbackInitiated");
           } else {
             player.addEventListener("onSegmentLoaded", function (event) {
               if (player.getPreBufferedTime() >= minBufferDuration) {
                 player.play();
+                player.dispatchEvent("playbackInitiated");
               }
             });
           }
-
           resolve();
         });
       }

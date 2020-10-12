@@ -28,9 +28,9 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Random Access to Fragment",
+        title: "Overlapping Fragments",
         description:
-          "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
+          "Playback of overlapping fragments assumes that the application can overwrite the buffer with other fragments. This is for example useful in case that a fragment is loaded in lower quality but may then be replaced by a better-quality fragment.",
         path: location.pathname,
         params: urlParams,
         observations: [],
@@ -43,11 +43,11 @@
       var resolveWaitForObservation = null;
       var resolveWaitingForResults = null;
 
+      var overwriteCurrentFragment = true;
       var tsMax = urlParams["tsMax"] || 120;
       var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var contentModel = "{{MPD_URL}}";
       var token = urlParams["token"];
-      var randomAccessFragment = null; // set in setup
+      var contentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd";
 
       // Specify workflow
       setupTest()
@@ -116,36 +116,65 @@
           });
 
           player = new Player(video);
-          player.init({
-            bufferTime: minBufferDuration,
-            numberOfSegmentBeforePlay: 2,
-          });
 
           player.load(contentModel);
-
-          var self = this;
 
           player.addEventListener("onManifestParsed", function (manifest) {
             var videoSegments = self.player.getVideoSegments();
             var totalSegments = self.player.getVideoSegmentsCount();
             var cmafTrackLength = player.getManifest().getDuration();
-            var variance = cmafTrackLength * 0.5;
-            var randomAccessTime =
-              cmafTrackLength * 0.5 +
-              (Math.random() * variance - variance * 0.5);
 
-            var fragmentTime = 0;
+            var maxFragmentTime = 0;
             for (var i = 0; i < totalSegments; i++) {
               var segmentDuration = videoSegments[i].getDuration();
-              if (fragmentTime + segmentDuration > randomAccessTime) {
-                randomAccessFragment = i + 1; // fragments start from 1
-                break;
-              }
-              fragmentTime += segmentDuration;
+              if (maxFragmentTime > segmentDuration) continue;
+              maxFragmentTime = segmentDuration;
             }
-            player.setCurrentTime(fragmentTime);
+            minBufferDuration = 4 * maxFragmentTime;
+
+            player.init({
+              bufferTime: minBufferDuration,
+              numberOfSegmentBeforePlay: 2,
+            });
 
             resolve();
+          });
+
+          var handleRandomSwitch = function (currentTime) {
+            var duration = player.getDuration();
+            var switchingTime = duration * 0.3;
+
+            if (currentTime < switchingTime) return;
+            if (Math.random() > 0.05) return;
+
+            var newRepresentationIndex = 1;
+
+            var totalSegmentsCount = player
+              .getManifest()
+              .getRepresentation(newRepresentationIndex)
+              .getTotalSegmentsCount();
+            var switchingSegment = player.getPlayingSegment().getNumber();
+            if (!overwriteCurrentFragment) {
+              switchingSegment += 1;
+            }
+            player.setVideoSegments({
+              representationNumber: 1,
+              startSegment: switchingSegment,
+              endSegment: totalSegmentsCount - 1,
+            });
+            player.removeEventListener(handleRandomSwitch);
+          }
+          player.addEventListener("onTimeUpdate", handleRandomSwitch);
+          player.addEventListener("onPlayingRepresentationChange", function (
+            currentRepresentation
+          ) {
+            if (!waveService) return;
+            var eventData = { type: "representation_change" };
+            waveService.sendSessionEvent(
+              token,
+              WaveService.PLAYBACK_EVENT,
+              eventData
+            );
           });
 
           //// Info Overlay Setup ////
@@ -189,9 +218,8 @@
         return new Promise(function (resolve) {
           player.startBuffering();
           startUpDelaySmallEnough(tsMax);
-          playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessFragment(
-            randomAccessFragment
-          );
+          playbackDurationMatchesCMAFTrackDuration();
+
           if (player.getPreBufferedTime() >= minBufferDuration) {
             player.play();
           } else {

@@ -7,6 +7,7 @@
     <script src="/resources/testharnessreport.js"></script>
     <script src="../subtests/start-up-delay-should-be-sufficiently-low.js"></script>
     <script src="../subtests/playback-duration-matches-cmaf-track-duration.js"></script>
+    <script src="../subtests/every-sample-shall-be-rendered.js"></script>
   </head>
 
   <body>
@@ -28,9 +29,9 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Random Access to Fragment",
+        title: "Regular Playback of Chunked Content",
         description:
-          "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
+          "Sequential Chunked Playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF chunks to the source buffer after initialization.",
         path: location.pathname,
         params: urlParams,
         observations: [],
@@ -44,10 +45,9 @@
       var resolveWaitingForResults = null;
 
       var tsMax = urlParams["tsMax"] || 120;
-      var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var contentModel = "{{MPD_URL}}";
+      var minBufferDuration = urlParams["min_buffer_duration"] || null;
       var token = urlParams["token"];
-      var randomAccessFragment = null; // set in setup
+      var contentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
 
       // Specify workflow
       setupTest()
@@ -116,35 +116,30 @@
           });
 
           player = new Player(video);
-          player.init({
-            bufferTime: minBufferDuration,
-            numberOfSegmentBeforePlay: 2,
-          });
 
           player.load(contentModel);
 
-          var self = this;
-
           player.addEventListener("onManifestParsed", function (manifest) {
-            var videoSegments = self.player.getVideoSegments();
-            var totalSegments = self.player.getVideoSegmentsCount();
-            var cmafTrackLength = player.getManifest().getDuration();
-            var variance = cmafTrackLength * 0.5;
-            var randomAccessTime =
-              cmafTrackLength * 0.5 +
-              (Math.random() * variance - variance * 0.5);
-
-            var fragmentTime = 0;
-            for (var i = 0; i < totalSegments; i++) {
-              var segmentDuration = videoSegments[i].getDuration();
-              if (fragmentTime + segmentDuration > randomAccessTime) {
-                randomAccessFragment = i + 1; // fragments start from 1
-                break;
+            if (!minBufferDuration) {
+              minSegmentDuration = null;
+              for (var representation of manifest.getRepresentations()) {
+                segments = representation.getSegments();
+                if (!minSegmentDuration) {
+                  minSegmentDuration = segments[0].getDuration();
+                }
+                for (var segment of segments) {
+                  if (segment.getDuration() >= minSegmentDuration) continue;
+                  minSegmentDuration = segment.getDuration();
+                }
               }
-              fragmentTime += segmentDuration;
+              minBufferDuration = minSegmentDuration * 0.8;
             }
-            player.setCurrentTime(fragmentTime);
-
+            console.log("MinBufferDuration:", minBufferDuration);
+            player.init({
+              bufferTime: minBufferDuration,
+              numberOfSegmentBeforePlay: 2,
+            });
+            player.startBuffering();
             resolve();
           });
 
@@ -187,11 +182,9 @@
         if (error) return error;
         log("Executing test");
         return new Promise(function (resolve) {
-          player.startBuffering();
           startUpDelaySmallEnough(tsMax);
-          playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessFragment(
-            randomAccessFragment
-          );
+          playbackDurationMatchesCMAFTrackDuration();
+
           if (player.getPreBufferedTime() >= minBufferDuration) {
             player.play();
           } else {
