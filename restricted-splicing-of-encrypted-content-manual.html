@@ -35,6 +35,9 @@
         params: urlParams,
         observations: [],
       };
+      var contentModel =
+        urlParams["content_model"] ||
+        "{{MPD_URL}}"; // Temporary fix
     </script>
   </body>
 </html>

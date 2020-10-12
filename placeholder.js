@@ -15,9 +15,6 @@ var resolveWaitForObservation = null;
 var resolveWaitingForResults = null;
 
 var token = urlParams["token"];
-var contentModel =
-  urlParams["content_model"] ||
-  "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd"; // Temporary fix
 
 // Specify workflow
 setupTest()

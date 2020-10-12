@@ -49,7 +49,7 @@
       var token = urlParams["token"];
       var contentModel =
         urlParams["content_model"] ||
-        "multi-period-fragmented.mpd"; // Temporary fix
+        "{{MPD_URL}}"; // Temporary fix
       var playout = urlParams["playout"] || "";
       playout = playout.split(",");
 

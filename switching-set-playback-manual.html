@@ -47,7 +47,7 @@
       var minBufferDuration = urlParams["min_buffer_duration"] || 30;
       var contentModel =
         urlParams["content_model"] ||
-        "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd"; // Temporary fix
+        "{{MPD_URL}}"; // Temporary fix
       var playout = urlParams["playout"] || 0;
       var token = urlParams["token"];
 
@@ -126,7 +126,6 @@
           player.load(contentModel);
 
           player.addEventListener("onManifestParsed", function (manifest) {
-            console.log("PLAYOUT", playout);
             var totalSegmentsCount = manifest
               .getRepresentation(playout)
               .getTotalSegmentsCount();
@@ -139,8 +138,6 @@
             if (playout >= totalSegmentsCount) {
               playout = 0;
             }
-            console.log("PLAYOUT", playout);
-            console.log(totalSegmentsCount / 2);
             player.setVideoSegments({
               representationNumber: playout,
               startSegment: totalSegmentsCount / 2,

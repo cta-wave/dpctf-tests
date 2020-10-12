@@ -55,7 +55,7 @@
       var token = urlParams["token"] || "test";
       var contentModel =
         urlParams["content_model"] ||
-        "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd"; // Temporary fix
+        "{{MPD_URL}}"; // Temporary fix
       var playout = urlParams["playout"] || 0;
       var minBufferDuration = urlParams["min_buffer_duration"] || 30;
 
