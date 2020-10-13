@@ -25,10 +25,11 @@ def main():
     for test in csv_file:
         test_id = test[0]
         mpd_url = test[1]
+        grouping_dir = test[2]
         test_template_path = get_test_path(test_id)
         content = load_file(test_template_path)
         content = generate_test(content, mpd_url)
-        test_path = generate_test_path(DEST_DIR, test_id, mpd_url)
+        test_path = generate_test_path(DEST_DIR, grouping_dir, test_id, mpd_url)
         write_file(test_path, content)
     copy(LIB_DIR, LIB_DEST_DIR)
     copy(SUB_TEST_DIR, SUB_TEST_DEST_DIR)
@@ -77,9 +78,9 @@ def generate_test(template, mpd_url):
     template = template.replace("{{MPD_URL}}", mpd_url)
     return template
 
-def generate_test_path(dir_path, test_id, mpd_url):
+def generate_test_path(dir_path, grouping_dir, test_id, mpd_url):
     mpd_file_name = mpd_url.split("/")[-1]
     mpd_file_name = mpd_file_name.split(".")[0]
-    return "{}/{}_{}.html".format(dir_path, test_id, mpd_file_name)
+    return "{}/{}/{}_{}.html".format(dir_path, grouping_dir, test_id, mpd_file_name)
 
 main()
