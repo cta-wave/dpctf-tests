@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="../subtests/start-up-delay-should-be-sufficiently-low.js"></script>
+    <script src="../subtests/playback-duration-matches-cmaf-track-duration.js"></script>
+    <script src="../subtests/every-sample-shall-be-rendered.js"></script>
+  </head>
+
+  <body>
+    <video style="height: 400px;"></video>
+    <div>Press Enter/Ok to continue or Up/Down to show/hide debug overlay</div>
+    <div id="debug"></div>
+    <div id="log"></div>
+    <div id="info-overlay"></div>
+    <script src="../lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/utils/test_helper.js"></script>
+    <script src="../lib/player.js"></script>
+    <script src="../lib/manifest_parser.js"></script>
+    <script src="../lib/mpd-parser.js"></script>
+    <script src="../lib/info-overlay.js"></script>
+    <script src="../lib/wave-service.js"></script>
+    <script src="../lib/mse-support.js"></script>
+    <script src="../lib/mime-codec-support.js"></script>
+    <script>
+      // Global variables
+      var TEST_INFO = {
+        title: "8.11 Full Screen Playback of Switching Sets",
+        description:
+          "Fullscreen playback ensures that the device provide proper scaling and letter boxing.",
+        path: location.pathname,
+        params: urlParams,
+        observations: [
+          {
+            name: "Video rendered in entire window",
+            description:
+              "Every video frame S[k,s] shall be rendered such that it fills the entire video output window.",
+            id: "video-fills-entire-output-window",
+          },
+        ],
+      };
+
+      var waveService = null;
+      var video = null;
+      var player = null;
+      var ignoreObservations = false;
+      var resolveWaitForObservation = null;
+      var resolveWaitingForResults = null;
+
+      var tsMax = urlParams["tsMax"] || 120;
+      var token = urlParams["token"] || "test";
+      var contentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd";
+      var playout = urlParams["playout"] || 0;
+      var minBufferDuration = urlParams["min_buffer_duration"] || 30;
+
+      // Specify workflow
+      setupTest()
+        .then(checkMseAvailable)
+        .then(checkCodecs)
+        .then(initializeWaveService)
+        .then(sendTestReadyEvent)
+        .then(waitForObservationReady)
+        .then(executeTest)
+        .then(waitForObservationResults)
+        .then(handleError)
+        .then(finishTest);
+
+      function handleError(error) {
+        if (!error) return;
+        throw new Error(error);
+      }
+
+      function checkMseAvailable(error) {
+        if (error) return error;
+        log("Checking MSE API support");
+        checkMseSupport();
+        return Promise.resolve();
+      }
+
+      function checkCodecs(error) {
+        if (error) return error;
+        log("Checking Codec support");
+        var manifest = player.getManifest();
+        checkMimeAndCodecSupport(manifest);
+        return Promise.resolve();
+      }
+
+      function setupTest(error) {
+        if (error) return error;
+        log("Setting up test");
+        return new Promise(function (resolve) {
+          //// Meta Info ////
+          document.getElementsByTagName("title")[0].innerText = TEST_INFO.title;
+
+          //// Configure Test Harness ////
+          setup({
+            explicit_timeout: true,
+            explicit_done: true,
+          });
+
+          //// Player Setup ////
+          video = document.querySelector("video");
+
+          video.addEventListener("play", function (event) {
+            var eventData = { type: "play" };
+            waveService.sendSessionEvent(
+              token,
+              WaveService.PLAYBACK_EVENT,
+              eventData
+            );
+          });
+
+          video.addEventListener("ended", function (event) {
+            var eventData = { type: "ended" };
+            waveService.sendSessionEvent(
+              token,
+              WaveService.PLAYBACK_EVENT,
+              eventData
+            );
+          });
+
+          player = new Player(video);
+          player.init({
+            bufferTime: minBufferDuration,
+            numberOfSegmentBeforePlay: 2,
+            outOfOrderLoading: true,
+          });
+
+          player.load(contentModel);
+
+          player.addEventListener("onManifestParsed", function (manifest) {
+            var totalSegmentsCount = manifest
+              .getRepresentation(playout)
+              .getTotalSegmentsCount();
+            player.setVideoSegments({
+              representationNumber: playout,
+              startSegment: 0,
+              endSegment: totalSegmentsCount / 2 - 1,
+            });
+            player.startBuffering();
+            resolve();
+
+            player.addEventListener("onPlayingSegmentChange", function (
+              segment
+            ) {
+              if (segment.number === totalSegmentsCount / 2 - 1) {
+                playout++;
+                if (playout >= manifest.representations.length) {
+                  playout = 0;
+                }
+
+                player.setVideoSegments({
+                  representationNumber: playout,
+                  startSegment: totalSegmentsCount / 2,
+                  endSegment: totalSegmentsCount - 1,
+                });
+              }
+            });
+          });
+
+          //// Info Overlay Setup ////
+          var infoOverlayElement = document.getElementById("info-overlay");
+          var infoOverlay = new InfoOverlay(infoOverlayElement);
+          infoOverlay.init();
+
+          document.addEventListener("keydown", function (event) {
+            if (event.keyCode === 38) {
+              infoOverlay.show();
+            }
+            if (event.keyCode === 40) {
+              infoOverlay.hide();
+            }
+            if (event.keyCode === 13) {
+              ignoreObservations = true;
+              if (resolveWaitForObservation) resolveWaitForObservation();
+              if (resolveWaitingForResults) resolveWaitingForResults();
+            }
+            if (event.keyCode === 70) {
+              if (video.requestFullscreen) video.requestFullscreen();
+            }
+          });
+
+          player.addEventListener("onManifestParsed", function (manifest) {
+            infoOverlay.updateOverlayInfo(player, TEST_INFO);
+          });
+
+          player.addEventListener("onTimeUpdate", function (currentTime) {
+            infoOverlay.updateOverlayInfo(player, TEST_INFO);
+          });
+
+          player.addEventListener("onPlayingRepresentationChange", function (
+            currentRepresentation
+          ) {
+            infoOverlay.updateOverlayInfo(player, TEST_INFO);
+          });
+        });
+
+        if (!video.requestFullscreen) {
+          resolve();
+          return;
+        }
+        video
+          .requestFullscreen()
+          .then(function () {
+            resolve();
+          })
+          .catch(function (error) {
+            console.error(error);
+            resolve();
+          });
+      }
+
+      function executeTest(error) {
+        if (error) return error;
+        log("Executing test");
+        return new Promise(function (resolve) {
+          startUpDelaySmallEnough(tsMax);
+          playbackDurationMatchesCMAFTrackDuration();
+          sampleShallBeRenderedInIncreasingTimeTest(player);
+
+          if (player.getPreBufferedTime() >= minBufferDuration) {
+            player.play();
+            player.dispatchEvent("playbackInitiated");
+          } else {
+            player.addEventListener("onSegmentLoaded", function (event) {
+              if (player.getPreBufferedTime() >= minBufferDuration) {
+                player.play();
+                player.dispatchEvent("playbackInitiated");
+              }
+            });
+          }
+          resolve();
+        });
+      }
+
+      function initializeWaveService(error) {
+        if (error) return error;
+        log("Initializing WAVE service");
+        return new Promise(function (resolve) {
+          waveService = new WaveService();
+          waveService
+            .initialize("resources/wave-config")
+            .then(function (error) {
+              if (error) resolve("Failed to initialize wave service: " + error);
+              resolve();
+            });
+        });
+      }
+
+      function sendTestReadyEvent(error) {
+        if (error) return error;
+        log("Sending test ready event");
+        return new Promise(function (resolve) {
+          if (!token) {
+            resolve("No session token provided");
+            return;
+          }
+          waveService
+            .sendSessionEvent(token, WaveService.TEST_READY_EVENT, TEST_INFO)
+            .then(function () {
+              resolve();
+            });
+        });
+      }
+
+      function waitForObservationReady(error) {
+        if (error) return error;
+        if (ignoreObservations) return Promise.resolve();
+        log("Waiting for observation framework to be ready");
+        return new Promise(function (resolve) {
+          resolveWaitForObservation = resolve;
+          var listener = function (event) {
+            if (event.type !== WaveService.OBSERVATION_READY_EVENT) return;
+            if (event.data.test_path !== TEST_INFO.path) return;
+            waveService.removeSessionEventListener(listener);
+            resolve();
+          };
+          if (!token) {
+            resolve("No session token provided");
+            return;
+          }
+          waveService.addSessionEventListener(token, listener);
+        });
+      }
+
+      function waitForObservationResults(error) {
+        if (error) return error;
+        if (ignoreObservations) return Promise.resolve();
+        log("Waiting for observation results");
+        return new Promise(function (resolve) {
+          resolveWaitingForResults = resolve;
+          var observations = TEST_INFO.observations;
+          var observationResults = [];
+          var listener = function (event) {
+            if (event.type !== WaveService.OBSERVATION_COMPLETED_EVENT) return;
+            observationResults = observationResults.concat(event.data);
+            var allResultsReceived = true;
+            for (var observation of observations) {
+              var hasResult = false;
+              for (var observationResult of observationResults) {
+                if (observation.id !== observationResult.id) continue;
+                hasResult = true;
+                break;
+              }
+              if (hasResult) continue;
+              allResultsReceived = false;
+              break;
+            }
+            if (!allResultsReceived) return;
+            waveService.removeSessionEventListener(listener);
+            //tests.tests = tests.tests.concat(observationResults);
+            resolve();
+          };
+          waveService.addSessionEventListener(token, listener);
+        });
+      }
+
+      function finishTest() {
+        done();
+      }
+
+      function log() {
+        var text = "";
+        for (var i = 0; i < arguments.length; i++) {
+          text += arguments[i] + " ";
+        }
+        if (console && console.log) {
+          console.log(text);
+        }
+      }
+    </script>
+  </body>
+</html>
