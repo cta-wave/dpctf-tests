@@ -2,11 +2,12 @@ function playbackDurationMatchesCMAFTrackDuration() {
   var sumTime = 0;
   var expectedResult = 0;
 
-  var videosegments = Object.keys(player.videoSegments).map(function (key) {
-    return player.videoSegments[key];
+  var videoSegments = player.getVideoSegments();
+  videoSegments = Object.keys(videoSegments).map(function (key) {
+    return videoSegments[key];
   });
 
-  expectedResult = videosegments
+  expectedResult = videoSegments
     .map(function (segment) {
       return segment.duration;
     })
@@ -15,14 +16,14 @@ function playbackDurationMatchesCMAFTrackDuration() {
     });
 
   //add first segment (number:0)
-  sumTime += player.getPlayingSegment().duration;
+  sumTime += player.getPlayingVideoSegment().duration;
 
-  player.addEventListener("onPlayingSegmentChange", function (segment) {
+  player.on("onPlayingVideoSegmentChange", function (segment) {
     sumTime += segment.duration;
   });
 
   var test = async_test("Playback-Duration matches CMAF-Track-Duration");
-  player.video.addEventListener(
+  player.getVideo().addEventListener(
     "ended",
     test.step_func(function () {
       assert_equals(
@@ -31,7 +32,7 @@ function playbackDurationMatchesCMAFTrackDuration() {
         "Sum of duration matches playback duration"
       );
       assert_equals(
-        player.video.currentTime,
+        player.getVideo().currentTime,
         expectedResult,
         "Current time matches playback duration"
       );
@@ -119,7 +120,7 @@ function playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessFragment(
   randomAccessFragmentIndex
 ) {
   var sumTime = 0;
-  var videosegments = [];
+  var videoSegments = player.getVideoSegments();
   var expectedResult = 0;
   var randomAccessFragment = null;
 
@@ -127,12 +128,12 @@ function playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessFragment(
     "Playback-Duration matches CMAF-Track-Duration by random access fragment"
   );
 
-  videosegments = Object.keys(player.videoSegments).map(function (key) {
-    return player.videoSegments[key];
+  videoSegments = Object.keys(videoSegments).map(function (key) {
+    return videoSegments[key];
   });
   randomAccessFragment = player.getPlayingSegment();
 
-  var cmafTackLength = videosegments
+  var cmafTackLength = videoSegments
     .map(function (segment) {
       return segment.duration;
     })
@@ -140,7 +141,7 @@ function playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessFragment(
       return sum + value;
     });
 
-  expectedResult = cmafTackLength - player.video.currentTime;
+  expectedResult = cmafTackLength - player.getCurrentTime();
 
   if (randomAccessFragmentIndex === 0)
     sumTime += player.getPlayingSegment().duration;
@@ -153,7 +154,7 @@ function playbackDurationMatchesCMAFTrackDurationIncludingRandomAccessFragment(
     })
   );
 
-  player.video.addEventListener(
+  player.getVideo().addEventListener(
     "ended",
     test.step_func(function () {
       assert_equals(

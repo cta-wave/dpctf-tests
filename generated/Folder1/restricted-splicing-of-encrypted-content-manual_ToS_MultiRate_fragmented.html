@@ -15,16 +15,11 @@
     <div id="info-overlay"></div>
     <script src="../lib/mozilla/object-keys-polyfill.js"></script>
     <script src="../lib/stefanpenner/es6-promise.min.js"></script>
-    <script src="../lib/utils/test_helper.js"></script>
     <script src="../lib/player.js"></script>
     <script src="../lib/manifest_parser.js"></script>
     <script src="../lib/mpd-parser.js"></script>
-    <script src="../lib/info-overlay.js"></script>
     <script src="../lib/wave-service.js"></script>
-    <script src="../lib/mse-support.js"></script>
-    <script src="../lib/mime-codec-support.js"></script>
-    <script src="../lib/mse-support.js"></script>
-    <script src="../lib/mime-codec-support.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
     <script>
       // Global variables
       var TEST_INFO = {
@@ -34,8 +29,61 @@
         params: urlParams,
         observations: [],
       };
-      var contentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
+      var video = document.querySelector("video");
+
+      var token = urlParams["token"];
+      var videoContentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
+      var audioContentModel = "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd";
+
+      new DpctfTest({
+        testInfo: TEST_INFO,
+        token: token,
+        videoContentModel: videoContentModel,
+        audioContentModel: audioContentModel,
+        videoElement: video,
+        infoOverlayElement: document.getElementById("info-overlay"),
+        executeTest: executeTest,
+      });
+
+      function executeTest(player, done) {
+        player.startBuffering();
+        var bufferTime = player.getBufferTime();
+        if (player.getPreBufferedTime() >= bufferTime) {
+          player.play();
+        } else {
+          player.on("onVideoSegmentLoaded", function (event) {
+            if (player.getPreBufferedTime() >= bufferTime) {
+              player.play();
+            }
+          });
+        }
+
+        async_test(function (test) {
+          video.addEventListener(
+            "play",
+            test.step_func(function (event) {
+              if (video.paused) return;
+              assert_true(true);
+              test.done();
+            })
+          );
+        }, "Playback starts");
+
+        async_test(function (test) {
+          var count = 0;
+          video.addEventListener(
+            "timeupdate",
+            test.step_func(function (event) {
+              count += 1;
+              if (count < 5) return;
+              assert_true(true);
+              test.done();
+            })
+          );
+        }, "5 time update events fired");
+
+        done();
+      }
     </script>
-    <script src="../placeholder.js"></script>
   </body>
 </html>
