@@ -1,122 +1,3 @@
-function Segment(attributes) {
-  this.url = attributes.url;
-  this.duration = attributes.duration;
-  this.number = attributes.number;
-  this.representationNumber = attributes.representationNumber;
-  this.chunks = attributes.chunks || [];
-  this.initSegmentUrl = attributes.initSegmentUrl;
-  this.periodNumber = attributes.periodNumber;
-}
-
-Segment.prototype.sameRepresentationAs = function (segment) {
-  return this.representationNumber === segment.representationNumber;
-};
-
-Segment.prototype.getUrl = function () {
-  return this.url;
-};
-
-Segment.prototype.getDuration = function () {
-  return this.duration;
-};
-
-Segment.prototype.getNumber = function () {
-  return this.number;
-};
-
-Segment.prototype.getRepresentationNumber = function () {
-  return this.representationNumber;
-};
-
-Segment.prototype.getChunks = function () {
-  return this.chunks;
-};
-
-Segment.prototype.getInitSegmentUrl = function () {
-  return this.initSegmentUrl;
-};
-
-Segment.prototype.getPeriodNumber = function () {
-  return this.periodNumber;
-};
-
-function Representation(attributes) {
-  this.mimeCodec = attributes.mimeCodec;
-  this.segments = attributes.segments;
-  this.resolution = attributes.resolution;
-  this.codecs = attributes.codecs;
-  this.bandwidth = attributes.bandwidth;
-  this.name = attributes.name;
-  this.number = attributes.number;
-  this.periodNumber = attributes.periodNumber;
-}
-
-Representation.prototype.getMimeCodec = function () {
-  return this.mimeCodec;
-};
-
-Representation.prototype.getResolution = function () {
-  return this.resolution;
-};
-
-Representation.prototype.getCodecs = function () {
-  return this.codecs;
-};
-
-Representation.prototype.getBandwidth = function () {
-  return this.bandwidth;
-};
-
-Representation.prototype.getName = function () {
-  return this.name;
-};
-
-Representation.prototype.getNumber = function () {
-  return this.number;
-};
-
-Representation.prototype.getSegment = function (number) {
-  return this.segments[number];
-};
-
-Representation.prototype.getSegments = function () {
-  return this.segments;
-};
-
-Representation.prototype.getTotalSegmentsCount = function () {
-  return this.segments.length;
-};
-
-Representation.prototype.getPeriodNumber = function () {
-  return this.periodNumber;
-};
-
-function Manifest(attributes) {
-  this.periods = attributes.periods;
-  this.duration = attributes.duration;
-}
-
-Manifest.prototype.getRepresentation = function (number, periodNumber) {
-  periodNumber = periodNumber || 0;
-  return this.periods[periodNumber][number];
-};
-
-Manifest.prototype.getRepresentations = function () {
-  var representations = [];
-  for (var i; i < this.periods.length; i++) {
-    representations = representations.concat(this.periods[i]);
-  }
-  return representations;
-};
-
-Manifest.prototype.getDuration = function () {
-  return this.duration;
-};
-
-Manifest.prototype.getPeriods = function () {
-  return this.periods;
-};
-
 function ManifestParser() {}
 
 ManifestParser.parse = function (manifestUrl) {
@@ -127,10 +8,25 @@ ManifestParser.parse = function (manifestUrl) {
     var currentPeriod = null;
     var periodNumber = -1;
     var representationNumber = 0;
-    for (var i = 0; i < parsedManifest.playlists.length; i++) {
-      var playlist = parsedManifest.playlists[i];
+    var playlists = [];
+    playlists = playlists.concat(parsedManifest.playlists);
+    if (parsedManifest.mediaGroups.AUDIO.audio) {
+      for (let lang in parsedManifest.mediaGroups.AUDIO.audio) {
+        playlists = playlists.concat(
+          parsedManifest.mediaGroups.AUDIO.audio[lang].playlists
+        );
+      }
+    }
+    for (var i = 0; i < playlists.length; i++) {
+      var playlist = playlists[i];
       var periodId = playlist.timeline;
-      var mimeCodec = 'video/mp4; codecs="' + playlist.attributes.CODECS + '"';
+      var codecs = playlist.attributes.CODECS;
+      var mimeCodec = "";
+      if (codecs.indexOf("avc1") !== -1) {
+        mimeCodec = 'video/mp4; codecs="' + codecs + '"';
+      } else if (codecs.indexOf("mp4a") !== -1) {
+        mimeCodec = 'audio/mp4; codecs="' + codecs + '"';
+      }
       if (!MediaSource.isTypeSupported(mimeCodec))
         throw new Error("Unsupported MIME type or codec: " + mimeCodec);
       var segments = [];
@@ -173,7 +69,7 @@ ManifestParser.parse = function (manifestUrl) {
           periodNumber: periodNumber,
         })
       );
-      representationNumber ++;
+      representationNumber++;
     }
 
     var duration = parsedManifest.duration;
@@ -197,10 +93,168 @@ ManifestParser.fetchInformation = function (manifestUrl) {
         var parsedManifest = mpdParser.parse(xhr.responseText, {
           manifestUri: manifestUrl,
         });
-        console.log("MPD: ", parsedManifest);
         resolve(parsedManifest);
       }
     };
     xhr.send();
   });
 };
+
+function Segment(attributes) {
+  let instance;
+  let _url = attributes.url;
+  let _duration = attributes.duration;
+  let _number = attributes.number;
+  let _representationNumber = attributes.representationNumber;
+  let _chunks = attributes.chunks || [];
+  let _initSegmentUrl = attributes.initSegmentUrl;
+  let _periodNumber = attributes.periodNumber;
+
+  function sameRepresentationAs(segment) {
+    return _representationNumber === segment.representationNumber;
+  }
+
+  function getUrl() {
+    return _url;
+  }
+
+  function getDuration() {
+    return _duration;
+  }
+
+  function getNumber() {
+    return _number;
+  }
+
+  function getRepresentationNumber() {
+    return _representationNumber;
+  }
+
+  function getChunks() {
+    return _chunks;
+  }
+
+  function getInitSegmentUrl() {
+    return _initSegmentUrl;
+  }
+
+  function getPeriodNumber() {
+    return _periodNumber;
+  }
+
+  instance = {
+    sameRepresentationAs,
+    getUrl,
+    getDuration,
+    getNumber,
+    getRepresentationNumber,
+    getChunks,
+    getInitSegmentUrl,
+    getPeriodNumber,
+  };
+
+  return instance;
+}
+
+function Representation(attributes) {
+  let instance;
+  let _mimeCodec = attributes.mimeCodec;
+  let _segments = attributes.segments;
+  let _resolution = attributes.resolution;
+  let _codecs = attributes.codecs;
+  let _bandwidth = attributes.bandwidth;
+  let _name = attributes.name;
+  let _number = attributes.number;
+  let _periodNumber = attributes.periodNumber;
+
+  function getMimeCodec() {
+    return _mimeCodec;
+  }
+
+  function getResolution() {
+    return _resolution;
+  }
+
+  function getCodecs() {
+    return _codecs;
+  }
+
+  function getBandwidth() {
+    return _bandwidth;
+  }
+
+  function getName() {
+    return _name;
+  }
+
+  function getNumber() {
+    return _number;
+  }
+
+  function getSegment(number) {
+    return _segments[number];
+  }
+
+  function getSegments() {
+    return _segments;
+  }
+
+  function getTotalSegmentsCount() {
+    return _segments.length;
+  }
+
+  function getPeriodNumber() {
+    return _periodNumber;
+  }
+
+  instance = {
+    getMimeCodec,
+    getResolution,
+    getCodecs,
+    getBandwidth,
+    getName,
+    getNumber,
+    getSegment,
+    getSegments,
+    getTotalSegmentsCount,
+    getPeriodNumber,
+  };
+
+  return instance;
+}
+
+function Manifest(attributes) {
+  let instance;
+  let _periods = attributes.periods;
+  let _duration = attributes.duration;
+
+  function getRepresentation(number, periodNumber) {
+    periodNumber = periodNumber || 0;
+    return _periods[periodNumber][number];
+  }
+
+  function getRepresentations() {
+    var representations = [];
+    for (var i; i < _periods.length; i++) {
+      representations = representations.concat(_periods[i]);
+    }
+    return representations;
+  }
+
+  function getDuration() {
+    return _duration;
+  }
+
+  function getPeriods() {
+    return _periods;
+  }
+
+  instance = {
+    getRepresentation,
+    getRepresentations,
+    getDuration,
+    getPeriods,
+  };
+
+  return instance;
+}

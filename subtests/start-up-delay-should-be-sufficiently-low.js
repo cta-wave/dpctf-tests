@@ -6,7 +6,7 @@ function startUpDelaySmallEnough(tsMax) {
     "The start-up delay should be sufficiently low (120ms max)."
   );
 
-  player.addEventListener("playbackInitiated", function (event) {
+  player.on("playbackInitiated", function (event) {
     playbackInitiated = new Date().getTime();
   });
 

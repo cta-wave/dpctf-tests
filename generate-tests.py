@@ -17,23 +17,22 @@ CSV_FILE = sys.argv[1]
 DEST_DIR = sys.argv[2]
 LIB_DEST_DIR = Path(DEST_DIR, "lib")
 SUB_TEST_DEST_DIR = Path(DEST_DIR, "subtests")
-PLACEHOLDER_DEST_FILE = Path(DEST_DIR, "placeholder.js")
 
 def main():
     csv_file = load_csv(CSV_FILE)
 
     for test in csv_file:
         test_id = test[0]
-        mpd_url = test[1]
-        grouping_dir = test[2]
+        video_mpd_url = test[1]
+        audio_mpd_url = test[2]
+        grouping_dir = test[3]
         test_template_path = get_test_path(test_id)
         content = load_file(test_template_path)
-        content = generate_test(content, mpd_url)
-        test_path = generate_test_path(DEST_DIR, grouping_dir, test_id, mpd_url)
+        content = generate_test(content, video_mpd_url, audio_mpd_url)
+        test_path = generate_test_path(DEST_DIR, grouping_dir, test_id, video_mpd_url)
         write_file(test_path, content)
     copy(LIB_DIR, LIB_DEST_DIR)
     copy(SUB_TEST_DIR, SUB_TEST_DEST_DIR)
-    copy(PLACEHOLDER_FILE, PLACEHOLDER_DEST_FILE)
 
 
 def load_file(path):
@@ -74,8 +73,9 @@ def load_csv(path):
 def get_test_path(test_id):
     return Path(TESTS_DIR, test_id + ".html")
 
-def generate_test(template, mpd_url):
-    template = template.replace("{{MPD_URL}}", mpd_url)
+def generate_test(template, video_mpd_url, audio_mpd_url):
+    template = template.replace("{{VIDEO_MPD_URL}}", video_mpd_url)
+    template = template.replace("{{AUDIO_MPD_URL}}", audio_mpd_url)
     return template
 
 def generate_test_path(dir_path, grouping_dir, test_id, mpd_url):

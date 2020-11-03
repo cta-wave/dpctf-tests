@@ -21,19 +21,20 @@ As an example, in this repository the [`sample.csv`](./sample.csv) was used to g
 Every row represents a generated test.
 
 ```csv
-<template-id>,<test-vector-url>,<group>
+"<template-id>","<video-test-vector-url>","<audio-test-vector>","<group>"
 ```
 
 **template-id**: What template to use.  
-**test-vector-url**: URL to the test content.  
+**video-test-vector-url**: URL to the video test content.  
+**audio-test-vector-url**: URL to the audio test content.  
 **group**: Name to group the generated test by. A directory per group is created.
 
 Example
 
 ```csv
-"fullscreen-playback-of-switching-sets-manual","http://host.net/vector.mpd","Folder1"
-"out-of-order-loading-manual","http://host.net/vector.mpd","Folder2"
-"overlapping-fragments-manual","http://host.net/vector.mpd","Folder1"
+"fullscreen-playback-of-switching-sets-manual","http://host.net/video.mpd","http://host.net/audio.mpd","Folder1"
+"out-of-order-loading-manual","http://host.net/video.mpd","http://host.net/audio.mpd","Folder2"
+"overlapping-fragments-manual","http://host.net/video.mpd","http://host.net/audio.mpd","Folder1"
 ```
 
 ### Templates
