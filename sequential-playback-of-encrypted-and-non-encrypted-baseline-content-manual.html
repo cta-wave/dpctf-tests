@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title></title>
+    <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
   </head>
@@ -10,6 +11,7 @@
   <body>
     <video style="height: 400px;"></video>
     <div>Press Enter/Ok to continue or Up/Down to show/hide debug overlay</div>
+    <div><div id="qr-code"></div></div>
     <div id="debug"></div>
     <div id="log"></div>
     <div id="info-overlay"></div>
@@ -19,6 +21,7 @@
     <script src="../lib/manifest_parser.js"></script>
     <script src="../lib/mpd-parser.js"></script>
     <script src="../lib/wave-service.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
     <script src="../lib/dpctf-testharness.js"></script>
     <script>
       // Global variables
@@ -31,6 +34,7 @@
         observations: [],
       };
       var video = document.querySelector("video");
+      var qrCode = document.getElementById("qr-code");
 
       var minBufferDuration = urlParams["min_buffer_duration"] || 30;
       var token = urlParams["token"];
@@ -44,6 +48,7 @@
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
         videoElement: video,
+        qrCodeElement: qrCode,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
       });
