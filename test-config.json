@@ -1,13 +1,13 @@
 {
   "all": {
-    "min_buffer_duration": "30000"
+    "min_buffer_duration": 30000
   },
   "sequential-track-playback": {
-    "min_buffer_duration": "40000",
-    "ts_max": "100"
+    "min_buffer_duration": 40000,
+    "ts_max": 100
   },
   "random-access-to-fragment": {
-    "random_access_fragment": "374",
-    "ts_max": "100"
+    "random_access_fragment": 374,
+    "ts_max": 100
   }
 }
