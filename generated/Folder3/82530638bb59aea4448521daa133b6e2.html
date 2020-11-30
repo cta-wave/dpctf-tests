@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="../lib/style.css" />
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+
+  <body>
+    <video style="height: 400px;"></video>
+    <div>Press Enter/Ok to continue or Up/Down to show/hide debug overlay</div>
+    <div><div id="qr-code"></div></div>
+    <div id="debug"></div>
+    <div id="log"></div>
+    <div id="info-overlay"></div>
+    <script src="../lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/player.js"></script>
+    <script src="../lib/manifest_parser.js"></script>
+    <script src="../lib/mpd-parser.js"></script>
+    <script src="../lib/wave-service.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
+    <script>
+      // Global variables
+      var TEST_INFO = {
+        title: "Playback over WAVE Baseline Splice Constraints",
+        description:
+          "Playback over splices enables the content provider to offer a sequence of Switching Sets with less restricted encoding requirements than a track. This feature is especially important in case of program changes and ad insertion.",
+        path: location.pathname,
+        params: urlParams,
+        observations: [],
+      };
+
+      var video = document.querySelector("video");
+      var qrCode = document.getElementById("qr-code");
+
+      var minBufferDuration = urlParams["min_buffer_duration"] || 30;
+      var token = urlParams["token"];
+      var playout = urlParams["playout"] || "";
+      playout = playout.split(",");
+      var videoContentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd";
+      var audioContentModel = "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd";
+
+      new DpctfTest({
+        testInfo: TEST_INFO,
+        minBufferDuration: minBufferDuration,
+        token: token,
+        videoContentModel: videoContentModel,
+        audioContentModel: audioContentModel,
+        videoElement: video,
+        qrCodeElement: qrCode,
+        infoOverlayElement: document.getElementById("info-overlay"),
+        setupTest: setupTest,
+        executeTest: executeTest,
+      });
+
+      function setupTest(player, done) {
+        var manifest = player.getVideoManifest();
+        var periods = manifest.getPeriods();
+        var currentSegment = 0;
+        for (var i = 0; i < periods.length; i++) {
+          var period = periods[i];
+          var representationNumber = playout[i] || 0;
+          var representation = period[representationNumber];
+          var startSegment = currentSegment;
+          var endSegment =
+            startSegment + representation.getTotalSegmentsCount() - 1;
+          var offset = -currentSegment;
+          currentSegment = endSegment + 1;
+          player.setVideoSegments({
+            representationNumber: representationNumber,
+            representationOffset: offset,
+            periodNumber: i,
+            startSegment: startSegment,
+            endSegment: endSegment,
+          });
+        }
+        done();
+      }
+
+      function executeTest(player, done) {
+        player.startBuffering();
+        if (player.getPreBufferedTime() >= minBufferDuration) {
+          player.play();
+        } else {
+          player.on("onVideoSegmentLoaded", function (event) {
+            if (player.getPreBufferedTime() >= minBufferDuration) {
+              player.play();
+            }
+          });
+        }
+
+        async_test(function (test) {
+          video.addEventListener(
+            "play",
+            test.step_func(function (event) {
+              if (video.paused) return;
+              assert_true(true);
+              test.done();
+            })
+          );
+        }, "Playback starts");
+
+        async_test(function (test) {
+          var count = 0;
+          video.addEventListener(
+            "timeupdate",
+            test.step_func(function (event) {
+              count += 1;
+              if (count < 5) return;
+              assert_true(true);
+              test.done();
+            })
+          );
+        }, "5 time update events fired");
+
+        done();
+      }
+    </script>
+  </body>
+</html>

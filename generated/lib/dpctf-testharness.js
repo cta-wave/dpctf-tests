@@ -1,6 +1,7 @@
 function DpctfTest(config) {
   var testInfo = config.testInfo;
   var video = config.videoElement;
+  var qrCode = config.qrCodeElement;
   var infoOverlayElement = config.infoOverlayElement;
   var outOfOrderLoading = config.outOfOrderLoading || false;
   var executeTestCallback = config.executeTest || function () {};
@@ -13,6 +14,25 @@ function DpctfTest(config) {
   var ignoreObservations = false;
   var resolveWaitForObservation = null;
   var resolveWaitingForResults = null;
+
+  var ACTION_INITIALIZE = "initialize";
+  var ACTION_PLAY = "play";
+  var ACTION_PAUSE = "pause";
+
+  var VIDEO_STATE_WAITING = "waiting";
+  var VIDEO_STATE_BUFFERING = "buffering";
+  var VIDEO_STATE_PLAYING = "playing";
+  var VIDEO_STATE_PAUSED = "paused";
+  var VIDEO_STATE_ENDED = "ended";
+
+  var _lastAction = ACTION_INITIALIZE;
+  var _videoState = VIDEO_STATE_WAITING;
+
+  var EXECUTION_MODE_AUTO = "auto";
+  var EXECUTION_MODE_MANUAL = "manual";
+  var EXECUTION_MODE_PRGRAMMATIC = "programmatic";
+
+  var _execution_mode = urlParams["mode"] || EXECUTION_MODE_AUTO;
 
   // Specify workflow
   setupTest()
@@ -51,6 +71,7 @@ function DpctfTest(config) {
   function setupTest(error) {
     if (error) return error;
     log("Setting up test");
+    updateQrCode();
     return new Promise(function (resolve) {
       //// Configure Test Harness ////
       setup({
@@ -58,8 +79,30 @@ function DpctfTest(config) {
         explicit_done: true,
       });
 
+      video.addEventListener("play", function () {
+        _lastAction = ACTION_PLAY;
+        _videoState = VIDEO_STATE_PLAYING;
+        updateQrCode();
+      });
+
+      video.addEventListener("pause", function () {
+        _videoState = VIDEO_STATE_PAUSED;
+        updateQrCode();
+      });
+
+      video.addEventListener("ended", function () {
+        _videoState = VIDEO_STATE_ENDED;
+        updateQrCode();
+      });
+
       //// Player Setup ////
       player = new Player(video);
+
+      player.on(Player.PLAYER_EVENT_START_BUFFERING, function () {
+        _videoState = VIDEO_STATE_BUFFERING;
+        updateQrCode();
+      });
+
       player
         .init({
           bufferTime: minBufferDuration,
@@ -160,6 +203,7 @@ function DpctfTest(config) {
 
   function sendTestReadyEvent(error) {
     if (error) return error;
+    if (_execution_mode !== EXECUTION_MODE_PRGRAMMATIC) return;
     log("Sending test ready event");
     return new Promise(function (resolve) {
       if (!token) {
@@ -176,6 +220,7 @@ function DpctfTest(config) {
 
   function waitForObservationReady(error) {
     if (error) return error;
+    if (_execution_mode !== EXECUTION_MODE_PRGRAMMATIC) return;
     if (ignoreObservations) return Promise.resolve();
     log("Waiting for observation framework to be ready");
     return new Promise(function (resolve) {
@@ -196,6 +241,7 @@ function DpctfTest(config) {
 
   function waitForObservationResults(error) {
     if (error) return error;
+    if (_execution_mode !== EXECUTION_MODE_PRGRAMMATIC) return;
     if (ignoreObservations) return Promise.resolve();
     log("Waiting for observation results");
     return new Promise(function (resolve) {
@@ -238,6 +284,14 @@ function DpctfTest(config) {
     if (console && console.log) {
       console.log(text);
     }
+  }
+
+  function updateQrCode() {
+    if (!qrCode) return;
+    var content = JSON.stringify({ state: _videoState, action: _lastAction });
+    console.log(content);
+    qrCode.innerHTML = "";
+    new QRCode(qrCode, content);
   }
 }
 

@@ -17,6 +17,8 @@ function Player(video) {
   let _videoBufferManager;
   let _audioBufferManager;
 
+  var PLAYER_EVENT_START_BUFFERING = Player.PLAYER_EVENT_START_BUFFERING;
+
   function init(settings) {
     if (_mediaSource) throw new Error("Player already initialized");
     if (!settings.bufferTime) settings.bufferTime = 30;
@@ -103,31 +105,36 @@ function Player(video) {
   }
 
   function loadVideo(vectorUrl) {
+    if (!vectorUrl) {
+      console.log("Warning: No video mpd provided!");
+      return;
+    }
     if (!_mediaSource) throw new Error("Player not initialized");
     return ManifestParser.parse(vectorUrl).then(function (manifest) {
-      return new Promise((resolve) => {
-        _videoBufferManager = new BufferManager(
-          manifest,
-          _mediaSource,
-          _video,
-          _settings
-        );
-        var totalSegmentsCount = manifest
-          .getRepresentation(0)
-          .getTotalSegmentsCount();
-        var duration = _videoBufferManager.setSegments({
-          representationNumber: 0,
-          startSegment: 0,
-          endSegment: totalSegmentsCount - 1,
-        });
-        setDuration(duration);
-        _eventEmitter.dispatchEvent("onVideoManifestParsed", manifest);
-        resolve();
+      _videoBufferManager = new BufferManager(
+        manifest,
+        _mediaSource,
+        _video,
+        _settings
+      );
+      var totalSegmentsCount = manifest
+        .getRepresentation(0)
+        .getTotalSegmentsCount();
+      var duration = _videoBufferManager.setSegments({
+        representationNumber: 0,
+        startSegment: 0,
+        endSegment: totalSegmentsCount - 1,
       });
+      setDuration(duration);
+      _eventEmitter.dispatchEvent("onVideoManifestParsed", manifest);
     });
   }
 
   function loadAudio(vectorUrl) {
+    if (!vectorUrl) {
+      console.log("Warning: No audio mpd provided!");
+      return;
+    }
     if (!_mediaSource) throw new Error("Player not initialized");
     return ManifestParser.parse(vectorUrl).then(function (manifest) {
       _audioBufferManager = new BufferManager(
@@ -191,6 +198,7 @@ function Player(video) {
   function startBuffering() {
     if (_videoBufferManager) _videoBufferManager.startBuffering();
     if (_audioBufferManager) _audioBufferManager.startBuffering();
+    _eventEmitter.dispatchEvent(PLAYER_EVENT_START_BUFFERING);
   }
 
   //function getRepresentations() {
@@ -267,6 +275,8 @@ function Player(video) {
 
   return instance;
 }
+
+Player.PLAYER_EVENT_START_BUFFERING = "onPlayerStartBuffering";
 
 function BufferManager(manifest, mediaSource, video, options) {
   let instance;

@@ -4,6 +4,8 @@ import sys
 import os
 import shutil, errno
 from pathlib import Path
+import hashlib
+import json
 
 if len(sys.argv) < 3:
     print("Please provide a CSV and destination directory!")
@@ -16,23 +18,55 @@ PLACEHOLDER_FILE = Path(TESTS_DIR, "placeholder.js")
 CSV_FILE = sys.argv[1]
 DEST_DIR = sys.argv[2]
 LIB_DEST_DIR = Path(DEST_DIR, "lib")
-SUB_TEST_DEST_DIR = Path(DEST_DIR, "subtests")
 
 def main():
     csv_file = load_csv(CSV_FILE)
 
+    tests = []
+
     for test in csv_file:
-        test_id = test[0]
         video_mpd_url = test[1]
         audio_mpd_url = test[2]
         grouping_dir = test[3]
-        test_template_path = get_test_path(test_id)
+        test_template_path = get_test_path(test[0])
+        test_id = generate_test_id(test_template_path, video_mpd_url, audio_mpd_url)
         content = load_file(test_template_path)
         content = generate_test(content, video_mpd_url, audio_mpd_url)
-        test_path = generate_test_path(DEST_DIR, grouping_dir, test_id, video_mpd_url)
+        test_path = generate_test_path(DEST_DIR, grouping_dir, test_id)
         write_file(test_path, content)
+        tests.append({
+            "id": test_id,
+            "path": test_path,
+            "template": test_template_path, 
+            "video": video_mpd_url, 
+            "audio": audio_mpd_url
+        })
+    test_json_content = generate_test_json(tests)
+    test_json_content = json.dumps(test_json_content, indent=4)
+    write_file(Path(DEST_DIR, "tests.json"), test_json_content)
     copy(LIB_DIR, LIB_DEST_DIR)
-    copy(SUB_TEST_DIR, SUB_TEST_DEST_DIR)
+
+def generate_test_json(tests):
+    json = {"tests": {}}
+
+    for test in tests:
+        test_id = test["id"]
+        video = test["video"]
+        audio = test["audio"]
+        path = str(test["path"]).replace(DEST_DIR + "/", "")
+        template = str(test["template"]).split("/")[-1]
+        json["tests"][test_id] = {}
+        json["tests"][test_id]["path"] = path
+        json["tests"][test_id]["video"] = video
+        json["tests"][test_id]["audio"] = audio
+        json["tests"][test_id]["template"] = template
+
+    return json
+
+def generate_test_id(template_path, video, audio):
+    value = str(template_path) + str(video) + str(audio)
+    hashobj = hashlib.md5(value.encode("utf-8"))
+    return hashobj.hexdigest()
 
 
 def load_file(path):
@@ -78,9 +112,7 @@ def generate_test(template, video_mpd_url, audio_mpd_url):
     template = template.replace("{{AUDIO_MPD_URL}}", audio_mpd_url)
     return template
 
-def generate_test_path(dir_path, grouping_dir, test_id, mpd_url):
-    mpd_file_name = mpd_url.split("/")[-1]
-    mpd_file_name = mpd_file_name.split(".")[0]
-    return "{}/{}/{}_{}.html".format(dir_path, grouping_dir, test_id, mpd_file_name)
+def generate_test_path(dir_path, grouping_dir, test_id):
+    return "{}/{}/{}.html".format(dir_path, grouping_dir, test_id)
 
 main()
