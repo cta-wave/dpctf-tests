@@ -125,10 +125,6 @@ Additional information can be found [here](https://github.com/cta-wave/dpctf-tes
 Using the _test url_, the test results created by the evaluation of the 
 recorded video may be inserted into the downloaded json file accordingly. To 
 integrate the results back into the session, it may be uploaded using the 
-_session token_:
+_session token_. 
 
-```
-POST /api/results/<session_token>/json
-```
-
-Note: The API to upload test results into a session is not yet implemented.
+The corresponding endpoint is now implemented. For details see [DPCTF Test Runner Documentation](https://github.com/cta-wave/dpctf-test-runner/blob/feature-results-upload/tools/wave/docs/rest-api/results-api/import.md#2-import-api-results)
