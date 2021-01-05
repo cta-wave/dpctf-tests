@@ -1,156 +1,156 @@
 {
     "tests": {
-        "a83623b5d253a8e3e44954144e64f3d4": {
+        "de8825cb743994ec04ec8aa2bfc6f66c": {
             "path": "Folder1/fullscreen-playback-of-switching-sets-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "fullscreen-playback-of-switching-sets-manual.html"
         },
-        "8e4fce7d34deb9a9cecb86200309ad18": {
+        "6b3644cf290b8699226df58dc3c86ae7": {
             "path": "Folder2/out-of-order-loading-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "out-of-order-loading-manual.html"
         },
-        "9e03c1934a22e4bbf390097267965e93": {
+        "2c8a5dd22426d7213b5358a7f9e4f6c2": {
             "path": "Folder3/overlapping-fragments-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "overlapping-fragments-manual.html"
         },
-        "997683ab65a27bb403b95efe79fb4b86": {
+        "1707ec35e15af1c45f44989e1879214f": {
             "path": "Folder1/playback-of-encrypted-content-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "playback-of-encrypted-content-manual.html"
         },
-        "f6817bb69acf09c19db20f6a1c818b8e": {
+        "f766014abd68bf7337b8bdf34412f344": {
             "path": "Folder2/playback-over-wave-baseline-splice-constraints-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "playback-over-wave-baseline-splice-constraints-manual.html"
         },
-        "916fd0e0e5771eaa7d437599bba18b82": {
+        "d0ab87a8cd8339cf9500b84cb0df7e27": {
             "path": "Folder3/random-access-to-fragment-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-fragment-manual.html"
         },
-        "609b1ade3b83a966d9c875c09f531b98": {
+        "3305a7a6c92fa350c177b2cb528a33cd": {
             "path": "Folder1/random-access-to-time-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-time-manual.html"
         },
-        "8dd4e5ac528eb2ed16a6cf90d70daba8": {
+        "90ca0abe36120563ae83240497b79422": {
             "path": "Folder2/regular-playback-of-chunked-content-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content-manual.html"
         },
-        "82bfcc43a727fd9278c28ee69ff3abf9": {
+        "adeb51cb6cd1f84206f880b7a0b28765": {
             "path": "Folder3/regular-playback-of-chunked-content-non-aligned-append-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content-non-aligned-append-manual.html"
         },
-        "c624302f6bbc057d02ed7734d49f0f2b": {
+        "487e82430862b9c552874bcf7b328495": {
             "path": "Folder1/restricted-splicing-of-encrypted-content-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "restricted-splicing-of-encrypted-content-manual.html"
         },
-        "5e82e0744312092f90a2e2e7daa6a61e": {
+        "2453191c9327d3c8e3f4d97b04289bf3": {
             "path": "Folder2/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual.html"
         },
-        "217aba8120866170c0d2d1ca56d2fe8e": {
+        "64bdf47ba16d1a49e07cea1c4834c3d9": {
             "path": "Folder3/sequential-track-playback-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "sequential-track-playback-manual.html"
         },
-        "77b50ecb84dc0199513b396a4cfa457a": {
+        "9841b8b8eab31e0d24ab377bb4622b0e": {
             "path": "Folder1/switching-set-playback-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "switching-set-playback-manual.html"
         },
-        "5bf70f726b4ef03216b3db0314dba7c6": {
+        "4751c71686c7a5a98852c6d0ffe904d6": {
             "path": "Folder2/fullscreen-playback-of-switching-sets-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "fullscreen-playback-of-switching-sets-manual.html"
         },
-        "c9940b0a233a91d5fa78ed8ac5800790": {
+        "e4e48b4fd9796e27a0ad2c73ae872a89": {
             "path": "Folder3/out-of-order-loading-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "out-of-order-loading-manual.html"
         },
-        "03d85a427d81244c5ed6bf188d4ccded": {
+        "550086ea7251e40302129a63ef3e3673": {
             "path": "Folder1/overlapping-fragments-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "overlapping-fragments-manual.html"
         },
-        "fae32c876ec310cc3e0c779238219e59": {
+        "9396408a2c3a945e5cb42fecb008b070": {
             "path": "Folder2/playback-of-encrypted-content-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "playback-of-encrypted-content-manual.html"
         },
-        "82530638bb59aea4448521daa133b6e2": {
+        "f56c059179ba690525070cb58481d3a7": {
             "path": "Folder3/playback-over-wave-baseline-splice-constraints-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "playback-over-wave-baseline-splice-constraints-manual.html"
         },
-        "e8ff6112d440b18fc5180288633d4acd": {
+        "adb1e1491196783d879d7c4ff2f262e7": {
             "path": "Folder1/random-access-to-fragment-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-fragment-manual.html"
         },
-        "4a3b26e9d4bf079ef7fd966eef86f873": {
+        "cf3d581e5931812cd36a82d14e4638c5": {
             "path": "Folder2/random-access-to-time-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-time-manual.html"
         },
-        "21d8de3d6bc6f254a0328a95f08af225": {
+        "edabbc26cb399c666e5636e759c515b5": {
             "path": "Folder3/regular-playback-of-chunked-content-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content-manual.html"
         },
-        "6424839f1a4715f708c35eb36ae903ae": {
+        "e6a34552202da623d0a7f228edca137c": {
             "path": "Folder1/regular-playback-of-chunked-content-non-aligned-append-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content-non-aligned-append-manual.html"
         },
-        "4d7e0c1e5b7068f408d3e7d8d68a3bb8": {
+        "60a27469ac96eb9801e3599b1670eb22": {
             "path": "Folder2/restricted-splicing-of-encrypted-content-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "restricted-splicing-of-encrypted-content-manual.html"
         },
-        "66d8b4a61572669f9e2c2a90ffafd239": {
+        "f2c3580278676a6c88cacdc41b2a2245": {
             "path": "Folder3/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual.html"
         },
-        "a94871460b7fdf4a66b00f8a289ae7ea": {
+        "24681271ccf37b8310adb914fcb15c0d": {
             "path": "Folder1/sequential-track-playback-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "sequential-track-playback-manual.html"
         },
-        "6d17b09b78bde4f4d67928b671d10eb3": {
+        "a8f81d6ad219aeeb4e16ff54274fd845": {
             "path": "Folder2/switching-set-playback-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",

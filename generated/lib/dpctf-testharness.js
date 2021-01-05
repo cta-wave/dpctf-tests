@@ -7,7 +7,7 @@ function DpctfTest(config) {
   var executeTestCallback = config.executeTest || function () {};
   var setupTestCallback = config.setupTest;
 
-  var minBufferDuration = config.minBufferDuration || 30;
+  var parameters = null;
 
   var waveService = null;
   var player = null;
@@ -35,7 +35,8 @@ function DpctfTest(config) {
   var _execution_mode = urlParams["mode"] || EXECUTION_MODE_AUTO;
 
   // Specify workflow
-  setupTest()
+  loadParameters()
+    .then(setupTest)
     .then(checkMseAvailable)
     .then(checkCodecs)
     .then(initializeWaveService)
@@ -105,7 +106,7 @@ function DpctfTest(config) {
 
       player
         .init({
-          bufferTime: minBufferDuration,
+          bufferTime: parameters.minBufferDuration / 1000,
           numberOfSegmentBeforePlay: 2,
           outOfOrderLoading: outOfOrderLoading,
         })
@@ -118,8 +119,10 @@ function DpctfTest(config) {
         .then(
           () =>
             new Promise(function (resolve) {
+              calculateMissingParameters();
+
               if (!setupTestCallback) resolve();
-              setupTestCallback(player, resolve);
+              setupTestCallback(player, resolve, parameters);
             })
         )
         .then(function () {
@@ -185,7 +188,7 @@ function DpctfTest(config) {
     if (error) return error;
     log("Executing test");
     return new Promise(function (resolve) {
-      executeTestCallback(player, resolve);
+      executeTestCallback(player, resolve, parameters);
     });
   }
 
@@ -272,6 +275,18 @@ function DpctfTest(config) {
     });
   }
 
+  function loadParameters(error) {
+    if (error) return error;
+    log("Loading test parameters ...");
+    return new Promise((resolve) => {
+      fetchParameters().then(function (fetchedParameters) {
+        parameters = fetchedParameters;
+        testInfo.params = parameters;
+        resolve();
+      });
+    });
+  }
+
   function finishTest() {
     done();
   }
@@ -289,9 +304,105 @@ function DpctfTest(config) {
   function updateQrCode() {
     if (!qrCode) return;
     var content = JSON.stringify({ state: _videoState, action: _lastAction });
-    console.log(content);
     qrCode.innerHTML = "";
     new QRCode(qrCode, content);
+  }
+
+  function fetchParameters() {
+    return new Promise(function (resolve) {
+      var xhr = new XMLHttpRequest();
+      xhr.addEventListener("load", function () {
+        var response = this.responseText;
+        var testConfig = JSON.parse(response);
+        var defaultParameters = testConfig.all;
+        var testParameters = testConfig[testInfo.id];
+        var parameters = {};
+
+        var minBufferDuration = null;
+        if (!minBufferDuration && testParameters)
+          minBufferDuration = testParameters.min_buffer_duration;
+        if (!minBufferDuration && defaultParameters)
+          minBufferDuration = defaultParameters.min_buffer_duration;
+        if (!minBufferDuration) minBufferDuration = 30000;
+        parameters.minBufferDuration = minBufferDuration;
+
+        var tsMax = null;
+        if (!tsMax && testParameters) tsMax = testParameters.ts_max;
+        if (!tsMax && defaultParameters) tsMax = defaultParameters.ts_max;
+        if (!tsMax) tsMax = 120;
+        parameters.tsMax = tsMax;
+
+        var randomAccessFragment = null;
+        if (!randomAccessFragment && testParameters)
+          randomAccessFragment = testParameters.random_access_fragment;
+        if (!randomAccessFragment && defaultParameters)
+          randomAccessFragment = defaultParameters.random_access_fragment;
+        if (!randomAccessFragment) randomAccessFragment = null;
+        parameters.randomAccessFragment = randomAccessFragment;
+
+        var randomAccessTime = null;
+        if (!randomAccessTime && testParameters)
+          randomAccessTime = testParameters.random_access_time;
+        if (!randomAccessTime && defaultParameters)
+          randomAccessTime = defaultParameters.random_access_time;
+        if (!randomAccessTime) randomAccessTime = null;
+        parameters.randomAccessTime = randomAccessTime;
+
+        var playout = null;
+        if (!playout && testParameters) playout = testParameters.playout;
+        if (!playout && defaultParameters) playout = defaultParameters.playout;
+        if (!playout) playout = null;
+        parameters.playout = playout;
+
+        console.log(testParameters, defaultParameters, parameters);
+
+        resolve(parameters);
+      });
+      xhr.open("GET", "/test-config.json");
+      xhr.send();
+    });
+  }
+
+  function calculateMissingParameters() {
+    var totalSegments = player.getVideoSegmentsCount();
+    var manifest = player.getVideoManifest();
+    var representations = manifest.getRepresentations();
+    var totalRepresentations = representations.length;
+    console.log(representations);
+
+    if (!parameters.randomAccessFragment) {
+      var totalSegments = player.getVideoSegmentsCount();
+      var variance = totalSegments * 0.5;
+      var randomAccessFragment =
+        totalSegments * 0.5 + (Math.random() * variance - variance * 0.5);
+      parameters.randomAccessFragment = randomAccessFragment;
+    }
+
+    if (!parameters.randomAccessTime) {
+      var cmafTrackLength = player.getVideoManifest().getDuration();
+      var variance = cmafTrackLength * 0.5;
+      var randomAccessTime =
+        cmafTrackLength * 0.5 + (Math.random() * variance - variance * 0.5);
+      parameters.randomAccessTime = randomAccessTime;
+    }
+
+    if (!parameters.playout) {
+      console.log("CALCULATING PLAYOUT");
+      var playout = {};
+      var representationLength = totalSegments / totalRepresentations;
+      var currentSegment = 0;
+
+      console.log(totalRepresentations);
+
+      for (var i = 1; i <= totalRepresentations; i++) {
+        var range = currentSegment + "-" + representationLength * i;
+        console.log(range);
+        currentSegment = representationLength * i + 1;
+        playout[range] = i - 1;
+      }
+      parameters.playout = playout;
+    }
+    console.log(parameters);
   }
 }
 

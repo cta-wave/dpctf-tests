@@ -35,15 +35,12 @@
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var tsMax = urlParams["tsMax"] || 120;
-      var minBufferDuration = urlParams["min_buffer_duration"] || 30;
       var token = urlParams["token"];
       var videoContentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd";
       var audioContentModel = "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd";
 
       new DpctfTest({
         testInfo: TEST_INFO,
-        minBufferDuration: minBufferDuration,
         token: token,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
@@ -55,17 +52,14 @@
         outOfOrderLoading: true,
       });
 
-      function setupTest(player, done) {
-        var manifest = player.getVideoManifest();
-        var cmafTrackLength = player.getVideoManifest().getDuration();
-        var variance = cmafTrackLength * 0.5;
-        var randomAccessTime =
-          cmafTrackLength * 0.5 + (Math.random() * variance - variance * 0.5);
+      function setupTest(player, done, parameters) {
+        var randomAccessTime = parameters.randomAccessTime;
         player.setCurrentTime(randomAccessTime);
         done();
       }
 
-      function executeTest(player, done) {
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();

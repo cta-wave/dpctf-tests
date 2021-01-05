@@ -37,7 +37,6 @@
       var qrCode = document.getElementById("qr-code");
 
       var tsMax = urlParams["tsMax"] || 120;
-      var minBufferDuration = urlParams["min_buffer_duration"] || 30;
       var videoContentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
       var audioContentModel = "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd";
       var playout = urlParams["playout"] || 0;
@@ -45,7 +44,6 @@
 
       new DpctfTest({
         testInfo: TEST_INFO,
-        minBufferDuration: minBufferDuration,
         token: token,
         videoContentModel: videoContentModel,
         videoElement: video,
@@ -55,7 +53,7 @@
         setupTest: setupTest,
       });
 
-      function setupTest(player, done) {
+      function setupTest(player, done, parameters) {
         var manifest = player.getVideoManifest();
         var totalSegmentsCount = manifest
           .getRepresentation(playout)
@@ -99,7 +97,8 @@
         //});
       }
 
-      function executeTest(player, done) {
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();

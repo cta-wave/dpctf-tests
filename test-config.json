@@ -4,10 +4,61 @@
   },
   "sequential-track-playback": {
     "min_buffer_duration": 40000,
-    "ts_max": 100
+    "ts_max": 120,
+    "tolerance": 10
+  },
+  "Folder2/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html": {
+    "min_buffer_duration": 40000,
+    "ts_max": 120,
+    "tolerance": 10
   },
   "random-access-to-fragment": {
-    "random_access_fragment": 374,
-    "ts_max": 100
+    "random_access_fragment": 12,
+    "ts_max": 120,
+    "tolerance": 10
+  },
+  "random-access-to-time": {
+    "random_access_time": 234,
+    "ts_max": 120,
+    "tolerance": 10
+  },
+  "switching-set-playback": {
+    "ts_max": 120,
+    "tolerance": 10
+  },
+  "regular-playback-of-chunked-content": {
+    "ts_max": 120,
+    "tolerance": 10
+  },
+  "regular-playback-of-chunked-content-non-aligned": {
+    "ts_max": 120,
+    "tolerance": 10
+  },
+  "playback-over-wave-baseline-splice-constraints": {
+    "ts_max": 120,
+    "tolerance": 10
+  },
+  "out-of-order-loading": {
+    "ts_max": 120,
+    "tolerance": 10
+  },
+  "overlapping-fragments": {
+    "ts_max": 120,
+    "tolerance": 10
+  },
+  "fullscreen-playback-of-switching-sets": {
+    "ts_max": 120,
+    "tolerance": 10
+  },
+  "playback-of-encrypted-content": {
+    "ts_max": 120,
+    "tolerance": 10
+  },
+  "restricted-splicing-of-encrypted-content": {
+    "ts_max": 120,
+    "tolerance": 10
+  },
+  "sequential-playback-of-encrypted-and-non-encrypted-baseline-content": {
+    "ts_max": 120
   }
 }

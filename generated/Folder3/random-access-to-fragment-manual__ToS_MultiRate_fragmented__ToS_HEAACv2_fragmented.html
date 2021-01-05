@@ -26,26 +26,22 @@
     <script>
       // Global variables
       var TEST_INFO = {
+        id: "random-access-to-fragment",
         title: "Random Access to Fragment",
         description:
           "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
         path: location.pathname,
-        params: urlParams,
         observations: [],
       };
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var tsMax = urlParams["tsMax"] || 120;
-      var minBufferDuration = urlParams["min_buffer_duration"] || 30;
       var videoContentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
       var audioContentModel = "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd";
       var token = urlParams["token"];
-      var randomAccessFragment = null; // set in setup
 
       new DpctfTest({
         testInfo: TEST_INFO,
-        minBufferDuration: minBufferDuration,
         token: token,
         videoContentModel: videoContentModel,
         videoElement: video,
@@ -55,22 +51,16 @@
         setupTest: setupTest,
       });
 
-      function setupTest(player, done) {
+      function setupTest(player, done, parameters) {
+        var randomAccessFragment = parameters.randomAccessFragment;
         var manifest = player.getVideoManifest();
         var videoSegments = player.getVideoSegments();
         var totalSegments = player.getVideoSegmentsCount();
         var cmafTrackLength = player.getVideoManifest().getDuration();
-        var variance = cmafTrackLength * 0.5;
-        var randomAccessTime =
-          cmafTrackLength * 0.5 + (Math.random() * variance - variance * 0.5);
 
         var fragmentTime = 0;
-        for (var i = 0; i < totalSegments; i++) {
+        for (var i = 0; i < randomAccessFragment; i++) {
           var segmentDuration = videoSegments[i].getDuration();
-          if (fragmentTime + segmentDuration > randomAccessTime) {
-            randomAccessFragment = i + 1; // fragments start from 1
-            break;
-          }
           fragmentTime += segmentDuration;
         }
         player.setCurrentTime(fragmentTime);
@@ -78,13 +68,16 @@
         done();
       }
 
-      function executeTest(player, done) {
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
+              console.log(minBufferDuration);
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();
         } else {
           player.on("onVideoSegmentLoaded", function (event) {
             if (player.getPreBufferedTime() >= minBufferDuration) {
+                    console.log(player.getPreBufferedTime());
               player.play();
             }
           });
