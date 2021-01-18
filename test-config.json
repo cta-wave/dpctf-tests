@@ -53,6 +53,9 @@
     "ts_max": 120,
     "tolerance": 10
   },
+  "Folder3/out-of-order-loading-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html": {
+    "loading": [3, 2, 1, 6, 5, 4, 9, 8, 7, 12, 11, 10, 15, 14, 13]
+  },
   "overlapping-fragments-manual.html": {
     "ts_max": 120,
     "tolerance": 10
