@@ -2,7 +2,7 @@
   "all": {
     "min_buffer_duration": 30000
   },
-  "sequential-track-playback": {
+  "sequential-track-playback-manual.html": {
     "min_buffer_duration": 40000,
     "ts_max": 120,
     "tolerance": 10
@@ -12,53 +12,63 @@
     "ts_max": 120,
     "tolerance": 10
   },
-  "random-access-to-fragment": {
+  "random-access-to-fragment-manual.html": {
     "random_access_fragment": 12,
     "ts_max": 120,
     "tolerance": 10
   },
-  "random-access-to-time": {
+  "random-access-to-time-manual.html": {
     "random_access_time": 234,
     "ts_max": 120,
     "tolerance": 10
   },
-  "switching-set-playback": {
+  "switching-set-playback-manual.html": {
     "ts_max": 120,
     "tolerance": 10
   },
-  "regular-playback-of-chunked-content": {
+  "Folder1/switching-set-playback-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html": {
+    "playout": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  },
+  "regular-playback-of-chunked-content-manual.html": {
+    "min_buffer_duration": 1000,
     "ts_max": 120,
     "tolerance": 10
   },
-  "regular-playback-of-chunked-content-non-aligned": {
+  "regular-playback-of-chunked-content-non-aligned-manual.html": {
+    "min_buffer_duration": 1000,
     "ts_max": 120,
     "tolerance": 10
   },
-  "playback-over-wave-baseline-splice-constraints": {
+  "playback-over-wave-baseline-splice-constraints-manual.html": {
     "ts_max": 120,
     "tolerance": 10
   },
-  "out-of-order-loading": {
+  "Folder2/playback-over-wave-baseline-splice-constraints-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html": {
+    "playout": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  },
+  "out-of-order-loading-manual.html": {
+    "max_buffer_duration": 30000,
     "ts_max": 120,
     "tolerance": 10
   },
-  "overlapping-fragments": {
+  "overlapping-fragments-manual.html": {
     "ts_max": 120,
     "tolerance": 10
   },
-  "fullscreen-playback-of-switching-sets": {
+  "fullscreen-playback-of-switching-sets-manual.html": {
+    "max_buffer_duration": 30000,
     "ts_max": 120,
     "tolerance": 10
   },
-  "playback-of-encrypted-content": {
+  "playback-of-encrypted-content-manual.html": {
     "ts_max": 120,
     "tolerance": 10
   },
-  "restricted-splicing-of-encrypted-content": {
+  "restricted-splicing-of-encrypted-content-manual.html": {
     "ts_max": 120,
     "tolerance": 10
   },
-  "sequential-playback-of-encrypted-and-non-encrypted-baseline-content": {
+  "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual.html": {
     "ts_max": 120
   }
 }

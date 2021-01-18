@@ -32,6 +32,7 @@ function DpctfTest(config) {
   var EXECUTION_MODE_MANUAL = "manual";
   var EXECUTION_MODE_PRGRAMMATIC = "programmatic";
 
+  var token = urlParams["token"];
   var _execution_mode = urlParams["mode"] || EXECUTION_MODE_AUTO;
 
   // Specify workflow
@@ -120,6 +121,19 @@ function DpctfTest(config) {
           () =>
             new Promise(function (resolve) {
               calculateMissingParameters();
+
+              var playout = parameters.playout;
+              var ranges = Object.keys(playout);
+              for (var range of ranges) {
+                console.log(range);
+                var representationNumber = playout[range];
+                var rangeParts = range.split("-");
+                player.setVideoSegments({
+                  representationNumber: representationNumber,
+                  startSegment: rangeParts[0],
+                  endSegment: rangeParts[1],
+                });
+              }
 
               if (!setupTestCallback) resolve();
               setupTestCallback(player, resolve, parameters);
@@ -315,19 +329,33 @@ function DpctfTest(config) {
         var response = this.responseText;
         var testConfig = JSON.parse(response);
         var defaultParameters = testConfig.all;
-        var testParameters = testConfig[testInfo.id];
+        var templateParameters = testConfig[testInfo.code];
+        var testParameters = testConfig[testInfo.path];
         var parameters = {};
 
         var minBufferDuration = null;
         if (!minBufferDuration && testParameters)
           minBufferDuration = testParameters.min_buffer_duration;
+        if (!minBufferDuration && templateParameters)
+          minBufferDuration = templateParameters.min_buffer_duration;
         if (!minBufferDuration && defaultParameters)
           minBufferDuration = defaultParameters.min_buffer_duration;
         if (!minBufferDuration) minBufferDuration = 30000;
         parameters.minBufferDuration = minBufferDuration;
 
+        var maxBufferDuration = null;
+        if (!maxBufferDuration && testParameters)
+          maxBufferDuration = testParameters.max_buffer_duration;
+        if (!maxBufferDuration && templateParameters)
+          maxBufferDuration = templateParameters.max_buffer_duration;
+        if (!maxBufferDuration && defaultParameters)
+          maxBufferDuration = defaultParameters.max_buffer_duration;
+        if (!maxBufferDuration) maxBufferDuration = 30000;
+        parameters.minBufferDuration = maxBufferDuration;
+
         var tsMax = null;
-        if (!tsMax && testParameters) tsMax = testParameters.ts_max;
+        if (!tsMax & testParameters) tsMax = testParameters.ts_max;
+        if (!tsMax && templateParameters) tsMax = templateParameters.ts_max;
         if (!tsMax && defaultParameters) tsMax = defaultParameters.ts_max;
         if (!tsMax) tsMax = 120;
         parameters.tsMax = tsMax;
@@ -335,26 +363,47 @@ function DpctfTest(config) {
         var randomAccessFragment = null;
         if (!randomAccessFragment && testParameters)
           randomAccessFragment = testParameters.random_access_fragment;
+        if (!randomAccessFragment && templateParameters)
+          randomAccessFragment = templateParameters.random_access_fragment;
         if (!randomAccessFragment && defaultParameters)
           randomAccessFragment = defaultParameters.random_access_fragment;
-        if (!randomAccessFragment) randomAccessFragment = null;
         parameters.randomAccessFragment = randomAccessFragment;
 
         var randomAccessTime = null;
         if (!randomAccessTime && testParameters)
           randomAccessTime = testParameters.random_access_time;
+        if (!randomAccessTime && templateParameters)
+          randomAccessTime = templateParameters.random_access_time;
         if (!randomAccessTime && defaultParameters)
           randomAccessTime = defaultParameters.random_access_time;
-        if (!randomAccessTime) randomAccessTime = null;
         parameters.randomAccessTime = randomAccessTime;
 
         var playout = null;
         if (!playout && testParameters) playout = testParameters.playout;
+        if (!playout && templateParameters)
+          playout = templateParameters.playout;
         if (!playout && defaultParameters) playout = defaultParameters.playout;
-        if (!playout) playout = null;
+        if (playout) {
+          var objectPlayout = {};
+          var start = 0;
+          var currentRep = playout[0];
+          for (var i = 0; i < playout.length; i++) {
+            if (currentRep === playout[i] && i !== playout.length - 1) continue;
+            var range = start + "-" + i;
+            objectPlayout[range] = currentRep;
+            currentRep = playout[i];
+            start = i + 1;
+          }
+          playout = objectPlayout;
+        }
         parameters.playout = playout;
 
-        console.log(testParameters, defaultParameters, parameters);
+        console.log(
+          testParameters,
+          templateParameters,
+          defaultParameters,
+          parameters
+        );
 
         resolve(parameters);
       });
@@ -387,22 +436,22 @@ function DpctfTest(config) {
     }
 
     if (!parameters.playout) {
-      console.log("CALCULATING PLAYOUT");
       var playout = {};
-      var representationLength = totalSegments / totalRepresentations;
+      var representationLength = parseInt(totalSegments / totalRepresentations);
       var currentSegment = 0;
 
-      console.log(totalRepresentations);
-
       for (var i = 1; i <= totalRepresentations; i++) {
-        var range = currentSegment + "-" + representationLength * i;
-        console.log(range);
-        currentSegment = representationLength * i + 1;
+        var range;
+        if (i === totalRepresentations) {
+          range = currentSegment + "-" + (totalSegments - 1);
+        } else {
+          range = currentSegment + "-" + (representationLength * i - 1);
+        }
+        currentSegment = representationLength * i;
         playout[range] = i - 1;
       }
       parameters.playout = playout;
     }
-    console.log(parameters);
   }
 }
 

@@ -28,23 +28,19 @@
         title: "Random Access to Time",
         description:
           "A track is randomly accessed and played back, starting from a specific time onwards.\nThe random access in this case may occur in the middle of any Fragment.",
-        path: location.pathname,
+        path: "{{TEST_PATH}}",
+        code: "{{TEMPLATE_NAME}}",
         params: urlParams,
         observations: [],
       };
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var tsMax = urlParams["tsMax"] || 120;
-      var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var token = urlParams["token"];
       var videoContentModel = "{{VIDEO_MPD_URL}}";
       var audioContentModel = "{{AUDIO_MPD_URL}}";
 
       new DpctfTest({
         testInfo: TEST_INFO,
-        minBufferDuration: minBufferDuration,
-        token: token,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
         videoElement: video,
@@ -55,17 +51,14 @@
         outOfOrderLoading: true,
       });
 
-      function setupTest(player, done) {
-        var manifest = player.getVideoManifest();
-        var cmafTrackLength = player.getVideoManifest().getDuration();
-        var variance = cmafTrackLength * 0.5;
-        var randomAccessTime =
-          cmafTrackLength * 0.5 + (Math.random() * variance - variance * 0.5);
+      function setupTest(player, done, parameters) {
+        var randomAccessTime = parameters.randomAccessTime;
         player.setCurrentTime(randomAccessTime);
         done();
       }
 
-      function executeTest(player, done) {
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();

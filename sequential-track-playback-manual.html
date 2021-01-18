@@ -26,11 +26,12 @@
     <script>
       // Global variables
       var TEST_INFO = {
+        id: "sequential-track-playback",
         title: "Sequential Track Playback",
         description:
           "Sequential track playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization.",
-        path: location.pathname,
-        params: urlParams,
+        path: "{{TEST_PATH}}",
+        code: "{{TEMPLATE_NAME}}",
         observations: [
           {
             name: "Low start-up delay",
@@ -68,15 +69,11 @@
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var token = urlParams["token"];
       var videoContentModel = "{{VIDEO_MPD_URL}}";
       var audioContentModel = "{{AUDIO_MPD_URL}}";
 
       new DpctfTest({
         testInfo: TEST_INFO,
-        minBufferDuration: minBufferDuration,
-        token: token,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
         videoElement: video,
@@ -85,7 +82,8 @@
         executeTest: executeTest,
       });
 
-      function executeTest(player, done) {
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();

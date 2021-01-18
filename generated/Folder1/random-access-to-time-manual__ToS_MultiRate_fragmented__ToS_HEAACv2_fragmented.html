@@ -28,20 +28,19 @@
         title: "Random Access to Time",
         description:
           "A track is randomly accessed and played back, starting from a specific time onwards.\nThe random access in this case may occur in the middle of any Fragment.",
-        path: location.pathname,
+        path: "Folder1/random-access-to-time-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
+        code: "random-access-to-time-manual.html",
         params: urlParams,
         observations: [],
       };
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var token = urlParams["token"];
       var videoContentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
       var audioContentModel = "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd";
 
       new DpctfTest({
         testInfo: TEST_INFO,
-        token: token,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
         videoElement: video,

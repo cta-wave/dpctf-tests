@@ -29,7 +29,8 @@
         title: "Playback over WAVE Baseline Splice Constraints",
         description:
           "Playback over splices enables the content provider to offer a sequence of Switching Sets with less restricted encoding requirements than a track. This feature is especially important in case of program changes and ad insertion.",
-        path: location.pathname,
+        path: "Folder2/playback-over-wave-baseline-splice-constraints-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
+        code: "playback-over-wave-baseline-splice-constraints-manual.html",
         params: urlParams,
         observations: [],
       };
@@ -37,51 +38,22 @@
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var token = urlParams["token"];
-      var playout = urlParams["playout"] || "";
-      playout = playout.split(",");
       var videoContentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
       var audioContentModel = "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd";
 
       new DpctfTest({
         testInfo: TEST_INFO,
-        minBufferDuration: minBufferDuration,
-        token: token,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
         infoOverlayElement: document.getElementById("info-overlay"),
-        setupTest: setupTest,
         executeTest: executeTest,
       });
 
-      function setupTest(player, done) {
-        var manifest = player.getVideoManifest();
-        var periods = manifest.getPeriods();
-        var currentSegment = 0;
-        for (var i = 0; i < periods.length; i++) {
-          var period = periods[i];
-          var representationNumber = playout[i] || 0;
-          var representation = period[representationNumber];
-          var startSegment = currentSegment;
-          var endSegment =
-            startSegment + representation.getTotalSegmentsCount() - 1;
-          var offset = -currentSegment;
-          currentSegment = endSegment + 1;
-          player.setVideoSegments({
-            representationNumber: representationNumber,
-            representationOffset: offset,
-            periodNumber: i,
-            startSegment: startSegment,
-            endSegment: endSegment,
-          });
-        }
-        done();
-      }
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
 
-      function executeTest(player, done) {
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();

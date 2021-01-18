@@ -166,6 +166,7 @@ function Representation(attributes) {
   let _name = attributes.name;
   let _number = attributes.number;
   let _periodNumber = attributes.periodNumber;
+  console.log("SEG", _segments[0].getNumber());
 
   function getMimeCodec() {
     return _mimeCodec;
@@ -235,7 +236,7 @@ function Manifest(attributes) {
 
   function getRepresentations() {
     var representations = [];
-    for (var i; i < _periods.length; i++) {
+    for (var i = 0; i < _periods.length; i++) {
       representations = representations.concat(_periods[i]);
     }
     return representations;

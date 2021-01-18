@@ -29,7 +29,8 @@
         title: "Regular Playback of Chunked Content",
         description:
           "Sequential Chunked Playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF chunks to the source buffer after initialization.",
-        path: location.pathname,
+        path: "Folder3/regular-playback-of-chunked-content-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
+        code: "regular-playback-of-chunked-content-manual.html",
         params: urlParams,
         observations: [],
       };
@@ -37,45 +38,21 @@
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var token = urlParams["token"];
       var videoContentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd";
       var audioContentModel = "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd";
 
       new DpctfTest({
         testInfo: TEST_INFO,
-        minBufferDuration: minBufferDuration,
-        token: token,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
         infoOverlayElement: document.getElementById("info-overlay"),
-        setupTest: setupTest,
         executeTest: executeTest,
       });
 
-      function setupTest(player, done) {
-        var manifest = player.getVideoManifest();
-        if (!minBufferDuration) {
-          minSegmentDuration = null;
-          for (var representation of manifest.getRepresentations()) {
-            segments = representation.getSegments();
-            if (!minSegmentDuration) {
-              minSegmentDuration = segments[0].getDuration();
-            }
-            for (var segment of segments) {
-              if (segment.getDuration() >= minSegmentDuration) continue;
-              minSegmentDuration = segment.getDuration();
-            }
-          }
-          minBufferDuration = minSegmentDuration * 0.8;
-        }
-        player.setBufferTime(minBufferDuration);
-        done();
-      }
-
-      function executeTest(player, done) {
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();

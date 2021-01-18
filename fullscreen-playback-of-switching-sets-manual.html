@@ -29,7 +29,8 @@
         title: "8.11 Full Screen Playback of Switching Sets",
         description:
           "Fullscreen playback ensures that the device provide proper scaling and letter boxing.",
-        path: location.pathname,
+        path: "{{TEST_PATH}}",
+        code: "{{TEMPLATE_NAME}}",
         params: urlParams,
         observations: [
           {
@@ -44,56 +45,23 @@
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var token = urlParams["token"];
-      var playout = urlParams["playout"] || 0;
       var videoContentModel = "{{VIDEO_MPD_URL}}";
       var audioContentModel = "{{AUDIO_MPD_URL}}";
 
       new DpctfTest({
         testInfo: TEST_INFO,
-        minBufferDuration: minBufferDuration,
-        token: token,
         outOfOrderLoading: true,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
         infoOverlayElement: document.getElementById("info-overlay"),
-        setupTest: setupTest,
         executeTest: executeTest,
       });
 
-      function setupTest(player, done) {
-        var manifest = player.getVideoManifest();
-        var totalSegmentsCount = manifest
-          .getRepresentation(playout)
-          .getTotalSegmentsCount();
-        player.setVideoSegments({
-          representationNumber: playout,
-          startSegment: 0,
-          endSegment: totalSegmentsCount / 2 - 1,
-        });
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
 
-        player.on("onPlayingSegmentChange", function (segment) {
-          if (segment.number === totalSegmentsCount / 2 - 1) {
-            playout++;
-            if (playout >= manifest.representations.length) {
-              playout = 0;
-            }
-
-            player.setVideoSegments({
-              representationNumber: playout,
-              startSegment: totalSegmentsCount / 2,
-              endSegment: totalSegmentsCount - 1,
-            });
-          }
-        });
-
-        done();
-      }
-
-      function executeTest(player, done) {
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();

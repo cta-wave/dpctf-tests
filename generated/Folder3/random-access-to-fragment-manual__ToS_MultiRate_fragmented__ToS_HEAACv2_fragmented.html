@@ -30,7 +30,8 @@
         title: "Random Access to Fragment",
         description:
           "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
-        path: location.pathname,
+        path: "Folder3/random-access-to-fragment-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
+        code: "random-access-to-fragment-manual.html",
         observations: [],
       };
       var video = document.querySelector("video");
@@ -38,11 +39,9 @@
 
       var videoContentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
       var audioContentModel = "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd";
-      var token = urlParams["token"];
 
       new DpctfTest({
         testInfo: TEST_INFO,
-        token: token,
         videoContentModel: videoContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
@@ -70,14 +69,12 @@
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-              console.log(minBufferDuration);
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();
         } else {
           player.on("onVideoSegmentLoaded", function (event) {
             if (player.getPreBufferedTime() >= minBufferDuration) {
-                    console.log(player.getPreBufferedTime());
               player.play();
             }
           });

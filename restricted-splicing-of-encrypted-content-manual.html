@@ -28,20 +28,19 @@
       var TEST_INFO = {
         title: "Restricted Splicing of Encrypted Content",
         description: "",
-        path: location.pathname,
+        path: "{{TEST_PATH}}",
+        code: "{{TEMPLATE_NAME}}",
         params: urlParams,
         observations: [],
       };
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var token = urlParams["token"];
       var videoContentModel = "{{VIDEO_MPD_URL}}";
       var audioContentModel = "{{AUDIO_MPD_URL}}";
 
       new DpctfTest({
         testInfo: TEST_INFO,
-        token: token,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
         videoElement: video,
@@ -50,7 +49,7 @@
         executeTest: executeTest,
       });
 
-      function executeTest(player, done) {
+      function executeTest(player, done, parameters) {
         player.startBuffering();
         var bufferTime = player.getBufferTime();
         if (player.getPreBufferedTime() >= bufferTime) {

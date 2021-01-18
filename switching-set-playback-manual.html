@@ -29,24 +29,19 @@
         title: "Switching Set Playback",
         description:
           "Playback of a switching set assumes that the application can switch across the fragments of different tracks without observing any temporal or spatial misalignment during playback.",
-        path: location.pathname,
+        path: "{{TEST_PATH}}",
+        code: "sequential-track-playback-manual.html",
         params: urlParams,
         observations: [],
       };
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var tsMax = urlParams["tsMax"] || 120;
-      var minBufferDuration = urlParams["min_buffer_duration"] || 30;
       var videoContentModel = "{{VIDEO_MPD_URL}}";
       var audioContentModel = "{{AUDIO_MPD_URL}}";
-      var playout = urlParams["playout"] || 0;
-      var token = urlParams["token"];
 
       new DpctfTest({
         testInfo: TEST_INFO,
-        minBufferDuration: minBufferDuration,
-        token: token,
         videoContentModel: videoContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
@@ -55,51 +50,12 @@
         setupTest: setupTest,
       });
 
-      function setupTest(player, done) {
-        var manifest = player.getVideoManifest();
-        var totalSegmentsCount = manifest
-          .getRepresentation(playout)
-          .getTotalSegmentsCount();
-        player.setVideoSegments({
-          representationNumber: playout,
-          startSegment: 0,
-          endSegment: totalSegmentsCount / 2 - 1,
-        });
-        playout++;
-        if (playout >= totalSegmentsCount) {
-          playout = 0;
-        }
-        player.setVideoSegments({
-          representationNumber: playout,
-          startSegment: totalSegmentsCount / 2,
-          endSegment: totalSegmentsCount - 1,
-        });
+      function setupTest(player, done, parameters) {
         done();
-
-        //document.addEventListener("keydown", function (event) {
-        //  if (event.keyCode === 13) {
-        //    var repIndex =
-        //      player
-        //        .getManifest()
-        //        .getRepresentations()
-        //        .indexOf(player.playingRepresentation) + 1;
-        //    if (repIndex >= player.getVideoManifest().representations.length) {
-        //      repIndex = 0;
-        //    }
-        //    var totalSegmentsCount = player
-        //      .getManifest()
-        //      .getRepresentation(1)
-        //      .getTotalSegmentsCount();
-        //    player.setVideoSegments({
-        //      representationNumber: repIndex,
-        //      startSegment: player.getPlayingSegment().number,
-        //      endSegment: totalSegmentsCount - 1,
-        //    });
-        //  }
-        //});
       }
 
-      function executeTest(player, done) {
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();

@@ -29,22 +29,19 @@
         title: "Regular Playback of Chunked Content, non-aligned append",
         description:
           "Sequential Chunked Playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF chunks to the source buffer after initialization.  Non-aligned refers to the situation where the data that is appended to the source buffer is appended progressively in pieces that do not necessarily align with the boundaries of the CMAF chunks.",
-        path: location.pathname,
+        path: "Folder1/regular-playback-of-chunked-content-non-aligned-append-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
+        code: "regular-playback-of-chunked-content-non-aligned-append-manual.html",
         params: urlParams,
         observations: [],
       };
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var minBufferDuration = urlParams["min_buffer_duration"] || 30;
-      var token = urlParams["token"];
       var videoContentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd";
       var audioContentModel = "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd";
 
       new DpctfTest({
         testInfo: TEST_INFO,
-        minBufferDuration: minBufferDuration,
-        token: token,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
         videoElement: video,
@@ -53,7 +50,8 @@
         executeTest: executeTest,
       });
 
-      function executeTest(player, done) {
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();

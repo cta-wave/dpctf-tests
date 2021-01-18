@@ -29,16 +29,17 @@ def main():
         audio_mpd_url = test[2]
         grouping_dir = test[3]
         test_template_path = get_test_path(test[0])
-        content = load_file(test_template_path)
-        content = generate_test(content, video_mpd_url, audio_mpd_url)
-        template_file_name = str(test_template_path).split("/")[-1]
-        template_file_name = ".".join(template_file_name.split(".")[0:-1])
+        template_file = str(test_template_path).split("/")[-1]
+        template_file_name = ".".join(template_file.split(".")[0:-1])
         video_file_name = str(video_mpd_url).split("/")[-1]
         video_file_name = ".".join(video_file_name.split(".")[0:-1])
         audio_file_name = str(audio_mpd_url).split("/")[-1]
         audio_file_name = ".".join(audio_file_name.split(".")[0:-1])
         test_id = generate_test_id(template_file_name, video_file_name, audio_file_name)
-        test_path = generate_test_path(DEST_DIR, grouping_dir, template_file_name, video_file_name, audio_file_name)
+        test_path_relative = generate_test_path(grouping_dir, template_file_name, video_file_name, audio_file_name)
+        test_path = "{}/{}".format(DEST_DIR, test_path_relative)
+        content = load_file(test_template_path)
+        content = generate_test(content, video_mpd_url, audio_mpd_url, test_path_relative, template_file)
         write_file(test_path, content)
         tests.append({
             "id": test_id,
@@ -113,13 +114,15 @@ def load_csv(path):
 def get_test_path(test_id):
     return Path(TESTS_DIR, test_id + ".html")
 
-def generate_test(template, video_mpd_url, audio_mpd_url):
+def generate_test(template, video_mpd_url, audio_mpd_url, test_path, template_name):
     template = template.replace("{{VIDEO_MPD_URL}}", video_mpd_url)
     template = template.replace("{{AUDIO_MPD_URL}}", audio_mpd_url)
+    template = template.replace("{{TEST_PATH}}", test_path)
+    template = template.replace("{{TEMPLATE_NAME}}", template_name)
     return template
 
-def generate_test_path(dir_path, grouping_dir, template_file_name, video_file_name, audio_file_name):
-    test_path = "{}/{}/{}__{}__{}".format(dir_path, grouping_dir, template_file_name, video_file_name, audio_file_name)
+def generate_test_path(grouping_dir, template_file_name, video_file_name, audio_file_name):
+    test_path = "{}/{}__{}__{}".format(grouping_dir, template_file_name, video_file_name, audio_file_name)
     count = 1
     suffix = ""
     while os.path.exists(test_path + suffix + ".html"):
