@@ -14,6 +14,7 @@ function DpctfTest(config) {
   var ignoreObservations = false;
   var resolveWaitForObservation = null;
   var resolveWaitingForResults = null;
+  var lastQrTime = null;
 
   var ACTION_INITIALIZE = "initialize";
   var ACTION_PLAY = "play";
@@ -85,6 +86,7 @@ function DpctfTest(config) {
         _lastAction = ACTION_PLAY;
         _videoState = VIDEO_STATE_PLAYING;
         updateQrCode();
+        updateQrCodePosition();
       });
 
       video.addEventListener("pause", function () {
@@ -95,6 +97,10 @@ function DpctfTest(config) {
       video.addEventListener("ended", function () {
         _videoState = VIDEO_STATE_ENDED;
         updateQrCode();
+      });
+
+      window.addEventListener("resize", function () {
+        updateQrCodePosition();
       });
 
       //// Player Setup ////
@@ -136,7 +142,9 @@ function DpctfTest(config) {
 
               if (parameters.duration && player.getDuration()) {
                 if (parameters.duration !== player.getDuration()) {
-                  throw new Error("Provided duration does not match MPD duration!");
+                  throw new Error(
+                    "Provided duration does not match MPD duration!"
+                  );
                 }
               }
 
@@ -146,8 +154,13 @@ function DpctfTest(config) {
               }
 
               if (parameters.totalRepresentations) {
-                if (parameters.totalRepresentations !== player.getVideoManifest().getRepresentations().length) {
-                  throw new Error("Provided total representations do not match MPD total representations!");
+                if (
+                  parameters.totalRepresentations !==
+                  player.getVideoManifest().getRepresentations().length
+                ) {
+                  throw new Error(
+                    "Provided total representations do not match MPD total representations!"
+                  );
                 }
               }
 
@@ -195,6 +208,7 @@ function DpctfTest(config) {
 
           player.on("onTimeUpdate", function (currentTime) {
             infoOverlay.updateOverlayInfo(player, testInfo);
+            updateQrCode(currentTime);
           });
 
           player.on("onPlayingVideoRepresentationChange", function (
@@ -210,6 +224,7 @@ function DpctfTest(config) {
           } else {
             resolve();
           }
+          updateQrCodePosition();
         });
     });
   }
@@ -331,11 +346,60 @@ function DpctfTest(config) {
     }
   }
 
-  function updateQrCode() {
+  function updateQrCode(currentTime) {
     if (!qrCode) return;
-    var content = JSON.stringify({ state: _videoState, action: _lastAction });
+    var object = { s: _videoState, a: _lastAction };
+    if (currentTime) object.ct = currentTime;
+    if (currentTime && lastQrTime) object.d = lastQrTime;
+    var start = new Date().getTime();
+    var content = JSON.stringify(object);
     qrCode.innerHTML = "";
-    new QRCode(qrCode, content);
+    new QRCode(qrCode, {
+      text: content,
+      colorDark: "#ffffff",
+      colorLight: "#000000",
+    });
+    lastQrTime = new Date().getTime() - start;
+  }
+
+  function updateQrCodePosition() {
+    var qrCode = document.getElementById("qr-code");
+    var top = 0.3;
+    var left = 0.7;
+    var rect = video.getBoundingClientRect();
+    var elementWidth = rect.width;
+    var elementHeight = rect.height;
+    var videoWidth = video.videoWidth || elementWidth;
+    var videoHeight = video.videoHeight || elementHeight;
+    var videoRatio = videoWidth / videoHeight;
+    var elementRatio = elementWidth / elementHeight;
+    var width;
+    var height;
+    var offsetLeft;
+    var offsetTop;
+    var scale = elementHeight / 1000;
+    if (videoRatio < elementRatio) {
+      // Video element is wider
+      var actualVideoWidth = elementHeight * videoRatio;
+      var borderWidth = (elementWidth - actualVideoWidth) / 2;
+      height = elementHeight;
+      width = actualVideoWidth;
+      offsetTop = 0;
+      offsetLeft = borderWidth;
+    } else {
+      // Video element is taller
+      var actualVideoHeight = elementWidth / videoRatio;
+      var borderHeight = (elementHeight - actualVideoHeight) / 2;
+      width = elementWidth;
+      height = actualVideoHeight;
+      offsetLeft = 0;
+      offsetTop = borderHeight;
+    }
+    qrCode.style.top = top * height + offsetTop + "px";
+    qrCode.style.left = left * width + offsetLeft + "px";
+    qrCode.style.width = 300 * scale + "px";
+    qrCode.style.height = 300 * scale + "px";
+    qrCode.style.padding = 20 * scale + "px";
   }
 
   function fetchParameters() {
@@ -415,8 +479,7 @@ function DpctfTest(config) {
         parameters.playout = playout;
 
         var duration = null;
-        if (!duration && testParameters)
-          duration = testParameters.duration;
+        if (!duration && testParameters) duration = testParameters.duration;
         if (!duration && templateParameters)
           duration = templateParameters.duration;
         if (!duration && defaultParameters)
