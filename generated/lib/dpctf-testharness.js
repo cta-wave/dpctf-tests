@@ -14,6 +14,7 @@ function DpctfTest(config) {
   var ignoreObservations = false;
   var resolveWaitForObservation = null;
   var resolveWaitingForResults = null;
+  var lastQrTime = null;
 
   var ACTION_INITIALIZE = "initialize";
   var ACTION_PLAY = "play";
@@ -125,7 +126,6 @@ function DpctfTest(config) {
               var playout = parameters.playout;
               var ranges = Object.keys(playout);
               for (var range of ranges) {
-                console.log(range);
                 var representationNumber = playout[range];
                 var rangeParts = range.split("-");
                 player.setVideoSegments({
@@ -133,6 +133,23 @@ function DpctfTest(config) {
                   startSegment: rangeParts[0],
                   endSegment: rangeParts[1],
                 });
+              }
+
+              if (parameters.duration && player.getDuration()) {
+                if (parameters.duration !== player.getDuration()) {
+                  throw new Error("Provided duration does not match MPD duration!");
+                }
+              }
+
+              console.log("Duration", player.getDuration());
+              if (!player.getDuration()) {
+                player.setDuration(parameters.duration);
+              }
+
+              if (parameters.totalRepresentations) {
+                if (parameters.totalRepresentations !== player.getVideoManifest().getRepresentations().length) {
+                  throw new Error("Provided total representations do not match MPD total representations!");
+                }
               }
 
               if (!setupTestCallback) resolve();
@@ -179,6 +196,7 @@ function DpctfTest(config) {
 
           player.on("onTimeUpdate", function (currentTime) {
             infoOverlay.updateOverlayInfo(player, testInfo);
+            updateQrCode(currentTime);
           });
 
           player.on("onPlayingVideoRepresentationChange", function (
@@ -315,11 +333,16 @@ function DpctfTest(config) {
     }
   }
 
-  function updateQrCode() {
+  function updateQrCode(currentTime) {
     if (!qrCode) return;
-    var content = JSON.stringify({ state: _videoState, action: _lastAction });
+    var object = { s: _videoState, a: _lastAction };
+    if (currentTime) object.ct = currentTime;
+    if (currentTime && lastQrTime) object.d = lastQrTime;
+    var start = new Date().getTime();
+    var content = JSON.stringify(object);
     qrCode.innerHTML = "";
     new QRCode(qrCode, content);
+    lastQrTime = new Date().getTime() - start;
   }
 
   function fetchParameters() {
@@ -351,7 +374,7 @@ function DpctfTest(config) {
         if (!maxBufferDuration && defaultParameters)
           maxBufferDuration = defaultParameters.max_buffer_duration;
         if (!maxBufferDuration) maxBufferDuration = 30000;
-        parameters.minBufferDuration = maxBufferDuration;
+        parameters.maxBufferDuration = maxBufferDuration;
 
         var tsMax = null;
         if (!tsMax & testParameters) tsMax = testParameters.ts_max;
@@ -398,12 +421,23 @@ function DpctfTest(config) {
         }
         parameters.playout = playout;
 
-        console.log(
-          testParameters,
-          templateParameters,
-          defaultParameters,
-          parameters
-        );
+        var duration = null;
+        if (!duration && testParameters)
+          duration = testParameters.duration;
+        if (!duration && templateParameters)
+          duration = templateParameters.duration;
+        if (!duration && defaultParameters)
+          duration = defaultParameters.duration;
+        parameters.duration = duration;
+
+        var totalRepresentations = null;
+        if (!totalRepresentations && testParameters)
+          totalRepresentations = testParameters.total_representations;
+        if (!totalRepresentations && templateParameters)
+          totalRepresentations = templateParameters.total_representations;
+        if (!totalRepresentations && defaultParameters)
+          totalRepresentations = defaultParameters.total_representations;
+        parameters.totalRepresentations = totalRepresentations;
 
         resolve(parameters);
       });
@@ -417,7 +451,6 @@ function DpctfTest(config) {
     var manifest = player.getVideoManifest();
     var representations = manifest.getRepresentations();
     var totalRepresentations = representations.length;
-    console.log(representations);
 
     if (!parameters.randomAccessFragment) {
       var totalSegments = player.getVideoSegmentsCount();

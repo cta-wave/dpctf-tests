@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="../lib/style.css" />
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+
+  <body>
+    <video style="height: 400px;"></video>
+    <div>Press Enter/Ok to continue or Up/Down to show/hide debug overlay</div>
+    <div><div id="qr-code"></div></div>
+    <div id="debug"></div>
+    <div id="log"></div>
+    <div id="info-overlay"></div>
+    <script src="../lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/player.js"></script>
+    <script src="../lib/manifest_parser.js"></script>
+    <script src="../lib/mpd-parser.js"></script>
+    <script src="../lib/wave-service.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
+    <script>
+      // Global variables
+      var TEST_INFO = {
+        id: "random-access-to-fragment",
+        title: "Random Access to Fragment",
+        description:
+          "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
+        path: "avc/random-access-to-fragment-manual__stream__.html",
+        code: "random-access-to-fragment-manual.html",
+        observations: [],
+      };
+      var video = document.querySelector("video");
+      var qrCode = document.getElementById("qr-code");
+
+      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd";
+      var audioContentModel = "";
+
+      new DpctfTest({
+        testInfo: TEST_INFO,
+        videoContentModel: videoContentModel,
+        videoElement: video,
+        qrCodeElement: qrCode,
+        infoOverlayElement: document.getElementById("info-overlay"),
+        executeTest: executeTest,
+        setupTest: setupTest,
+      });
+
+      function setupTest(player, done, parameters) {
+        var randomAccessFragment = parameters.randomAccessFragment;
+        var manifest = player.getVideoManifest();
+        var videoSegments = player.getVideoSegments();
+        var totalSegments = player.getVideoSegmentsCount();
+        var cmafTrackLength = player.getVideoManifest().getDuration();
+
+        var fragmentTime = 0;
+        for (var i = 0; i < randomAccessFragment; i++) {
+          var segmentDuration = videoSegments[i].getDuration();
+          fragmentTime += segmentDuration;
+        }
+        player.setCurrentTime(fragmentTime);
+
+        done();
+      }
+
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
+        player.startBuffering();
+        if (player.getPreBufferedTime() >= minBufferDuration) {
+          player.play();
+        } else {
+          player.on("onVideoSegmentLoaded", function (event) {
+            if (player.getPreBufferedTime() >= minBufferDuration) {
+              player.play();
+            }
+          });
+        }
+
+        async_test(function (test) {
+          video.addEventListener(
+            "play",
+            test.step_func(function (event) {
+              if (video.paused) return;
+              assert_true(true);
+              test.done();
+            })
+          );
+        }, "Playback starts");
+
+        async_test(function (test) {
+          var count = 0;
+          video.addEventListener(
+            "timeupdate",
+            test.step_func(function (event) {
+              count += 1;
+              if (count < 5) return;
+              assert_true(true);
+              test.done();
+            })
+          );
+        }, "5 time update events fired");
+
+        done();
+      }
+    </script>
+  </body>
+</html>

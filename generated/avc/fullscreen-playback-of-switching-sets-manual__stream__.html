@@ -9,16 +9,11 @@
   </head>
 
   <body>
-    <div id="content-wrapper">
-      <div id="video-wrapper">
-      <video></video>
-      <!--<img src="https://user-images.githubusercontent.com/9865551/103573789-202dc780-4ecf-11eb-816b-7264d15a3c86.png" />-->
-      <div><div id="qr-code"></div></div>
-      </div>
-      <div>Press Enter/Ok to continue or Up/Down to show/hide debug overlay</div>
-      <div id="debug"></div>
-      <div id="log"></div>
-    </div>
+    <video style="height: 400px;"></video>
+    <div>Press Enter/Ok to continue or Up/Down to show/hide debug overlay</div>
+    <div><div id="qr-code"></div></div>
+    <div id="debug"></div>
+    <div id="log"></div>
     <div id="info-overlay"></div>
     <script src="../lib/mozilla/object-keys-polyfill.js"></script>
     <script src="../lib/stefanpenner/es6-promise.min.js"></script>
@@ -31,37 +26,13 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "sequential-track-playback",
-        title: "Sequential Track Playback",
+        title: "8.11 Full Screen Playback of Switching Sets",
         description:
-          "Sequential track playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization.",
-        path: "Folder3/sequential-track-playback-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
-        code: "sequential-track-playback-manual.html",
+          "Fullscreen playback ensures that the device provide proper scaling and letter boxing.",
+        path: "avc/fullscreen-playback-of-switching-sets-manual__stream__.html",
+        code: "fullscreen-playback-of-switching-sets-manual.html",
+        params: urlParams,
         observations: [
-          {
-            name: "Low start-up delay",
-            description:
-              "The start-up delay should be sufficiently low, i.e., TR [k, 1] – Ti < TSMax.",
-            id: "start-up-delay",
-          },
-          {
-            name: "Render every sample",
-            description:
-              "Every sample S[k,s] shall be rendered and the samples shall be rendered in increasing presentation time order.",
-            id: "every-sample-rendered",
-          },
-          {
-            name: "Duration matches CMAF track",
-            description:
-              "The playback duration of the playback matches the duration of the CMAF Track, i.e. TR[k, S] = TR [k, 1] + td[k].",
-            id: "duration-matches-cmaf-track",
-          },
-          {
-            name: "Presented sample correct",
-            description:
-              "The presented sample matches the one reported by the currentTime value within the tolerance of the sample duration.",
-            id: "sample-matches-current-time",
-          },
           {
             name: "Video rendered in entire window",
             description:
@@ -74,11 +45,12 @@
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var videoContentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
-      var audioContentModel = "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd";
+      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd";
+      var audioContentModel = "";
 
       new DpctfTest({
         testInfo: TEST_INFO,
+        outOfOrderLoading: true,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
         videoElement: video,
@@ -89,6 +61,7 @@
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
+
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();

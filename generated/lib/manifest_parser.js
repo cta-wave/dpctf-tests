@@ -166,7 +166,6 @@ function Representation(attributes) {
   let _name = attributes.name;
   let _number = attributes.number;
   let _periodNumber = attributes.periodNumber;
-  console.log("SEG", _segments[0].getNumber());
 
   function getMimeCodec() {
     return _mimeCodec;

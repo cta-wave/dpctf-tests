@@ -35,7 +35,7 @@
         title: "Sequential Track Playback",
         description:
           "Sequential track playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization.",
-        path: "Folder3/sequential-track-playback-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
+        path: "avc/sequential-track-playback-manual__stream__.html",
         code: "sequential-track-playback-manual.html",
         observations: [
           {
@@ -74,8 +74,8 @@
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var videoContentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
-      var audioContentModel = "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd";
+      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd";
+      var audioContentModel = "";
 
       new DpctfTest({
         testInfo: TEST_INFO,

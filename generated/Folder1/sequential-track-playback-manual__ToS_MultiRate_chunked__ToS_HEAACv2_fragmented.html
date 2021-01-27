@@ -9,11 +9,16 @@
   </head>
 
   <body>
-    <video style="height: 400px;"></video>
-    <div>Press Enter/Ok to continue or Up/Down to show/hide debug overlay</div>
-    <div><div id="qr-code"></div></div>
-    <div id="debug"></div>
-    <div id="log"></div>
+    <div id="content-wrapper">
+      <div id="video-wrapper">
+      <video></video>
+      <!--<img src="https://user-images.githubusercontent.com/9865551/103573789-202dc780-4ecf-11eb-816b-7264d15a3c86.png" />-->
+      <div><div id="qr-code"></div></div>
+      </div>
+      <div>Press Enter/Ok to continue or Up/Down to show/hide debug overlay</div>
+      <div id="debug"></div>
+      <div id="log"></div>
+    </div>
     <div id="info-overlay"></div>
     <script src="../lib/mozilla/object-keys-polyfill.js"></script>
     <script src="../lib/stefanpenner/es6-promise.min.js"></script>
