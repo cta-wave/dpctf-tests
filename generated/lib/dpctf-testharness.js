@@ -14,7 +14,6 @@ function DpctfTest(config) {
   var ignoreObservations = false;
   var resolveWaitForObservation = null;
   var resolveWaitingForResults = null;
-  var lastQrTime = null;
 
   var ACTION_INITIALIZE = "initialize";
   var ACTION_PLAY = "play";
@@ -196,7 +195,6 @@ function DpctfTest(config) {
 
           player.on("onTimeUpdate", function (currentTime) {
             infoOverlay.updateOverlayInfo(player, testInfo);
-            updateQrCode(currentTime);
           });
 
           player.on("onPlayingVideoRepresentationChange", function (
@@ -333,16 +331,11 @@ function DpctfTest(config) {
     }
   }
 
-  function updateQrCode(currentTime) {
+  function updateQrCode() {
     if (!qrCode) return;
-    var object = { s: _videoState, a: _lastAction };
-    if (currentTime) object.ct = currentTime;
-    if (currentTime && lastQrTime) object.d = lastQrTime;
-    var start = new Date().getTime();
-    var content = JSON.stringify(object);
+    var content = JSON.stringify({ state: _videoState, action: _lastAction });
     qrCode.innerHTML = "";
     new QRCode(qrCode, content);
-    lastQrTime = new Date().getTime() - start;
   }
 
   function fetchParameters() {
