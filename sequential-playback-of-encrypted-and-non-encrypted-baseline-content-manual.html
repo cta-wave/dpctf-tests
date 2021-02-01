@@ -69,28 +69,20 @@
         }
 
         async_test(function (test) {
+          var query = location.search.replace(/\?/, "");
+          var match = query.match(/redirect_time=([^&]+)/);
+          var REDIRECT_TIME = match ? match[1] : null;
+          if (!REDIRECT_TIME) REDIRECT_TIME = 5;
           video.addEventListener(
-            "play",
-            test.step_func(function (event) {
-              if (video.paused) return;
-              assert_true(true);
-              test.done();
-            })
+            "ended",
+            function (event) {
+              setTimeout(test.step_func(function () {
+                assert_true(true);
+                test.done();
+              }), REDIRECT_TIME * 1000);
+            }
           );
-        }, "Playback starts");
-
-        async_test(function (test) {
-          var count = 0;
-          video.addEventListener(
-            "timeupdate",
-            test.step_func(function (event) {
-              count += 1;
-              if (count < 5) return;
-              assert_true(true);
-              test.done();
-            })
-          );
-        }, "5 time update events fired");
+        }, "video ended event fired");
 
         done();
       }

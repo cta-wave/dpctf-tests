@@ -13,12 +13,10 @@
     "tolerance": 10
   },
   "random-access-to-fragment-manual.html": {
-    "random_access_fragment": 12,
     "ts_max": 120,
     "tolerance": 10
   },
   "random-access-to-time-manual.html": {
-    "random_access_time": 234,
     "ts_max": 120,
     "tolerance": 10
   },
