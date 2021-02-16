@@ -46,7 +46,7 @@
       var videoContentModel = "{{VIDEO_MPD_URL}}";
       var audioContentModel = "{{AUDIO_MPD_URL}}";
 
-      new DpctfTest({
+      var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
@@ -70,7 +70,7 @@
           });
         }
 
-        async_test(function (test) {
+        dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
           var match = query.match(/redirect_time=([^&]+)/);
           var REDIRECT_TIME = match ? match[1] : null;

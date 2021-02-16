@@ -11,10 +11,12 @@
   <body>
     <div id="content-wrapper">
       <div id="video-wrapper">
-      <video></video>
-      <div><div id="qr-code"></div></div>
+        <video></video>
+        <div><div id="qr-code"></div></div>
       </div>
-      <div>Press Enter/Ok to continue or Up/Down to show/hide debug overlay</div>
+      <div>
+        Press Enter/Ok to continue or Up/Down to show/hide debug overlay
+      </div>
       <div id="debug"></div>
       <div id="log"></div>
     </div>
@@ -44,7 +46,7 @@
       var videoContentModel = "{{VIDEO_MPD_URL}}";
       var audioContentModel = "{{AUDIO_MPD_URL}}";
 
-      new DpctfTest({
+      var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
         videoContentModel: videoContentModel,
         videoElement: video,
@@ -52,6 +54,7 @@
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
         setupTest: setupTest,
+        usePlayout: true,
       });
 
       function setupTest(player, done, parameters) {
@@ -71,20 +74,20 @@
           });
         }
 
-        async_test(function (test) {
+        dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
           var match = query.match(/redirect_time=([^&]+)/);
           var REDIRECT_TIME = match ? match[1] : null;
           if (!REDIRECT_TIME) REDIRECT_TIME = 5;
-          video.addEventListener(
-            "ended",
-            function (event) {
-              setTimeout(test.step_func(function () {
+          video.addEventListener("ended", function (event) {
+            setTimeout(
+              test.step_func(function () {
                 assert_true(true);
                 test.done();
-              }), REDIRECT_TIME * 1000);
-            }
-          );
+              }),
+              REDIRECT_TIME * 1000
+            );
+          });
         }, "video ended event fired");
 
         done();

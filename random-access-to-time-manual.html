@@ -45,7 +45,7 @@
       var videoContentModel = "{{VIDEO_MPD_URL}}";
       var audioContentModel = "{{AUDIO_MPD_URL}}";
 
-      new DpctfTest({
+      var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
@@ -67,7 +67,7 @@
         var minBufferDuration = parameters.minBufferDuration / 1000;
         var currentTime = player.getCurrentTime();
         var totalTime = player.getDuration();
-        var timeLeft = totalTime - currentTime;
+        var timeLeft = parseInt(totalTime - currentTime);
         player.startBuffering();
         if (
           player.getPreBufferedTime() >= minBufferDuration ||
@@ -76,13 +76,16 @@
           player.play();
         } else {
           player.on("onVideoSegmentLoaded", function (event) {
-            if (player.getPreBufferedTime() >= minBufferDuration) {
+            if (
+              player.getPreBufferedTime() >= minBufferDuration ||
+              player.getPreBufferedTime() >= timeLeft
+            ) {
               player.play();
             }
           });
         }
 
-        async_test(function (test) {
+        dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
           var match = query.match(/redirect_time=([^&]+)/);
           var REDIRECT_TIME = match ? match[1] : null;
