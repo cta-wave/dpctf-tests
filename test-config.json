@@ -73,5 +73,9 @@
   },
   "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual.html": {
     "ts_max": 120
+  },
+  "cenc/playback-of-encrypted-content-manual-https__Manifest_ClearKey__.html": {
+    "key_id": "nrQFDeRLSAKTLifXUIPiZg",
+    "content_key": "FmY0xnWCPCNaSpRG-tUuTQ"
   }
 }

@@ -35,24 +35,16 @@
         id: "playback-of-encrypted-content",
         title: "Playback of encrypted content",
         description: "",
-        path: "Folder2/playback-of-encrypted-content-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
-        code: "playback-of-encrypted-content-manual.html",
+        path: "cenc/playback-of-encrypted-content-manual-https__Manifest_ClearKey__.html",
+        code: "playback-of-encrypted-content-manual-https.html",
         observations: [],
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var videoContentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd";
-      var audioContentModel = "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd";
-
-      //video.addEventListener("encrypted", function (event) {
-      //        console.log("encrypted", event);
-      //      });
-
-      //video.onencrypted = function (event) {
-      //        console.log("encrypted", event);
-      //      }
+      var videoContentModel = "https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_ClearKey.mpd";
+      var audioContentModel = "";
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -62,6 +54,7 @@
         qrCodeElement: qrCode,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
+        isEncryptedContent: true,
       });
 
       function executeTest(player, done, parameters) {

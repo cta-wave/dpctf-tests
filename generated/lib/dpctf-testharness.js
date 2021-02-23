@@ -38,6 +38,7 @@ function DpctfTest(config) {
   var token = urlParams["token"];
   var _execution_mode = urlParams["mode"] || EXECUTION_MODE_AUTO;
   var _redirect_time = urlParams["redirect_time"] || 5;
+  var _isEncryptedContent = !!config.isEncryptedContent;
 
   var _runningTests = [];
 
@@ -132,48 +133,57 @@ function DpctfTest(config) {
           numberOfSegmentBeforePlay: 2,
           outOfOrderLoading: outOfOrderLoading,
         })
-        .then(() => {
+        .then(function () {
           return Promise.all([
             player.loadVideo(videoContentModel),
             player.loadAudio(audioContentModel),
           ]);
         })
-        .then(
-          () =>
-            new Promise(function (resolve) {
-              calculateMissingParameters();
-
-              if (usePlayout) {
-                applyPlayout(parameters.playout);
+        .then(function () {
+          return new Promise(function (resolve) {
+            if (_isEncryptedContent) {
+              try {
+                player.setProtectionData({
+                  keyId: parameters.keyId,
+                  contentKey: parameters.contentKey,
+                });
+              } catch (error) {
+                return error;
               }
+            }
+            calculateMissingParameters();
 
-              if (parameters.duration && player.getDuration()) {
-                if (parameters.duration !== player.getDuration()) {
-                  throw new Error(
-                    "Provided duration does not match MPD duration!"
-                  );
-                }
+            if (usePlayout) {
+              applyPlayout(parameters.playout);
+            }
+
+            if (parameters.duration && player.getDuration()) {
+              if (parameters.duration !== player.getDuration()) {
+                throw new Error(
+                  "Provided duration does not match MPD duration!"
+                );
               }
+            }
 
-              if (!player.getDuration()) {
-                player.setDuration(parameters.duration);
+            if (!player.getDuration()) {
+              player.setDuration(parameters.duration);
+            }
+
+            if (parameters.totalRepresentations) {
+              if (
+                parameters.totalRepresentations !==
+                player.getVideoManifest().getRepresentations().length
+              ) {
+                throw new Error(
+                  "Provided total representations do not match MPD total representations!"
+                );
               }
+            }
 
-              if (parameters.totalRepresentations) {
-                if (
-                  parameters.totalRepresentations !==
-                  player.getVideoManifest().getRepresentations().length
-                ) {
-                  throw new Error(
-                    "Provided total representations do not match MPD total representations!"
-                  );
-                }
-              }
-
-              if (!setupTestCallback) resolve();
-              setupTestCallback(player, resolve, parameters);
-            })
-        )
+            if (!setupTestCallback) resolve();
+            setupTestCallback(player, resolve, parameters);
+          });
+        })
         .then(function () {
           video.addEventListener("play", function (event) {
             var eventData = { type: "play" };
@@ -443,58 +453,32 @@ function DpctfTest(config) {
         var defaultParameters = testConfig.all;
         var templateParameters = testConfig[testInfo.code];
         var testParameters = testConfig[testInfo.path];
-        var parameters = {};
 
-        var minBufferDuration = null;
-        if (!minBufferDuration && testParameters)
-          minBufferDuration = testParameters.min_buffer_duration;
-        if (!minBufferDuration && templateParameters)
-          minBufferDuration = templateParameters.min_buffer_duration;
-        if (!minBufferDuration && defaultParameters)
-          minBufferDuration = defaultParameters.min_buffer_duration;
-        if (!minBufferDuration) minBufferDuration = 30000;
-        parameters.minBufferDuration = minBufferDuration;
+        function determineValue(parameter) {
+          if (testParameters && testParameters[parameter]) {
+            return testParameters[parameter];
+          }
+          if (templateParameters && templateParameters[parameter]) {
+            return templateParameters[parameter];
+          }
+          if (defaultParameters && defaultParameters[parameter]) {
+            return defaultParameters[parameter];
+          }
+        }
 
-        var maxBufferDuration = null;
-        if (!maxBufferDuration && testParameters)
-          maxBufferDuration = testParameters.max_buffer_duration;
-        if (!maxBufferDuration && templateParameters)
-          maxBufferDuration = templateParameters.max_buffer_duration;
-        if (!maxBufferDuration && defaultParameters)
-          maxBufferDuration = defaultParameters.max_buffer_duration;
-        if (!maxBufferDuration) maxBufferDuration = 30000;
-        parameters.maxBufferDuration = maxBufferDuration;
+        var parameters = {
+          minBufferDuration: determineValue("min_buffer_duration") || 30000,
+          maxBufferDuration: determineValue("max_buffer_duration") || 30000,
+          tsMax: determineValue("ts_max") || 120,
+          randomAccessFragment: determineValue("random_access_fragment"),
+          randomAccessTime: determineValue("random_access_time"),
+          duration: determineValue("duration"),
+          totalRepresentations: determineValue("total_representations"),
+          keyId: determineValue("key_id"),
+          contentKey: determineValue("content_key"),
+        };
 
-        var tsMax = null;
-        if (!tsMax & testParameters) tsMax = testParameters.ts_max;
-        if (!tsMax && templateParameters) tsMax = templateParameters.ts_max;
-        if (!tsMax && defaultParameters) tsMax = defaultParameters.ts_max;
-        if (!tsMax) tsMax = 120;
-        parameters.tsMax = tsMax;
-
-        var randomAccessFragment = null;
-        if (!randomAccessFragment && testParameters)
-          randomAccessFragment = testParameters.random_access_fragment;
-        if (!randomAccessFragment && templateParameters)
-          randomAccessFragment = templateParameters.random_access_fragment;
-        if (!randomAccessFragment && defaultParameters)
-          randomAccessFragment = defaultParameters.random_access_fragment;
-        parameters.randomAccessFragment = randomAccessFragment;
-
-        var randomAccessTime = null;
-        if (!randomAccessTime && testParameters)
-          randomAccessTime = testParameters.random_access_time;
-        if (!randomAccessTime && templateParameters)
-          randomAccessTime = templateParameters.random_access_time;
-        if (!randomAccessTime && defaultParameters)
-          randomAccessTime = defaultParameters.random_access_time;
-        parameters.randomAccessTime = randomAccessTime;
-
-        var playout = null;
-        if (!playout && testParameters) playout = testParameters.playout;
-        if (!playout && templateParameters)
-          playout = templateParameters.playout;
-        if (!playout && defaultParameters) playout = defaultParameters.playout;
+        var playout = determineValue("playout");
         if (playout) {
           var objectPlayout = {};
           var start = 0;
@@ -509,23 +493,6 @@ function DpctfTest(config) {
           playout = objectPlayout;
         }
         parameters.playout = playout;
-
-        var duration = null;
-        if (!duration && testParameters) duration = testParameters.duration;
-        if (!duration && templateParameters)
-          duration = templateParameters.duration;
-        if (!duration && defaultParameters)
-          duration = defaultParameters.duration;
-        parameters.duration = duration;
-
-        var totalRepresentations = null;
-        if (!totalRepresentations && testParameters)
-          totalRepresentations = testParameters.total_representations;
-        if (!totalRepresentations && templateParameters)
-          totalRepresentations = templateParameters.total_representations;
-        if (!totalRepresentations && defaultParameters)
-          totalRepresentations = defaultParameters.total_representations;
-        parameters.totalRepresentations = totalRepresentations;
 
         resolve(parameters);
       });

@@ -11,10 +11,12 @@
   <body>
     <div id="content-wrapper">
       <div id="video-wrapper">
-      <video></video>
-      <div><div id="qr-code"></div></div>
+        <video></video>
+        <div><div id="qr-code"></div></div>
       </div>
-      <div>Press Enter/Ok to continue or Up/Down to show/hide debug overlay</div>
+      <div>
+        Press Enter/Ok to continue or Up/Down to show/hide debug overlay
+      </div>
       <div id="debug"></div>
       <div id="log"></div>
     </div>
@@ -30,19 +32,19 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title:
-          "Sequential Playback of Encrypted and Non-Encrypted Baseline Content",
+        id: "playback-of-encrypted-content",
+        title: "Playback of encrypted content",
         description: "",
-        path: "Folder2/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
-        code: "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual.html",
-        params: urlParams,
+        path: "{{TEST_PATH}}",
+        code: "{{TEMPLATE_NAME}}",
         observations: [],
       };
+
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var videoContentModel = "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd";
-      var audioContentModel = "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd";
+      var videoContentModel = "{{VIDEO_MPD_URL}}";
+      var audioContentModel = "{{AUDIO_MPD_URL}}";
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -52,11 +54,11 @@
         qrCodeElement: qrCode,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
+        isEncryptedContent: true,
       });
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();
@@ -73,15 +75,15 @@
           var match = query.match(/redirect_time=([^&]+)/);
           var REDIRECT_TIME = match ? match[1] : null;
           if (!REDIRECT_TIME) REDIRECT_TIME = 5;
-          video.addEventListener(
-            "ended",
-            function (event) {
-              setTimeout(test.step_func(function () {
+          video.addEventListener("ended", function (event) {
+            setTimeout(
+              test.step_func(function () {
                 assert_true(true);
                 test.done();
-              }), REDIRECT_TIME * 1000);
-            }
-          );
+              }),
+              REDIRECT_TIME * 1000
+            );
+          });
         }, "video ended event fired");
 
         done();
