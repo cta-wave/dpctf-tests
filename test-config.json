@@ -14,11 +14,13 @@
   },
   "random-access-to-fragment-manual.html": {
     "ts_max": 120,
-    "tolerance": 10
+    "tolerance": 10,
+    "random_access_fragment": 10
   },
   "random-access-to-time-manual.html": {
     "ts_max": 120,
-    "tolerance": 10
+    "tolerance": 10,
+    "random_access_time": 10
   },
   "switching-set-playback-manual.html": {
     "ts_max": 120,
