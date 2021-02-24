@@ -124,7 +124,7 @@ def generate_test_json(tests):
         json["tests"][test_id]["video"] = video
         json["tests"][test_id]["audio"] = audio
         json["tests"][test_id]["code"] = template
-        json["tests"][test_id]["parameters"] = parameters
+        json["tests"][test_id]["config"] = parameters
 
     return json
 

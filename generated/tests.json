@@ -5,7 +5,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "fullscreen-playback-of-switching-sets-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -15,7 +15,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "out-of-order-loading-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -25,7 +25,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "overlapping-fragments-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -35,7 +35,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "playback-over-wave-baseline-splice-constraints-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -45,7 +45,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-fragment-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -55,7 +55,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-time-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -65,7 +65,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -75,7 +75,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content-non-aligned-append-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -85,7 +85,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "sequential-track-playback-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -95,7 +95,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "switching-set-playback-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -105,7 +105,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "fullscreen-playback-of-switching-sets-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -115,7 +115,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "out-of-order-loading-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -125,7 +125,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "overlapping-fragments-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -135,7 +135,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "playback-over-wave-baseline-splice-constraints-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -145,7 +145,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-fragment-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -155,7 +155,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-time-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -165,7 +165,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -175,7 +175,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content-non-aligned-append-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -185,7 +185,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "sequential-track-playback-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -195,7 +195,7 @@
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "switching-set-playback-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
                 "fragment_duration": "PT0H0M2.167S"
             }
@@ -205,7 +205,7 @@
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
             "code": "fullscreen-playback-of-switching-sets-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT1M0.0S",
                 "fragment_duration": "PT2.0S"
             }
@@ -215,7 +215,7 @@
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
             "code": "out-of-order-loading-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT1M0.0S",
                 "fragment_duration": "PT2.0S"
             }
@@ -225,7 +225,7 @@
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
             "code": "overlapping-fragments-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT1M0.0S",
                 "fragment_duration": "PT2.0S"
             }
@@ -235,7 +235,7 @@
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
             "code": "playback-over-wave-baseline-splice-constraints-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT1M0.0S",
                 "fragment_duration": "PT2.0S"
             }
@@ -245,7 +245,7 @@
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
             "code": "random-access-to-fragment-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT1M0.0S",
                 "fragment_duration": "PT2.0S"
             }
@@ -255,7 +255,7 @@
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
             "code": "random-access-to-time-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT1M0.0S",
                 "fragment_duration": "PT2.0S"
             }
@@ -265,7 +265,7 @@
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
             "code": "regular-playback-of-chunked-content-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT1M0.0S",
                 "fragment_duration": "PT2.0S"
             }
@@ -275,7 +275,7 @@
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
             "code": "regular-playback-of-chunked-content-non-aligned-append-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT1M0.0S",
                 "fragment_duration": "PT2.0S"
             }
@@ -285,7 +285,7 @@
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
             "code": "sequential-track-playback-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT1M0.0S",
                 "fragment_duration": "PT2.0S"
             }
@@ -295,7 +295,7 @@
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
             "code": "switching-set-playback-manual.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT1M0.0S",
                 "fragment_duration": "PT2.0S"
             }
@@ -305,7 +305,7 @@
             "video": "https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_ClearKey.mpd",
             "audio": "",
             "code": "playback-of-encrypted-content-manual-https.html",
-            "parameters": {
+            "config": {
                 "cmaf_track_duration": "PT0H12M14.000S",
                 "fragment_duration": "PT0H0M4.000S"
             }
