@@ -8,11 +8,12 @@ Runner](https://github.com/cta-wave/dpctf-test-runner).
 To generate tests use the `generate-tests.py` script as follows
 
 ```
-$ ./generate-tests.py <CSV-file> <destination-dir>
+$ ./generate-tests.py <CSV-file> <destination-dir> [<mpd-root-dir>]
 ```
 
 **CSV-file**: CSV file to generate tests from.  
-**destination-dir**: Directory to put generated tests into.
+**destination-dir**: Directory to put generated tests into.  
+**mpd-root-dir** (optional): The root directory of relative local mpd paths.
 
 As an example, in this repository the [`sample.csv`](./sample.csv) was used to generate tests inside the [`generated`](./generated) directory.
 
