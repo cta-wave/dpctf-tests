@@ -6,6 +6,8 @@ import shutil, errno
 from pathlib import Path
 import hashlib
 import json
+import urllib.request
+import re
 
 if len(sys.argv) < 3:
     print("Please provide a CSV and destination directory!")
@@ -17,10 +19,20 @@ SUB_TEST_DIR = Path(TESTS_DIR, "subtests")
 PLACEHOLDER_FILE = Path(TESTS_DIR, "placeholder.js")
 CSV_FILE = sys.argv[1]
 DEST_DIR = sys.argv[2]
+MPD_ROOT_DIR = "."
+if len(sys.argv) >= 4:
+    MPD_ROOT_DIR = sys.argv[3]
 LIB_DEST_DIR = Path(DEST_DIR, "lib")
+
+MPD_PARAMETERS = {
+    "cmaf_track_duration": r'<MPD .*mediaPresentationDuration="([^"]+)"',
+    "fragment_duration": r'<MPD .*maxSegmentDuration="([^"]+)"',
+}
 
 def main():
     csv_file = load_csv(CSV_FILE)
+
+    mpd_parameters = {}
 
     tests = []
 
@@ -41,17 +53,61 @@ def main():
         content = load_file(test_template_path)
         content = generate_test(content, video_mpd_url, audio_mpd_url, test_path_relative, template_file)
         write_file(test_path, content)
+
+        parameters = None
+        if video_mpd_url in mpd_parameters:
+            parameters = mpd_parameters[video_mpd_url]
+        else:
+            mpd_content = load_mpd_content(video_mpd_url)
+            parameters = parse_mpd_parameters(mpd_content)
+            mpd_parameters[video_mpd_url] = parameters
+
         tests.append({
             "id": test_id,
             "path": test_path,
             "template": test_template_path, 
             "video": video_mpd_url, 
-            "audio": audio_mpd_url
+            "audio": audio_mpd_url,
+            "parameters": parameters
         })
     test_json_content = generate_test_json(tests)
     test_json_content = json.dumps(test_json_content, indent=4)
     write_file(Path(DEST_DIR, "tests.json"), test_json_content)
     copy(LIB_DIR, LIB_DEST_DIR)
+
+def parse_mpd_parameters(content):
+    parameters = {}
+    if (content == ""): return parameters
+    if type(content) != str:
+        content = content.decode("utf-8")
+
+    for parameter in MPD_PARAMETERS:
+        match = re.search(MPD_PARAMETERS[parameter], content)
+        if match is None: continue
+        parameters[parameter] = match.group(1)
+
+    return parameters
+
+
+def load_mpd_content(mpd_path):
+    content = ""
+    if mpd_path.startswith("http"):
+        print("Fetching MPD {}".format(mpd_path))
+        try:
+            content = urllib.request.urlopen(mpd_path).read()
+        except urllib.error.HTTPError:
+            print("Could not load http url:", mpd_path)
+    else:
+        file_path = os.path.join(MPD_ROOT_DIR, mpd_path[1:])
+        file_path = Path(file_path).absolute()
+        print("Reading MPD {}".format(file_path))
+        if not os.path.isfile(file_path):
+            print("Could not find file:", file_path)
+            return content
+        with open(file_path, "r") as file:
+            return file.read()
+    
+    return content
 
 def generate_test_json(tests):
     json = {"tests": {}}
@@ -62,11 +118,13 @@ def generate_test_json(tests):
         audio = test["audio"]
         path = str(test["path"]).replace(DEST_DIR + "/", "")
         template = str(test["template"]).split("/")[-1]
+        parameters = test["parameters"]
         json["tests"][test_id] = {}
         json["tests"][test_id]["path"] = path
         json["tests"][test_id]["video"] = video
         json["tests"][test_id]["audio"] = audio
         json["tests"][test_id]["code"] = template
+        json["tests"][test_id]["parameters"] = parameters
 
     return json
 
