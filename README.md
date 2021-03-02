@@ -58,6 +58,32 @@ Example
 
 Specification numbers refer to section numbers in [the DPCTF specification](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5003-final.pdf).
 
+## Downloading content
+
+The `download-content-py` may be used to download content using a JSON file, 
+which holds information about various test vectors:
+
+```
+./download-content.py <json-path/url> <dest-dir>
+```
+
+- **json-path/url**: Local file path or http url to the JSON file
+- **dest-dir**: The directory to download the content to.
+
+The script parses the following data from the JSON file:
+
+```json
+{
+  "<content-name>": {
+    "zipPath": "<url to zip>"
+  }
+}
+```
+
+- **content-name** is used to create a subdirectory in the specified 
+destination directory to put the content into.
+- **zipPath** is used to download the zip file.
+
 ## Running Tests
 
 To run the tests, you can run the test runner locally by following the
