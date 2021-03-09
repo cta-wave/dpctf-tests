@@ -36,7 +36,7 @@
     "ts_max": 120,
     "tolerance": 10
   },
-  "regular-playback-of-chunked-content-non-aligned-manual.html": {
+  "regular-playback-of-chunked-content-non-aligned-append-manual.html": {
     "min_buffer_duration": 1000,
     "ts_max": 120,
     "tolerance": 10
@@ -65,15 +65,15 @@
     "ts_max": 120,
     "tolerance": 10
   },
-  "playback-of-encrypted-content-manual.html": {
+  "playback-of-encrypted-content-manual-https.html": {
     "ts_max": 120,
     "tolerance": 10
   },
-  "restricted-splicing-of-encrypted-content-manual.html": {
+  "restricted-splicing-of-encrypted-content-manual-https.html": {
     "ts_max": 120,
     "tolerance": 10
   },
-  "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual.html": {
+  "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual-https.html": {
     "ts_max": 120
   },
   "cenc/playback-of-encrypted-content-manual-https__Manifest_ClearKey__.html": {
