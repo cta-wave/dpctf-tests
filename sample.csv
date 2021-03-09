@@ -28,4 +28,7 @@
 "regular-playback-of-chunked-content-non-aligned-append-manual","https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd","","avc"
 "sequential-track-playback-manual","https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd","","avc"
 "switching-set-playback-manual","https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd","","avc"
+"regular-playback-of-a-cmaf-presentation-manual","https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd","","avc"
+"random-access-of-a-wave-presentation-manual","https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd","","avc"
+"splicing-of-wave-program-with-baseline-constraints-manual","https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd","","avc"
 "playback-of-encrypted-content-manual-https","https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_ClearKey.mpd","","cenc"

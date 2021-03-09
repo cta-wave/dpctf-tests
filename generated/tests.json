@@ -300,6 +300,36 @@
                 "fragment_duration": "PT2.0S"
             }
         },
+        "9111305f8ad00a51c374c3da6083ca12": {
+            "path": "avc/regular-playback-of-a-cmaf-presentation-manual__stream__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+            "audio": "",
+            "code": "regular-playback-of-a-cmaf-presentation-manual.html",
+            "config": {
+                "cmaf_track_duration": "PT1M0.0S",
+                "fragment_duration": "PT2.0S"
+            }
+        },
+        "dba385a1c450e7fdd6bcdffa589b749e": {
+            "path": "avc/random-access-of-a-wave-presentation-manual__stream__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+            "audio": "",
+            "code": "random-access-of-a-wave-presentation-manual.html",
+            "config": {
+                "cmaf_track_duration": "PT1M0.0S",
+                "fragment_duration": "PT2.0S"
+            }
+        },
+        "8603a4a9a7811aed7dc437ed3cb75d2b": {
+            "path": "avc/splicing-of-wave-program-with-baseline-constraints-manual__stream__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+            "audio": "",
+            "code": "splicing-of-wave-program-with-baseline-constraints-manual.html",
+            "config": {
+                "cmaf_track_duration": "PT1M0.0S",
+                "fragment_duration": "PT2.0S"
+            }
+        },
         "605fcef3117e160de61c1baaedd2532b": {
             "path": "cenc/playback-of-encrypted-content-manual-https__Manifest_ClearKey__.html",
             "video": "https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_ClearKey.mpd",

@@ -79,5 +79,18 @@
   "cenc/playback-of-encrypted-content-manual-https__Manifest_ClearKey__.html": {
     "key_id": "nrQFDeRLSAKTLifXUIPiZg",
     "content_key": "FmY0xnWCPCNaSpRG-tUuTQ"
+  },
+  "regular-playback-of-a-cmaf-presentation-manual.html": {
+    "ts_max": 120,
+    "tolerance": 10
+  },
+  "random-access-of-a-wave-presentation-manual.html": {
+    "ts_max": 120,
+    "tolerance": 10,
+    "random_access_fragment": 10
+  },
+  "splicing-of-wave-program-with-baseline-constraints-manual.html": {
+    "ts_max": 120,
+    "tolerance": 10
   }
 }

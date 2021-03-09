@@ -92,14 +92,16 @@ function DpctfTest(config) {
         if (_videoState === VIDEO_STATE_ERROR) return;
         _lastAction = ACTION_PLAY;
         _videoState = VIDEO_STATE_PLAYING;
-        updateQrCode();
+        currentTime = player.getCurrentTime();
+        updateQrCode(currentTime);
         updateQrCodePosition();
       });
 
       video.addEventListener("pause", function () {
         if (_videoState === VIDEO_STATE_ERROR) return;
         _videoState = VIDEO_STATE_PAUSED;
-        updateQrCode();
+        currentTime = player.getCurrentTime();
+        updateQrCode(currentTime);
       });
 
       video.addEventListener("ended", function () {
@@ -110,7 +112,8 @@ function DpctfTest(config) {
 
       video.addEventListener("error", function () {
         _videoState = VIDEO_STATE_ERROR;
-        updateQrCode();
+        currentTime = player.getCurrentTime();
+        updateQrCode(currentTime);
         abortTests();
         throw new Error(video.error.message);
       });
@@ -124,7 +127,8 @@ function DpctfTest(config) {
 
       player.on(Player.PLAYER_EVENT_START_BUFFERING, function () {
         _videoState = VIDEO_STATE_BUFFERING;
-        updateQrCode();
+        currentTime = player.getCurrentTime();
+        updateQrCode(currentTime);
       });
 
       player
@@ -392,7 +396,7 @@ function DpctfTest(config) {
     if (!qrCode) return;
     var object = { s: _videoState, a: _lastAction };
     if (currentTime) object.ct = currentTime;
-    if (currentTime && lastQrTime) object.d = lastQrTime;
+    if (lastQrTime) object.d = lastQrTime;
     var start = new Date().getTime();
     var content = JSON.stringify(object);
     qrCode.innerHTML = "";
