@@ -32,9 +32,10 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Playback over WAVE Baseline Splice Constraints",
+        id: "splicing-of-wave-program-with-baseline-constraints",
+        title: "Splicing of WAVE Program with Baseline Constraints",
         description:
-          "Playback over splices enables the content provider to offer a sequence of Switching Sets with less restricted encoding requirements than a track. This feature is especially important in case of program changes and ad insertion.",
+          "Apps want to splice content that was properly conditioned based on the WAVE Program Baseline Constraints. The expectation is that the device plays back these splices seamlessly.",
         path: "{{TEST_PATH}}",
         code: "{{TEMPLATE_NAME}}",
         params: urlParams,

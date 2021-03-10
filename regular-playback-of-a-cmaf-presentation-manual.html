@@ -32,44 +32,13 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "sequential-track-playback",
-        title: "Sequential Track Playback",
+        id: "regular-playback-of-a-cmaf-presentation",
+        title: "Regular Playback of a CMAF Presentation",
         description:
-          "Sequential track playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization.",
+          "This case refers to the case for which a CMAF Presentation is provided and is played back. The playback instructs the player to play multiple tracks, but at most one of each media type.",
         path: "{{TEST_PATH}}",
         code: "{{TEMPLATE_NAME}}",
-        observations: [
-          {
-            name: "Low start-up delay",
-            description:
-              "The start-up delay should be sufficiently low, i.e., TR [k, 1] – Ti < TSMax.",
-            id: "start-up-delay",
-          },
-          {
-            name: "Render every sample",
-            description:
-              "Every sample S[k,s] shall be rendered and the samples shall be rendered in increasing presentation time order.",
-            id: "every-sample-rendered",
-          },
-          {
-            name: "Duration matches CMAF track",
-            description:
-              "The playback duration of the playback matches the duration of the CMAF Track, i.e. TR[k, S] = TR [k, 1] + td[k].",
-            id: "duration-matches-cmaf-track",
-          },
-          {
-            name: "Presented sample correct",
-            description:
-              "The presented sample matches the one reported by the currentTime value within the tolerance of the sample duration.",
-            id: "sample-matches-current-time",
-          },
-          {
-            name: "Video rendered in entire window",
-            description:
-              "Every video frame S[k,s] shall be rendered such that it fills the entire video output window.",
-            id: "video-fills-entire-output-window",
-          },
-        ],
+        observations: [],
       };
 
       var video = document.querySelector("video");

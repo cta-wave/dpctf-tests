@@ -11,10 +11,12 @@
   <body>
     <div id="content-wrapper">
       <div id="video-wrapper">
-      <video></video>
-      <div><div id="qr-code"></div></div>
+        <video></video>
+        <div><div id="qr-code"></div></div>
       </div>
-      <div>Press Enter/Ok to continue or Up/Down to show/hide debug overlay</div>
+      <div>
+        Press Enter/Ok to continue or Up/Down to show/hide debug overlay
+      </div>
       <div id="debug"></div>
       <div id="log"></div>
     </div>
@@ -30,12 +32,12 @@
     <script>
       // Global variables
       var TEST_INFO = {
+        id: "regular-playback-of-chunked-content",
         title: "Regular Playback of Chunked Content",
         description:
           "Sequential Chunked Playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF chunks to the source buffer after initialization.",
         path: "{{TEST_PATH}}",
         code: "{{TEMPLATE_NAME}}",
-        params: urlParams,
         observations: [],
       };
 
@@ -53,6 +55,7 @@
         qrCodeElement: qrCode,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
+        usePlayout: false,
       });
 
       function executeTest(player, done, parameters) {
@@ -73,15 +76,15 @@
           var match = query.match(/redirect_time=([^&]+)/);
           var REDIRECT_TIME = match ? match[1] : null;
           if (!REDIRECT_TIME) REDIRECT_TIME = 5;
-          video.addEventListener(
-            "ended",
-            function (event) {
-              setTimeout(test.step_func(function () {
+          video.addEventListener("ended", function (event) {
+            setTimeout(
+              test.step_func(function () {
                 assert_true(true);
                 test.done();
-              }), REDIRECT_TIME * 1000);
-            }
-          );
+              }),
+              REDIRECT_TIME * 1000
+            );
+          });
         }, "video ended event fired");
 
         done();
