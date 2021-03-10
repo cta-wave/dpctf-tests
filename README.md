@@ -55,12 +55,15 @@ Example
 | playback-of-encrypted-content-manual                                       | [playback-of-encrypted-content-manual.html](./playback-of-encrypted-content-manual.html)                                                                             | 8.12          |
 | restricted-splicing-of-encrypted-content-manual                            | [restricted-splicing-of-encrypted-content-manual.html](./restricted-splicing-of-encrypted-content-manual.html)                                                       | 8.13          |
 | sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual | [sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual.html](./sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual.html) | 8.14          |
+| regular-playback-of-a-cmaf-presentation                                    | [regular-playback-of-a-cmaf-presentation-manual.html](./regular-playback-of-a-cmaf-presentation-manual.html)                                                         | 9.2           |
+| random-access-of-a-wave-presentation                                       | [random-access-of-a-wave-presentation-manual.html](./random-access-of-a-wave-presentation-manual.html)                                                               | 9.2           |
+| splicing-of-wave-program-with-baseline-constraints                         | [splicing-of-wave-program-with-baseline-constraints-manual.html](./splicing-of-wave-program-with-baseline-constraints-manual.html)                                   | 9.2           |
 
 Specification numbers refer to section numbers in [the DPCTF specification](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5003-final.pdf).
 
 ## Downloading content
 
-The `download-content-py` may be used to download content using a JSON file, 
+The `download-content-py` may be used to download content using a JSON file,
 which holds information about various test vectors:
 
 ```
@@ -80,8 +83,8 @@ The script parses the following data from the JSON file:
 }
 ```
 
-- **content-name** is used to create a subdirectory in the specified 
-destination directory to put the content into.
+- **content-name** is used to create a subdirectory in the specified
+  destination directory to put the content into.
 - **zipPath** is used to download the zip file.
 
 ## Running Tests
