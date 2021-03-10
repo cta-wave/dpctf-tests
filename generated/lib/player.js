@@ -487,13 +487,12 @@ function BufferManager(manifest, mediaSource, video, options) {
 
   function getPreBufferedTime() {
     var bufferedTime = 0;
-    var playingSegment = getPlayingSegment();
-    for (var i = playingSegment.getNumber(); i < _bufferingSegment; i++) {
+    for (var i = 0; i < _bufferingSegment; i++) {
       var segment = _segments[i];
       bufferedTime += segment.getDuration();
     }
 
-    return bufferedTime;
+    return bufferedTime - _video.currentTime;
   }
 
   function getNextBufferSegment() {
