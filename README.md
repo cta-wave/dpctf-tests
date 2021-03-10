@@ -56,8 +56,8 @@ Example
 | restricted-splicing-of-encrypted-content-manual                            | [restricted-splicing-of-encrypted-content-manual.html](./restricted-splicing-of-encrypted-content-manual.html)                                                       | 8.13          |
 | sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual | [sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual.html](./sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual.html) | 8.14          |
 | regular-playback-of-a-cmaf-presentation                                    | [regular-playback-of-a-cmaf-presentation-manual.html](./regular-playback-of-a-cmaf-presentation-manual.html)                                                         | 9.2           |
-| random-access-of-a-wave-presentation                                       | [random-access-of-a-wave-presentation-manual.html](./random-access-of-a-wave-presentation-manual.html)                                                               | 9.2           |
-| splicing-of-wave-program-with-baseline-constraints                         | [splicing-of-wave-program-with-baseline-constraints-manual.html](./splicing-of-wave-program-with-baseline-constraints-manual.html)                                   | 9.2           |
+| random-access-of-a-wave-presentation                                       | [random-access-of-a-wave-presentation-manual.html](./random-access-of-a-wave-presentation-manual.html)                                                               | 9.3           |
+| splicing-of-wave-program-with-baseline-constraints                         | [splicing-of-wave-program-with-baseline-constraints-manual.html](./splicing-of-wave-program-with-baseline-constraints-manual.html)                                   | 9.4           |
 
 Specification numbers refer to section numbers in [the DPCTF specification](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5003-final.pdf).
 
