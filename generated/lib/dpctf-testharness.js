@@ -132,7 +132,7 @@ function DpctfTest(config) {
         updateQrCode(currentTime);
       });
 
-      player.on(Player.PLAYER_EVENT_START_BUFFERING, function () {
+      player.on(Player.PLAYER_EVENT_TRIGGER_PLAY, function () {
         _videoState = VIDEO_STATE_READY;
         _lastAction = ACTION_PLAY;
         updateQrCode();
