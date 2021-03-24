@@ -23,6 +23,7 @@ function DpctfTest(config) {
 
   var VIDEO_STATE_WAITING = "waiting";
   var VIDEO_STATE_BUFFERING = "buffering";
+  var VIDEO_STATE_READY = "ready";
   var VIDEO_STATE_PLAYING = "playing";
   var VIDEO_STATE_PAUSED = "paused";
   var VIDEO_STATE_ENDED = "ended";
@@ -129,6 +130,12 @@ function DpctfTest(config) {
         _videoState = VIDEO_STATE_BUFFERING;
         currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
+      });
+
+      player.on(Player.PLAYER_EVENT_TRIGGER_PLAY, function () {
+        _videoState = VIDEO_STATE_READY;
+        _lastAction = ACTION_PLAY;
+        updateQrCode();
       });
 
       player
@@ -423,7 +430,7 @@ function DpctfTest(config) {
     var height;
     var offsetLeft;
     var offsetTop;
-    var scale = elementHeight / 1000;
+    var scale = 1;
     if (videoRatio < elementRatio) {
       // Video element is wider
       var actualVideoWidth = elementHeight * videoRatio;
@@ -432,6 +439,7 @@ function DpctfTest(config) {
       width = actualVideoWidth;
       offsetTop = 0;
       offsetLeft = borderWidth;
+      scale = elementHeight / 1000;
     } else {
       // Video element is taller
       var actualVideoHeight = elementWidth / videoRatio;
@@ -440,11 +448,12 @@ function DpctfTest(config) {
       height = actualVideoHeight;
       offsetLeft = 0;
       offsetTop = borderHeight;
+      scale = elementWidth / 1800;
     }
     qrCode.style.top = top * height + offsetTop + "px";
     qrCode.style.left = left * width + offsetLeft + "px";
-    qrCode.style.width = 300 * scale + "px";
-    qrCode.style.height = 300 * scale + "px";
+    qrCode.style.width = 350 * scale + "px";
+    qrCode.style.height = 350 * scale + "px";
     qrCode.style.padding = 20 * scale + "px";
   }
 
