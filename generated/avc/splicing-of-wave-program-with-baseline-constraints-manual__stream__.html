@@ -79,13 +79,8 @@
           var REDIRECT_TIME = match ? match[1] : null;
           if (!REDIRECT_TIME) REDIRECT_TIME = 5;
           video.addEventListener("ended", function (event) {
-            setTimeout(
-              test.step_func(function () {
-                assert_true(true);
-                test.done();
-              }),
-              REDIRECT_TIME * 1000
-            );
+            assert_true(true);
+            test.done();
           });
         }, "video ended event fired");
 
