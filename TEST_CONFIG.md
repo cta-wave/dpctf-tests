@@ -39,7 +39,7 @@ When specifying a parameter for a specific test, it will override corresponding 
 
 | name                     | description                                                                                                                                                                                                  |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `duration`               | The duration of the video.                                                                                                                                                                                   |
+| `duration`               | The duration of the video in seconds.                                                                                                                                                                        |
 | `loading`                | Provides the CMAF Fragment number that is loaded at step i, constrained such that `(MAX(i-loading[i]) + MAX(loading[i]-i)) * MAX(df[k,i]) < max_buffer_duration`. For example: `[3, 2, 1, 6, 5, 4, 9, 8, 7]` |
 | `min_buffer_duration`    | Expresses the minimum buffer that the Source Buffer maintains in the playback in ms.                                                                                                                         |
 | `playout`                | Provides the CMAF track number for every fragment position i=1,...,N. The value shall be between 1 and K. For example: `[0, 0, 0, 1, 1, 1]`                                                                  |
