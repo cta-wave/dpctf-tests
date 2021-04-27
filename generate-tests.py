@@ -8,6 +8,8 @@ import hashlib
 import json
 import urllib.request
 import re
+from xml.dom.minidom import parseString
+from python_lib.gweis.isoduration import parse_duration
 
 if len(sys.argv) < 3:
     print("Please provide a CSV and destination directory!")
@@ -85,6 +87,43 @@ def parse_mpd_parameters(content):
         match = re.search(MPD_PARAMETERS[parameter], content)
         if match is None: continue
         parameters[parameter] = match.group(1)
+
+    representation_parameters = {}
+    dom_tree = parseString(content)
+    periods = dom_tree.getElementsByTagName("Period")
+    for period in periods:
+        periodDuration = period.getAttribute("duration")
+        if periodDuration != "":
+            periodDuration = parse_duration(periodDuration).seconds
+        representations = period.getElementsByTagName("Representation")
+        for representation in representations:
+            representationId = representation.getAttribute("id")
+            rep_parameters = {}
+            if periodDuration != "":
+                rep_parameters["duration"] = periodDuration
+            else:
+                segment_templates = representation.getElementsByTagName("SegmentTemplate")
+                if len(segment_templates) != 0:
+                    segments = segment_templates[0].getElementsByTagName("S")
+                    timescale = segment_templates[0].getAttribute("timescale")
+                    timescale = int(timescale)
+                    sum = 0
+                    for segment in segments:
+                        r = segment.getAttribute("r")
+                        if r == "":
+                            r = 0
+                        r = int(r)
+                        d = segment.getAttribute("d")
+                        d = int(d)
+                        sum = sum + (r + 1) * d
+                    duration = sum / timescale
+                    rep_parameters["duration"] = duration
+
+
+                
+            representation_parameters[representationId] = rep_parameters
+
+    parameters["representations"] = representation_parameters
 
     return parameters
 

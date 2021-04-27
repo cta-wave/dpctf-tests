@@ -1,343 +1,963 @@
 {
     "tests": {
-        "de8825cb743994ec04ec8aa2bfc6f66c": {
-            "path": "Folder1/fullscreen-playback-of-switching-sets-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
+        "fa40fa6bf1d9eb19bc44611e3c4b9b67": {
+            "path": "Folder1/fullscreen-playback-of-switching-sets__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "fullscreen-playback-of-switching-sets-manual.html",
+            "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "6b3644cf290b8699226df58dc3c86ae7": {
-            "path": "Folder2/out-of-order-loading-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
+        "8a4ee37b45dd1e4e83e3bc4c502a3d9a": {
+            "path": "Folder2/out-of-order-loading__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "out-of-order-loading-manual.html",
+            "code": "out-of-order-loading.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "2c8a5dd22426d7213b5358a7f9e4f6c2": {
-            "path": "Folder3/overlapping-fragments-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
+        "7dbbf36ba48ab8ec09a96644fbb64ae5": {
+            "path": "Folder3/overlapping-fragments__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "overlapping-fragments-manual.html",
+            "code": "overlapping-fragments.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "f766014abd68bf7337b8bdf34412f344": {
-            "path": "Folder2/playback-over-wave-baseline-splice-constraints-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
+        "e72313fcdabc503daf60c0a12d1d8b79": {
+            "path": "Folder2/playback-over-wave-baseline-splice-constraints__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "playback-over-wave-baseline-splice-constraints-manual.html",
+            "code": "playback-over-wave-baseline-splice-constraints.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "d0ab87a8cd8339cf9500b84cb0df7e27": {
-            "path": "Folder3/random-access-to-fragment-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
+        "c714865600367c1420fbba4a70b10299": {
+            "path": "Folder3/random-access-to-fragment__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "random-access-to-fragment-manual.html",
+            "code": "random-access-to-fragment.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "3305a7a6c92fa350c177b2cb528a33cd": {
-            "path": "Folder1/random-access-to-time-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
+        "7f761e2c6849aa3060fa065ce72b8796": {
+            "path": "Folder1/random-access-to-time__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "random-access-to-time-manual.html",
+            "code": "random-access-to-time.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "90ca0abe36120563ae83240497b79422": {
-            "path": "Folder2/regular-playback-of-chunked-content-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
+        "80f22f1c52ab098eaf48ac180812dcaa": {
+            "path": "Folder2/regular-playback-of-chunked-content__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "regular-playback-of-chunked-content-manual.html",
+            "code": "regular-playback-of-chunked-content.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "adeb51cb6cd1f84206f880b7a0b28765": {
-            "path": "Folder3/regular-playback-of-chunked-content-non-aligned-append-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
+        "ccc4a4db4b93901a18a5354d3432fc23": {
+            "path": "Folder3/regular-playback-of-chunked-content-non-aligned-append__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "regular-playback-of-chunked-content-non-aligned-append-manual.html",
+            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "64bdf47ba16d1a49e07cea1c4834c3d9": {
-            "path": "Folder3/sequential-track-playback-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
+        "c156fd3ae896b4c78319bb742688b030": {
+            "path": "Folder3/sequential-track-playback__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "sequential-track-playback-manual.html",
+            "code": "sequential-track-playback.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "9841b8b8eab31e0d24ab377bb4622b0e": {
-            "path": "Folder1/switching-set-playback-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
+        "7648ad0840ae86109c6deb6bc0523302": {
+            "path": "Folder1/switching-set-playback__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_MultiRate_fragmented.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "switching-set-playback-manual.html",
+            "code": "switching-set-playback.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "4751c71686c7a5a98852c6d0ffe904d6": {
-            "path": "Folder2/fullscreen-playback-of-switching-sets-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
+        "816ddd16617c03e8d7cec054ad266fe3": {
+            "path": "Folder2/fullscreen-playback-of-switching-sets__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "fullscreen-playback-of-switching-sets-manual.html",
+            "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "e4e48b4fd9796e27a0ad2c73ae872a89": {
-            "path": "Folder3/out-of-order-loading-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
+        "c4be7a4692a34683fcd7f5d77797139a": {
+            "path": "Folder3/out-of-order-loading__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "out-of-order-loading-manual.html",
+            "code": "out-of-order-loading.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "550086ea7251e40302129a63ef3e3673": {
-            "path": "Folder1/overlapping-fragments-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
+        "a38b8dc144584773edc856ffe48505e8": {
+            "path": "Folder1/overlapping-fragments__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "overlapping-fragments-manual.html",
+            "code": "overlapping-fragments.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "f56c059179ba690525070cb58481d3a7": {
-            "path": "Folder3/playback-over-wave-baseline-splice-constraints-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
+        "1264af457e50626839c219b162c70810": {
+            "path": "Folder3/playback-over-wave-baseline-splice-constraints__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "playback-over-wave-baseline-splice-constraints-manual.html",
+            "code": "playback-over-wave-baseline-splice-constraints.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "adb1e1491196783d879d7c4ff2f262e7": {
-            "path": "Folder1/random-access-to-fragment-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
+        "43069a5490025c80cef6279d895aac9a": {
+            "path": "Folder1/random-access-to-fragment__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "random-access-to-fragment-manual.html",
+            "code": "random-access-to-fragment.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "cf3d581e5931812cd36a82d14e4638c5": {
-            "path": "Folder2/random-access-to-time-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
+        "300764265987c519559e5a36cb4fec06": {
+            "path": "Folder2/random-access-to-time__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "random-access-to-time-manual.html",
+            "code": "random-access-to-time.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "edabbc26cb399c666e5636e759c515b5": {
-            "path": "Folder3/regular-playback-of-chunked-content-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
+        "d91b983e0370c63c324adbb0467feb7c": {
+            "path": "Folder3/regular-playback-of-chunked-content__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "regular-playback-of-chunked-content-manual.html",
+            "code": "regular-playback-of-chunked-content.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "e6a34552202da623d0a7f228edca137c": {
-            "path": "Folder1/regular-playback-of-chunked-content-non-aligned-append-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
+        "a1fc6e9080793f9b8d64b3a9186b8195": {
+            "path": "Folder1/regular-playback-of-chunked-content-non-aligned-append__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "regular-playback-of-chunked-content-non-aligned-append-manual.html",
+            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "24681271ccf37b8310adb914fcb15c0d": {
-            "path": "Folder1/sequential-track-playback-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
+        "29ba22d46a2ca5c36aaec94f0805e430": {
+            "path": "Folder1/sequential-track-playback__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "sequential-track-playback-manual.html",
+            "code": "sequential-track-playback.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "a8f81d6ad219aeeb4e16ff54274fd845": {
-            "path": "Folder2/switching-set-playback-manual__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
+        "e66eeb954489416f6a1b0476eab4b93d": {
+            "path": "Folder2/switching-set-playback__ToS_MultiRate_chunked__ToS_HEAACv2_fragmented.html",
             "video": "http://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Chunked/ToS_MultiRate_chunked.mpd",
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
-            "code": "switching-set-playback-manual.html",
+            "code": "switching-set-playback.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S"
+                "fragment_duration": "PT0H0M2.167S",
+                "representations": {
+                    "video1/1": {
+                        "duration": 732
+                    },
+                    "video1/2": {
+                        "duration": 732
+                    }
+                }
             }
         },
-        "939c7be26c7de9266770aa020fe7e0a9": {
-            "path": "avc/fullscreen-playback-of-switching-sets-manual__stream__.html",
+        "b2575b4a81db476bb9e22763bb68f0ef": {
+            "path": "avc/fullscreen-playback-of-switching-sets__stream__.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
-            "code": "fullscreen-playback-of-switching-sets-manual.html",
+            "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
                 "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S"
+                "fragment_duration": "PT2.0S",
+                "representations": {
+                    "0": {
+                        "duration": 60.03333333333333
+                    },
+                    "1": {
+                        "duration": 60.06666666666667
+                    },
+                    "2": {
+                        "duration": 60.03333333333333
+                    },
+                    "3": {
+                        "duration": 60.06666666666667
+                    },
+                    "4": {
+                        "duration": 60.06666666666667
+                    },
+                    "5": {
+                        "duration": 60.06666666666667
+                    },
+                    "6": {
+                        "duration": 60.06666666666667
+                    },
+                    "7": {
+                        "duration": 60.13333333333333
+                    },
+                    "8": {
+                        "duration": 60.04680272108843
+                    }
+                }
             }
         },
-        "59014ee6e5c9af6f2482d9334f85820d": {
-            "path": "avc/out-of-order-loading-manual__stream__.html",
+        "0cf8bcdde961b6ca1bd16c88f81ce3ba": {
+            "path": "avc/out-of-order-loading__stream__.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
-            "code": "out-of-order-loading-manual.html",
+            "code": "out-of-order-loading.html",
             "config": {
                 "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S"
+                "fragment_duration": "PT2.0S",
+                "representations": {
+                    "0": {
+                        "duration": 60.03333333333333
+                    },
+                    "1": {
+                        "duration": 60.06666666666667
+                    },
+                    "2": {
+                        "duration": 60.03333333333333
+                    },
+                    "3": {
+                        "duration": 60.06666666666667
+                    },
+                    "4": {
+                        "duration": 60.06666666666667
+                    },
+                    "5": {
+                        "duration": 60.06666666666667
+                    },
+                    "6": {
+                        "duration": 60.06666666666667
+                    },
+                    "7": {
+                        "duration": 60.13333333333333
+                    },
+                    "8": {
+                        "duration": 60.04680272108843
+                    }
+                }
             }
         },
-        "7cb4654121c17b1a86c3da864ebb8b42": {
-            "path": "avc/overlapping-fragments-manual__stream__.html",
+        "f9143f2d32767110948a338de44c3bb3": {
+            "path": "avc/overlapping-fragments__stream__.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
-            "code": "overlapping-fragments-manual.html",
+            "code": "overlapping-fragments.html",
             "config": {
                 "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S"
+                "fragment_duration": "PT2.0S",
+                "representations": {
+                    "0": {
+                        "duration": 60.03333333333333
+                    },
+                    "1": {
+                        "duration": 60.06666666666667
+                    },
+                    "2": {
+                        "duration": 60.03333333333333
+                    },
+                    "3": {
+                        "duration": 60.06666666666667
+                    },
+                    "4": {
+                        "duration": 60.06666666666667
+                    },
+                    "5": {
+                        "duration": 60.06666666666667
+                    },
+                    "6": {
+                        "duration": 60.06666666666667
+                    },
+                    "7": {
+                        "duration": 60.13333333333333
+                    },
+                    "8": {
+                        "duration": 60.04680272108843
+                    }
+                }
             }
         },
-        "61f355e4382099592033eb547dfc0608": {
-            "path": "avc/playback-over-wave-baseline-splice-constraints-manual__stream__.html",
+        "f71afe05d87dd25ff7482f04ded589d5": {
+            "path": "avc/playback-over-wave-baseline-splice-constraints__stream__.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
-            "code": "playback-over-wave-baseline-splice-constraints-manual.html",
+            "code": "playback-over-wave-baseline-splice-constraints.html",
             "config": {
                 "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S"
+                "fragment_duration": "PT2.0S",
+                "representations": {
+                    "0": {
+                        "duration": 60.03333333333333
+                    },
+                    "1": {
+                        "duration": 60.06666666666667
+                    },
+                    "2": {
+                        "duration": 60.03333333333333
+                    },
+                    "3": {
+                        "duration": 60.06666666666667
+                    },
+                    "4": {
+                        "duration": 60.06666666666667
+                    },
+                    "5": {
+                        "duration": 60.06666666666667
+                    },
+                    "6": {
+                        "duration": 60.06666666666667
+                    },
+                    "7": {
+                        "duration": 60.13333333333333
+                    },
+                    "8": {
+                        "duration": 60.04680272108843
+                    }
+                }
             }
         },
-        "775346e6398a1132c475b54148d138bc": {
-            "path": "avc/random-access-to-fragment-manual__stream__.html",
+        "868ea1bf0d8dd993493b3d6112a5558a": {
+            "path": "avc/random-access-to-fragment__stream__.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
-            "code": "random-access-to-fragment-manual.html",
+            "code": "random-access-to-fragment.html",
             "config": {
                 "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S"
+                "fragment_duration": "PT2.0S",
+                "representations": {
+                    "0": {
+                        "duration": 60.03333333333333
+                    },
+                    "1": {
+                        "duration": 60.06666666666667
+                    },
+                    "2": {
+                        "duration": 60.03333333333333
+                    },
+                    "3": {
+                        "duration": 60.06666666666667
+                    },
+                    "4": {
+                        "duration": 60.06666666666667
+                    },
+                    "5": {
+                        "duration": 60.06666666666667
+                    },
+                    "6": {
+                        "duration": 60.06666666666667
+                    },
+                    "7": {
+                        "duration": 60.13333333333333
+                    },
+                    "8": {
+                        "duration": 60.04680272108843
+                    }
+                }
             }
         },
-        "b0c25dd5df76339d2b6b72a7a45a0ec0": {
-            "path": "avc/random-access-to-time-manual__stream__.html",
+        "0b7525780808551d0b51fd4c01121e20": {
+            "path": "avc/random-access-to-time__stream__.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
-            "code": "random-access-to-time-manual.html",
+            "code": "random-access-to-time.html",
             "config": {
                 "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S"
+                "fragment_duration": "PT2.0S",
+                "representations": {
+                    "0": {
+                        "duration": 60.03333333333333
+                    },
+                    "1": {
+                        "duration": 60.06666666666667
+                    },
+                    "2": {
+                        "duration": 60.03333333333333
+                    },
+                    "3": {
+                        "duration": 60.06666666666667
+                    },
+                    "4": {
+                        "duration": 60.06666666666667
+                    },
+                    "5": {
+                        "duration": 60.06666666666667
+                    },
+                    "6": {
+                        "duration": 60.06666666666667
+                    },
+                    "7": {
+                        "duration": 60.13333333333333
+                    },
+                    "8": {
+                        "duration": 60.04680272108843
+                    }
+                }
             }
         },
-        "0f11816e6d8948e58ef3d35e6a0a71ff": {
-            "path": "avc/regular-playback-of-chunked-content-manual__stream__.html",
+        "544fd9cfe1be4e872b3424d4830bb5c0": {
+            "path": "avc/regular-playback-of-chunked-content__stream__.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
-            "code": "regular-playback-of-chunked-content-manual.html",
+            "code": "regular-playback-of-chunked-content.html",
             "config": {
                 "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S"
+                "fragment_duration": "PT2.0S",
+                "representations": {
+                    "0": {
+                        "duration": 60.03333333333333
+                    },
+                    "1": {
+                        "duration": 60.06666666666667
+                    },
+                    "2": {
+                        "duration": 60.03333333333333
+                    },
+                    "3": {
+                        "duration": 60.06666666666667
+                    },
+                    "4": {
+                        "duration": 60.06666666666667
+                    },
+                    "5": {
+                        "duration": 60.06666666666667
+                    },
+                    "6": {
+                        "duration": 60.06666666666667
+                    },
+                    "7": {
+                        "duration": 60.13333333333333
+                    },
+                    "8": {
+                        "duration": 60.04680272108843
+                    }
+                }
             }
         },
-        "ca55a033e8ebdbf781721c309f41308c": {
-            "path": "avc/regular-playback-of-chunked-content-non-aligned-append-manual__stream__.html",
+        "0d0521aedb75d780c9e34fb3a5df56b5": {
+            "path": "avc/regular-playback-of-chunked-content-non-aligned-append__stream__.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
-            "code": "regular-playback-of-chunked-content-non-aligned-append-manual.html",
+            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
             "config": {
                 "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S"
+                "fragment_duration": "PT2.0S",
+                "representations": {
+                    "0": {
+                        "duration": 60.03333333333333
+                    },
+                    "1": {
+                        "duration": 60.06666666666667
+                    },
+                    "2": {
+                        "duration": 60.03333333333333
+                    },
+                    "3": {
+                        "duration": 60.06666666666667
+                    },
+                    "4": {
+                        "duration": 60.06666666666667
+                    },
+                    "5": {
+                        "duration": 60.06666666666667
+                    },
+                    "6": {
+                        "duration": 60.06666666666667
+                    },
+                    "7": {
+                        "duration": 60.13333333333333
+                    },
+                    "8": {
+                        "duration": 60.04680272108843
+                    }
+                }
             }
         },
-        "5c9430fd13fb3c4be79c4fbbbd4895c6": {
-            "path": "avc/sequential-track-playback-manual__stream__.html",
+        "54694ae36ab3a4e99db15dcfa41b6ab8": {
+            "path": "avc/sequential-track-playback__stream__.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
-            "code": "sequential-track-playback-manual.html",
+            "code": "sequential-track-playback.html",
             "config": {
                 "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S"
+                "fragment_duration": "PT2.0S",
+                "representations": {
+                    "0": {
+                        "duration": 60.03333333333333
+                    },
+                    "1": {
+                        "duration": 60.06666666666667
+                    },
+                    "2": {
+                        "duration": 60.03333333333333
+                    },
+                    "3": {
+                        "duration": 60.06666666666667
+                    },
+                    "4": {
+                        "duration": 60.06666666666667
+                    },
+                    "5": {
+                        "duration": 60.06666666666667
+                    },
+                    "6": {
+                        "duration": 60.06666666666667
+                    },
+                    "7": {
+                        "duration": 60.13333333333333
+                    },
+                    "8": {
+                        "duration": 60.04680272108843
+                    }
+                }
             }
         },
-        "4fd8d1d219ae8ca6306ec481c82f3031": {
-            "path": "avc/switching-set-playback-manual__stream__.html",
+        "119e852691076b01bd9641a83bfaac01": {
+            "path": "avc/switching-set-playback__stream__.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
-            "code": "switching-set-playback-manual.html",
+            "code": "switching-set-playback.html",
             "config": {
                 "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S"
+                "fragment_duration": "PT2.0S",
+                "representations": {
+                    "0": {
+                        "duration": 60.03333333333333
+                    },
+                    "1": {
+                        "duration": 60.06666666666667
+                    },
+                    "2": {
+                        "duration": 60.03333333333333
+                    },
+                    "3": {
+                        "duration": 60.06666666666667
+                    },
+                    "4": {
+                        "duration": 60.06666666666667
+                    },
+                    "5": {
+                        "duration": 60.06666666666667
+                    },
+                    "6": {
+                        "duration": 60.06666666666667
+                    },
+                    "7": {
+                        "duration": 60.13333333333333
+                    },
+                    "8": {
+                        "duration": 60.04680272108843
+                    }
+                }
             }
         },
-        "9111305f8ad00a51c374c3da6083ca12": {
-            "path": "avc/regular-playback-of-a-cmaf-presentation-manual__stream__.html",
+        "9a744756a521b14b1dcd95e66843aa46": {
+            "path": "avc/regular-playback-of-a-cmaf-presentation__stream__.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
-            "code": "regular-playback-of-a-cmaf-presentation-manual.html",
+            "code": "regular-playback-of-a-cmaf-presentation.html",
             "config": {
                 "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S"
+                "fragment_duration": "PT2.0S",
+                "representations": {
+                    "0": {
+                        "duration": 60.03333333333333
+                    },
+                    "1": {
+                        "duration": 60.06666666666667
+                    },
+                    "2": {
+                        "duration": 60.03333333333333
+                    },
+                    "3": {
+                        "duration": 60.06666666666667
+                    },
+                    "4": {
+                        "duration": 60.06666666666667
+                    },
+                    "5": {
+                        "duration": 60.06666666666667
+                    },
+                    "6": {
+                        "duration": 60.06666666666667
+                    },
+                    "7": {
+                        "duration": 60.13333333333333
+                    },
+                    "8": {
+                        "duration": 60.04680272108843
+                    }
+                }
             }
         },
-        "dba385a1c450e7fdd6bcdffa589b749e": {
-            "path": "avc/random-access-of-a-wave-presentation-manual__stream__.html",
+        "23b9c329fbdabea1d95180faa357cca8": {
+            "path": "avc/random-access-of-a-wave-presentation__stream__.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
-            "code": "random-access-of-a-wave-presentation-manual.html",
+            "code": "random-access-of-a-wave-presentation.html",
             "config": {
                 "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S"
+                "fragment_duration": "PT2.0S",
+                "representations": {
+                    "0": {
+                        "duration": 60.03333333333333
+                    },
+                    "1": {
+                        "duration": 60.06666666666667
+                    },
+                    "2": {
+                        "duration": 60.03333333333333
+                    },
+                    "3": {
+                        "duration": 60.06666666666667
+                    },
+                    "4": {
+                        "duration": 60.06666666666667
+                    },
+                    "5": {
+                        "duration": 60.06666666666667
+                    },
+                    "6": {
+                        "duration": 60.06666666666667
+                    },
+                    "7": {
+                        "duration": 60.13333333333333
+                    },
+                    "8": {
+                        "duration": 60.04680272108843
+                    }
+                }
             }
         },
-        "8603a4a9a7811aed7dc437ed3cb75d2b": {
-            "path": "avc/splicing-of-wave-program-with-baseline-constraints-manual__stream__.html",
+        "cf8a89cc6bde36dcd77cb99095919a92": {
+            "path": "avc/splicing-of-wave-program-with-baseline-constraints__stream__.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
             "audio": "",
-            "code": "splicing-of-wave-program-with-baseline-constraints-manual.html",
+            "code": "splicing-of-wave-program-with-baseline-constraints.html",
             "config": {
                 "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S"
+                "fragment_duration": "PT2.0S",
+                "representations": {
+                    "0": {
+                        "duration": 60.03333333333333
+                    },
+                    "1": {
+                        "duration": 60.06666666666667
+                    },
+                    "2": {
+                        "duration": 60.03333333333333
+                    },
+                    "3": {
+                        "duration": 60.06666666666667
+                    },
+                    "4": {
+                        "duration": 60.06666666666667
+                    },
+                    "5": {
+                        "duration": 60.06666666666667
+                    },
+                    "6": {
+                        "duration": 60.06666666666667
+                    },
+                    "7": {
+                        "duration": 60.13333333333333
+                    },
+                    "8": {
+                        "duration": 60.04680272108843
+                    }
+                }
             }
         },
-        "605fcef3117e160de61c1baaedd2532b": {
-            "path": "cenc/playback-of-encrypted-content-manual-https__Manifest_ClearKey__.html",
+        "5fcfef902e15ad913708a8ec5f32ecae": {
+            "path": "cenc/playback-of-encrypted-content-https__Manifest_ClearKey__.html",
             "video": "https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_ClearKey.mpd",
             "audio": "",
-            "code": "playback-of-encrypted-content-manual-https.html",
+            "code": "playback-of-encrypted-content-https.html",
             "config": {
                 "cmaf_track_duration": "PT0H12M14.000S",
-                "fragment_duration": "PT0H0M4.000S"
+                "fragment_duration": "PT0H0M4.000S",
+                "representations": {
+                    "1": {
+                        "duration": 734
+                    },
+                    "2": {
+                        "duration": 734
+                    },
+                    "3": {
+                        "duration": 734
+                    },
+                    "4": {
+                        "duration": 734
+                    },
+                    "5": {
+                        "duration": 734
+                    },
+                    "6": {
+                        "duration": 734
+                    },
+                    "7": {
+                        "duration": 734
+                    },
+                    "8": {
+                        "duration": 734
+                    },
+                    "9": {
+                        "duration": 734
+                    },
+                    "10": {
+                        "duration": 734
+                    },
+                    "11": {
+                        "duration": 734
+                    },
+                    "12": {
+                        "duration": 734
+                    },
+                    "13": {
+                        "duration": 734
+                    },
+                    "14": {
+                        "duration": 734
+                    },
+                    "15": {
+                        "duration": 734
+                    },
+                    "16": {
+                        "duration": 734
+                    },
+                    "17": {
+                        "duration": 734
+                    },
+                    "18": {
+                        "duration": 734
+                    },
+                    "19": {
+                        "duration": 734
+                    },
+                    "20": {
+                        "duration": 734
+                    },
+                    "21": {
+                        "duration": 734
+                    },
+                    "22": {
+                        "duration": 734
+                    },
+                    "23": {
+                        "duration": 734
+                    },
+                    "24": {
+                        "duration": 734
+                    },
+                    "25": {
+                        "duration": 734
+                    },
+                    "26": {
+                        "duration": 734
+                    },
+                    "27": {
+                        "duration": 734
+                    }
+                }
             }
         }
     }

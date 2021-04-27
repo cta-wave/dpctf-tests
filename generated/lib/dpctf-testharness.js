@@ -1,3 +1,9 @@
+//// Configure Test Harness ////
+setup({
+  explicit_timeout: true,
+  explicit_done: true,
+});
+
 function DpctfTest(config) {
   var testInfo = config.testInfo;
   var video = config.videoElement;
@@ -96,12 +102,6 @@ function DpctfTest(config) {
     log("Setting up test");
     updateQrCode();
     return new Promise(function (resolve) {
-      //// Configure Test Harness ////
-      setup({
-        explicit_timeout: true,
-        explicit_done: true,
-      });
-
       video.addEventListener("play", function () {
         if (_videoState === VIDEO_STATE_ERROR) return;
         _lastAction = ACTION_PLAY;
@@ -182,9 +182,12 @@ function DpctfTest(config) {
             }
 
             if (parameters.duration && player.getDuration()) {
-              if (parameters.duration !== player.getDuration()) {
+              const duration = parseInt(player.getDuration() * 100) / 100;
+              if (parameters.duration !== duration) {
                 throw new Error(
-                  "Provided duration does not match MPD duration!"
+                  "Provided duration does not match MPD duration of " +
+                    duration +
+                    " seconds."
                 );
               }
             }
@@ -199,7 +202,8 @@ function DpctfTest(config) {
                 player.getVideoManifest().getRepresentations().length
               ) {
                 throw new Error(
-                  "Provided total representations do not match MPD total representations!"
+                  "Provided total representations do not match MPD total representations of " +
+                    player.getVideoManifest().getRepresentations().length
                 );
               }
             }
