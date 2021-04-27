@@ -33,31 +33,31 @@ Every row represents a generated test.
 Example
 
 ```csv
-"fullscreen-playback-of-switching-sets-manual","http://host.net/video.mpd","http://host.net/audio.mpd","Folder1"
-"out-of-order-loading-manual","http://host.net/video.mpd","http://host.net/audio.mpd","Folder2"
-"overlapping-fragments-manual","http://host.net/video.mpd","http://host.net/audio.mpd","Folder1"
+"fullscreen-playback-of-switching-sets","http://host.net/video.mpd","http://host.net/audio.mpd","Folder1"
+"out-of-order-loading","http://host.net/video.mpd","http://host.net/audio.mpd","Folder2"
+"overlapping-fragments","http://host.net/video.mpd","http://host.net/audio.mpd","Folder1"
 ```
 
 ### Templates
 
-| id                                                                         | file                                                                                                                                                                 | specification |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| sequential-track-playback-manual                                           | [sequential-track-playback-manual.html](./sequential-track-playback-manual.html)                                                                                     | 8.2           |
-| random-access-to-fragment-manual                                           | [random-access-to-fragment-manual.html](./random-access-to-fragment-manual.html)                                                                                     | 8.3           |
-| random-access-to-time-manual                                               | [random-access-to-time-manual.html](./random-access-to-time-manual.html)                                                                                             | 8.4           |
-| switching-set-playback-manual                                              | [switching-set-playback-manual.html](./switching-set-playback-manual.html)                                                                                           | 8.5           |
-| regular-playback-of-chunked-content-manual                                 | [regular-playback-of-chunked-content-manual.html](./regular-playback-of-chunked-content-manual.html)                                                                 | 8.6           |
-| regular-playback-of-chunked-content-non-aligned-append-manual              | [regular-playback-of-chunked-content-non-aligned-append-manual.html](./regular-playback-of-chunked-content-non-aligned-append-manual.html)                           | 8.7           |
-| playback-over-wave-baseline-splice-constraints-manual                      | [playback-over-wave-baseline-splice-constraints-manual.html](./playback-over-wave-baseline-splice-constraints-manual.html)                                           | 8.8           |
-| out-of-order-loading-manual                                                | [out-of-order-loading-manual.html](./out-of-order-loading-manual.html)                                                                                               | 8.9           |
-| overlapping-fragments-manual                                               | [overlapping-fragments-manual.html](./overlapping-fragments-manual.html)                                                                                             | 8.10          |
-| fullscreen-playback-of-switching-sets-manual                               | [fullscreen-playback-of-switching-sets-manual.html](./fullscreen-playback-of-switching-sets-manual.html)                                                             | 8.11          |
-| playback-of-encrypted-content-manual                                       | [playback-of-encrypted-content-manual.html](./playback-of-encrypted-content-manual.html)                                                                             | 8.12          |
-| restricted-splicing-of-encrypted-content-manual                            | [restricted-splicing-of-encrypted-content-manual.html](./restricted-splicing-of-encrypted-content-manual.html)                                                       | 8.13          |
-| sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual | [sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual.html](./sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual.html) | 8.14          |
-| regular-playback-of-a-cmaf-presentation                                    | [regular-playback-of-a-cmaf-presentation-manual.html](./regular-playback-of-a-cmaf-presentation-manual.html)                                                         | 9.2           |
-| random-access-of-a-wave-presentation                                       | [random-access-of-a-wave-presentation-manual.html](./random-access-of-a-wave-presentation-manual.html)                                                               | 9.3           |
-| splicing-of-wave-program-with-baseline-constraints                         | [splicing-of-wave-program-with-baseline-constraints-manual.html](./splicing-of-wave-program-with-baseline-constraints-manual.html)                                   | 9.4           |
+| id                                                                  | file                                                                                                                                                   | specification |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| sequential-track-playback                                           | [sequential-track-playback.html](./sequential-track-playback.html)                                                                                     | 8.2           |
+| random-access-to-fragment                                           | [random-access-to-fragment.html](./random-access-to-fragment.html)                                                                                     | 8.3           |
+| random-access-to-time                                               | [random-access-to-time.html](./random-access-to-time.html)                                                                                             | 8.4           |
+| switching-set-playback                                              | [switching-set-playback.html](./switching-set-playback.html)                                                                                           | 8.5           |
+| regular-playback-of-chunked-content                                 | [regular-playback-of-chunked-content.html](./regular-playback-of-chunked-content.html)                                                                 | 8.6           |
+| regular-playback-of-chunked-content-non-aligned-append              | [regular-playback-of-chunked-content-non-aligned-append.html](./regular-playback-of-chunked-content-non-aligned-append.html)                           | 8.7           |
+| playback-over-wave-baseline-splice-constraints                      | [playback-over-wave-baseline-splice-constraints.html](./playback-over-wave-baseline-splice-constraints.html)                                           | 8.8           |
+| out-of-order-loading                                                | [out-of-order-loading.html](./out-of-order-loading.html)                                                                                               | 8.9           |
+| overlapping-fragments                                               | [overlapping-fragments.html](./overlapping-fragments.html)                                                                                             | 8.10          |
+| fullscreen-playback-of-switching-sets                               | [fullscreen-playback-of-switching-sets.html](./fullscreen-playback-of-switching-sets.html)                                                             | 8.11          |
+| playback-of-encrypted-content                                       | [playback-of-encrypted-content.html](./playback-of-encrypted-content.html)                                                                             | 8.12          |
+| restricted-splicing-of-encrypted-content                            | [restricted-splicing-of-encrypted-content.html](./restricted-splicing-of-encrypted-content.html)                                                       | 8.13          |
+| sequential-playback-of-encrypted-and-non-encrypted-baseline-content | [sequential-playback-of-encrypted-and-non-encrypted-baseline-content.html](./sequential-playback-of-encrypted-and-non-encrypted-baseline-content.html) | 8.14          |
+| regular-playback-of-a-cmaf-presentation                             | [regular-playback-of-a-cmaf-presentation.html](./regular-playback-of-a-cmaf-presentation.html)                                                         | 9.2           |
+| random-access-of-a-wave-presentation                                | [random-access-of-a-wave-presentation.html](./random-access-of-a-wave-presentation.html)                                                               | 9.3           |
+| splicing-of-wave-program-with-baseline-constraints                  | [splicing-of-wave-program-with-baseline-constraints.html](./splicing-of-wave-program-with-baseline-constraints.html)                                   | 9.4           |
 
 Specification numbers refer to section numbers in [the DPCTF specification](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5003-final.pdf).
 

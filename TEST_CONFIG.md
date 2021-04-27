@@ -28,7 +28,7 @@ When specifying a parameter for a specific test, it will override corresponding 
 
 ```json
 {
-  "Folder2/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-manual__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html": {
+  "Folder2/sequential-playback-of-encrypted-and-non-encrypted-baseline-content__ToS_MultiRate_fragmented__ToS_HEAACv2_fragmented.html": {
     "parameter1": "value1",
     "parameter2": "value2"
   }
