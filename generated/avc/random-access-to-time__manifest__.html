@@ -30,21 +30,19 @@
     <script src="../lib/davidshimjs/qrcode.js"></script>
     <script src="../lib/dpctf-testharness.js"></script>
     <script>
-      // Global variables
       var TEST_INFO = {
-        title: "Playback over WAVE Baseline Splice Constraints",
+        title: "Random Access to Time",
         description:
-          "Playback over splices enables the content provider to offer a sequence of Switching Sets with less restricted encoding requirements than a track. This feature is especially important in case of program changes and ad insertion.",
-        path: "avc/playback-over-wave-baseline-splice-constraints__stream__.html",
-        code: "playback-over-wave-baseline-splice-constraints.html",
+          "A track is randomly accessed and played back, starting from a specific time onwards.\nThe random access in this case may occur in the middle of any Fragment.",
+        path: "avc/random-access-to-time__manifest__.html",
+        code: "random-access-to-time.html",
         params: urlParams,
         observations: [],
       };
-
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd";
+      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd";
       var audioContentModel = "";
 
       var dpctfTest = new DpctfTest({
@@ -54,19 +52,34 @@
         videoElement: video,
         qrCodeElement: qrCode,
         infoOverlayElement: document.getElementById("info-overlay"),
+        setupTest: setupTest,
         executeTest: executeTest,
-        usePlayout: true,
+        outOfOrderLoading: true,
       });
+
+      function setupTest(player, done, parameters) {
+        var randomAccessTime = parameters.randomAccessTime;
+        player.setCurrentTime(randomAccessTime);
+        done();
+      }
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-
+        var currentTime = player.getCurrentTime();
+        var totalTime = player.getDuration();
+        var timeLeft = parseInt(totalTime - currentTime);
         player.startBuffering();
-        if (player.getPreBufferedTime() >= minBufferDuration) {
+        if (
+          player.getPreBufferedTime() >= minBufferDuration ||
+          player.getPreBufferedTime() >= timeLeft
+        ) {
           player.play();
         } else {
           player.on("onVideoSegmentLoaded", function (event) {
-            if (player.getPreBufferedTime() >= minBufferDuration) {
+            if (
+              player.getPreBufferedTime() >= minBufferDuration ||
+              player.getPreBufferedTime() >= timeLeft
+            ) {
               player.play();
             }
           });

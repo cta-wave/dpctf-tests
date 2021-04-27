@@ -32,18 +32,20 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Out-Of-Order Loading",
+        title: "Overlapping Fragments",
         description:
-          "Out of order loading refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization, but CMAF fragments are loaded out of order within the buffer duration.",
-        path: "avc/out-of-order-loading__stream__.html",
-        code: "out-of-order-loading.html",
+          "Playback of overlapping fragments assumes that the application can overwrite the buffer with other fragments. This is for example useful in case that a fragment is loaded in lower quality but may then be replaced by a better-quality fragment.",
+        path: "avc/overlapping-fragments__manifest__.html",
+        code: "overlapping-fragments.html",
         params: urlParams,
         observations: [],
       };
+
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
+      var overwriteCurrentFragment = true;
 
-      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd";
+      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd";
       var audioContentModel = "";
 
       var dpctfTest = new DpctfTest({
@@ -54,11 +56,38 @@
         qrCodeElement: qrCode,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        outOfOrderLoading: true,
+        usePlayout: true,
       });
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
+
+        var handleRandomSwitch = function (currentTime) {
+          var duration = player.getDuration();
+          var switchingTime = duration * 0.3;
+
+          if (currentTime < switchingTime) return;
+          if (Math.random() > 0.05) return;
+
+          var newRepresentationIndex = 1;
+
+          var totalSegmentsCount = player
+            .getVideoManifest()
+            .getRepresentation(newRepresentationIndex)
+            .getTotalSegmentsCount();
+          var switchingSegment = player.getPlayingVideoSegment().getNumber();
+          if (!overwriteCurrentFragment) {
+            switchingSegment += 1;
+          }
+          player.setVideoSegments({
+            representationNumber: 1,
+            startSegment: switchingSegment,
+            endSegment: totalSegmentsCount - 1,
+          });
+          player.off(handleRandomSwitch);
+        };
+        player.on("onTimeUpdate", handleRandomSwitch);
+
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();

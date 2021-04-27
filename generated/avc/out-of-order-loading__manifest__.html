@@ -6,18 +6,6 @@
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
-        <script>
-      //// Configure Test Harness ////
-      setup({
-        explicit_timeout: true,
-        explicit_done: true,
-      });
-      setTimeout(function () {
-              timeout();
-            }, 300000);
-
-          </script>
-    <script src="../lib/dpctf-testharness.js"></script>
   </head>
 
   <body>
@@ -40,53 +28,22 @@
     <script src="../lib/mpd-parser.js"></script>
     <script src="../lib/wave-service.js"></script>
     <script src="../lib/davidshimjs/qrcode.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "sequential-track-playback",
-        title: "Sequential Track Playback",
+        title: "Out-Of-Order Loading",
         description:
-          "Sequential track playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization.",
-        path: "avc/sequential-track-playback__stream__.html",
-        code: "sequential-track-playback.html",
-        observations: [
-          {
-            name: "Low start-up delay",
-            description:
-              "The start-up delay should be sufficiently low, i.e., TR [k, 1] – Ti < TSMax.",
-            id: "start-up-delay",
-          },
-          {
-            name: "Render every sample",
-            description:
-              "Every sample S[k,s] shall be rendered and the samples shall be rendered in increasing presentation time order.",
-            id: "every-sample-rendered",
-          },
-          {
-            name: "Duration matches CMAF track",
-            description:
-              "The playback duration of the playback matches the duration of the CMAF Track, i.e. TR[k, S] = TR [k, 1] + td[k].",
-            id: "duration-matches-cmaf-track",
-          },
-          {
-            name: "Presented sample correct",
-            description:
-              "The presented sample matches the one reported by the currentTime value within the tolerance of the sample duration.",
-            id: "sample-matches-current-time",
-          },
-          {
-            name: "Video rendered in entire window",
-            description:
-              "Every video frame S[k,s] shall be rendered such that it fills the entire video output window.",
-            id: "video-fills-entire-output-window",
-          },
-        ],
+          "Out of order loading refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization, but CMAF fragments are loaded out of order within the buffer duration.",
+        path: "avc/out-of-order-loading__manifest__.html",
+        code: "out-of-order-loading.html",
+        params: urlParams,
+        observations: [],
       };
-
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd";
+      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd";
       var audioContentModel = "";
 
       var dpctfTest = new DpctfTest({
@@ -97,7 +54,7 @@
         qrCodeElement: qrCode,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        usePlayout: false,
+        outOfOrderLoading: true,
       });
 
       function executeTest(player, done, parameters) {

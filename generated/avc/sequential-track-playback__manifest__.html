@@ -32,64 +32,71 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "random-access-of-a-wave-presentation",
-        title: "Random Access of a WAVE Presentation",
+        id: "sequential-track-playback",
+        title: "Sequential Track Playback",
         description:
-          "In scenarios such as live programs, the client accesses an ongoing Presentation to join in the live event. This is a typical case that media needs to be accessed and played back at a random access time.",
-        path: "avc/random-access-of-a-wave-presentation__stream__.html",
-        code: "random-access-of-a-wave-presentation.html",
-        observations: [],
+          "Sequential track playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization.",
+        path: "avc/sequential-track-playback__manifest__.html",
+        code: "sequential-track-playback.html",
+        observations: [
+          {
+            name: "Low start-up delay",
+            description:
+              "The start-up delay should be sufficiently low, i.e., TR [k, 1] – Ti < TSMax.",
+            id: "start-up-delay",
+          },
+          {
+            name: "Render every sample",
+            description:
+              "Every sample S[k,s] shall be rendered and the samples shall be rendered in increasing presentation time order.",
+            id: "every-sample-rendered",
+          },
+          {
+            name: "Duration matches CMAF track",
+            description:
+              "The playback duration of the playback matches the duration of the CMAF Track, i.e. TR[k, S] = TR [k, 1] + td[k].",
+            id: "duration-matches-cmaf-track",
+          },
+          {
+            name: "Presented sample correct",
+            description:
+              "The presented sample matches the one reported by the currentTime value within the tolerance of the sample duration.",
+            id: "sample-matches-current-time",
+          },
+          {
+            name: "Video rendered in entire window",
+            description:
+              "Every video frame S[k,s] shall be rendered such that it fills the entire video output window.",
+            id: "video-fills-entire-output-window",
+          },
+        ],
       };
+
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd";
+      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd";
       var audioContentModel = "";
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
         videoContentModel: videoContentModel,
+        audioContentModel: audioContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        setupTest: setupTest,
+        usePlayout: false,
       });
-
-      function setupTest(player, done, parameters) {
-        var randomAccessFragment = parameters.randomAccessFragment;
-        var manifest = player.getVideoManifest();
-        var videoSegments = player.getVideoSegments();
-        var totalSegments = player.getVideoSegmentsCount();
-        var cmafTrackLength = player.getVideoManifest().getDuration();
-
-        var fragmentTime = 0;
-        for (var i = 0; i < randomAccessFragment; i++) {
-          var segmentDuration = videoSegments[i].getDuration();
-          fragmentTime += segmentDuration;
-        }
-        player.setCurrentTime(fragmentTime);
-
-        done();
-      }
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-        var currentTime = player.getCurrentTime();
-        var totalTime = player.getDuration();
-        var timeLeft = parseInt(totalTime - currentTime);
         player.startBuffering();
-        if (
-          player.getPreBufferedTime() >= minBufferDuration ||
-          player.getPreBufferedTime() >= timeLeft
-        ) {
+        if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();
         } else {
           player.on("onVideoSegmentLoaded", function (event) {
-            if (
-              player.getPreBufferedTime() >= minBufferDuration ||
-              player.getPreBufferedTime() >= timeLeft
-            ) {
+            if (player.getPreBufferedTime() >= minBufferDuration) {
               player.play();
             }
           });

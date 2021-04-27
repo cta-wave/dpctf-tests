@@ -32,18 +32,19 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "random-access-to-fragment",
-        title: "Random Access to Fragment",
+        title: "Playback over WAVE Baseline Splice Constraints",
         description:
-          "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
-        path: "avc/random-access-to-fragment__stream__.html",
-        code: "random-access-to-fragment.html",
+          "Playback over splices enables the content provider to offer a sequence of Switching Sets with less restricted encoding requirements than a track. This feature is especially important in case of program changes and ad insertion.",
+        path: "avc/playback-over-wave-baseline-splice-constraints__manifest__.html",
+        code: "playback-over-wave-baseline-splice-constraints.html",
+        params: urlParams,
         observations: [],
       };
+
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd";
+      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd";
       var audioContentModel = "";
 
       var dpctfTest = new DpctfTest({
@@ -54,43 +55,18 @@
         qrCodeElement: qrCode,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        setupTest: setupTest,
+        usePlayout: true,
       });
-
-      function setupTest(player, done, parameters) {
-        var randomAccessFragment = parameters.randomAccessFragment;
-        var manifest = player.getVideoManifest();
-        var videoSegments = player.getVideoSegments();
-        var totalSegments = player.getVideoSegmentsCount();
-        var cmafTrackLength = player.getVideoManifest().getDuration();
-
-        var fragmentTime = 0;
-        for (var i = 0; i < randomAccessFragment; i++) {
-          var segmentDuration = videoSegments[i].getDuration();
-          fragmentTime += segmentDuration;
-        }
-        player.setCurrentTime(fragmentTime);
-
-        done();
-      }
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-        var currentTime = player.getCurrentTime();
-        var totalTime = player.getDuration();
-        var timeLeft = parseInt(totalTime - currentTime);
+
         player.startBuffering();
-        if (
-          player.getPreBufferedTime() >= minBufferDuration ||
-          player.getPreBufferedTime() >= timeLeft
-        ) {
+        if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();
         } else {
           player.on("onVideoSegmentLoaded", function (event) {
-            if (
-              player.getPreBufferedTime() >= minBufferDuration ||
-              player.getPreBufferedTime() >= timeLeft
-            ) {
+            if (player.getPreBufferedTime() >= minBufferDuration) {
               player.play();
             }
           });

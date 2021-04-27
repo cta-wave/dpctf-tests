@@ -6,8 +6,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -24,8 +24,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "out-of-order-loading.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -42,8 +42,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "overlapping-fragments.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -60,8 +60,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "playback-over-wave-baseline-splice-constraints.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -78,8 +78,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-fragment.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -96,8 +96,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-time.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -114,8 +114,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -132,8 +132,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content-non-aligned-append.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -150,8 +150,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "sequential-track-playback.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -168,8 +168,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "switching-set-playback.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -186,8 +186,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -204,8 +204,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "out-of-order-loading.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -222,8 +222,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "overlapping-fragments.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -240,8 +240,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "playback-over-wave-baseline-splice-constraints.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -258,8 +258,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-fragment.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -276,8 +276,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-time.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -294,8 +294,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -312,8 +312,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content-non-aligned-append.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -330,8 +330,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "sequential-track-playback.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -348,8 +348,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "switching-set-playback.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M12.167S",
-                "fragment_duration": "PT0H0M2.167S",
+                "mediaPresentationDuration": "PT0H12M12.167S",
+                "maxSegmentDuration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -360,509 +360,470 @@
                 }
             }
         },
-        "b2575b4a81db476bb9e22763bb68f0ef": {
-            "path": "avc/fullscreen-playback-of-switching-sets__stream__.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+        "b69374f2b791ece9d0f416b359d4a0f4": {
+            "path": "avc/fullscreen-playback-of-switching-sets__manifest__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd",
             "audio": "",
             "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
-                "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S",
+                "mediaPresentationDuration": "PT0H1M0.133S",
+                "maxSegmentDuration": "PT0H0M2.021S",
                 "representations": {
-                    "0": {
-                        "duration": 60.03333333333333
-                    },
                     "1": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "2": {
-                        "duration": 60.03333333333333
+                        "duration": 60
                     },
                     "3": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "4": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "5": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "6": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "7": {
-                        "duration": 60.13333333333333
+                        "duration": 60
                     },
                     "8": {
-                        "duration": 60.04680272108843
+                        "duration": 60
                     }
                 }
             }
         },
-        "0cf8bcdde961b6ca1bd16c88f81ce3ba": {
-            "path": "avc/out-of-order-loading__stream__.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+        "51d28af1fbee0e367a29e91ff5de7b57": {
+            "path": "avc/out-of-order-loading__manifest__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd",
             "audio": "",
             "code": "out-of-order-loading.html",
             "config": {
-                "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S",
+                "mediaPresentationDuration": "PT0H1M0.133S",
+                "maxSegmentDuration": "PT0H0M2.021S",
                 "representations": {
-                    "0": {
-                        "duration": 60.03333333333333
-                    },
                     "1": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "2": {
-                        "duration": 60.03333333333333
+                        "duration": 60
                     },
                     "3": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "4": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "5": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "6": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "7": {
-                        "duration": 60.13333333333333
+                        "duration": 60
                     },
                     "8": {
-                        "duration": 60.04680272108843
+                        "duration": 60
                     }
                 }
             }
         },
-        "f9143f2d32767110948a338de44c3bb3": {
-            "path": "avc/overlapping-fragments__stream__.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+        "2746fc0f1de4b37ef6ea649100bf6a78": {
+            "path": "avc/overlapping-fragments__manifest__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd",
             "audio": "",
             "code": "overlapping-fragments.html",
             "config": {
-                "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S",
+                "mediaPresentationDuration": "PT0H1M0.133S",
+                "maxSegmentDuration": "PT0H0M2.021S",
                 "representations": {
-                    "0": {
-                        "duration": 60.03333333333333
-                    },
                     "1": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "2": {
-                        "duration": 60.03333333333333
+                        "duration": 60
                     },
                     "3": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "4": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "5": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "6": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "7": {
-                        "duration": 60.13333333333333
+                        "duration": 60
                     },
                     "8": {
-                        "duration": 60.04680272108843
+                        "duration": 60
                     }
                 }
             }
         },
-        "f71afe05d87dd25ff7482f04ded589d5": {
-            "path": "avc/playback-over-wave-baseline-splice-constraints__stream__.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+        "16de31f5354e670d21e1efa0e7b1e253": {
+            "path": "avc/playback-over-wave-baseline-splice-constraints__manifest__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd",
             "audio": "",
             "code": "playback-over-wave-baseline-splice-constraints.html",
             "config": {
-                "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S",
+                "mediaPresentationDuration": "PT0H1M0.133S",
+                "maxSegmentDuration": "PT0H0M2.021S",
                 "representations": {
-                    "0": {
-                        "duration": 60.03333333333333
-                    },
                     "1": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "2": {
-                        "duration": 60.03333333333333
+                        "duration": 60
                     },
                     "3": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "4": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "5": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "6": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "7": {
-                        "duration": 60.13333333333333
+                        "duration": 60
                     },
                     "8": {
-                        "duration": 60.04680272108843
+                        "duration": 60
                     }
                 }
             }
         },
-        "868ea1bf0d8dd993493b3d6112a5558a": {
-            "path": "avc/random-access-to-fragment__stream__.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+        "1bd1cf8a010951d179bbb964984803da": {
+            "path": "avc/random-access-to-fragment__manifest__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd",
             "audio": "",
             "code": "random-access-to-fragment.html",
             "config": {
-                "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S",
+                "mediaPresentationDuration": "PT0H1M0.133S",
+                "maxSegmentDuration": "PT0H0M2.021S",
                 "representations": {
-                    "0": {
-                        "duration": 60.03333333333333
-                    },
                     "1": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "2": {
-                        "duration": 60.03333333333333
+                        "duration": 60
                     },
                     "3": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "4": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "5": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "6": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "7": {
-                        "duration": 60.13333333333333
+                        "duration": 60
                     },
                     "8": {
-                        "duration": 60.04680272108843
+                        "duration": 60
                     }
                 }
             }
         },
-        "0b7525780808551d0b51fd4c01121e20": {
-            "path": "avc/random-access-to-time__stream__.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+        "60f1d3ae6262ca99d03c8e196af0112f": {
+            "path": "avc/random-access-to-time__manifest__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd",
             "audio": "",
             "code": "random-access-to-time.html",
             "config": {
-                "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S",
+                "mediaPresentationDuration": "PT0H1M0.133S",
+                "maxSegmentDuration": "PT0H0M2.021S",
                 "representations": {
-                    "0": {
-                        "duration": 60.03333333333333
-                    },
                     "1": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "2": {
-                        "duration": 60.03333333333333
+                        "duration": 60
                     },
                     "3": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "4": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "5": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "6": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "7": {
-                        "duration": 60.13333333333333
+                        "duration": 60
                     },
                     "8": {
-                        "duration": 60.04680272108843
+                        "duration": 60
                     }
                 }
             }
         },
-        "544fd9cfe1be4e872b3424d4830bb5c0": {
-            "path": "avc/regular-playback-of-chunked-content__stream__.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+        "fb2b21a6da9cc14ccb2b6fc42e9ed283": {
+            "path": "avc/regular-playback-of-chunked-content__manifest__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd",
             "audio": "",
             "code": "regular-playback-of-chunked-content.html",
             "config": {
-                "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S",
+                "mediaPresentationDuration": "PT0H1M0.133S",
+                "maxSegmentDuration": "PT0H0M2.021S",
                 "representations": {
-                    "0": {
-                        "duration": 60.03333333333333
-                    },
                     "1": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "2": {
-                        "duration": 60.03333333333333
+                        "duration": 60
                     },
                     "3": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "4": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "5": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "6": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "7": {
-                        "duration": 60.13333333333333
+                        "duration": 60
                     },
                     "8": {
-                        "duration": 60.04680272108843
+                        "duration": 60
                     }
                 }
             }
         },
-        "0d0521aedb75d780c9e34fb3a5df56b5": {
-            "path": "avc/regular-playback-of-chunked-content-non-aligned-append__stream__.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+        "42fd34e5eb6d79167652575ab0e94458": {
+            "path": "avc/regular-playback-of-chunked-content-non-aligned-append__manifest__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd",
             "audio": "",
             "code": "regular-playback-of-chunked-content-non-aligned-append.html",
             "config": {
-                "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S",
+                "mediaPresentationDuration": "PT0H1M0.133S",
+                "maxSegmentDuration": "PT0H0M2.021S",
                 "representations": {
-                    "0": {
-                        "duration": 60.03333333333333
-                    },
                     "1": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "2": {
-                        "duration": 60.03333333333333
+                        "duration": 60
                     },
                     "3": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "4": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "5": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "6": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "7": {
-                        "duration": 60.13333333333333
+                        "duration": 60
                     },
                     "8": {
-                        "duration": 60.04680272108843
+                        "duration": 60
                     }
                 }
             }
         },
-        "54694ae36ab3a4e99db15dcfa41b6ab8": {
-            "path": "avc/sequential-track-playback__stream__.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+        "ab5b2f7e50fa4819d2830fe58a68b191": {
+            "path": "avc/sequential-track-playback__manifest__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd",
             "audio": "",
             "code": "sequential-track-playback.html",
             "config": {
-                "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S",
+                "mediaPresentationDuration": "PT0H1M0.133S",
+                "maxSegmentDuration": "PT0H0M2.021S",
                 "representations": {
-                    "0": {
-                        "duration": 60.03333333333333
-                    },
                     "1": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "2": {
-                        "duration": 60.03333333333333
+                        "duration": 60
                     },
                     "3": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "4": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "5": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "6": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "7": {
-                        "duration": 60.13333333333333
+                        "duration": 60
                     },
                     "8": {
-                        "duration": 60.04680272108843
+                        "duration": 60
                     }
                 }
             }
         },
-        "119e852691076b01bd9641a83bfaac01": {
-            "path": "avc/switching-set-playback__stream__.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+        "688a6ef123a9192f40b8fa5e8956ee14": {
+            "path": "avc/switching-set-playback__manifest__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd",
             "audio": "",
             "code": "switching-set-playback.html",
             "config": {
-                "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S",
+                "mediaPresentationDuration": "PT0H1M0.133S",
+                "maxSegmentDuration": "PT0H0M2.021S",
                 "representations": {
-                    "0": {
-                        "duration": 60.03333333333333
-                    },
                     "1": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "2": {
-                        "duration": 60.03333333333333
+                        "duration": 60
                     },
                     "3": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "4": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "5": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "6": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "7": {
-                        "duration": 60.13333333333333
+                        "duration": 60
                     },
                     "8": {
-                        "duration": 60.04680272108843
+                        "duration": 60
                     }
                 }
             }
         },
-        "9a744756a521b14b1dcd95e66843aa46": {
-            "path": "avc/regular-playback-of-a-cmaf-presentation__stream__.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+        "2bf90611e3561f80b56d4c505906402d": {
+            "path": "avc/regular-playback-of-a-cmaf-presentation__manifest__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd",
             "audio": "",
             "code": "regular-playback-of-a-cmaf-presentation.html",
             "config": {
-                "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S",
+                "mediaPresentationDuration": "PT0H1M0.133S",
+                "maxSegmentDuration": "PT0H0M2.021S",
                 "representations": {
-                    "0": {
-                        "duration": 60.03333333333333
-                    },
                     "1": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "2": {
-                        "duration": 60.03333333333333
+                        "duration": 60
                     },
                     "3": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "4": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "5": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "6": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "7": {
-                        "duration": 60.13333333333333
+                        "duration": 60
                     },
                     "8": {
-                        "duration": 60.04680272108843
+                        "duration": 60
                     }
                 }
             }
         },
-        "23b9c329fbdabea1d95180faa357cca8": {
-            "path": "avc/random-access-of-a-wave-presentation__stream__.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+        "0f1d204ef2b36c18979575ef1368839a": {
+            "path": "avc/random-access-of-a-wave-presentation__manifest__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd",
             "audio": "",
             "code": "random-access-of-a-wave-presentation.html",
             "config": {
-                "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S",
+                "mediaPresentationDuration": "PT0H1M0.133S",
+                "maxSegmentDuration": "PT0H0M2.021S",
                 "representations": {
-                    "0": {
-                        "duration": 60.03333333333333
-                    },
                     "1": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "2": {
-                        "duration": 60.03333333333333
+                        "duration": 60
                     },
                     "3": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "4": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "5": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "6": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "7": {
-                        "duration": 60.13333333333333
+                        "duration": 60
                     },
                     "8": {
-                        "duration": 60.04680272108843
+                        "duration": 60
                     }
                 }
             }
         },
-        "cf8a89cc6bde36dcd77cb99095919a92": {
-            "path": "avc/splicing-of-wave-program-with-baseline-constraints__stream__.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd",
+        "851d736739f8f41486ef516b3e844718": {
+            "path": "avc/splicing-of-wave-program-with-baseline-constraints__manifest__.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd",
             "audio": "",
             "code": "splicing-of-wave-program-with-baseline-constraints.html",
             "config": {
-                "cmaf_track_duration": "PT1M0.0S",
-                "fragment_duration": "PT2.0S",
+                "mediaPresentationDuration": "PT0H1M0.133S",
+                "maxSegmentDuration": "PT0H0M2.021S",
                 "representations": {
-                    "0": {
-                        "duration": 60.03333333333333
-                    },
                     "1": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "2": {
-                        "duration": 60.03333333333333
+                        "duration": 60
                     },
                     "3": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "4": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "5": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "6": {
-                        "duration": 60.06666666666667
+                        "duration": 60
                     },
                     "7": {
-                        "duration": 60.13333333333333
+                        "duration": 60
                     },
                     "8": {
-                        "duration": 60.04680272108843
+                        "duration": 60
                     }
                 }
             }
@@ -873,8 +834,8 @@
             "audio": "",
             "code": "playback-of-encrypted-content-https.html",
             "config": {
-                "cmaf_track_duration": "PT0H12M14.000S",
-                "fragment_duration": "PT0H0M4.000S",
+                "mediaPresentationDuration": "PT0H12M14.000S",
+                "maxSegmentDuration": "PT0H0M4.000S",
                 "representations": {
                     "1": {
                         "duration": 734

@@ -32,37 +32,36 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Switching Set Playback",
+        id: "splicing-of-wave-program-with-baseline-constraints",
+        title: "Splicing of WAVE Program with Baseline Constraints",
         description:
-          "Playback of a switching set assumes that the application can switch across the fragments of different tracks without observing any temporal or spatial misalignment during playback.",
-        path: "avc/switching-set-playback__stream__.html",
-        code: "sequential-track-playback-manual.html",
+          "Apps want to splice content that was properly conditioned based on the WAVE Program Baseline Constraints. The expectation is that the device plays back these splices seamlessly.",
+        path: "avc/splicing-of-wave-program-with-baseline-constraints__manifest__.html",
+        code: "splicing-of-wave-program-with-baseline-constraints.html",
         params: urlParams,
         observations: [],
       };
+
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd";
+      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd";
       var audioContentModel = "";
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
         videoContentModel: videoContentModel,
+        audioContentModel: audioContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        setupTest: setupTest,
         usePlayout: true,
       });
 
-      function setupTest(player, done, parameters) {
-        done();
-      }
-
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
+
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();
@@ -77,6 +76,8 @@
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
           var match = query.match(/redirect_time=([^&]+)/);
+          var REDIRECT_TIME = match ? match[1] : null;
+          if (!REDIRECT_TIME) REDIRECT_TIME = 5;
           video.addEventListener("ended", function (event) {
             assert_true(true);
             test.done();

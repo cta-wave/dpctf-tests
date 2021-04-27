@@ -32,22 +32,31 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Regular Playback of Chunked Content, non-aligned append",
+        title: "8.11 Full Screen Playback of Switching Sets",
         description:
-          "Sequential Chunked Playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF chunks to the source buffer after initialization.  Non-aligned refers to the situation where the data that is appended to the source buffer is appended progressively in pieces that do not necessarily align with the boundaries of the CMAF chunks.",
-        path: "avc/regular-playback-of-chunked-content-non-aligned-append__stream__.html",
-        code: "regular-playback-of-chunked-content-non-aligned-append.html",
+          "Fullscreen playback ensures that the device provide proper scaling and letter boxing.",
+        path: "avc/fullscreen-playback-of-switching-sets__manifest__.html",
+        code: "fullscreen-playback-of-switching-sets.html",
         params: urlParams,
-        observations: [],
+        observations: [
+          {
+            name: "Video rendered in entire window",
+            description:
+              "Every video frame S[k,s] shall be rendered such that it fills the entire video output window.",
+            id: "video-fills-entire-output-window",
+          },
+        ],
       };
+
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/1/stream.mpd";
+      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/gpac/manifest.mpd";
       var audioContentModel = "";
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
+        outOfOrderLoading: true,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
         videoElement: video,
@@ -58,6 +67,7 @@
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
+
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();

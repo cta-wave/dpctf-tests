@@ -6,18 +6,6 @@
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
-        <script>
-      //// Configure Test Harness ////
-      setup({
-        explicit_timeout: true,
-        explicit_done: true,
-      });
-      setTimeout(function () {
-              timeout();
-            }, 300000);
-
-          </script>
-    <script src="../lib/dpctf-testharness.js"></script>
   </head>
 
   <body>
@@ -40,6 +28,7 @@
     <script src="../lib/mpd-parser.js"></script>
     <script src="../lib/wave-service.js"></script>
     <script src="../lib/davidshimjs/qrcode.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
     <script>
       // Global variables
       var TEST_INFO = {

@@ -27,8 +27,8 @@ if len(sys.argv) >= 4:
 LIB_DEST_DIR = Path(DEST_DIR, "lib")
 
 MPD_PARAMETERS = {
-    "cmaf_track_duration": r'<MPD .*mediaPresentationDuration="([^"]+)"',
-    "fragment_duration": r'<MPD .*maxSegmentDuration="([^"]+)"',
+    "mediaPresentationDuration": r'<MPD .*mediaPresentationDuration="([^"]+)"',
+    "maxSegmentDuration": r'<MPD .*maxSegmentDuration="([^"]+)"',
 }
 
 def main():
