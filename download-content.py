@@ -10,6 +10,7 @@ import urllib.request
 import re
 import zipfile
 import time
+from urllib.parse import urlparse
 
 
 if len(sys.argv) < 3:
@@ -29,15 +30,26 @@ def main():
             print("JSON does not include zip path!")
             return
 
-        blob = load_zip(vector["zipPath"])
+        url = vector["zipPath"]
+
+        if url.startswith("/"):
+            parsed_uri = urlparse(JSON_PATH)
+            url = '{uri.scheme}://{uri.netloc}{path}'.format(uri=parsed_uri, path=url)
+        elif not url.startswith("http"):
+            parsed_uri = urlparse(JSON_PATH)
+            url = '{uri.scheme}://{uri.netloc}{path}'.format(uri=parsed_uri, path=os.path.join(os.path.dirname(parsed_uri.path), url))
+
+        blob = load_zip(url)
+        if blob is None:
+            continue
 
         tmp_file_name = "{}.zip".format(str(time.time()))
         with open(tmp_file_name, "wb") as file:
             file.write(blob)
 
         with zipfile.ZipFile(tmp_file_name, "r") as zip:
-            path = os.path.join(DEST_DIR, vector_name)
-            zip.extractall(path=path)
+            #path = os.path.join(DEST_DIR, vector_name)
+            zip.extractall(path=DEST_DIR)
         
 
         files = os.listdir(".")
@@ -56,12 +68,13 @@ def load_json(json_path):
             content = urllib.request.urlopen(json_path).read()
         except urllib.error.HTTPError:
             print("Could not load http url:", json_path)
+            return None
     else:
         file_path = Path(json_path).absolute()
         print("Reading JSON {}".format(file_path))
         if not os.path.isfile(file_path):
             print("Could not find file:", file_path)
-            return content
+            return None
         with open(file_path, "r") as file:
             content = file.read()
     
