@@ -1,9 +1,3 @@
-//// Configure Test Harness ////
-setup({
-  explicit_timeout: true,
-  explicit_done: true,
-});
-
 function DpctfTest(config) {
   var testInfo = config.testInfo;
   var video = config.videoElement;
@@ -102,6 +96,12 @@ function DpctfTest(config) {
     log("Setting up test");
     updateQrCode();
     return new Promise(function (resolve) {
+      //// Configure Test Harness ////
+      setup({
+        explicit_timeout: true,
+        explicit_done: true,
+      });
+
       video.addEventListener("play", function () {
         if (_videoState === VIDEO_STATE_ERROR) return;
         _lastAction = ACTION_PLAY;

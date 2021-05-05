@@ -6,8 +6,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -24,8 +24,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "out-of-order-loading.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -42,8 +42,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "overlapping-fragments.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -60,8 +60,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "playback-over-wave-baseline-splice-constraints.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -78,8 +78,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-fragment.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -96,8 +96,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-time.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -114,8 +114,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -132,8 +132,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content-non-aligned-append.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -150,8 +150,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "sequential-track-playback.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -168,8 +168,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "switching-set-playback.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -186,8 +186,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -204,8 +204,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "out-of-order-loading.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -222,8 +222,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "overlapping-fragments.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -240,8 +240,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "playback-over-wave-baseline-splice-constraints.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -258,8 +258,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-fragment.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -276,8 +276,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "random-access-to-time.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -294,8 +294,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -312,8 +312,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "regular-playback-of-chunked-content-non-aligned-append.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -330,8 +330,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "sequential-track-playback.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -348,8 +348,8 @@
             "audio": "https://dash.akamaized.net/WAVE/ContentModel/SinglePeriod/Fragmented/ToS_HEAACv2_fragmented.mpd",
             "code": "switching-set-playback.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M12.167S",
-                "maxSegmentDuration": "PT0H0M2.167S",
+                "cmaf_track_duration": "PT0H12M12.167S",
+                "fragment_duration": "PT0H0M2.167S",
                 "representations": {
                     "video1/1": {
                         "duration": 732
@@ -366,8 +366,8 @@
             "audio": "",
             "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
-                "mediaPresentationDuration": "PT0H1M0.133S",
-                "maxSegmentDuration": "PT0H0M2.021S",
+                "cmaf_track_duration": "PT0H1M0.133S",
+                "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
                         "duration": 60
@@ -402,8 +402,8 @@
             "audio": "",
             "code": "out-of-order-loading.html",
             "config": {
-                "mediaPresentationDuration": "PT0H1M0.133S",
-                "maxSegmentDuration": "PT0H0M2.021S",
+                "cmaf_track_duration": "PT0H1M0.133S",
+                "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
                         "duration": 60
@@ -438,8 +438,8 @@
             "audio": "",
             "code": "overlapping-fragments.html",
             "config": {
-                "mediaPresentationDuration": "PT0H1M0.133S",
-                "maxSegmentDuration": "PT0H0M2.021S",
+                "cmaf_track_duration": "PT0H1M0.133S",
+                "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
                         "duration": 60
@@ -474,8 +474,8 @@
             "audio": "",
             "code": "playback-over-wave-baseline-splice-constraints.html",
             "config": {
-                "mediaPresentationDuration": "PT0H1M0.133S",
-                "maxSegmentDuration": "PT0H0M2.021S",
+                "cmaf_track_duration": "PT0H1M0.133S",
+                "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
                         "duration": 60
@@ -510,8 +510,8 @@
             "audio": "",
             "code": "random-access-to-fragment.html",
             "config": {
-                "mediaPresentationDuration": "PT0H1M0.133S",
-                "maxSegmentDuration": "PT0H0M2.021S",
+                "cmaf_track_duration": "PT0H1M0.133S",
+                "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
                         "duration": 60
@@ -546,8 +546,8 @@
             "audio": "",
             "code": "random-access-to-time.html",
             "config": {
-                "mediaPresentationDuration": "PT0H1M0.133S",
-                "maxSegmentDuration": "PT0H0M2.021S",
+                "cmaf_track_duration": "PT0H1M0.133S",
+                "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
                         "duration": 60
@@ -582,8 +582,8 @@
             "audio": "",
             "code": "regular-playback-of-chunked-content.html",
             "config": {
-                "mediaPresentationDuration": "PT0H1M0.133S",
-                "maxSegmentDuration": "PT0H0M2.021S",
+                "cmaf_track_duration": "PT0H1M0.133S",
+                "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
                         "duration": 60
@@ -618,8 +618,8 @@
             "audio": "",
             "code": "regular-playback-of-chunked-content-non-aligned-append.html",
             "config": {
-                "mediaPresentationDuration": "PT0H1M0.133S",
-                "maxSegmentDuration": "PT0H0M2.021S",
+                "cmaf_track_duration": "PT0H1M0.133S",
+                "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
                         "duration": 60
@@ -654,8 +654,8 @@
             "audio": "",
             "code": "sequential-track-playback.html",
             "config": {
-                "mediaPresentationDuration": "PT0H1M0.133S",
-                "maxSegmentDuration": "PT0H0M2.021S",
+                "cmaf_track_duration": "PT0H1M0.133S",
+                "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
                         "duration": 60
@@ -690,8 +690,8 @@
             "audio": "",
             "code": "switching-set-playback.html",
             "config": {
-                "mediaPresentationDuration": "PT0H1M0.133S",
-                "maxSegmentDuration": "PT0H0M2.021S",
+                "cmaf_track_duration": "PT0H1M0.133S",
+                "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
                         "duration": 60
@@ -726,8 +726,8 @@
             "audio": "",
             "code": "regular-playback-of-a-cmaf-presentation.html",
             "config": {
-                "mediaPresentationDuration": "PT0H1M0.133S",
-                "maxSegmentDuration": "PT0H0M2.021S",
+                "cmaf_track_duration": "PT0H1M0.133S",
+                "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
                         "duration": 60
@@ -762,8 +762,8 @@
             "audio": "",
             "code": "random-access-of-a-wave-presentation.html",
             "config": {
-                "mediaPresentationDuration": "PT0H1M0.133S",
-                "maxSegmentDuration": "PT0H0M2.021S",
+                "cmaf_track_duration": "PT0H1M0.133S",
+                "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
                         "duration": 60
@@ -798,8 +798,8 @@
             "audio": "",
             "code": "splicing-of-wave-program-with-baseline-constraints.html",
             "config": {
-                "mediaPresentationDuration": "PT0H1M0.133S",
-                "maxSegmentDuration": "PT0H0M2.021S",
+                "cmaf_track_duration": "PT0H1M0.133S",
+                "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
                         "duration": 60
@@ -834,8 +834,8 @@
             "audio": "",
             "code": "playback-of-encrypted-content-https.html",
             "config": {
-                "mediaPresentationDuration": "PT0H12M14.000S",
-                "maxSegmentDuration": "PT0H0M4.000S",
+                "cmaf_track_duration": "PT0H12M14.000S",
+                "fragment_duration": "PT0H0M4.000S",
                 "representations": {
                     "1": {
                         "duration": 734
