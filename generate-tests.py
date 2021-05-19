@@ -50,7 +50,7 @@ def main():
         audio_file_name = str(audio_mpd_url).split("/")[-1]
         audio_file_name = ".".join(audio_file_name.split(".")[0:-1])
         test_id = generate_test_id(template_file_name, video_file_name, audio_file_name)
-        test_path_relative = generate_test_path(grouping_dir, template_file_name, video_file_name, audio_file_name)
+        test_path_relative = generate_test_path(grouping_dir, template_file_name, video_mpd_url)
         test_path = "{}/{}".format(DEST_DIR, test_path_relative)
         content = load_file(test_template_path)
         content = generate_test(content, video_mpd_url, audio_mpd_url, test_path_relative, template_file)
@@ -218,8 +218,17 @@ def generate_test(template, video_mpd_url, audio_mpd_url, test_path, template_na
     template = template.replace("{{TEMPLATE_NAME}}", template_name)
     return template
 
-def generate_test_path(grouping_dir, template_file_name, video_file_name, audio_file_name):
-    test_path = "{}/{}__{}__{}".format(grouping_dir, template_file_name, video_file_name, audio_file_name)
+def generate_test_path(grouping_dir, template_file_name, video_file_path):
+    if video_file_path.startswith("http"):
+        video_file_path = urllib.parse.urlparse(video_file_path).path
+    dir_path, file_name = os.path.split(video_file_path)
+    dir_split = list(filter(lambda element: element != "" and element != ".", dir_path.split("/")))
+    video_identifier = ""
+    if len(dir_split) >= 3:
+        video_identifier = "_".join(dir_split[-3:])
+    else:
+        video_identifier = ".".join(file_name.split(".")[:-1])
+    test_path = "{}/{}__{}".format(grouping_dir, template_file_name, video_identifier)
     count = 1
     suffix = ""
     while os.path.exists(test_path + suffix + ".html"):
