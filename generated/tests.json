@@ -975,9 +975,9 @@
                 }
             }
         },
-        "6f42a735856229ce403a3b675cb0e738": {
-            "path": "avc_15_30_60-local/switching-set-playback__avc_sets_15_30_60_t1.html",
-            "video": "/content/avc_sets/15_30_60/t1/stream.mpd",
+        "32d1efb8c14643187a4b4a578fccf286": {
+            "path": "avc_15_30_60-local/switching-set-playback__avc_sets_15_30_60_ss1.html",
+            "video": "/content/avc_sets/15_30_60/ss1/stream.mpd",
             "audio": "",
             "code": "switching-set-playback.html",
             "config": {
@@ -988,6 +988,27 @@
                         "duration": 60
                     },
                     "2": {
+                        "duration": 60
+                    },
+                    "3": {
+                        "duration": 60
+                    },
+                    "4": {
+                        "duration": 60
+                    },
+                    "5": {
+                        "duration": 60
+                    },
+                    "6": {
+                        "duration": 60
+                    },
+                    "7": {
+                        "duration": 60
+                    },
+                    "8": {
+                        "duration": 60
+                    },
+                    "9": {
                         "duration": 60
                     }
                 }
@@ -1029,9 +1050,9 @@
                 }
             }
         },
-        "ee7d1d653aed144df4ab61fcc3ce7725": {
-            "path": "avc_15_30_60-local/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t1.html",
-            "video": "/content/avc_sets/15_30_60/t1/stream.mpd",
+        "c0a6333ea248fb159ff5bb87a122793f": {
+            "path": "avc_15_30_60-local/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_ss1.html",
+            "video": "/content/avc_sets/15_30_60/ss1/stream.mpd",
             "audio": "",
             "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
@@ -1042,6 +1063,27 @@
                         "duration": 60
                     },
                     "2": {
+                        "duration": 60
+                    },
+                    "3": {
+                        "duration": 60
+                    },
+                    "4": {
+                        "duration": 60
+                    },
+                    "5": {
+                        "duration": 60
+                    },
+                    "6": {
+                        "duration": 60
+                    },
+                    "7": {
+                        "duration": 60
+                    },
+                    "8": {
+                        "duration": 60
+                    },
+                    "9": {
                         "duration": 60
                     }
                 }
@@ -1142,18 +1184,7 @@
             "video": "/content/avc_sets/15_30_60/t10/stream.mpd",
             "audio": "",
             "code": "sequential-track-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
+            "config": {}
         },
         "4f5cb8426c8165bd986574974f8ed83c": {
             "path": "avc_15_30_60-local/sequential-track-playback__avc_sets_15_30_60_t11.html",
@@ -1299,42 +1330,6 @@
                 }
             }
         },
-        "fd8b939fdfc296cc2755a08670d36686": {
-            "path": "avc_15_30_60-local/switching-set-playback__avc_sets_15_30_60_t20.html",
-            "video": "/content/avc_sets/15_30_60/t20/stream.mpd",
-            "audio": "",
-            "code": "switching-set-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "b227dd1284331ca88555305878160f62": {
-            "path": "avc_15_30_60-local/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t20.html",
-            "video": "/content/avc_sets/15_30_60/t20/stream.mpd",
-            "audio": "",
-            "code": "fullscreen-playback-of-switching-sets.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
         "038e07f1c29ec7a4005f76397f147a59": {
             "path": "avc_15_30_60-local/sequential-track-playback__avc_sets_15_30_60_t21.html",
             "video": "/content/avc_sets/15_30_60/t21/stream.mpd",
@@ -1389,119 +1384,11 @@
                 }
             }
         },
-        "036797d9e707ccc26ca4bbe45a86b605": {
-            "path": "avc_15_30_60-local/switching-set-playback__avc_sets_15_30_60_t23.html",
-            "video": "/content/avc_sets/15_30_60/t23/stream.mpd",
-            "audio": "",
-            "code": "switching-set-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "9835ea89e1edf9c117279291ced1967e": {
-            "path": "avc_15_30_60-local/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t23.html",
-            "video": "/content/avc_sets/15_30_60/t23/stream.mpd",
-            "audio": "",
-            "code": "fullscreen-playback-of-switching-sets.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
         "f9e0b41252d889fa8d602fed4e249d73": {
             "path": "avc_15_30_60-local/sequential-track-playback__avc_sets_15_30_60_t24.html",
             "video": "/content/avc_sets/15_30_60/t24/stream.mpd",
             "audio": "",
             "code": "sequential-track-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "71bc85a2b31fdcb74476282b8853818f": {
-            "path": "avc_15_30_60-local/switching-set-playback__avc_sets_15_30_60_t24.html",
-            "video": "/content/avc_sets/15_30_60/t24/stream.mpd",
-            "audio": "",
-            "code": "switching-set-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "25687c4b20defbb123524a3a1d036299": {
-            "path": "avc_15_30_60-local/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t24.html",
-            "video": "/content/avc_sets/15_30_60/t24/stream.mpd",
-            "audio": "",
-            "code": "fullscreen-playback-of-switching-sets.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "687af048852fba5c6bda38b5d1694e93": {
-            "path": "avc_15_30_60-local/switching-set-playback__avc_sets_15_30_60_t25.html",
-            "video": "/content/avc_sets/15_30_60/t25/stream.mpd",
-            "audio": "",
-            "code": "switching-set-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "f09f71f811307d329319f2a7af0c00f4": {
-            "path": "avc_15_30_60-local/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t25.html",
-            "video": "/content/avc_sets/15_30_60/t25/stream.mpd",
-            "audio": "",
-            "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
                 "cmaf_track_duration": "PT0H1M0.000S",
                 "fragment_duration": "PT0H0M2.021S",
@@ -1556,42 +1443,6 @@
             "video": "/content/avc_sets/15_30_60/t28/stream.mpd",
             "audio": "",
             "code": "sequential-track-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "29ded750116c348353bde76672811b3a": {
-            "path": "avc_15_30_60-local/switching-set-playback__avc_sets_15_30_60_t28.html",
-            "video": "/content/avc_sets/15_30_60/t28/stream.mpd",
-            "audio": "",
-            "code": "switching-set-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "c112104a5b6e5c148a1e88459bb1c311": {
-            "path": "avc_15_30_60-local/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t28.html",
-            "video": "/content/avc_sets/15_30_60/t28/stream.mpd",
-            "audio": "",
-            "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
                 "cmaf_track_duration": "PT0H1M0.000S",
                 "fragment_duration": "PT0H0M2.021S",
@@ -1677,42 +1528,6 @@
                 }
             }
         },
-        "f925b324b92a3983b4552aef81626571": {
-            "path": "avc_15_30_60-local/switching-set-playback__avc_sets_15_30_60_t32.html",
-            "video": "/content/avc_sets/15_30_60/t32/stream.mpd",
-            "audio": "",
-            "code": "switching-set-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "7d27a827e9b6c72f20c16ba2ba748f06": {
-            "path": "avc_15_30_60-local/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t32.html",
-            "video": "/content/avc_sets/15_30_60/t32/stream.mpd",
-            "audio": "",
-            "code": "fullscreen-playback-of-switching-sets.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
         "02908a66cfe0370d8c67c30029d30eb5": {
             "path": "avc_15_30_60-local/sequential-track-playback__avc_sets_15_30_60_t33.html",
             "video": "/content/avc_sets/15_30_60/t33/stream.mpd",
@@ -1736,42 +1551,6 @@
             "video": "/content/avc_sets/15_30_60/t34/stream.mpd",
             "audio": "",
             "code": "sequential-track-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "9e06726e3eb97cbf16968ba5a8157a54": {
-            "path": "avc_15_30_60-local/switching-set-playback__avc_sets_15_30_60_t34.html",
-            "video": "/content/avc_sets/15_30_60/t34/stream.mpd",
-            "audio": "",
-            "code": "switching-set-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "ed72474fb337ad6d2333b062f8365a89": {
-            "path": "avc_15_30_60-local/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t34.html",
-            "video": "/content/avc_sets/15_30_60/t34/stream.mpd",
-            "audio": "",
-            "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
                 "cmaf_track_duration": "PT0H1M0.000S",
                 "fragment_duration": "PT0H0M2.021S",
@@ -1839,9 +1618,9 @@
                 }
             }
         },
-        "a4b5f6fe58f8f9ba71563a4b5e2bef13": {
-            "path": "avc_15_30_60-online/switching-set-playback__avc_sets_15_30_60_t1.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t1/stream.mpd",
+        "6efd31364ab3cfea4201f8e76f67127d": {
+            "path": "avc_15_30_60-online/switching-set-playback__avc_sets_15_30_60_ss1.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/ss1/stream.mpd",
             "audio": "",
             "code": "switching-set-playback.html",
             "config": {
@@ -1852,6 +1631,27 @@
                         "duration": 60
                     },
                     "2": {
+                        "duration": 60
+                    },
+                    "3": {
+                        "duration": 60
+                    },
+                    "4": {
+                        "duration": 60
+                    },
+                    "5": {
+                        "duration": 60
+                    },
+                    "6": {
+                        "duration": 60
+                    },
+                    "7": {
+                        "duration": 60
+                    },
+                    "8": {
+                        "duration": 60
+                    },
+                    "9": {
                         "duration": 60
                     }
                 }
@@ -1893,9 +1693,9 @@
                 }
             }
         },
-        "eb411147a560098677232bee23a35903": {
-            "path": "avc_15_30_60-online/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t1.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t1/stream.mpd",
+        "921d87eb62114082767e38b8ccc7f325": {
+            "path": "avc_15_30_60-online/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_ss1.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/ss1/stream.mpd",
             "audio": "",
             "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
@@ -1906,6 +1706,27 @@
                         "duration": 60
                     },
                     "2": {
+                        "duration": 60
+                    },
+                    "3": {
+                        "duration": 60
+                    },
+                    "4": {
+                        "duration": 60
+                    },
+                    "5": {
+                        "duration": 60
+                    },
+                    "6": {
+                        "duration": 60
+                    },
+                    "7": {
+                        "duration": 60
+                    },
+                    "8": {
+                        "duration": 60
+                    },
+                    "9": {
                         "duration": 60
                     }
                 }
@@ -2163,42 +1984,6 @@
                 }
             }
         },
-        "73ea37f066835890950eb49126fc689d": {
-            "path": "avc_15_30_60-online/switching-set-playback__avc_sets_15_30_60_t20.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t20/stream.mpd",
-            "audio": "",
-            "code": "switching-set-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "c4a0e63ba7e38b8eaca4703281056b46": {
-            "path": "avc_15_30_60-online/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t20.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t20/stream.mpd",
-            "audio": "",
-            "code": "fullscreen-playback-of-switching-sets.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
         "7b10ffb82ddd4477b31f9dc029705000": {
             "path": "avc_15_30_60-online/sequential-track-playback__avc_sets_15_30_60_t21.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t21/stream.mpd",
@@ -2253,119 +2038,11 @@
                 }
             }
         },
-        "34eb648101dae1ebf9c447aab4902829": {
-            "path": "avc_15_30_60-online/switching-set-playback__avc_sets_15_30_60_t23.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t23/stream.mpd",
-            "audio": "",
-            "code": "switching-set-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "c65beef6cbc09ca697ee4035d005a8a7": {
-            "path": "avc_15_30_60-online/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t23.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t23/stream.mpd",
-            "audio": "",
-            "code": "fullscreen-playback-of-switching-sets.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
         "4ad20a6c21a432c0dde60668608d2329": {
             "path": "avc_15_30_60-online/sequential-track-playback__avc_sets_15_30_60_t24.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t24/stream.mpd",
             "audio": "",
             "code": "sequential-track-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "18f6fce773d5358f5918b586b3b78efd": {
-            "path": "avc_15_30_60-online/switching-set-playback__avc_sets_15_30_60_t24.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t24/stream.mpd",
-            "audio": "",
-            "code": "switching-set-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "c33d5e48988d98464fd370f34569c899": {
-            "path": "avc_15_30_60-online/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t24.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t24/stream.mpd",
-            "audio": "",
-            "code": "fullscreen-playback-of-switching-sets.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "4e345510a634f8bd9ec4d6c5ea6dd7e4": {
-            "path": "avc_15_30_60-online/switching-set-playback__avc_sets_15_30_60_t25.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t25/stream.mpd",
-            "audio": "",
-            "code": "switching-set-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "b1e328326a7ac3943b21bed8f57b9a31": {
-            "path": "avc_15_30_60-online/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t25.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t25/stream.mpd",
-            "audio": "",
-            "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
                 "cmaf_track_duration": "PT0H1M0.000S",
                 "fragment_duration": "PT0H0M2.021S",
@@ -2420,42 +2097,6 @@
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t28/stream.mpd",
             "audio": "",
             "code": "sequential-track-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "d067a594c468cd34d56a0ec121bfd5fa": {
-            "path": "avc_15_30_60-online/switching-set-playback__avc_sets_15_30_60_t28.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t28/stream.mpd",
-            "audio": "",
-            "code": "switching-set-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "f33c21df3f404a4b2c6c59e4be91ad9d": {
-            "path": "avc_15_30_60-online/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t28.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t28/stream.mpd",
-            "audio": "",
-            "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
                 "cmaf_track_duration": "PT0H1M0.000S",
                 "fragment_duration": "PT0H0M2.021S",
@@ -2541,42 +2182,6 @@
                 }
             }
         },
-        "acd496d30f2fbd6e8d8e4df50852f098": {
-            "path": "avc_15_30_60-online/switching-set-playback__avc_sets_15_30_60_t32.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t32/stream.mpd",
-            "audio": "",
-            "code": "switching-set-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "f226d6b85bab7b07cedd00cc29b3049c": {
-            "path": "avc_15_30_60-online/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t32.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t32/stream.mpd",
-            "audio": "",
-            "code": "fullscreen-playback-of-switching-sets.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
         "8158dd8cff201d9256514fa9e5a75f31": {
             "path": "avc_15_30_60-online/sequential-track-playback__avc_sets_15_30_60_t33.html",
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t33/stream.mpd",
@@ -2600,42 +2205,6 @@
             "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t34/stream.mpd",
             "audio": "",
             "code": "sequential-track-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "976af1919c547fe4d7dc8cee59ad084a": {
-            "path": "avc_15_30_60-online/switching-set-playback__avc_sets_15_30_60_t34.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t34/stream.mpd",
-            "audio": "",
-            "code": "switching-set-playback.html",
-            "config": {
-                "cmaf_track_duration": "PT0H1M0.000S",
-                "fragment_duration": "PT0H0M2.021S",
-                "representations": {
-                    "1": {
-                        "duration": 60
-                    },
-                    "2": {
-                        "duration": 60
-                    }
-                }
-            }
-        },
-        "a24b7c8534be03a44b8bc4c19ca7e9b7": {
-            "path": "avc_15_30_60-online/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_t34.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t34/stream.mpd",
-            "audio": "",
-            "code": "fullscreen-playback-of-switching-sets.html",
             "config": {
                 "cmaf_track_duration": "PT0H1M0.000S",
                 "fragment_duration": "PT0H0M2.021S",

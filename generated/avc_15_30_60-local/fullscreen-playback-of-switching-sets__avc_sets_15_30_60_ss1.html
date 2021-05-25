@@ -32,37 +32,42 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Switching Set Playback",
+        title: "8.11 Full Screen Playback of Switching Sets",
         description:
-          "Playback of a switching set assumes that the application can switch across the fragments of different tracks without observing any temporal or spatial misalignment during playback.",
-        path: "avc_15_30_60-local/switching-set-playback__avc_sets_15_30_60_t1.html",
-        code: "sequential-track-playback-manual.html",
+          "Fullscreen playback ensures that the device provide proper scaling and letter boxing.",
+        path: "avc_15_30_60-local/fullscreen-playback-of-switching-sets__avc_sets_15_30_60_ss1.html",
+        code: "fullscreen-playback-of-switching-sets.html",
         params: urlParams,
-        observations: [],
+        observations: [
+          {
+            name: "Video rendered in entire window",
+            description:
+              "Every video frame S[k,s] shall be rendered such that it fills the entire video output window.",
+            id: "video-fills-entire-output-window",
+          },
+        ],
       };
+
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
 
-      var videoContentModel = "/content/avc_sets/15_30_60/t1/stream.mpd";
+      var videoContentModel = "/content/avc_sets/15_30_60/ss1/stream.mpd";
       var audioContentModel = "";
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
+        outOfOrderLoading: true,
         videoContentModel: videoContentModel,
+        audioContentModel: audioContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        setupTest: setupTest,
-        usePlayout: true,
       });
-
-      function setupTest(player, done, parameters) {
-        done();
-      }
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
+
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
           player.play();
@@ -77,6 +82,8 @@
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
           var match = query.match(/redirect_time=([^&]+)/);
+          var REDIRECT_TIME = match ? match[1] : null;
+          if (!REDIRECT_TIME) REDIRECT_TIME = 5;
           video.addEventListener("ended", function (event) {
             assert_true(true);
             test.done();
