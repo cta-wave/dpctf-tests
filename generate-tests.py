@@ -49,7 +49,7 @@ def main():
         video_file_name = ".".join(video_file_name.split(".")[0:-1])
         audio_file_name = str(audio_mpd_url).split("/")[-1]
         audio_file_name = ".".join(audio_file_name.split(".")[0:-1])
-        test_id = generate_test_id(template_file_name, video_file_name, audio_file_name)
+        test_id = generate_test_id(template_file_name, video_mpd_url, audio_mpd_url)
         test_path_relative = generate_test_path(grouping_dir, template_file_name, video_mpd_url)
         test_path = "{}/{}".format(DEST_DIR, test_path_relative)
         content = load_file(test_template_path)
