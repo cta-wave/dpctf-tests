@@ -48,3 +48,16 @@ video {
   position: absolute;
   /*overflow-y: scroll;*/
 }
+
+#debug-wrapper {
+  height: 100vh;
+  min-width: 50vw;
+}
+
+.button {
+  padding: 1em 2em;
+  margin: 2em;
+  border: 0.2em black solid;
+  display: inline-block;
+  font-weight: bold;
+}
