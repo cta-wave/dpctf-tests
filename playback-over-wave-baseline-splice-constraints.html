@@ -68,11 +68,25 @@
 
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration) {
-          player.play();
+          player
+            .play()
+            .then(function () {
+              done();
+            })
+            .catch(function (error) {
+              done(error);
+            });
         } else {
           player.on("onVideoSegmentLoaded", function (event) {
             if (player.getPreBufferedTime() >= minBufferDuration) {
-              player.play();
+              player
+                .play()
+                .then(function () {
+                  done();
+                })
+                .catch(function (error) {
+                  done(error);
+                });
             }
           });
         }
@@ -87,8 +101,6 @@
             test.done();
           });
         }, "video ended event fired");
-
-        done();
       }
     </script>
   </body>
