@@ -15,10 +15,15 @@
         <div><div id="qr-code"></div></div>
       </div>
       <div>
-        Press Enter/Ok to continue or Up/Down to show/hide debug overlay
+        To show/hide debug overlay press up/down or button beneath
       </div>
-      <div id="debug"></div>
-      <div id="log"></div>
+      <div id="debug-wrapper">
+        <div>
+          <div class="button" id="debug-button">Debug Overlay</div>
+        </div>
+        <div id="debug"></div>
+        <div id="log"></div>
+      </div>
     </div>
     <div id="info-overlay"></div>
     <script src="../lib/mozilla/object-keys-polyfill.js"></script>
@@ -92,15 +97,6 @@
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
-        if (player.getPreBufferedTime() >= minBufferDuration) {
-          player.play();
-        } else {
-          player.on("onVideoSegmentLoaded", function (event) {
-            if (player.getPreBufferedTime() >= minBufferDuration) {
-              player.play();
-            }
-          });
-        }
 
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
@@ -113,7 +109,29 @@
           });
         }, "video ended event fired");
 
-        done();
+        if (player.getPreBufferedTime() >= minBufferDuration) {
+          player
+            .play()
+            .then(function () {
+              done();
+            })
+            .catch(function (error) {
+              done(error);
+            });
+        } else {
+          player.on("onVideoSegmentLoaded", function (event) {
+            if (player.getPreBufferedTime() >= minBufferDuration) {
+              player
+                .play()
+                .then(function () {
+                  done();
+                })
+                .catch(function (error) {
+                  done(error);
+                });
+            }
+          });
+        }
       }
     </script>
   </body>

@@ -81,7 +81,7 @@ function Player(video) {
 
   function play() {
     _eventEmitter.dispatchEvent(PLAYER_EVENT_TRIGGER_PLAY);
-    _video.play();
+    return _video.play();
   }
 
   function on(eventName, callback) {

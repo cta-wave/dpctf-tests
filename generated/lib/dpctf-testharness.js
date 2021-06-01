@@ -43,6 +43,14 @@ function DpctfTest(config) {
 
   var _runningTests = [];
 
+  updateVideoWrapperSize();
+
+  var screenConsole = document.createElement("div");
+  screenConsole.setAttribute("id", "console");
+  screenConsole.style.display = "none";
+  var contentWrapper = document.getElementById("content-wrapper");
+  contentWrapper.appendChild(screenConsole);
+
   promise_test(function () {
     // Specify workflow
     return loadParameters()
@@ -63,6 +71,8 @@ function DpctfTest(config) {
     done();
     _videoState = VIDEO_STATE_ERROR;
     updateQrCode();
+    console.log("ABORTING TESTS");
+    abortTests();
     return Promise.reject(error);
   }
 
@@ -108,7 +118,7 @@ function DpctfTest(config) {
         _videoState = VIDEO_STATE_PLAYING;
         currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
-        updateQrCodePosition();
+        updateVideoWrapperSize();
       });
 
       video.addEventListener("pause", function () {
@@ -122,6 +132,7 @@ function DpctfTest(config) {
         if (_videoState === VIDEO_STATE_ERROR) return;
         _videoState = VIDEO_STATE_ENDED;
         updateQrCode();
+        updateVideoWrapperSize();
       });
 
       video.addEventListener("error", function () {
@@ -132,8 +143,12 @@ function DpctfTest(config) {
         throw new Error(video.error.message);
       });
 
-      window.addEventListener("resize", function () {
+      video.addEventListener("canplay", function () {
         updateQrCodePosition();
+      });
+
+      window.addEventListener("resize", function () {
+        updateVideoWrapperSize();
       });
 
       //// Player Setup ////
@@ -249,6 +264,13 @@ function DpctfTest(config) {
               if (resolveWaitingForResults) resolveWaitingForResults();
             }
           });
+
+          var debugButton = document.getElementById("debug-button");
+          if (debugButton) {
+            debugButton.addEventListener("click", function (event) {
+              infoOverlay.show();
+            });
+          }
 
           player.on("onTimeUpdate", function (currentTime) {
             infoOverlay.updateOverlayInfo(player, testInfo);
@@ -481,6 +503,15 @@ function DpctfTest(config) {
     qrCode.style.padding = 20 * scale + "px";
   }
 
+  function updateVideoWrapperSize() {
+    var height = window.innerHeight;
+    var width = window.innerWidth;
+    var videoWrapper = document.getElementById("video-wrapper");
+    videoWrapper.style.height = height + "px";
+    videoWrapper.style.width = width + "px";
+    updateQrCodePosition();
+  }
+
   function fetchParameters() {
     return new Promise(function (resolve) {
       var xhr = new XMLHttpRequest();
@@ -644,12 +675,14 @@ function InfoOverlay(element) {
     _rootElement.innerHtml = "";
     _rootElement.style.position = "fixed";
     _rootElement.style.width = "100vw";
-    _rootElement.style.height = "100vh";
+    _rootElement.style.height = "110vh";
     _rootElement.style.left = "0";
     _rootElement.style.top = "0";
     _rootElement.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
     _rootElement.style.fontFamily = "Sans";
     _rootElement.style.display = "none";
+    _rootElement.style.overflow = "scroll";
+
     _visible = false;
 
     var contentElement = document.createElement("div");
@@ -710,8 +743,23 @@ function InfoOverlay(element) {
     var rootElement = _contentElement;
     rootElement.innerHTML = "";
 
+    renderCloseButton(rootElement);
     renderTestInfo(rootElement);
     renderVideoInfo(rootElement);
+  }
+
+  function renderCloseButton(rootElement) {
+    var buttonElement = document.createElement("div");
+    buttonElement.className = "button";
+    buttonElement.style.color = "white";
+    buttonElement.style.borderColor = "white";
+    buttonElement.style.position = "absolute";
+    buttonElement.style.right = "0";
+    buttonElement.innerText = "Close";
+    buttonElement.addEventListener("click", function () {
+      hide();
+    });
+    rootElement.appendChild(buttonElement);
   }
 
   function renderTestInfo(rootElement) {
@@ -719,6 +767,7 @@ function InfoOverlay(element) {
 
     var testInfoHeading = document.createElement("h3");
     testInfoHeading.innerText = "Test Information";
+    testInfoHeading.style.marginTop = "3em";
     rootElement.appendChild(testInfoHeading);
 
     var testInfoTable = document.createElement("table");
@@ -814,6 +863,7 @@ function InfoOverlay(element) {
     durationRow.appendChild(durationValue);
 
     var representationsWrapper = document.createElement("div");
+    representationsWrapper.style.marginBottom = "10em";
     for (var i = 0; i < videoInfo.representations.length; i++) {
       var representation = videoInfo.representations[i];
       renderRepresentation(representationsWrapper, representation);
