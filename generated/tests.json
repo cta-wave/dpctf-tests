@@ -263,7 +263,18 @@
             "video": "/content/avc_sets/15_30_60/t10/stream.mpd",
             "audio": "",
             "code": "sequential-track-playback.html",
-            "config": {}
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "duration": 60
+                    },
+                    "2": {
+                        "duration": 60
+                    }
+                }
+            }
         },
         "4f5cb8426c8165bd986574974f8ed83c": {
             "path": "avc_15_30_60-local/sequential-track-playback__avc_sets_15_30_60_t11.html",

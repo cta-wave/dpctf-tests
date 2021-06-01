@@ -31,6 +31,17 @@ body {
   height: 100%;
 }
 
+#status-text {
+  color: white;
+  font-family: monospace;
+  border-radius: 3px;
+  display: inline-block;
+  background: black;
+  position: absolute;
+  top: 30%;
+  left: 70%;
+}
+
 #video-wrapper {
   overflow: hidden;
   background: black;

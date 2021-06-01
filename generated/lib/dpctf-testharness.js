@@ -2,6 +2,7 @@ function DpctfTest(config) {
   var testInfo = config.testInfo;
   var video = config.videoElement;
   var qrCode = config.qrCodeElement;
+  var statusText = config.statusTextElement;
   var infoOverlayElement = config.infoOverlayElement;
   var outOfOrderLoading = config.outOfOrderLoading || false;
   var executeTestCallback = config.executeTest || function () {};
@@ -71,8 +72,9 @@ function DpctfTest(config) {
     done();
     _videoState = VIDEO_STATE_ERROR;
     updateQrCode();
-    console.log("ABORTING TESTS");
+    updateStatusText();
     abortTests();
+    console.error(error);
     return Promise.reject(error);
   }
 
@@ -105,6 +107,7 @@ function DpctfTest(config) {
     if (error) return error;
     log("Setting up test");
     updateQrCode();
+    updateStatusText();
     return new Promise(function (resolve) {
       //// Configure Test Harness ////
       setup({
@@ -126,6 +129,7 @@ function DpctfTest(config) {
         _videoState = VIDEO_STATE_PAUSED;
         currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
+        updateStatusText();
       });
 
       video.addEventListener("ended", function () {
@@ -139,6 +143,7 @@ function DpctfTest(config) {
         _videoState = VIDEO_STATE_ERROR;
         currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
+        updateStatusText();
         abortTests();
         throw new Error(video.error.message);
       });
@@ -158,12 +163,14 @@ function DpctfTest(config) {
         _videoState = VIDEO_STATE_BUFFERING;
         currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
+        updateStatusText();
       });
 
       player.on(Player.PLAYER_EVENT_TRIGGER_PLAY, function () {
-        _videoState = VIDEO_STATE_READY;
+        _videoState = VIDEO_STATE_PLAYING;
         _lastAction = ACTION_PLAY;
         updateQrCode();
+        updateStatusText();
       });
 
       player
@@ -275,6 +282,7 @@ function DpctfTest(config) {
           player.on("onTimeUpdate", function (currentTime) {
             infoOverlay.updateOverlayInfo(player, testInfo);
             updateQrCode(currentTime);
+            updateStatusText();
           });
 
           player.on("onPlayingVideoRepresentationChange", function (
@@ -291,6 +299,8 @@ function DpctfTest(config) {
             resolve();
           }
           updateQrCodePosition();
+          _videoState = VIDEO_STATE_READY;
+          updateStatusText();
         })
         .catch(function (error) {
           resolve(error);
@@ -510,6 +520,60 @@ function DpctfTest(config) {
     videoWrapper.style.height = height + "px";
     videoWrapper.style.width = width + "px";
     updateQrCodePosition();
+    updateStatusText();
+  }
+
+  function updateStatusText() {
+    if (!statusText) return;
+    var text = "";
+    text = text + "s: " + _videoState + "; ";
+    text = text + "a: " + _lastAction + ";";
+    statusText.innerText = text;
+    updateStatusTextPosition();
+  }
+
+  function updateStatusTextPosition() {
+    if (!statusText) return;
+    var qrCode = statusText;
+    var top = 0.13;
+    var left = 0.5;
+    var rect = video.getBoundingClientRect();
+    var elementWidth = rect.width;
+    var elementHeight = rect.height;
+    var videoWidth = video.videoWidth || elementWidth;
+    var videoHeight = video.videoHeight || elementHeight;
+    var videoRatio = videoWidth / videoHeight;
+    var elementRatio = elementWidth / elementHeight;
+    var width;
+    var height;
+    var offsetLeft;
+    var offsetTop;
+    var scale = 1;
+    if (videoRatio < elementRatio) {
+      // Video element is wider
+      var actualVideoWidth = elementHeight * videoRatio;
+      var borderWidth = (elementWidth - actualVideoWidth) / 2;
+      height = elementHeight;
+      width = actualVideoWidth;
+      var rect = statusText.getBoundingClientRect();
+      offsetTop = 0;
+      offsetLeft = borderWidth - rect.width / 2;
+      scale = elementHeight / 1000;
+    } else {
+      // Video element is taller
+      var actualVideoHeight = elementWidth / videoRatio;
+      var borderHeight = (elementHeight - actualVideoHeight) / 2;
+      width = elementWidth;
+      height = actualVideoHeight;
+      var rect = statusText.getBoundingClientRect();
+      offsetLeft = 0 - rect.width / 2;
+      offsetTop = borderHeight;
+      scale = elementWidth / 1800;
+    }
+    qrCode.style.top = top * height + offsetTop + "px";
+    qrCode.style.left = left * width + offsetLeft + "px";
+    qrCode.style.fontSize = 35 * scale + "px";
+    qrCode.style.padding = 5 * scale + "px";
   }
 
   function fetchParameters() {

@@ -13,6 +13,7 @@
       <div id="video-wrapper">
         <video></video>
         <div><div id="qr-code"></div></div>
+        <div><div id="status-text"></div></div>
       </div>
       <div>
         To show/hide debug overlay press up/down or button beneath
@@ -79,6 +80,7 @@
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
+      var statusText = document.getElementById("status-text");
 
       var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t20/stream.mpd";
       var audioContentModel = "";
@@ -89,6 +91,7 @@
         audioContentModel: audioContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
+        statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
         usePlayout: false,

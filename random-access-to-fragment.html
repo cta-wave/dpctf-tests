@@ -13,6 +13,7 @@
       <div id="video-wrapper">
         <video></video>
         <div><div id="qr-code"></div></div>
+        <div><div id="status-text"></div></div>
       </div>
       <div>
         To show/hide debug overlay press up/down or button beneath
@@ -47,6 +48,7 @@
       };
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
+      var statusText = document.getElementById("status-text");
 
       var videoContentModel = "{{VIDEO_MPD_URL}}";
       var audioContentModel = "{{AUDIO_MPD_URL}}";
@@ -57,6 +59,7 @@
         audioContentModel: audioContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
+        statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
         setupTest: setupTest,
