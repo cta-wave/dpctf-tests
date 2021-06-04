@@ -49,9 +49,9 @@ def main():
         video_file_name = ".".join(video_file_name.split(".")[0:-1])
         audio_file_name = str(audio_mpd_url).split("/")[-1]
         audio_file_name = ".".join(audio_file_name.split(".")[0:-1])
-        test_id = generate_test_id(template_file_name, video_mpd_url, audio_mpd_url)
         test_path_relative = generate_test_path(grouping_dir, template_file_name, video_mpd_url)
         test_path = "{}/{}".format(DEST_DIR, test_path_relative)
+        test_id = generate_test_id(test_path_relative)
         content = load_file(test_template_path)
         content = generate_test(content, video_mpd_url, audio_mpd_url, test_path_relative, template_file)
         write_file(test_path, content)
@@ -137,6 +137,12 @@ def load_mpd_content(mpd_path):
         except urllib.error.HTTPError:
             print("Could not load http url:", mpd_path)
     else:
+        # print("Fetching MPD {}".format(mpd_path))
+        # mpd_path = mpd_path.replace("/content/", "https://dash.akamaized.net/WAVE/vectors/")
+        # try:
+        #     content = urllib.request.urlopen(mpd_path).read()
+        # except urllib.error.HTTPError:
+        #     print("Could not load http url:", mpd_path)
         file_path = os.path.join(MPD_ROOT_DIR, mpd_path[1:])
         file_path = Path(file_path).absolute()
         print("Reading MPD {}".format(file_path))
@@ -167,9 +173,8 @@ def generate_test_json(tests):
 
     return json
 
-def generate_test_id(template_path, video, audio):
-    value = str(template_path) + str(video) + str(audio)
-    hashobj = hashlib.md5(value.encode("utf-8"))
+def generate_test_id(test_path_relative):
+    hashobj = hashlib.md5(test_path_relative.encode("utf-8"))
     return hashobj.hexdigest()
 
 
@@ -224,8 +229,8 @@ def generate_test_path(grouping_dir, template_file_name, video_file_path):
     dir_path, file_name = os.path.split(video_file_path)
     dir_split = list(filter(lambda element: element != "" and element != ".", dir_path.split("/")))
     video_identifier = ""
-    if len(dir_split) >= 3:
-        video_identifier = "_".join(dir_split[-3:])
+    if len(dir_split) >= 1:
+        video_identifier = "_".join(dir_split[-1:])
     else:
         video_identifier = ".".join(file_name.split(".")[:-1])
     test_path = "{}/{}__{}".format(grouping_dir, template_file_name, video_identifier)
