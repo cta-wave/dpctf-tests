@@ -101,31 +101,66 @@ def parse_mpd_parameters(content):
             rep_parameters = {}
             if periodDuration != "":
                 rep_parameters["duration"] = periodDuration
+
+            segment_templates = representation.getElementsByTagName("SegmentTemplate")
+            if len(segment_templates) == 0:
+                adaptation_set = get_parent_by_name(representation, "AdaptationSet")
+                segment_templates = adaptation_set.getElementsByTagName("SegmentTemplate")
+                seg_template_params = parse_segment_template(segment_templates[0])
+                rep_parameters = merge_parameters(rep_parameters, seg_template_params)
             else:
-                segment_templates = representation.getElementsByTagName("SegmentTemplate")
-                if len(segment_templates) != 0:
-                    segments = segment_templates[0].getElementsByTagName("S")
-                    timescale = segment_templates[0].getAttribute("timescale")
-                    timescale = int(timescale)
-                    sum = 0
-                    for segment in segments:
-                        r = segment.getAttribute("r")
-                        if r == "":
-                            r = 0
-                        r = int(r)
-                        d = segment.getAttribute("d")
-                        d = int(d)
-                        sum = sum + (r + 1) * d
-                    duration = sum / timescale
-                    rep_parameters["duration"] = duration
-
-
+                seg_template_params = parse_segment_template(segment_templates[0])
+                rep_parameters = merge_parameters(rep_parameters, seg_template_params)
                 
             representation_parameters[representationId] = rep_parameters
 
     parameters["representations"] = representation_parameters
 
     return parameters
+
+def parse_segment_template(node):
+    parameters = {}
+    segments = node.getElementsByTagName("S")
+    timescale = node.getAttribute("timescale")
+    timescale = int(timescale)
+    fragment_duration = None
+    sum = 0
+    for segment in segments:
+        r = segment.getAttribute("r")
+        if r == "":
+            r = 0
+        r = int(r)
+        d = segment.getAttribute("d")
+        d = int(d)
+        sum = sum + (r + 1) * d
+
+        if fragment_duration is None:
+            fragment_duration = d / timescale
+
+    duration = sum / timescale
+    parameters["duration"] = duration
+    parameters["fragment_duration"] = fragment_duration
+    return parameters
+
+def merge_parameters(setA, setB):
+    parameter_names = [
+            "duration",
+            "fragment_duration",
+            ]
+    for parameter_name in parameter_names:
+        if parameter_name in setA: continue
+        if parameter_name not in setB: continue
+        setA[parameter_name] = setB[parameter_name]
+    return setA
+
+def get_parent_by_name(node, name):
+    parent = None
+
+    while parent is None:
+        node = node.parentNode
+        if node.tagName == name:
+            parent = node
+    return parent
 
 
 def load_mpd_content(mpd_path):

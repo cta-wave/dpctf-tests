@@ -10,10 +10,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -28,10 +30,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -46,10 +50,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -64,31 +70,40 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "3": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "4": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "5": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "6": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "7": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "8": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "9": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     }
                 }
             }
@@ -103,10 +118,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -121,10 +138,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -139,31 +158,40 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "3": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "4": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "5": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "6": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "7": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "8": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "9": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     }
                 }
             }
@@ -178,10 +206,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -196,10 +226,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -214,10 +246,12 @@
                 "fragment_duration": "PT0H0M5.016S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 4.992290249433107
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 5.0
                     }
                 }
             }
@@ -232,10 +266,12 @@
                 "fragment_duration": "PT0H0M5.016S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 4.992290249433107
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 5.0
                     }
                 }
             }
@@ -250,10 +286,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -268,10 +306,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -286,10 +326,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -304,10 +346,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -322,10 +366,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -340,10 +386,12 @@
                 "fragment_duration": "PT0H0M5.016S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 4.992290249433107
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 5.0
                     }
                 }
             }
@@ -358,10 +406,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -376,10 +426,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -394,10 +446,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -412,10 +466,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -430,10 +486,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -448,10 +506,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -466,10 +526,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -484,10 +546,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -502,10 +566,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -520,10 +586,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -538,10 +606,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -556,10 +626,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -574,10 +646,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -592,10 +666,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -610,10 +686,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -628,10 +706,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -646,10 +726,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -664,10 +746,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -682,10 +766,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -700,10 +786,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -718,31 +806,40 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "3": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "4": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "5": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "6": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "7": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "8": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "9": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     }
                 }
             }
@@ -757,10 +854,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -775,10 +874,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -793,31 +894,40 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "3": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "4": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "5": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "6": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "7": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "8": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     },
                     "9": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": null
                     }
                 }
             }
@@ -832,10 +942,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -850,10 +962,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -868,10 +982,12 @@
                 "fragment_duration": "PT0H0M5.016S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 4.992290249433107
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 5.0
                     }
                 }
             }
@@ -886,10 +1002,12 @@
                 "fragment_duration": "PT0H0M5.016S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 4.992290249433107
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 5.0
                     }
                 }
             }
@@ -904,10 +1022,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -922,10 +1042,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -940,10 +1062,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -958,10 +1082,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -976,10 +1102,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -994,10 +1122,12 @@
                 "fragment_duration": "PT0H0M5.016S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 4.992290249433107
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 5.0
                     }
                 }
             }
@@ -1012,10 +1142,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1030,10 +1162,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1048,10 +1182,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1066,10 +1202,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1084,10 +1222,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1102,10 +1242,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1120,10 +1262,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1138,10 +1282,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1156,10 +1302,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1174,10 +1322,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1192,10 +1342,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1210,10 +1362,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1228,10 +1382,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1246,10 +1402,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1264,10 +1422,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1282,10 +1442,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
@@ -1300,10 +1462,12 @@
                 "fragment_duration": "PT0H0M2.021S",
                 "representations": {
                     "1": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 1.9969160997732427
                     },
                     "2": {
-                        "duration": 60
+                        "duration": 60,
+                        "fragment_duration": 2.0
                     }
                 }
             }
