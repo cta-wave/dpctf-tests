@@ -91,7 +91,9 @@ def parse_mpd_parameters(content):
     representation_parameters = {}
     dom_tree = parseString(content)
     periods = dom_tree.getElementsByTagName("Period")
+    periodNumber = 0
     for period in periods:
+        periodNumber += 1
         periodDuration = period.getAttribute("duration")
         if periodDuration != "":
             periodDuration = parse_duration(periodDuration).seconds
@@ -99,8 +101,12 @@ def parse_mpd_parameters(content):
         for representation in representations:
             representationId = representation.getAttribute("id")
             rep_parameters = {}
+            rep_parameters["period"] = periodNumber
             if periodDuration != "":
                 rep_parameters["duration"] = periodDuration
+            mime_type = representation.getAttribute("mimeType")
+            content_type = re.search("^(.+)\/", mime_type).group(1)
+            rep_parameters["type"] = content_type
 
             segment_templates = representation.getElementsByTagName("SegmentTemplate")
             if len(segment_templates) == 0:
