@@ -51,7 +51,9 @@
   },
   "playback-of-encrypted-content-https.html": {
     "ts_max": 120,
-    "tolerance": 10
+    "tolerance": 10,
+    "key_id": "J5kmSWp_XSXaafKzsnmafw",
+    "content_key": "ABEiM0RVZneImaq7zN3u_w"
   },
   "restricted-splicing-of-encrypted-content-https.html": {
     "ts_max": 120,

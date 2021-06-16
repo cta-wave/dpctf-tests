@@ -1799,6 +1799,1596 @@
                     }
                 }
             }
+        },
+        "8ff129c13c5b7a68710edb037810111a": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t1.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t1/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "af9269791be478d3af1b9765707fcb3f": {
+            "path": "avc_15_30_60-2021-06-11-online/random-access-to-fragment__t1.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t1/stream.mpd",
+            "audio": "",
+            "code": "random-access-to-fragment.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "f561cb02610f140cfa5e49d0e7f1ed73": {
+            "path": "avc_15_30_60-2021-06-11-online/random-access-to-time__t1.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t1/stream.mpd",
+            "audio": "",
+            "code": "random-access-to-time.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "de14472eea6524fc193c3ed151051d1c": {
+            "path": "avc_15_30_60-2021-06-11-online/switching-set-playback__ss1.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/ss1/stream.mpd",
+            "audio": "",
+            "code": "switching-set-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "3": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "4": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "5": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "6": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "7": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "8": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "9": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    }
+                }
+            }
+        },
+        "0b57bb0de5dec083cd810879e15ef054": {
+            "path": "avc_15_30_60-2021-06-11-online/out-of-order-loading__t1.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t1/stream.mpd",
+            "audio": "",
+            "code": "out-of-order-loading.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "9df59ad5b7afb54b7c7ae8fe307d01d9": {
+            "path": "avc_15_30_60-2021-06-11-online/overlapping-fragments__t1.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t1/stream.mpd",
+            "audio": "",
+            "code": "overlapping-fragments.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "80622c7017d4003cb233a6b1f4de5dec": {
+            "path": "avc_15_30_60-2021-06-11-online/fullscreen-playback-of-switching-sets__ss1.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/ss1/stream.mpd",
+            "audio": "",
+            "code": "fullscreen-playback-of-switching-sets.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "3": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "4": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "5": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "6": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "7": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "8": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "9": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    }
+                }
+            }
+        },
+        "adc56e895e7dcbd64c536e9b5fa6591a": {
+            "path": "avc_15_30_60-2021-06-11-online/regular-playback-of-a-cmaf-presentation__t1.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t1/stream.mpd",
+            "audio": "",
+            "code": "regular-playback-of-a-cmaf-presentation.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "df91725e609c1275a24bd16befa54b12": {
+            "path": "avc_15_30_60-2021-06-11-online/random-access-of-a-wave-presentation__t1.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t1/stream.mpd",
+            "audio": "",
+            "code": "random-access-of-a-wave-presentation.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "0ce73f8980802ccf7b12a44edadf0486": {
+            "path": "avc_15_30_60-2021-06-11-online/regular-playback-of-chunked-content__t2.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t2/stream.mpd",
+            "audio": "",
+            "code": "regular-playback-of-chunked-content.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M5.016S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 4.992290249433107
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 5.0
+                    }
+                }
+            }
+        },
+        "f1f5481ab4c498c4574b080377ac5184": {
+            "path": "avc_15_30_60-2021-06-11-online/regular-playback-of-chunked-content-non-aligned-append__t2.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t2/stream.mpd",
+            "audio": "",
+            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M5.016S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 4.992290249433107
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 5.0
+                    }
+                }
+            }
+        },
+        "1c58c18c81768fbfc6f510e0c969efe7": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t3.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t3/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "db21246b55e3b1dc35222b611e48ba03": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t10.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t10/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "f03d094969795f7052a18dbafa22734d": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t11.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t11/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "e91b68597f151be152943b0fd382967c": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t12.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t12/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "0591b3f27ec9a625f1f0caa8081f4399": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t13.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t13/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "860f3bf32143ed72abc91dbfacdee505": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t14.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t14/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M5.016S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 4.992290249433107
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 5.0
+                    }
+                }
+            }
+        },
+        "1481b5f27dd99b67a025fc19f5450a85": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t15.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t15/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "613a78be95690f2033518a75dc66103b": {
+            "path": "avc_15_30_60-2021-06-11-online/regular-playback-of-chunked-content__t16.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t16/stream.mpd",
+            "audio": "",
+            "code": "regular-playback-of-chunked-content.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "f12c86993eddf33788e5011926fb1899": {
+            "path": "avc_15_30_60-2021-06-11-online/regular-playback-of-chunked-content__t17.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t17/stream.mpd",
+            "audio": "",
+            "code": "regular-playback-of-chunked-content.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "9727533a2a8053079aefa27c93a8d462": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t20.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t20/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "ee5deb624c110404deb2995d333b30e8": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t21.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t21/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "5d69b0a7134808a9fda26a8b74813839": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t22.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t22/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "c2f33e5f4567983450592630324139b3": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t23.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t23/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "c2d80a5dc27d9623ae68b14de06ff51b": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t24.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t24/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "86154821f8c2c8a06112cd9a76d30e11": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t26.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t26/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "1ee71ff091e6f1d926575c78023b4dee": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t27.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t27/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "bf04a3c438be585c5363f5540a3a3f6d": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t28.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t28/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "bc2df5bbd9b8a2111f7d25375aa17071": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t29.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t29/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "7eeeceb4448ace6f8684788328c68ab5": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t30.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t30/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "0a26269f4150d0d68bc3b9e1da8156c3": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t31.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t31/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "f5a5c8ea5cdbef7b13ef2616ddbc123a": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t32.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t32/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "840c3c32c02fe96771d22686b05c744e": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t33.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t33/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "06a3faf2197cad452a216b80d8ff5e93": {
+            "path": "avc_15_30_60-2021-06-11-online/sequential-track-playback__t34.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t34/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "d2a53359764d91482a4474d2df961b14": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t1-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t1-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "19cc5757223764b13b97b6b5b6c715c0": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t2-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t2-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M5.016S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 4.992290249433107
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 5.0
+                    }
+                }
+            }
+        },
+        "cd62847d3c0681695dd31dfb7fa603d3": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t3-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t3-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "6d9338bb2b9d6bd9e44b5a6e334459a2": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t10-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t10-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "55a637fa77e25ee429266acc384a03d1": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t11-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t11-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "49bf28aa88e56d44c9bb0f9c5593974f": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t12-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t12-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "17795ccebf5b71f00ac90d7fbfb2fd24": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t13-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t13-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "de63107bffd2d2f1f26f49ecc6d802ea": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t14-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t14-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M5.016S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 4.992290249433107
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 5.0
+                    }
+                }
+            }
+        },
+        "dab03cdb7116edef08f02467b2bd56ae": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t15-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t15-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "a6fbe12ad2695d866fb29c870be29f47": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t16-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t16-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "78ccb8f83fb2c314c61e67f495ee237a": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t17-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t17-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "57d81f5222440f91840df41dbc92352d": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t20-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t20-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "b0982152ff69ef036ad46512d1824c7b": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t21-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t21-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "512bc26e5411a72ce7be8fb7e7df4ebd": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t22-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t22-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "7d5f70fab78ec66934e726afa8ae06db": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t23-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t23-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "3cc50285a3f5e7d3040beea6f39b4601": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t24-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t24-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "5605b4a0b39aedebfcfa596b10cc286f": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t25-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t25-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "fe5e47469077aa10533963279c7430da": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t26-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t26-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "6fbc91bb059f23380c24f4344dbc76d7": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t27-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t27-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "2182040da84af12153ccade1ecb5707d": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t28-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t28-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "c5c2d715fa9b3ecb65985f72e2ac8a9f": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t29-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t29-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "35842f9afdf1b24e671e5994b9183b95": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t30-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t30-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "2fc5d679b3ebb8f573b3d27b8066272e": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t31-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t31-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "0efe4d2517bfac1d722a673ec6f5b18a": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t32-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t32-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "4633c8a0275eed49f42ef4a6686fc490": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t33-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t33-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "dfabe3bc82b64725cb75b4e42a1261fe": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__t34-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t34-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
+        },
+        "eca22a8fc7de83e07b1345764ecba41c": {
+            "path": "avc_15_30_60-cenc-2021-06-11-online/playback-of-encrypted-content-https__ss1-cenc.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/ss1-cenc/stream.mpd",
+            "audio": "",
+            "code": "playback-of-encrypted-content-https.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "3": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "4": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "5": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "6": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "7": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "8": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    },
+                    "9": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": null
+                    }
+                }
+            }
         }
     }
 }
