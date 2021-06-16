@@ -109,7 +109,7 @@ def parse_mpd_parameters(content):
             rep_parameters["type"] = content_type
 
             segment_templates = representation.getElementsByTagName("SegmentTemplate")
-            if len(segment_templates) == 0:
+            if len(segment_templates) == 0 or len(segment_templates[0].getElementsByTagName("S")) == 0:
                 adaptation_set = get_parent_by_name(representation, "AdaptationSet")
                 segment_templates = adaptation_set.getElementsByTagName("SegmentTemplate")
                 seg_template_params = parse_segment_template(segment_templates[0])
