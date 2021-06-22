@@ -615,12 +615,12 @@ function DpctfTest(config) {
           var objectPlayout = {};
           var start = 0;
           var currentRep = playout[0];
-          for (var i = 0; i < playout.length; i++) {
-            if (currentRep === playout[i] && i !== playout.length - 1) continue;
-            var range = start + "-" + i;
-            objectPlayout[range] = currentRep;
+          for (var i = 0; i <= playout.length; i++) {
+            if (currentRep === playout[i] && i !== playout.length) continue;
+            var range = start + "-" + (i - 1);
+            objectPlayout[range] = currentRep - 1;
             currentRep = playout[i];
-            start = i + 1;
+            start = i;
           }
           playout = objectPlayout;
         }
