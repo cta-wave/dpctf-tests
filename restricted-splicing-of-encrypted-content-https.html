@@ -62,37 +62,16 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        setupTest: setupTest,
+        usePlayout: true,
         isEncryptedContent: true,
       });
 
-      function setupTest(player, done, parameters) {
-        var randomAccessFragment = parameters.randomAccessFragment;
-        var manifest = player.getVideoManifest();
-        var videoSegments = player.getVideoSegments();
-        var totalSegments = player.getVideoSegmentsCount();
-        var cmafTrackLength = player.getVideoManifest().getDuration();
-
-        var fragmentTime = 0;
-        for (var i = 0; i < randomAccessFragment; i++) {
-          var segmentDuration = videoSegments[i].getDuration();
-          fragmentTime += segmentDuration;
-        }
-        player.setCurrentTime(fragmentTime);
-
-        done();
-      }
-
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-        var currentTime = player.getCurrentTime();
-        var totalTime = player.getDuration();
-        var timeLeft = parseInt(totalTime - currentTime);
+
         player.startBuffering();
-        if (
-          player.getPreBufferedTime() >= minBufferDuration ||
-          player.getPreBufferedTime() >= timeLeft
-        ) {
+        if (player.getPreBufferedTime() >= minBufferDuration || 
+            player.getPreBufferedTime() >= player.getDuration()) {
           player
             .play()
             .then(function () {
@@ -103,10 +82,8 @@
             });
         } else {
           player.on("onVideoSegmentLoaded", function (event) {
-            if (
-              player.getPreBufferedTime() >= minBufferDuration ||
-              player.getPreBufferedTime() >= timeLeft
-            ) {
+            if (player.getPreBufferedTime() >= minBufferDuration || 
+                player.getPreBufferedTime() >= player.getDuration()) {
               player
                 .play()
                 .then(function () {
@@ -130,6 +107,5 @@
           });
         }, "video ended event fired");
       }
-    </script>
   </body>
 </html>

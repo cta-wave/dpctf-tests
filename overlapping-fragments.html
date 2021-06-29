@@ -97,7 +97,8 @@
         player.on("onTimeUpdate", handleRandomSwitch);
 
         player.startBuffering();
-        if (player.getPreBufferedTime() >= minBufferDuration) {
+        if (player.getPreBufferedTime() >= minBufferDuration || 
+            player.getPreBufferedTime() >= player.getDuration()) {
           player
             .play()
             .then(function () {
@@ -108,7 +109,8 @@
             });
         } else {
           player.on("onVideoSegmentLoaded", function (event) {
-            if (player.getPreBufferedTime() >= minBufferDuration) {
+            if (player.getPreBufferedTime() >= minBufferDuration || 
+                player.getPreBufferedTime() >= player.getDuration()) {
               player
                 .play()
                 .then(function () {

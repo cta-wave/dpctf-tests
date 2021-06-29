@@ -3,17 +3,17 @@ if (!Object.keys) {
   Object.keys = (function() {
     'use strict';
     var hasOwnProperty = Object.prototype.hasOwnProperty,
-        hasDontEnumBug = !({ toString: null }).propertyIsEnumerable('toString'),
-        dontEnums = [
-          'toString',
-          'toLocaleString',
-          'valueOf',
-          'hasOwnProperty',
-          'isPrototypeOf',
-          'propertyIsEnumerable',
-          'constructor'
-        ],
-        dontEnumsLength = dontEnums.length;
+      hasDontEnumBug = !({ toString: null }).propertyIsEnumerable('toString'),
+      dontEnums = [
+        'toString',
+        'toLocaleString',
+        'valueOf',
+        'hasOwnProperty',
+        'isPrototypeOf',
+        'propertyIsEnumerable',
+        'constructor'
+      ],
+      dontEnumsLength = dontEnums.length;
 
     return function(obj) {
       if (typeof obj !== 'function' && (typeof obj !== 'object' || obj === null)) {
@@ -38,4 +38,12 @@ if (!Object.keys) {
       return result;
     };
   }());
+}
+
+if (!Object.values) {
+  Object.values = function(obj) {
+    return Object.keys(obj).map(function(key) {
+      return obj[key];
+    })
+  }
 }

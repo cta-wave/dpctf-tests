@@ -5,7 +5,7 @@ function DpctfTest(config) {
   var statusText = config.statusTextElement;
   var infoOverlayElement = config.infoOverlayElement;
   var outOfOrderLoading = config.outOfOrderLoading || false;
-  var executeTestCallback = config.executeTest || function () {};
+  var executeTestCallback = config.executeTest || function() { };
   var setupTestCallback = config.setupTest;
   var usePlayout = config.usePlayout;
 
@@ -53,7 +53,7 @@ function DpctfTest(config) {
   var contentWrapper = document.getElementById("content-wrapper");
   contentWrapper.appendChild(screenConsole);
 
-  promise_test(function () {
+  promise_test(function() {
     // Specify workflow
     return loadParameters()
       .then(setupTest)
@@ -72,7 +72,8 @@ function DpctfTest(config) {
     if (!error) return;
     done();
     _videoState = VIDEO_STATE_ERROR;
-    updateQrCode();
+    var currentTime = player.getCurrentTime();
+    updateQrCode(currentTime);
     updateStatusText();
     abortTests();
     console.error(error);
@@ -109,92 +110,94 @@ function DpctfTest(config) {
     log("Setting up test");
     updateQrCode();
     updateStatusText();
-    return new Promise(function (resolve) {
+    return new Promise(function(resolve) {
       //// Configure Test Harness ////
       setup({
         explicit_timeout: true,
         explicit_done: true,
       });
 
-      video.addEventListener("play", function () {
+      video.addEventListener("play", function() {
         if (_videoState === VIDEO_STATE_ERROR) return;
         _lastAction = ACTION_PLAY;
         _videoState = VIDEO_STATE_PLAYING;
-        currentTime = player.getCurrentTime();
+        var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateVideoWrapperSize();
       });
 
-      video.addEventListener("playing", function () {
+      video.addEventListener("playing", function() {
         if (_videoState === VIDEO_STATE_ERROR) return;
         _videoState = VIDEO_STATE_PLAYING;
-        currentTime = player.getCurrentTime();
+        var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateVideoWrapperSize();
       });
 
-      video.addEventListener("waiting", function () {
+      video.addEventListener("waiting", function() {
         if (_videoState === VIDEO_STATE_ERROR) return;
-        _videoState = VIDEO_STATE_WAITING;
-        currentTime = player.getCurrentTime();
+        _videoState = VIDEO_STATE_BUFFERING;
+        var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateStatusText();
       });
 
-      video.addEventListener("stalled", function () {
+      video.addEventListener("stalled", function() {
         if (_videoState === VIDEO_STATE_ERROR) return;
         _videoState = VIDEO_STATE_STALLED;
-        currentTime = player.getCurrentTime();
+        var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateStatusText();
       });
 
-      video.addEventListener("pause", function () {
+      video.addEventListener("pause", function() {
         if (_videoState === VIDEO_STATE_ERROR) return;
         _videoState = VIDEO_STATE_PAUSED;
-        currentTime = player.getCurrentTime();
+        var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateStatusText();
       });
 
-      video.addEventListener("ended", function () {
+      video.addEventListener("ended", function() {
         if (_videoState === VIDEO_STATE_ERROR) return;
         _videoState = VIDEO_STATE_ENDED;
-        updateQrCode();
+        var currentTime = player.getCurrentTime();
+        updateQrCode(currentTime);
         updateVideoWrapperSize();
       });
 
-      video.addEventListener("error", function () {
+      video.addEventListener("error", function() {
         _videoState = VIDEO_STATE_ERROR;
-        currentTime = player.getCurrentTime();
+        var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateStatusText();
         abortTests();
         throw new Error(video.error.message);
       });
 
-      video.addEventListener("canplay", function () {
+      video.addEventListener("canplay", function() {
         updateQrCodePosition();
       });
 
-      window.addEventListener("resize", function () {
+      window.addEventListener("resize", function() {
         updateVideoWrapperSize();
       });
 
       //// Player Setup ////
       player = new Player(video);
 
-      player.on(Player.PLAYER_EVENT_START_BUFFERING, function () {
+      player.on(Player.PLAYER_EVENT_START_BUFFERING, function() {
         _videoState = VIDEO_STATE_BUFFERING;
-        currentTime = player.getCurrentTime();
+        var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateStatusText();
       });
 
-      player.on(Player.PLAYER_EVENT_TRIGGER_PLAY, function () {
+      player.on(Player.PLAYER_EVENT_TRIGGER_PLAY, function() {
         _videoState = VIDEO_STATE_PLAYING;
         _lastAction = ACTION_PLAY;
-        updateQrCode();
+        var currentTime = player.getCurrentTime();
+        updateQrCode(currentTime);
         updateStatusText();
       });
 
@@ -204,14 +207,14 @@ function DpctfTest(config) {
           numberOfSegmentBeforePlay: 2,
           outOfOrderLoading: outOfOrderLoading,
         })
-        .then(function () {
+        .then(function() {
           return Promise.all([
             player.loadVideo(videoContentModel),
             player.loadAudio(audioContentModel),
           ]);
         })
-        .then(function () {
-          return new Promise(function (resolve) {
+        .then(function() {
+          return new Promise(function(resolve) {
             if (_isEncryptedContent) {
               try {
                 player.setProtectionData({
@@ -233,8 +236,8 @@ function DpctfTest(config) {
               if (parameters.duration !== duration) {
                 throw new Error(
                   "Provided duration does not match MPD duration of " +
-                    duration +
-                    " seconds."
+                  duration +
+                  " seconds."
                 );
               }
             }
@@ -250,7 +253,7 @@ function DpctfTest(config) {
               ) {
                 throw new Error(
                   "Provided total representations do not match MPD total representations of " +
-                    player.getVideoManifest().getRepresentations().length
+                  player.getVideoManifest().getRepresentations().length
                 );
               }
             }
@@ -259,8 +262,8 @@ function DpctfTest(config) {
             setupTestCallback(player, resolve, parameters);
           });
         })
-        .then(function () {
-          video.addEventListener("play", function (event) {
+        .then(function() {
+          video.addEventListener("play", function(event) {
             var eventData = { type: "play" };
             waveService.sendSessionEvent(
               token,
@@ -269,7 +272,7 @@ function DpctfTest(config) {
             );
           });
 
-          video.addEventListener("ended", function (event) {
+          video.addEventListener("ended", function(event) {
             var eventData = { type: "ended" };
             waveService.sendSessionEvent(
               token,
@@ -283,7 +286,7 @@ function DpctfTest(config) {
           infoOverlay.init();
           infoOverlay.updateOverlayInfo(player, testInfo);
 
-          document.addEventListener("keydown", function (event) {
+          document.addEventListener("keydown", function(event) {
             if (event.keyCode === 38) {
               infoOverlay.show();
             }
@@ -299,25 +302,23 @@ function DpctfTest(config) {
 
           var debugButton = document.getElementById("debug-button");
           if (debugButton) {
-            debugButton.addEventListener("click", function (event) {
+            debugButton.addEventListener("click", function() {
               infoOverlay.show();
             });
           }
 
-          player.on("onTimeUpdate", function (currentTime) {
+          player.on("onTimeUpdate", function(currentTime) {
             infoOverlay.updateOverlayInfo(player, testInfo);
             updateQrCode(currentTime);
             updateStatusText();
           });
 
-          player.on("onPlayingVideoRepresentationChange", function (
-            currentRepresentation
-          ) {
+          player.on("onPlayingVideoRepresentationChange", function() {
             infoOverlay.updateOverlayInfo(player, testInfo);
           });
 
           if (!player.getVideoManifest()) {
-            player.on("onVideoManifestParsed", function (manifest) {
+            player.on("onVideoManifestParsed", function() {
               resolve();
             });
           } else {
@@ -327,7 +328,7 @@ function DpctfTest(config) {
           _videoState = VIDEO_STATE_READY;
           updateStatusText();
         })
-        .catch(function (error) {
+        .catch(function(error) {
           resolve(error);
         });
     });
@@ -336,7 +337,7 @@ function DpctfTest(config) {
   function executeTest(error) {
     if (error) return error;
     log("Executing test");
-    return new Promise(function (resolve) {
+    return new Promise(function(resolve) {
       try {
         executeTestCallback(player, resolve, parameters);
       } catch (error) {
@@ -348,9 +349,9 @@ function DpctfTest(config) {
   function initializeWaveService(error) {
     if (error) return error;
     log("Initializing WAVE service");
-    return new Promise(function (resolve) {
+    return new Promise(function(resolve) {
       waveService = new WaveService();
-      waveService.initialize("resources/wave-config").then(function (error) {
+      waveService.initialize("resources/wave-config").then(function(error) {
         if (error) resolve("Failed to initialize wave service: " + error);
         resolve();
       });
@@ -361,14 +362,14 @@ function DpctfTest(config) {
     if (error) return error;
     if (_execution_mode !== EXECUTION_MODE_PRGRAMMATIC) return;
     log("Sending test ready event");
-    return new Promise(function (resolve) {
+    return new Promise(function(resolve) {
       if (!token) {
         resolve("No session token provided");
         return;
       }
       waveService
         .sendSessionEvent(token, WaveService.TEST_READY_EVENT, testInfo)
-        .then(function () {
+        .then(function() {
           resolve();
         });
     });
@@ -379,9 +380,9 @@ function DpctfTest(config) {
     if (_execution_mode !== EXECUTION_MODE_PRGRAMMATIC) return;
     if (ignoreObservations) return Promise.resolve();
     log("Waiting for observation framework to be ready");
-    return new Promise(function (resolve) {
+    return new Promise(function(resolve) {
       resolveWaitForObservation = resolve;
-      var listener = function (event) {
+      var listener = function(event) {
         if (event.type !== WaveService.OBSERVATION_READY_EVENT) return;
         if (event.data.test_path !== testInfo.path) return;
         waveService.removeSessionEventListener(listener);
@@ -400,11 +401,11 @@ function DpctfTest(config) {
     if (_execution_mode !== EXECUTION_MODE_PRGRAMMATIC) return;
     if (ignoreObservations) return Promise.resolve();
     log("Waiting for observation results");
-    return new Promise(function (resolve) {
+    return new Promise(function(resolve) {
       resolveWaitingForResults = resolve;
       var observations = testInfo.observations;
       var observationResults = [];
-      var listener = function (event) {
+      var listener = function(event) {
         if (event.type !== WaveService.OBSERVATION_COMPLETED_EVENT) return;
         observationResults = observationResults.concat(event.data);
         var allResultsReceived = true;
@@ -432,7 +433,7 @@ function DpctfTest(config) {
     if (error) return error;
     log("Loading test parameters ...");
     return new Promise((resolve) => {
-      fetchParameters().then(function (fetchedParameters) {
+      fetchParameters().then(function(fetchedParameters) {
         parameters = fetchedParameters;
         testInfo.params = parameters;
         resolve();
@@ -463,7 +464,7 @@ function DpctfTest(config) {
   }
 
   function abortTests() {
-    setTimeout(function () {
+    setTimeout(function() {
       for (var test of _runningTests) {
         test.done();
       }
@@ -602,9 +603,9 @@ function DpctfTest(config) {
   }
 
   function fetchParameters() {
-    return new Promise(function (resolve) {
+    return new Promise(function(resolve) {
       var xhr = new XMLHttpRequest();
-      xhr.addEventListener("load", function () {
+      xhr.addEventListener("load", function() {
         var response = this.responseText;
         var testConfig = JSON.parse(response);
         var defaultParameters = testConfig.all;
@@ -845,7 +846,7 @@ function InfoOverlay(element) {
     buttonElement.style.position = "absolute";
     buttonElement.style.right = "0";
     buttonElement.innerText = "Close";
-    buttonElement.addEventListener("click", function () {
+    buttonElement.addEventListener("click", function() {
       hide();
     });
     rootElement.appendChild(buttonElement);
@@ -1040,7 +1041,7 @@ function InfoOverlay(element) {
   return instance;
 }
 
-InfoOverlay.parseTimeStampFromSeconds = function (seconds) {
+InfoOverlay.parseTimeStampFromSeconds = function(seconds) {
   function pad(number, length) {
     var string = "0000000000" + number;
     return string.substr(string.length - length);
@@ -1061,11 +1062,11 @@ InfoOverlay.parseTimeStampFromSeconds = function (seconds) {
 
 //https://stackoverflow.com/questions/979975/how-to-get-the-value-from-the-get-parameters
 var urlParams;
-(window.onpopstate = function () {
+(window.onpopstate = function() {
   var match,
     pl = /\+/g, // Regex for replacing addition symbol with a space
     search = /([^&=]+)=?([^&]*)/g,
-    decode = function (s) {
+    decode = function(s) {
       return decodeURIComponent(s.replace(pl, " "));
     },
     query = window.location.search.substring(1);

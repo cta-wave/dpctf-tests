@@ -387,7 +387,7 @@
         _attributes$timescale = attributes.timescale,
         timescale =
           _attributes$timescale === void 0 ? 1 : _attributes$timescale,
-        sourceDuration = attributes.sourceDuration;
+        sourceDuration = attributes.periodDuration || attributes.sourceDuration;
       return {
         start: 0,
         end: Math.ceil(sourceDuration / (duration / timescale)),
@@ -495,7 +495,7 @@
       _attributes$timescale4 = attributes.timescale,
       timescale =
         _attributes$timescale4 === void 0 ? 1 : _attributes$timescale4,
-      sourceDuration = attributes.sourceDuration;
+      sourceDuration = attributes.periodDuration || attributes.sourceDuration;
 
     var _segmentRange$type = segmentRange[type](attributes),
       start = _segmentRange$type.start,
@@ -948,12 +948,20 @@
       );
     };
 
-    var videoPlaylists = mergeDiscontiguousPlaylists(
-      dashPlaylists.filter(videoOnly)
-    ).map(formatVideoPlaylist);
-    var audioPlaylists = mergeDiscontiguousPlaylists(
-      dashPlaylists.filter(audioOnly)
-    );
+    //var videoPlaylists = mergeDiscontiguousPlaylists(
+    //dashPlaylists.filter(videoOnly)
+    //).map(formatVideoPlaylist);
+    //var audioPlaylists = mergeDiscontiguousPlaylists(
+    //dashPlaylists.filter(audioOnly)
+    //);
+    //console.log("ALL");
+    //dashPlaylists.forEach(list => console.log(list));
+    var videoPlaylists = dashPlaylists
+      .filter(videoOnly)
+      .map(formatVideoPlaylist);
+    var audioPlaylists = dashPlaylists.filter(audioOnly);
+    //console.log("AUDIO");
+    //audioPlaylists.forEach(list => console.log(list));
     var vttPlaylists = dashPlaylists.filter(vttOnly);
     var master = {
       allowCache: true,
@@ -971,6 +979,7 @@
       uri: "",
       duration: duration,
       playlists: addSegmentInfoFromSidx(videoPlaylists, sidxMapping),
+      audioPlaylists: audioPlaylists.map(formatAudioPlaylist),
       minimumUpdatePeriod: minimumUpdatePeriod * 1000,
     };
 
@@ -1052,7 +1061,9 @@
       _attributes$startNumb = attributes.startNumber,
       startNumber =
         _attributes$startNumb === void 0 ? 1 : _attributes$startNumb,
-      timeline = attributes.periodIndex;
+      timeline = attributes.periodIndex,
+      periodStart = attributes.periodStart || 0,
+      presentationTimeOffset = parseInt(attributes.presentationTimeOffset) || 0;
     var segments = [];
     var time = -1;
 
@@ -1130,6 +1141,7 @@
           time: time,
           timeline: timeline,
           chunks: [],
+          timestampOffset: periodStart - (presentationTimeOffset / timescale),
         };
 
         if (chunkNumber) {
@@ -1335,6 +1347,7 @@
         map: mapSegment,
         number: segment.number,
         chunks: chunks,
+        timestampOffset: segment.timestampOffset,
       };
     });
   };
@@ -2114,10 +2127,14 @@
       );
       var periodAtt = parseAttributes(period);
       var parsedPeriodId = parseInt(periodAtt.id, 10); // fallback to mapping index if Period@id is not a number
+      var parsedPeriodDuration = parseInt(periodAtt.duration);
+      var parsedPeriodStart = parseFloat(periodAtt.start);
 
       var periodIndex = window$2.isNaN(parsedPeriodId) ? index : parsedPeriodId;
       var periodAttributes = merge(mpdAttributes, {
         periodIndex: periodIndex,
+        periodDuration: parsedPeriodDuration,
+        periodStart: parsedPeriodStart,
       });
       var adaptationSets = findChildren(period, "AdaptationSet");
       var periodSegmentInfo = getSegmentInformation(period);
