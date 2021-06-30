@@ -1847,6 +1847,42 @@
                     }
                 }
             }
+        },
+        "445fdb9503a6b7fe121f5e31526dc7d1": {
+            "path": "multi-period/playback-over-wave-baseline-splice-constraints__a.html",
+            "video": "https://dash.akamaized.net/dashif/ad-insertion-testcase1/batch5/real/a/ad-insertion-testcase1.mpd",
+            "audio": "",
+            "code": "playback-over-wave-baseline-splice-constraints.html",
+            "config": {
+                "cmaf_track_duration": "PT0H0M28.800S",
+                "fragment_duration": "PT0H0M1.920S",
+                "representations": {
+                    "1": {
+                        "period": 3,
+                        "duration": 9,
+                        "type": "audio",
+                        "fragment_duration": 1.92
+                    },
+                    "3": {
+                        "period": 3,
+                        "duration": 9,
+                        "type": "video",
+                        "fragment_duration": 1.92
+                    },
+                    "2": {
+                        "period": 2,
+                        "duration": 9,
+                        "type": "audio",
+                        "fragment_duration": 1.92
+                    },
+                    "4": {
+                        "period": 2,
+                        "duration": 9,
+                        "type": "video",
+                        "fragment_duration": 1.92
+                    }
+                }
+            }
         }
     }
 }

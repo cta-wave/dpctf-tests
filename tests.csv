@@ -121,3 +121,6 @@
 "playback-of-encrypted-content-https","https://dash.akamaized.net/WAVE/vectors/2021-06-11/avc_sets/15_30_60/t1-cenc/stream.mpd","","avc_15_30_60-cenc-2021-06-11-online"
 
 "playback-of-encrypted-content-https","/content/t1-cenc/stream.mpd","","avc_15_30_60-cenc-2021-06-11-local"
+
+
+"playback-over-wave-baseline-splice-constraints","https://dash.akamaized.net/dashif/ad-insertion-testcase1/batch5/real/a/ad-insertion-testcase1.mpd","","multi-period"
