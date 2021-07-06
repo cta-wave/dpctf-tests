@@ -206,6 +206,7 @@ function DpctfTest(config) {
           bufferTime: parameters.minBufferDuration / 1000,
           numberOfSegmentBeforePlay: 2,
           outOfOrderLoading: outOfOrderLoading,
+          loading: parameters.loading,
         })
         .then(function() {
           return Promise.all([
@@ -634,6 +635,7 @@ function DpctfTest(config) {
           totalRepresentations: determineValue("total_representations"),
           keyId: determineValue("key_id"),
           contentKey: determineValue("content_key"),
+          loading: determineValue("loading"),
         };
 
         var playout = determineValue("playout");
