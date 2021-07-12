@@ -555,6 +555,11 @@ function DpctfTest(config) {
     var text = "";
     text = text + "s: " + _videoState + "; ";
     text = text + "a: " + _lastAction + ";";
+    if (player) {
+      var ct = player.getCurrentTime();
+      ct = parseInt(ct * 1000) / 1000.0;
+      text = text + " ct: " + ct + ";";
+    }
     statusText.innerText = text;
     updateStatusTextPosition();
   }
