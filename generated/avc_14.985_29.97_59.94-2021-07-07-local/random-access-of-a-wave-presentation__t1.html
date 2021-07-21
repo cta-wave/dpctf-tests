@@ -38,38 +38,59 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "playback-of-encrypted-content",
-        title: "Playback of encrypted content",
-        description: "",
-        path: "avc_15_30_60-cenc-2021-07-07-online/playback-of-encrypted-content-https__t1-cenc.html",
-        code: "playback-of-encrypted-content-https.html",
+        id: "random-access-of-a-wave-presentation",
+        title: "Random Access of a WAVE Presentation",
+        description:
+          "In scenarios such as live programs, the client accesses an ongoing Presentation to join in the live event. This is a typical case that media needs to be accessed and played back at a random access time.",
+        path: "avc_14.985_29.97_59.94-2021-07-07-local/random-access-of-a-wave-presentation__t1.html",
+        code: "random-access-of-a-wave-presentation.html",
         observations: [],
       };
-
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1-cenc/stream.mpd";
+      var videoContentModel = "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd";
       var audioContentModel = "";
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
         videoContentModel: videoContentModel,
-        audioContentModel: audioContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        isEncryptedContent: true,
+        setupTest: setupTest,
       });
+
+      function setupTest(player, done, parameters) {
+        var randomAccessFragment = parameters.randomAccessFragment;
+        var manifest = player.getVideoManifest();
+        var videoSegments = player.getVideoSegments();
+        var totalSegments = player.getVideoSegmentsCount();
+        var cmafTrackLength = player.getVideoManifest().getDuration();
+
+        var fragmentTime = 0;
+        for (var i = 0; i < randomAccessFragment; i++) {
+          var segmentDuration = videoSegments[i].getDuration();
+          fragmentTime += segmentDuration;
+        }
+        player.setCurrentTime(fragmentTime);
+
+        done();
+      }
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
+        var currentTime = player.getCurrentTime();
+        var totalTime = player.getDuration();
+        var timeLeft = parseInt(totalTime - currentTime);
         player.startBuffering();
-        if (player.getPreBufferedTime() >= minBufferDuration || 
-            player.getPreBufferedTime() >= player.getDuration()) {
+        if (
+          player.getPreBufferedTime() >= minBufferDuration ||
+          player.getPreBufferedTime() >= timeLeft
+        ) {
           player
             .play()
             .then(function () {
@@ -80,8 +101,10 @@
             });
         } else {
           player.on("onVideoSegmentLoaded", function (event) {
-            if (player.getPreBufferedTime() >= minBufferDuration || 
-                player.getPreBufferedTime() >= player.getDuration()) {
+            if (
+              player.getPreBufferedTime() >= minBufferDuration ||
+              player.getPreBufferedTime() >= timeLeft
+            ) {
               player
                 .play()
                 .then(function () {

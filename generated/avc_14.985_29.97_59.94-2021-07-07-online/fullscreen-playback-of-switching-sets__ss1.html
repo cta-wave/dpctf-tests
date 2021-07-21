@@ -38,24 +38,33 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Playback over WAVE Baseline Splice Constraints",
+        title: "8.11 Full Screen Playback of Switching Sets",
         description:
-          "Playback over splices enables the content provider to offer a sequence of Switching Sets with less restricted encoding requirements than a track. This feature is especially important in case of program changes and ad insertion.",
-        path: "multi-period/playback-over-wave-baseline-splice-constraints__a.html",
-        code: "playback-over-wave-baseline-splice-constraints.html",
+          "Fullscreen playback ensures that the device provide proper scaling and letter boxing.",
+        path: "avc_14.985_29.97_59.94-2021-07-07-online/fullscreen-playback-of-switching-sets__ss1.html",
+        code: "fullscreen-playback-of-switching-sets.html",
         params: urlParams,
-        observations: [],
+        observations: [
+          {
+            name: "Video rendered in entire window",
+            description:
+              "Every video frame S[k,s] shall be rendered such that it fills the entire video output window.",
+            id: "video-fills-entire-output-window",
+          },
+        ],
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = "https://dash.akamaized.net/dashif/ad-insertion-testcase1/batch5/real/a/ad-insertion-testcase1.mpd";
+      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/ss1/stream.mpd";
       var audioContentModel = "";
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
+//        outOfOrderLoading: true,
+        usePlayout: true,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
         videoElement: video,
@@ -63,7 +72,6 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        usePlayout: true,
       });
 
       function executeTest(player, done, parameters) {
