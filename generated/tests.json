@@ -5543,6 +5543,30 @@
                     }
                 }
             }
+        },
+        "c693ec041747d161ddeaaa5532fd68f8": {
+            "path": "avc_15_30_60-2021-07-26-online/sequential-track-playback__t33.html",
+            "video": "https://dash-large-files.akamaized.net/WAVE/vectors/2021-07-26/avc_sets/15_30_60/t33/stream.mpd",
+            "audio": "",
+            "code": "sequential-track-playback.html",
+            "config": {
+                "cmaf_track_duration": "PT0H1M0.000S",
+                "fragment_duration": "PT0H0M2.021S",
+                "representations": {
+                    "1": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "audio",
+                        "fragment_duration": 1.9969160997732427
+                    },
+                    "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    }
+                }
+            }
         }
     }
 }

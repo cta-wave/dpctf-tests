@@ -368,3 +368,5 @@
 "sequential-track-playback","/content/avc_sets/14.985_29.97_59.94/t34/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-local"
 
 "playback-of-encrypted-content-https","/content/avc_sets/14.985_29.97_59.94/t1-cenc/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-local"
+
+"sequential-track-playback","https://dash-large-files.akamaized.net/WAVE/vectors/2021-07-26/avc_sets/15_30_60/t33/stream.mpd","","avc_15_30_60-2021-07-26-online"
