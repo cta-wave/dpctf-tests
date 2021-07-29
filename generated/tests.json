@@ -5546,7 +5546,7 @@
         },
         "c693ec041747d161ddeaaa5532fd68f8": {
             "path": "avc_15_30_60-2021-07-26-online/sequential-track-playback__t33.html",
-            "video": "https://dash-large-files.akamaized.net/WAVE/vectors/2021-07-26/avc_sets/15_30_60/t33/stream.mpd",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-07-26/avc_sets/15_30_60/t33/stream.mpd",
             "audio": "",
             "code": "sequential-track-playback.html",
             "config": {
