@@ -37,6 +37,7 @@ def main():
     mpd_parameters = {}
 
     tests = []
+    current_test_id = None
 
     for test in csv_file:
         video_mpd_url = test[1]
@@ -52,26 +53,55 @@ def main():
         test_path_relative = generate_test_path(grouping_dir, template_file_name, video_mpd_url)
         test_path = "{}/{}".format(DEST_DIR, test_path_relative)
         test_id = generate_test_id(test_path_relative)
+
+        if test[0] == "":
+            for test in tests:
+                if test["id"] != current_test_id: continue
+                if video_mpd_url != "":
+                    test["video"].append(video_mpd_url)
+                if audio_mpd_url != "":
+                    test["audio"].append(audio_mpd_url)
+        else:
+            parameters = None
+            if video_mpd_url in mpd_parameters:
+                parameters = mpd_parameters[video_mpd_url]
+            else:
+                mpd_content = load_mpd_content(video_mpd_url)
+                parameters = parse_mpd_parameters(mpd_content)
+                mpd_parameters[video_mpd_url] = parameters
+
+            video_urls = []
+            if video_mpd_url != "":
+                video_urls.append(video_mpd_url)
+            audio_urls = []
+            if audio_mpd_url != "":
+                audio_urls.append(audio_mpd_url)
+
+            tests.append({
+                "id": test_id,
+                "path": test_path,
+                "template": test_template_path, 
+                "video": video_urls,
+                "audio": audio_urls,
+                "parameters": parameters,
+                "test_path_relative": test_path_relative,
+                "template_file": template_file
+            })
+
+            current_test_id = test_id
+
+    for test in tests:
+        test_template_path = test["template"]
+        video_mpd_url = test["video"]
+        audio_mpd_url = test["audio"]
+        template_file = test["template_file"]
+        test_path_relative = test["test_path_relative"]
+        test_path = test["path"]
         content = load_file(test_template_path)
         content = generate_test(content, video_mpd_url, audio_mpd_url, test_path_relative, template_file)
         write_file(test_path, content)
 
-        parameters = None
-        if video_mpd_url in mpd_parameters:
-            parameters = mpd_parameters[video_mpd_url]
-        else:
-            mpd_content = load_mpd_content(video_mpd_url)
-            parameters = parse_mpd_parameters(mpd_content)
-            mpd_parameters[video_mpd_url] = parameters
 
-        tests.append({
-            "id": test_id,
-            "path": test_path,
-            "template": test_template_path, 
-            "video": video_mpd_url, 
-            "audio": audio_mpd_url,
-            "parameters": parameters
-        })
     test_json_content = generate_test_json(tests)
     test_json_content = json.dumps(test_json_content, indent=4)
     write_file(Path(DEST_DIR, "tests.json"), test_json_content)
@@ -258,8 +288,8 @@ def get_test_path(test_id):
     return Path(TESTS_DIR, test_id + ".html")
 
 def generate_test(template, video_mpd_url, audio_mpd_url, test_path, template_name):
-    template = template.replace("{{VIDEO_MPD_URL}}", video_mpd_url)
-    template = template.replace("{{AUDIO_MPD_URL}}", audio_mpd_url)
+    template = template.replace("\"{{VIDEO_MPD_URL}}\"", json.dumps(video_mpd_url))
+    template = template.replace("\"{{AUDIO_MPD_URL}}\"", json.dumps(audio_mpd_url))
     template = template.replace("{{TEST_PATH}}", test_path)
     template = template.replace("{{TEMPLATE_NAME}}", template_name)
     return template

@@ -5,12 +5,11 @@ function Player(video) {
   let instance;
   let _settings;
   let _video = video;
-  _video.onerror = function(error) {
+  _video.onerror = function (error) {
     console.error("Error " + JSON.stringify(error));
   };
   _video.addEventListener("timeupdate", handleTimeUpdate);
   let _duration;
-  let _manifest;
   let _mediaSource;
   let _eventEmitter = new EventEmitter();
 
@@ -31,7 +30,7 @@ function Player(video) {
     _settings = settings;
     console.log(settings);
 
-    video.addEventListener("encrypted", function(event) {
+    video.addEventListener("encrypted", function (event) {
       if (event.type !== "encrypted") return;
       var config = {
         initData: event.initData,
@@ -40,15 +39,11 @@ function Player(video) {
       _protectionController.handleEncryption(config);
     });
     return new Promise((resolve) => {
-      createMediaSource().then(function(mediaSource) {
+      createMediaSource().then(function (mediaSource) {
         _mediaSource = mediaSource;
         resolve();
       });
     });
-  }
-
-  function getManifest() {
-    return _manifest;
   }
 
   function getCurrentTime() {
@@ -104,124 +99,118 @@ function Player(video) {
     _videoBufferManager.off(callback);
   }
 
-  function load(testVector) {
-    return ManifestParser.parse(testVector).then(function(manifest) {
-      _manifest = manifest;
-      var totalSegmentsCount = manifest
-        .getRepresentation(0)
-        .getTotalSegmentsCount();
-      setVideoSegments({
-        representationNumber: 0,
-        startSegment: 0,
-        endSegment: totalSegmentsCount - 1,
-      });
-      dispatchEvent("onManifestParsed", manifest);
-    });
-  }
-
-  function loadVideo(vectorUrl) {
-    if (!vectorUrl) {
+  function loadVideo(vectorUrls) {
+    if (!vectorUrls || vectorUrls.length === 0) {
       console.log("Warning: No video mpd provided!");
       return;
     }
     if (!_mediaSource) throw new Error("Player not initialized");
-    return ManifestParser.parse(vectorUrl).then(function(manifest) {
+    return Promise.all(
+      vectorUrls.map((vectorUrl) => ManifestParser.parse(vectorUrl))
+    ).then(function (manifests) {
       _videoBufferManager = new BufferManager(
-        manifest,
+        manifests,
         _mediaSource,
         _video,
         _settings
       );
-      var bufferOffset = 0;
-      var totalDuration = 0;
-      var representationNumber;
-      for (var periodId in manifest.getPeriods()) {
-        var period = manifest.getPeriods()[periodId];
-        var videoRepresentation;
-        for (var representation of period) {
-          if (
-            representationNumber &&
-            representationNumber === representation.getNumber()
-          ) {
-            videoRepresentation = representation;
-            break;
-          } else {
-            if (representation.getMimeCodec().indexOf("video") === -1) continue;
-            videoRepresentation = representation;
-            representationNumber = videoRepresentation.getNumber();
-            break;
+      for (let manifest of manifests) {
+        var bufferOffset = 0;
+        var totalDuration = 0;
+        var representationNumber;
+        for (var periodId in manifest.getPeriods()) {
+          var period = manifest.getPeriods()[periodId];
+          var videoRepresentation;
+          for (var representation of period) {
+            if (
+              representationNumber &&
+              representationNumber === representation.getNumber()
+            ) {
+              videoRepresentation = representation;
+              break;
+            } else {
+              if (representation.getMimeCodec().indexOf("video") === -1)
+                continue;
+              videoRepresentation = representation;
+              representationNumber = videoRepresentation.getNumber();
+              break;
+            }
           }
-        }
-        var periodNumber = videoRepresentation.getPeriodNumber();
+          var periodNumber = videoRepresentation.getPeriodNumber();
 
-        var totalSegmentsCount = manifest
-          .getRepresentation(representationNumber, periodNumber)
-          .getTotalSegmentsCount();
-        var duration = _videoBufferManager.setSegments({
-          representationNumber: representationNumber,
-          startSegment: 0,
-          endSegment: totalSegmentsCount - 1,
-          bufferOffset: bufferOffset,
-          periodNumber: periodNumber,
-        });
-        bufferOffset += totalSegmentsCount;
-        totalDuration = duration;
+          var totalSegmentsCount = manifest
+            .getRepresentation(representationNumber, periodNumber)
+            .getTotalSegmentsCount();
+          var duration = _videoBufferManager.setSegments({
+            representationNumber: representationNumber,
+            startSegment: 0,
+            endSegment: totalSegmentsCount - 1,
+            bufferOffset: bufferOffset,
+            periodNumber: periodNumber,
+          });
+          bufferOffset += totalSegmentsCount;
+          totalDuration = duration;
+        }
+        setDuration(totalDuration);
       }
-      setDuration(totalDuration);
-      _eventEmitter.dispatchEvent("onVideoManifestParsed", manifest);
+      _eventEmitter.dispatchEvent("onVideoManifestParsed", manifests);
     });
   }
 
-  function loadAudio(vectorUrl) {
-    if (!vectorUrl) {
+  function loadAudio(vectorUrls) {
+    if (!vectorUrls || vectorUrls.length === 0) {
       console.log("Warning: No audio mpd provided!");
       return;
     }
     if (!_mediaSource) throw new Error("Player not initialized");
-    return ManifestParser.parse(vectorUrl).then(function(manifest) {
-      _audioBufferManager = new BufferManager(
-        manifest,
+    return Promise.all(
+      vectorUrls.map((vectorUrl) => ManifestParser.parse(vectorUrl))
+    ).then(function (manifests) {
+      _videoBufferManager = new BufferManager(
+        manifests,
         _mediaSource,
         _video,
         _settings
       );
-
-      var bufferOffset = 0;
-      var totalDuration = 0;
-      var representationNumber;
-      for (var periodId in manifest.getPeriods()) {
-        var period = manifest.getPeriods()[periodId];
-        var audioRepresentation;
-        for (var representation of period) {
-          if (
-            representationNumber &&
-            representationNumber === representation.getNumber()
-          ) {
-            audioRepresentation = representation;
-            break;
-          } else {
-            if (representation.getMimeCodec().indexOf("audio") === -1) continue;
-            audioRepresentation = representation;
-            representationNumber = audioRepresentation.getNumber();
-            break;
+      for (let manifest of manifests) {
+        var bufferOffset = 0;
+        var totalDuration = 0;
+        var representationNumber;
+        for (var periodId in manifest.getPeriods()) {
+          var period = manifest.getPeriods()[periodId];
+          var audioRepresentation;
+          for (var representation of period) {
+            if (
+              representationNumber &&
+              representationNumber === representation.getNumber()
+            ) {
+              audioRepresentation = representation;
+              break;
+            } else {
+              if (representation.getMimeCodec().indexOf("audio") === -1)
+                continue;
+              audioRepresentation = representation;
+              representationNumber = audioRepresentation.getNumber();
+              break;
+            }
           }
-        }
-        var periodNumber = audioRepresentation.getPeriodNumber();
+          var periodNumber = audioRepresentation.getPeriodNumber();
 
-        var totalSegmentsCount = manifest
-          .getRepresentation(representationNumber, periodNumber)
-          .getTotalSegmentsCount();
-        var duration = _audioBufferManager.setSegments({
-          representationNumber: representationNumber,
-          startSegment: 0,
-          endSegment: totalSegmentsCount - 1,
-          bufferOffset: bufferOffset,
-          periodNumber: periodNumber,
-        });
-        bufferOffset += totalSegmentsCount;
-        totalDuration = duration;
+          var totalSegmentsCount = manifest
+            .getRepresentation(representationNumber, periodNumber)
+            .getTotalSegmentsCount();
+          var duration = _audioBufferManager.setSegments({
+            representationNumber: representationNumber,
+            startSegment: 0,
+            endSegment: totalSegmentsCount - 1,
+            bufferOffset: bufferOffset,
+            periodNumber: periodNumber,
+          });
+          bufferOffset += totalSegmentsCount;
+          totalDuration = duration;
+        }
+        setDuration(totalDuration);
       }
-      setDuration(totalDuration);
       _eventEmitter.dispatchEvent("onAudioManifestParsed", manifest);
     });
   }
@@ -230,9 +219,11 @@ function Player(video) {
     var videoMimeCodec = "";
     if (_videoBufferManager) {
       var representation = _videoBufferManager
-        .getManifest()
-        .getRepresentations()
-        .find(function(representation) {
+        .getManifests()
+        .reduce(function (representations, manifest) {
+          return representations.concat(manifest.getRepresentations());
+        }, [])
+        .find(function (representation) {
           return representation.getMimeCodec().indexOf("video") !== -1;
         });
       videoMimeCodec = representation.getMimeCodec();
@@ -240,9 +231,11 @@ function Player(video) {
     var audioMimeCodec = "";
     if (_audioBufferManager) {
       var representation = _audioBufferManager
-        .getManifest()
-        .getRepresentations()
-        .find(function(representation) {
+        .getManifests()
+        .reduce(function (representations, manifest) {
+          return representations.concat(manifest.getRepresentations());
+        }, [])
+        .find(function (representation) {
           return representation.getMimeCodec().indexOf("audio") !== -1;
         });
       audioMimeCodec = representation.getMimeCodec();
@@ -268,10 +261,10 @@ function Player(video) {
   }
 
   function createMediaSource() {
-    return new Promise(function(resolve) {
+    return new Promise(function (resolve) {
       var mediaSource = new MediaSource();
       _video.src = URL.createObjectURL(mediaSource);
-      var handleMediaSourceOpened = function() {
+      var handleMediaSourceOpened = function () {
         mediaSource.removeEventListener("sourceopen", handleMediaSourceOpened);
         if (self.duration) {
           mediaSource.duration = self.duration;
@@ -325,14 +318,14 @@ function Player(video) {
   //return videoRepresentations.concat(audioRepresentations);
   //}
 
-  function getVideoManifest() {
-    if (_videoBufferManager) return _videoBufferManager.getManifest();
-    return null;
+  function getVideoManifests() {
+    if (_videoBufferManager) return _videoBufferManager.getManifests();
+    return [];
   }
 
-  function getAudioManifest() {
-    if (_audioBufferManager) return _audioBufferManager.getManifest();
-    return null;
+  function getAudioManifests() {
+    if (_audioBufferManager) return _audioBufferManager.getManifests();
+    return [];
   }
 
   function getPlayingVideoSegment() {
@@ -360,10 +353,20 @@ function Player(video) {
     return _videoBufferManager.getSegmentsCount();
   }
 
+  function clearVideoSegments() {
+    if (!_videoBufferManager) return;
+    return _videoBufferManager.clearSegments();
+  }
+
+  function clearAudioSegments() {
+    if (!_audioBufferManager) return;
+    return _audioBufferManager.clearSegments();
+  }
+
   instance = {
     init,
-    getVideoManifest,
-    getAudioManifest,
+    getVideoManifests,
+    getAudioManifests,
     getCurrentTime,
     setCurrentTime,
     getDuration,
@@ -374,6 +377,8 @@ function Player(video) {
     setVideoSegments,
     getVideoSegments,
     getVideoSegmentsCount,
+    clearAudioSegments,
+    clearVideoSegments,
     setBufferTime,
     getBufferTime,
     on,
@@ -392,10 +397,10 @@ function Player(video) {
 Player.PLAYER_EVENT_START_BUFFERING = "onPlayerStartBuffering";
 Player.PLAYER_EVENT_TRIGGER_PLAY = "onPlayerTriggerPlay";
 
-function BufferManager(manifest, mediaSource, video, options) {
+function BufferManager(manifests, mediaSource, video, options) {
   let instance;
 
-  let _manifest = manifest;
+  let _manifests = manifests || [];
   let _mediaSource = mediaSource;
   let _video = video;
   _video.addEventListener("timeupdate", handleTimeUpdate);
@@ -425,18 +430,40 @@ function BufferManager(manifest, mediaSource, video, options) {
   }
 
   function setSegments(segmentsInfo) {
+    console.log(segmentsInfo);
     var representationNumber = segmentsInfo.representationNumber;
     var startSegment = parseInt(segmentsInfo.startSegment);
     var endSegment = parseInt(segmentsInfo.endSegment);
     var periodNumber = segmentsInfo.periodNumber || 0;
-    var offset = segmentsInfo.representationOffset || 0;
+    var offset = segmentsInfo.segmentOffset || 0;
     var bufferOffset = segmentsInfo.bufferOffset || 0;
-    var representation = _manifest.getRepresentation(
+    var manifestIndex = segmentsInfo.manifestIndex || 0;
+    var representation = _manifests[manifestIndex].getRepresentation(
       representationNumber,
       periodNumber
     );
+    console.log(representation);
+    var timestampOffset = 0;
+    if (offset !== 0) {
+      var regularTimestamp = 0;
+      for (var i = 0; i < startSegment; i ++) {
+        var segment = representation.getSegment(i);
+        regularTimestamp += segment.getDuration();
+      }
+      var actualTimestamp = 0;
+      for (var i = 0; i < startSegment + offset; i ++) {
+        var segment = representation.getSegment(i);
+        actualTimestamp += segment.getDuration();
+      }
+      timestampOffset = regularTimestamp - actualTimestamp;
+    }
+    console.log(timestampOffset);
+
     for (var i = startSegment; i <= endSegment; i++) {
-      _segments[i + bufferOffset] = representation.getSegment(i + offset);
+      var segment = representation.getSegment(i + offset);
+      segment.setTimestampOffset(timestampOffset);
+      segment.setManifestIndex(manifestIndex);
+      _segments[i + bufferOffset] = segment;
     }
     updatePlayingSegment();
 
@@ -458,6 +485,10 @@ function BufferManager(manifest, mediaSource, video, options) {
     return totalDuration;
   }
 
+  function clearSegments() {
+    _segments = [];
+  }
+
   function getSegmentsCount() {
     return Object.keys(_segments).length;
   }
@@ -468,7 +499,8 @@ function BufferManager(manifest, mediaSource, video, options) {
       var segment = _segments[i];
       segmentTime += segment.getDuration();
       if (segmentTime <= _video.currentTime) continue;
-      var representation = _manifest.getRepresentation(
+      var manifestIndex = segment.getManifestIndex();
+      var representation = _manifests[manifestIndex].getRepresentation(
         segment.getRepresentationNumber(),
         segment.getPeriodNumber()
       );
@@ -533,7 +565,7 @@ function BufferManager(manifest, mediaSource, video, options) {
       _mediaSource.endOfStream();
       return;
     }
-    bufferSegment(segment).then(function() {
+    bufferSegment(segment).then(function () {
       _isBufferingSegment = false;
       bufferVideo();
     });
@@ -563,7 +595,8 @@ function BufferManager(manifest, mediaSource, video, options) {
 
   function bufferSegment(segment) {
     var representationNumber = segment.getRepresentationNumber();
-    var representation = _manifest.getRepresentation(
+    var manifestIndex = segment.getManifestIndex();
+    var representation = _manifests[manifestIndex].getRepresentation(
       representationNumber,
       segment.getPeriodNumber()
     );
@@ -573,7 +606,7 @@ function BufferManager(manifest, mediaSource, video, options) {
       _sourceBuffer = _mediaSource.addSourceBuffer(mimeCodec);
     }
 
-    return new Promise(function(resolve) {
+    return new Promise(function (resolve) {
       var fetchJobs = [];
 
       if (segment.getChunks().length === 0) {
@@ -587,25 +620,25 @@ function BufferManager(manifest, mediaSource, video, options) {
             chunkNumber: chunk.number,
           });
         }
-        fetchJobs.sort(function(j1, j2) {
+        fetchJobs.sort(function (j1, j2) {
           return j1.chunkNumber - j2.chunkNumber;
         });
       }
 
       if (_concatAndSplit && fetchJobs.length > 1) {
         Promise.all(
-          fetchJobs.map(function(job) {
-            return fetchSegment(job.url).then(function(arrayBuffer) {
+          fetchJobs.map(function (job) {
+            return fetchSegment(job.url).then(function (arrayBuffer) {
               return { buffer: arrayBuffer, number: job.chunkNumber };
             });
           })
-        ).then(function(chunks) {
-          chunks.sort(function(c1, c2) {
+        ).then(function (chunks) {
+          chunks.sort(function (c1, c2) {
             return c1.number - c2.number;
           });
 
           var concatenatedBuffer = concatenateBuffers(
-            chunks.map(function(chunk) {
+            chunks.map(function (chunk) {
               return chunk.buffer;
             })
           );
@@ -616,7 +649,7 @@ function BufferManager(manifest, mediaSource, video, options) {
           );
 
           Promise.all(
-            newArrayBuffers.map(function(arrayBuffer) {
+            newArrayBuffers.map(function (arrayBuffer) {
               return queueBuffer({
                 arrayBuffer: arrayBuffer,
                 segment: segment,
@@ -629,9 +662,9 @@ function BufferManager(manifest, mediaSource, video, options) {
 
       var currentJob = 0;
       function bufferSegment() {
-        return new Promise(function(resolveJob) {
+        return new Promise(function (resolveJob) {
           var fetchJob = fetchJobs[currentJob];
-          var promise = fetchSegment(fetchJob.url).then(function(arrayBuffer) {
+          var promise = fetchSegment(fetchJob.url).then(function (arrayBuffer) {
             return queueBuffer({
               arrayBuffer: arrayBuffer,
               segment: segment,
@@ -646,7 +679,7 @@ function BufferManager(manifest, mediaSource, video, options) {
       }
 
       function bufferNextSegment() {
-        bufferSegment().then(function() {
+        bufferSegment().then(function () {
           currentJob++;
           if (currentJob === fetchJobs.length) {
             resolve();
@@ -664,7 +697,7 @@ function BufferManager(manifest, mediaSource, video, options) {
     if (!_bufferQueue) {
       _bufferQueue = [];
     }
-    return new Promise(function(resolve) {
+    return new Promise(function (resolve) {
       bufferInfo.resolve = resolve;
       _bufferQueue.push(bufferInfo);
       appendQueuedBuffers();
@@ -681,6 +714,7 @@ function BufferManager(manifest, mediaSource, video, options) {
     var arrayBuffer = bufferInfo.arrayBuffer;
     var representationNumber = bufferInfo.segment.getRepresentationNumber();
     var periodNumber = bufferInfo.segment.getPeriodNumber();
+    var manifestIndex = bufferInfo.segment.getManifestIndex();
 
     var isRepresentationChange =
       representationNumber !== _bufferingRepresentationNumber;
@@ -697,7 +731,7 @@ function BufferManager(manifest, mediaSource, video, options) {
       _sourceBuffer.timestampOffset = timestampOffset;
     }
 
-    new Promise(function(resolve) {
+    new Promise(function (resolve) {
       if (!isRepresentationChange && !isInitSegmentChange && !isPeriodChange) {
         resolve();
         return;
@@ -706,26 +740,29 @@ function BufferManager(manifest, mediaSource, video, options) {
       _bufferingPeriodNumber = periodNumber;
 
       if (isRepresentationChange) {
-        var representation = _manifest.getRepresentation(representationNumber, periodNumber);
+        var representation = _manifests[manifestIndex].getRepresentation(
+          representationNumber,
+          periodNumber
+        );
         var mimeCodec = representation.getMimeCodec();
 
         _sourceBuffer.changeType(mimeCodec);
       }
 
       return fetchSegment(initSegmentUrl)
-        .then(function(arrayBuffer) {
+        .then(function (arrayBuffer) {
           return appendVideoBuffer(arrayBuffer);
         })
         .then(resolve);
     })
-      .then(function() {
+      .then(function () {
         return appendVideoBuffer(arrayBuffer);
       })
-      .then(function() {
+      .then(function () {
         _isAppendingBuffer = false;
         bufferInfo.resolve();
         appendQueuedBuffers();
-        _bufferingSegment ++;
+        _bufferingSegment++;
         _eventEmitter.dispatchEvent("onSegmentLoaded", {
           totalSegmentsLoaded: _bufferingSegment,
         });
@@ -743,9 +780,9 @@ function BufferManager(manifest, mediaSource, video, options) {
       );
       return;
     }
-    return new Promise(function(resolve) {
+    return new Promise(function (resolve) {
       sourceBuffer.appendBuffer(arrayBuffer);
-      var handleBufferAppended = function() {
+      var handleBufferAppended = function () {
         sourceBuffer.removeEventListener("updateend", handleBufferAppended);
         resolve();
       };
@@ -754,13 +791,13 @@ function BufferManager(manifest, mediaSource, video, options) {
   }
 
   function fetchSegment(url) {
-    return new Promise(function(resolve) {
+    return new Promise(function (resolve) {
       var xhr = new XMLHttpRequest();
       xhr.open("GET", url, true);
       xhr.responseType = "arraybuffer";
       xhr.send();
 
-      xhr.onload = function() {
+      xhr.onload = function () {
         if (xhr.status !== 200) {
           return false;
         }
@@ -818,8 +855,8 @@ function BufferManager(manifest, mediaSource, video, options) {
     _eventEmitter.dispatchEvent("onVideoError", error);
   }
 
-  function getManifest() {
-    return _manifest;
+  function getManifests() {
+    return _manifests;
   }
 
   instance = {
@@ -827,9 +864,10 @@ function BufferManager(manifest, mediaSource, video, options) {
     getSegments,
     getSegmentsCount,
     getPlayingSegment,
+    clearSegments,
     getPlayingRepresentation,
     getPreBufferedTime,
-    getManifest,
+    getManifests,
     startBuffering,
     on: _eventEmitter.on,
     off: _eventEmitter.off,
@@ -886,10 +924,10 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec) {
     contentKey = config.contentKey;
     if (!mediaKeysObject) {
       requestMediaKeySystemAccess(initDataType)
-        .then(function(keySystemAccess) {
+        .then(function (keySystemAccess) {
           return keySystemAccess.createMediaKeys();
         })
-        .then(function(createdMediaKeys) {
+        .then(function (createdMediaKeys) {
           mediaKeysObject = createdMediaKeys;
           makeNewRequest(mediaKeysObject, initDataType, initData);
           video.setMediaKeys(mediaKeysObject);
@@ -959,7 +997,7 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec) {
   }
 
   function handleKeyStatusesChange(event) {
-    event.target.keyStatuses.forEach(function(status, keyId) {
+    event.target.keyStatuses.forEach(function (status, keyId) {
       switch (status) {
         case "usable":
           console.log("Key Status Change: Usable");
