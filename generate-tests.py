@@ -11,6 +11,9 @@ import re
 from xml.dom.minidom import parseString
 from python_lib.gweis.isoduration import parse_duration
 
+TYPE_AUDIO = "audio"
+TYPE_VIDEO = "video"
+
 if len(sys.argv) < 3:
     print("Please provide a CSV and destination directory!")
     sys.exit(1)
@@ -31,10 +34,13 @@ MPD_PARAMETERS = {
     "fragment_duration": r'<MPD .*maxSegmentDuration="([^"]+)"',
 }
 
+mpd_files = {}
+
 def main():
     csv_file = load_csv(CSV_FILE)
 
-    mpd_parameters = {}
+    mpd_video_parameters = {}
+    mpd_audio_parameters = {}
 
     tests = []
     current_test_id = None
@@ -45,14 +51,29 @@ def main():
         grouping_dir = test[3]
         test_template_path = get_test_path(test[0])
         template_file = str(test_template_path).split("/")[-1]
-        template_file_name = ".".join(template_file.split(".")[0:-1])
         video_file_name = str(video_mpd_url).split("/")[-1]
         video_file_name = ".".join(video_file_name.split(".")[0:-1])
         audio_file_name = str(audio_mpd_url).split("/")[-1]
         audio_file_name = ".".join(audio_file_name.split(".")[0:-1])
-        test_path_relative = generate_test_path(grouping_dir, template_file_name, video_mpd_url)
-        test_path = "{}/{}".format(DEST_DIR, test_path_relative)
-        test_id = generate_test_id(test_path_relative)
+        test_id = generate_test_id(template_file + video_mpd_url + audio_mpd_url)
+
+        video_parameters = None
+        if video_mpd_url:
+            if video_mpd_url in mpd_video_parameters:
+                video_parameters = mpd_video_parameters[video_mpd_url]
+            else:
+                mpd_content = load_mpd_content(video_mpd_url)
+                video_parameters = parse_mpd_parameters(mpd_content, [TYPE_VIDEO])
+                mpd_video_parameters[video_mpd_url] = video_parameters
+
+        audio_parameters = None
+        if audio_mpd_url:
+            if audio_mpd_url in mpd_audio_parameters:
+                audio_parameters = mpd_audio_parameters[audio_mpd_url]
+            else:
+                mpd_content = load_mpd_content(audio_mpd_url)
+                audio_parameters = parse_mpd_parameters(mpd_content, [TYPE_AUDIO])
+                mpd_audio_parameters[audio_mpd_url] = audio_parameters
 
         if test[0] == "":
             for test in tests:
@@ -61,44 +82,48 @@ def main():
                     test["video"].append(video_mpd_url)
                 if audio_mpd_url != "":
                     test["audio"].append(audio_mpd_url)
+                if video_parameters:
+                    test["switching_sets"]["video"].append(video_parameters)
+                if audio_parameters:
+                    test["switching_sets"]["audio"].append(audio_parameters)
         else:
-            parameters = None
-            if video_mpd_url in mpd_parameters:
-                parameters = mpd_parameters[video_mpd_url]
-            else:
-                mpd_content = load_mpd_content(video_mpd_url)
-                parameters = parse_mpd_parameters(mpd_content)
-                mpd_parameters[video_mpd_url] = parameters
-
             video_urls = []
             if video_mpd_url != "":
                 video_urls.append(video_mpd_url)
             audio_urls = []
             if audio_mpd_url != "":
                 audio_urls.append(audio_mpd_url)
+            video_switching_sets = []
+            if video_parameters:
+                video_switching_sets.append(video_parameters)
+            audio_switching_sets = []
+            if audio_parameters:
+                audio_switching_sets.append(audio_parameters)
 
             tests.append({
                 "id": test_id,
-                "path": test_path,
                 "template": test_template_path, 
                 "video": video_urls,
                 "audio": audio_urls,
-                "parameters": parameters,
-                "test_path_relative": test_path_relative,
-                "template_file": template_file
+                "switching_sets": { "video": video_switching_sets, "audio": audio_switching_sets },
+                "template_file": template_file,
+                "group": grouping_dir
             })
 
             current_test_id = test_id
 
     for test in tests:
         test_template_path = test["template"]
-        video_mpd_url = test["video"]
-        audio_mpd_url = test["audio"]
+        video_mpd_urls = test["video"]
+        audio_mpd_urls = test["audio"]
         template_file = test["template_file"]
-        test_path_relative = test["test_path_relative"]
-        test_path = test["path"]
+        grouping_dir = test["group"]
+        template_file_name = ".".join(template_file.split(".")[0:-1])
+        test_path_relative = generate_test_path(grouping_dir, template_file_name, video_mpd_urls, audio_mpd_urls)
+        test_path = "{}/{}".format(DEST_DIR, test_path_relative)
+        test["path"] = test_path
         content = load_file(test_template_path)
-        content = generate_test(content, video_mpd_url, audio_mpd_url, test_path_relative, template_file)
+        content = generate_test(content, video_mpd_urls, audio_mpd_urls, test_path_relative, template_file)
         write_file(test_path, content)
 
 
@@ -107,7 +132,7 @@ def main():
     write_file(Path(DEST_DIR, "tests.json"), test_json_content)
     copy(LIB_DIR, LIB_DEST_DIR)
 
-def parse_mpd_parameters(content):
+def parse_mpd_parameters(content, types):
     parameters = {}
     if (content == ""): return parameters
     if type(content) != str:
@@ -136,6 +161,7 @@ def parse_mpd_parameters(content):
                 rep_parameters["duration"] = periodDuration
             mime_type = representation.getAttribute("mimeType")
             content_type = re.search("^(.+)\/", mime_type).group(1)
+            if content_type not in types: continue
             rep_parameters["type"] = content_type
 
             segment_templates = representation.getElementsByTagName("SegmentTemplate")
@@ -200,6 +226,9 @@ def get_parent_by_name(node, name):
 
 
 def load_mpd_content(mpd_path):
+    if mpd_path in mpd_files:
+        return mpd_files[mpd_path]
+
     content = ""
     if mpd_path.startswith("http"):
         print("Fetching MPD {}".format(mpd_path))
@@ -223,6 +252,7 @@ def load_mpd_content(mpd_path):
         with open(file_path, "r") as file:
             return file.read()
     
+    mpd_files[mpd_path] = content
     return content
 
 def generate_test_json(tests):
@@ -234,13 +264,13 @@ def generate_test_json(tests):
         audio = test["audio"]
         path = str(test["path"]).replace(DEST_DIR + "/", "")
         template = str(test["template"]).split("/")[-1]
-        parameters = test["parameters"]
+        switching_sets = test["switching_sets"]
         json["tests"][test_id] = {}
         json["tests"][test_id]["path"] = path
         json["tests"][test_id]["video"] = video
         json["tests"][test_id]["audio"] = audio
         json["tests"][test_id]["code"] = template
-        json["tests"][test_id]["config"] = parameters
+        json["tests"][test_id]["switchingSets"] = switching_sets
 
     return json
 
@@ -294,17 +324,35 @@ def generate_test(template, video_mpd_url, audio_mpd_url, test_path, template_na
     template = template.replace("{{TEMPLATE_NAME}}", template_name)
     return template
 
-def generate_test_path(grouping_dir, template_file_name, video_file_path):
-    if video_file_path.startswith("http"):
-        video_file_path = urllib.parse.urlparse(video_file_path).path
-    dir_path, file_name = os.path.split(video_file_path)
-    dir_split = list(filter(lambda element: element != "" and element != ".", dir_path.split("/")))
-    video_identifier = ""
-    if len(dir_split) >= 1:
-        video_identifier = "_".join(dir_split[-1:])
-    else:
-        video_identifier = ".".join(file_name.split(".")[:-1])
-    test_path = "{}/{}__{}".format(grouping_dir, template_file_name, video_identifier)
+def generate_test_path(grouping_dir, template_file_name, video_file_paths, audio_file_paths):
+    identifiers = []
+    for video_file_path in video_file_paths:
+        if video_file_path.startswith("http"):
+            video_file_path = urllib.parse.urlparse(video_file_path).path
+        dir_path, file_name = os.path.split(video_file_path)
+        dir_split = list(filter(lambda element: element != "" and element != ".", dir_path.split("/")))
+        video_identifier = ""
+        if len(dir_split) >= 1:
+            video_identifier = "_".join(dir_split[-1:])
+        else:
+            video_identifier = ".".join(file_name.split(".")[:-1])
+        if video_identifier not in identifiers:
+            identifiers.append(video_identifier)
+
+    for audio_file_path in audio_file_paths:
+        if audio_file_path.startswith("http"):
+            audio_file_path = urllib.parse.urlparse(audio_file_path).path
+        dir_path, file_name = os.path.split(audio_file_path)
+        dir_split = list(filter(lambda element: element != "" and element != ".", dir_path.split("/")))
+        audio_identifier = ""
+        if len(dir_split) >= 1:
+            audio_identifier = "_".join(dir_split[-1:])
+        else:
+            audio_identifier = ".".join(file_name.split(".")[:-1])
+        if audio_identifier not in identifiers:
+            identifiers.append(audio_identifier)
+
+    test_path = "{}/{}__{}".format(grouping_dir, template_file_name, "_".join(identifiers), "_")
     count = 1
     suffix = ""
     while os.path.exists(test_path + suffix + ".html"):
