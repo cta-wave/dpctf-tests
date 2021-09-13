@@ -163,6 +163,9 @@ def parse_mpd_parameters(content, types):
             content_type = re.search("^(.+)\/", mime_type).group(1)
             if content_type not in types: continue
             rep_parameters["type"] = content_type
+            if representation.hasAttribute("frameRate"):
+                frame_rate = representation.getAttribute("frameRate")
+                rep_parameters["frame_rate"] = frame_rate
 
             segment_templates = representation.getElementsByTagName("SegmentTemplate")
             if len(segment_templates) == 0 or len(segment_templates[0].getElementsByTagName("S")) == 0:

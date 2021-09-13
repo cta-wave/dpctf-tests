@@ -17,6 +17,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -42,6 +43,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -67,6 +69,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -92,48 +95,56 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "3": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "60",
                                 "fragment_duration": 2.0
                             },
                             "4": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "60",
                                 "fragment_duration": 2.0
                             },
                             "5": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "6": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "7": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "8": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "9": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "15",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -159,6 +170,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -184,6 +196,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -209,48 +222,56 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "3": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "60",
                                 "fragment_duration": 2.0
                             },
                             "4": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "60",
                                 "fragment_duration": 2.0
                             },
                             "5": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "6": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "7": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "8": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "9": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "15",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -276,6 +297,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -301,6 +323,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -326,6 +349,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 5.0
                             }
                         }
@@ -351,6 +375,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 5.0
                             }
                         }
@@ -376,6 +401,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -401,6 +427,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -426,6 +453,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -451,6 +479,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -476,6 +505,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -501,6 +531,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 5.0
                             }
                         }
@@ -526,6 +557,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -551,6 +583,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -576,6 +609,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -601,6 +635,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "60",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -626,6 +661,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -651,6 +687,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -676,6 +713,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "60",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -701,6 +739,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -726,6 +765,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -751,6 +791,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -776,6 +817,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -801,6 +843,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -826,6 +869,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -851,6 +895,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -876,6 +921,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -901,6 +947,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -926,6 +973,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "15",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -951,6 +999,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -976,6 +1025,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1001,6 +1051,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1026,6 +1077,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1051,48 +1103,56 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "3": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "60",
                                 "fragment_duration": 2.0
                             },
                             "4": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "60",
                                 "fragment_duration": 2.0
                             },
                             "5": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "6": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "7": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "8": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "9": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "15",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1118,6 +1178,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1143,6 +1204,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1168,48 +1230,56 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "3": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "60",
                                 "fragment_duration": 2.0
                             },
                             "4": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "60",
                                 "fragment_duration": 2.0
                             },
                             "5": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "6": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "7": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "8": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             },
                             "9": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "15",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1235,6 +1305,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1260,6 +1331,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1285,6 +1357,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 5.0
                             }
                         }
@@ -1310,6 +1383,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 5.0
                             }
                         }
@@ -1335,6 +1409,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1360,6 +1435,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1385,6 +1461,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1410,6 +1487,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1435,6 +1513,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1460,6 +1539,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 5.0
                             }
                         }
@@ -1485,6 +1565,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1510,6 +1591,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1535,6 +1617,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1560,6 +1643,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "60",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1585,6 +1669,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1610,6 +1695,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1635,6 +1721,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "60",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1660,6 +1747,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1685,6 +1773,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1710,6 +1799,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1735,6 +1825,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1760,6 +1851,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1785,6 +1877,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1810,6 +1903,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1835,6 +1929,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1860,6 +1955,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1885,6 +1981,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "15",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1910,6 +2007,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1935,6 +2033,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1960,6 +2059,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1985,6 +2085,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2010,48 +2111,56 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "3": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "50",
                                 "fragment_duration": 2.0
                             },
                             "4": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "50",
                                 "fragment_duration": 2.0
                             },
                             "5": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "6": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "7": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "8": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "9": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "12800/1024",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2077,6 +2186,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2102,6 +2212,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2127,48 +2238,56 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "3": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "50",
                                 "fragment_duration": 2.0
                             },
                             "4": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "50",
                                 "fragment_duration": 2.0
                             },
                             "5": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "6": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "7": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "8": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "9": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "12800/1024",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2194,6 +2313,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2219,6 +2339,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2244,6 +2365,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 5.0
                             }
                         }
@@ -2269,6 +2391,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 5.0
                             }
                         }
@@ -2294,6 +2417,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2319,6 +2443,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2344,6 +2469,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2369,6 +2495,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2394,6 +2521,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2419,6 +2547,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 5.0
                             }
                         }
@@ -2444,6 +2573,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2469,6 +2599,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2494,6 +2625,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2519,6 +2651,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "50",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2544,6 +2677,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2569,6 +2703,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2594,6 +2729,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "50",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2619,6 +2755,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2644,6 +2781,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2669,6 +2807,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2694,6 +2833,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2719,6 +2859,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2744,6 +2885,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2769,6 +2911,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2794,6 +2937,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2819,6 +2963,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2844,6 +2989,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "12800/1024",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2869,6 +3015,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2894,6 +3041,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2919,6 +3067,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2944,6 +3093,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2969,48 +3119,56 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "3": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "50",
                                 "fragment_duration": 2.0
                             },
                             "4": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "50",
                                 "fragment_duration": 2.0
                             },
                             "5": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "6": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "7": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "8": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "9": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "12800/1024",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3036,6 +3194,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3061,6 +3220,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3086,48 +3246,56 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "3": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "50",
                                 "fragment_duration": 2.0
                             },
                             "4": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "50",
                                 "fragment_duration": 2.0
                             },
                             "5": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "6": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "7": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "8": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             },
                             "9": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "12800/1024",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3153,6 +3321,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3178,6 +3347,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3203,6 +3373,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 5.0
                             }
                         }
@@ -3228,6 +3399,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 5.0
                             }
                         }
@@ -3253,6 +3425,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3278,6 +3451,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3303,6 +3477,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3328,6 +3503,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3353,6 +3529,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3378,6 +3555,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 5.0
                             }
                         }
@@ -3403,6 +3581,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3428,6 +3607,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3453,6 +3633,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3478,6 +3659,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "50",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3503,6 +3685,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3528,6 +3711,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3553,6 +3737,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "50",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3578,6 +3763,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3603,6 +3789,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3628,6 +3815,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3653,6 +3841,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3678,6 +3867,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3703,6 +3893,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3728,6 +3919,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3753,6 +3945,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3778,6 +3971,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3803,6 +3997,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "12800/1024",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3828,6 +4023,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "25",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3853,6 +4049,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -3878,6 +4075,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -3903,6 +4101,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -3928,48 +4127,56 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "3": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "60000/1001",
                                 "fragment_duration": 2.002
                             },
                             "4": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "60000/1001",
                                 "fragment_duration": 2.002
                             },
                             "5": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "6": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "7": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "8": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "9": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "15000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -3995,6 +4202,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4020,6 +4228,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4045,48 +4254,56 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "3": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "60000/1001",
                                 "fragment_duration": 2.002
                             },
                             "4": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "60000/1001",
                                 "fragment_duration": 2.002
                             },
                             "5": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "6": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "7": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "8": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "9": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "15000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4112,6 +4329,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4137,6 +4355,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4162,6 +4381,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 5.005
                             }
                         }
@@ -4187,6 +4407,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 5.005
                             }
                         }
@@ -4212,6 +4433,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4237,6 +4459,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4262,6 +4485,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4287,6 +4511,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4312,6 +4537,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4337,6 +4563,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 5.005
                             }
                         }
@@ -4362,6 +4589,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4387,6 +4615,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4412,6 +4641,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4437,6 +4667,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "60000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4462,6 +4693,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4487,6 +4719,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4512,6 +4745,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "60000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4537,6 +4771,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4562,6 +4797,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4587,6 +4823,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4612,6 +4849,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4637,6 +4875,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4662,6 +4901,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4687,6 +4927,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4712,6 +4953,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4737,6 +4979,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4762,6 +5005,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "15000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4787,6 +5031,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4812,6 +5057,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4837,6 +5083,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4862,6 +5109,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4887,48 +5135,56 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "3": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "60000/1001",
                                 "fragment_duration": 2.002
                             },
                             "4": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "60000/1001",
                                 "fragment_duration": 2.002
                             },
                             "5": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "6": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "7": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "8": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "9": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "15000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4954,6 +5210,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -4979,6 +5236,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5004,48 +5262,56 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "3": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "60000/1001",
                                 "fragment_duration": 2.002
                             },
                             "4": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "60000/1001",
                                 "fragment_duration": 2.002
                             },
                             "5": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "6": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "7": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "8": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             },
                             "9": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "15000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5071,6 +5337,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5096,6 +5363,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5121,6 +5389,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 5.005
                             }
                         }
@@ -5146,6 +5415,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 5.005
                             }
                         }
@@ -5171,6 +5441,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5196,6 +5467,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5221,6 +5493,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5246,6 +5519,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5271,6 +5545,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5296,6 +5571,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 5.005
                             }
                         }
@@ -5321,6 +5597,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5346,6 +5623,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5371,6 +5649,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5396,6 +5675,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "60000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5421,6 +5701,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5446,6 +5727,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5471,6 +5753,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "60000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5496,6 +5779,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5521,6 +5805,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5546,6 +5831,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5571,6 +5857,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5596,6 +5883,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5621,6 +5909,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5646,6 +5935,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5671,6 +5961,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5696,6 +5987,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5721,6 +6013,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "15000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5746,6 +6039,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5772,6 +6066,7 @@
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
+                                "frame_rate": "30",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -5784,6 +6079,7 @@
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
+                                "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
