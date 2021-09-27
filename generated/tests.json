@@ -162,9 +162,9 @@
                 }
             }
         },
-        "7bf558bb89a09640480d339c560a0a47": {
-            "path": "avc_15_30_60-2021-07-07-online/overlapping-fragments__t1.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd",
+        "6b04a6c64c8b804474d4f23dd52167e2": {
+            "path": "avc_15_30_60-2021-07-07-online/overlapping-fragments__ss1.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/ss1/stream.mpd",
             "audio": "",
             "code": "overlapping-fragments.html",
             "config": {
@@ -178,6 +178,48 @@
                         "fragment_duration": 1.9969160997732427
                     },
                     "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "3": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "4": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "5": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "6": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "7": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "8": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "9": {
                         "period": 1,
                         "duration": 60,
                         "type": "video",
@@ -1086,9 +1128,9 @@
                 }
             }
         },
-        "6d56cf82472705627876810cfa540057": {
-            "path": "avc_15_30_60-2021-07-07-local/overlapping-fragments__t1.html",
-            "video": "/content/avc_sets/15_30_60/t1/stream.mpd",
+        "3bdd3d968e76f37d0135517f5314549f": {
+            "path": "avc_15_30_60-2021-07-07-local/overlapping-fragments__ss1.html",
+            "video": "/content/avc_sets/15_30_60/ss1/stream.mpd",
             "audio": "",
             "code": "overlapping-fragments.html",
             "config": {
@@ -1102,6 +1144,48 @@
                         "fragment_duration": 1.9969160997732427
                     },
                     "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "3": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "4": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "5": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "6": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "7": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "8": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "9": {
                         "period": 1,
                         "duration": 60,
                         "type": "video",
@@ -2010,9 +2094,9 @@
                 }
             }
         },
-        "fe3ea676b87622226e7135a30d77f28a": {
-            "path": "avc_12.5_25_50-2021-07-07-online/overlapping-fragments__t1.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd",
+        "5c3da3de44b2b60fa8205183895c1e92": {
+            "path": "avc_12.5_25_50-2021-07-07-online/overlapping-fragments__ss1.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/ss1/stream.mpd",
             "audio": "",
             "code": "overlapping-fragments.html",
             "config": {
@@ -2026,6 +2110,48 @@
                         "fragment_duration": 1.984
                     },
                     "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "3": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "4": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "5": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "6": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "7": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "8": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "9": {
                         "period": 1,
                         "duration": 60,
                         "type": "video",
@@ -2934,9 +3060,9 @@
                 }
             }
         },
-        "4632252885d082a781f27476bc3dc281": {
-            "path": "avc_12.5_25_50-2021-07-07-local/overlapping-fragments__t1.html",
-            "video": "/content/avc_sets/12.5_25_50/t1/stream.mpd",
+        "6c059119a4a027ee4b82c4785c910368": {
+            "path": "avc_12.5_25_50-2021-07-07-local/overlapping-fragments__ss1.html",
+            "video": "/content/avc_sets/12.5_25_50/ss1/stream.mpd",
             "audio": "",
             "code": "overlapping-fragments.html",
             "config": {
@@ -2950,6 +3076,48 @@
                         "fragment_duration": 1.984
                     },
                     "2": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "3": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "4": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "5": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "6": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "7": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "8": {
+                        "period": 1,
+                        "duration": 60,
+                        "type": "video",
+                        "fragment_duration": 2.0
+                    },
+                    "9": {
                         "period": 1,
                         "duration": 60,
                         "type": "video",
@@ -3858,9 +4026,9 @@
                 }
             }
         },
-        "6907a42c6577b1cb07c56e5f91140af5": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/overlapping-fragments__t1.html",
-            "video": "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd",
+        "55c890417601775b166ebe6b8b1e7ea8": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/overlapping-fragments__ss1.html",
+            "video": "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/ss1/stream.mpd",
             "audio": "",
             "code": "overlapping-fragments.html",
             "config": {
@@ -3874,6 +4042,48 @@
                         "fragment_duration": 1.9969160997732427
                     },
                     "2": {
+                        "period": 1,
+                        "duration": 59,
+                        "type": "video",
+                        "fragment_duration": 2.002
+                    },
+                    "3": {
+                        "period": 1,
+                        "duration": 59,
+                        "type": "video",
+                        "fragment_duration": 2.002
+                    },
+                    "4": {
+                        "period": 1,
+                        "duration": 59,
+                        "type": "video",
+                        "fragment_duration": 2.002
+                    },
+                    "5": {
+                        "period": 1,
+                        "duration": 59,
+                        "type": "video",
+                        "fragment_duration": 2.002
+                    },
+                    "6": {
+                        "period": 1,
+                        "duration": 59,
+                        "type": "video",
+                        "fragment_duration": 2.002
+                    },
+                    "7": {
+                        "period": 1,
+                        "duration": 59,
+                        "type": "video",
+                        "fragment_duration": 2.002
+                    },
+                    "8": {
+                        "period": 1,
+                        "duration": 59,
+                        "type": "video",
+                        "fragment_duration": 2.002
+                    },
+                    "9": {
                         "period": 1,
                         "duration": 59,
                         "type": "video",
@@ -4782,9 +4992,9 @@
                 }
             }
         },
-        "65c96b60aa96a8c66adc2a5501c6758e": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/overlapping-fragments__t1.html",
-            "video": "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd",
+        "6061ce6ccdd70d30f0a5154690d68091": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/overlapping-fragments__ss1.html",
+            "video": "/content/avc_sets/14.985_29.97_59.94/ss1/stream.mpd",
             "audio": "",
             "code": "overlapping-fragments.html",
             "config": {
@@ -4798,6 +5008,48 @@
                         "fragment_duration": 1.9969160997732427
                     },
                     "2": {
+                        "period": 1,
+                        "duration": 59,
+                        "type": "video",
+                        "fragment_duration": 2.002
+                    },
+                    "3": {
+                        "period": 1,
+                        "duration": 59,
+                        "type": "video",
+                        "fragment_duration": 2.002
+                    },
+                    "4": {
+                        "period": 1,
+                        "duration": 59,
+                        "type": "video",
+                        "fragment_duration": 2.002
+                    },
+                    "5": {
+                        "period": 1,
+                        "duration": 59,
+                        "type": "video",
+                        "fragment_duration": 2.002
+                    },
+                    "6": {
+                        "period": 1,
+                        "duration": 59,
+                        "type": "video",
+                        "fragment_duration": 2.002
+                    },
+                    "7": {
+                        "period": 1,
+                        "duration": 59,
+                        "type": "video",
+                        "fragment_duration": 2.002
+                    },
+                    "8": {
+                        "period": 1,
+                        "duration": 59,
+                        "type": "video",
+                        "fragment_duration": 2.002
+                    },
+                    "9": {
                         "period": 1,
                         "duration": 59,
                         "type": "video",
