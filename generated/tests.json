@@ -179,10 +179,10 @@
                 "audio": []
             }
         },
-        "cc7611b2efd5f4d3098d541aa40c0d46": {
-            "path": "avc_15_30_60-2021-07-07-online/overlapping-fragments__t1.html",
+        "8c6cb00530d7135607bf0f9c56a5b0b2": {
+            "path": "avc_15_30_60-2021-07-07-online/overlapping-fragments__ss1.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
@@ -197,6 +197,55 @@
                                 "duration": 60,
                                 "type": "video",
                                 "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "15",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -1187,10 +1236,10 @@
                 "audio": []
             }
         },
-        "1f801fe64c457e63c849a036e2beb7b7": {
-            "path": "avc_15_30_60-2021-07-07-local/overlapping-fragments__t1.html",
+        "d0dbd35a1c2f9d7f3402146294f35ebc": {
+            "path": "avc_15_30_60-2021-07-07-local/overlapping-fragments__ss1.html",
             "video": [
-                "/content/avc_sets/15_30_60/t1/stream.mpd"
+                "/content/avc_sets/15_30_60/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
@@ -1205,6 +1254,55 @@
                                 "duration": 60,
                                 "type": "video",
                                 "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "15",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -2195,10 +2293,10 @@
                 "audio": []
             }
         },
-        "fb72cd9a8481276423d8b6136b1f5478": {
-            "path": "avc_12.5_25_50-2021-07-07-online/overlapping-fragments__t1.html",
+        "b08649ad3ec80d1894b8cff49a2c975b": {
+            "path": "avc_12.5_25_50-2021-07-07-online/overlapping-fragments__ss1.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
@@ -2213,6 +2311,55 @@
                                 "duration": 60,
                                 "type": "video",
                                 "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "12800/1024",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -3203,10 +3350,10 @@
                 "audio": []
             }
         },
-        "9fbb6d9ddf13fb98d64c8fb55d43fb06": {
-            "path": "avc_12.5_25_50-2021-07-07-local/overlapping-fragments__t1.html",
+        "34200279aac24b63ed719effd3b69387": {
+            "path": "avc_12.5_25_50-2021-07-07-local/overlapping-fragments__ss1.html",
             "video": [
-                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
+                "/content/avc_sets/12.5_25_50/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
@@ -3221,6 +3368,55 @@
                                 "duration": 60,
                                 "type": "video",
                                 "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "12800/1024",
                                 "fragment_duration": 2.0
                             }
                         }
@@ -4211,10 +4407,10 @@
                 "audio": []
             }
         },
-        "3cc5c8f51a3e189c1da6f25757aeb30f": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/overlapping-fragments__t1.html",
+        "564026ff7de8b3fac3ee4d56ca0aac81": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/overlapping-fragments__ss1.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
@@ -4229,6 +4425,55 @@
                                 "duration": 59,
                                 "type": "video",
                                 "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "15000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
@@ -5219,10 +5464,10 @@
                 "audio": []
             }
         },
-        "408ed36921538b8f3b29a26f9d48e0f7": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/overlapping-fragments__t1.html",
+        "678a192e5c217db52db937243696ead9": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/overlapping-fragments__ss1.html",
             "video": [
-                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
+                "/content/avc_sets/14.985_29.97_59.94/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
@@ -5237,6 +5482,55 @@
                                 "duration": 59,
                                 "type": "video",
                                 "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "15000/1001",
                                 "fragment_duration": 2.002
                             }
                         }
