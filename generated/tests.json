@@ -26,413 +26,6 @@
                 "audio": []
             }
         },
-        "3afd36f15cb1cb08bc742d35d3507900": {
-            "path": "avc_15_30_60-2021-07-07-online/random-access-to-fragment__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "random-access-to-fragment.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "9f6a9f916c582eb53ca4d4fd27c36100": {
-            "path": "avc_15_30_60-2021-07-07-online/random-access-to-time__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "random-access-to-time.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "5ebfaa248d3b2b8889a576fec778ec5c": {
-            "path": "avc_15_30_60-2021-07-07-online/switching-set-playback__ss1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/ss1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "switching-set-playback.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "3": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "60",
-                                "fragment_duration": 2.0
-                            },
-                            "4": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "60",
-                                "fragment_duration": 2.0
-                            },
-                            "5": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "6": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "7": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "8": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "9": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "15",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "186bd9284d0a0fd5f363e382081f89c7": {
-            "path": "avc_15_30_60-2021-07-07-online/out-of-order-loading__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "out-of-order-loading.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "8c6cb00530d7135607bf0f9c56a5b0b2": {
-            "path": "avc_15_30_60-2021-07-07-online/overlapping-fragments__ss1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/ss1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "overlapping-fragments.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "3": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "60",
-                                "fragment_duration": 2.0
-                            },
-                            "4": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "60",
-                                "fragment_duration": 2.0
-                            },
-                            "5": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "6": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "7": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "8": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "9": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "15",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "bac35f5244a946b4f1cb53195150600f": {
-            "path": "avc_15_30_60-2021-07-07-online/fullscreen-playback-of-switching-sets__ss1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/ss1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "fullscreen-playback-of-switching-sets.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "3": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "60",
-                                "fragment_duration": 2.0
-                            },
-                            "4": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "60",
-                                "fragment_duration": 2.0
-                            },
-                            "5": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "6": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "7": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "8": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "9": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "15",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "e8d1ef25eea4eb323d85d637024acd59": {
-            "path": "avc_15_30_60-2021-07-07-online/regular-playback-of-a-cmaf-presentation__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-a-cmaf-presentation.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "dc80514595efbd622b12078bebc8078e": {
-            "path": "avc_15_30_60-2021-07-07-online/random-access-of-a-wave-presentation__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "random-access-of-a-wave-presentation.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "4fc0c8e825a6f18c1284d6476dba8675": {
-            "path": "avc_15_30_60-2021-07-07-online/regular-playback-of-chunked-content__t2.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t2/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M5.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 5.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "92a76046822d37a0dcc4045dbf7d080e": {
-            "path": "avc_15_30_60-2021-07-07-online/regular-playback-of-chunked-content-non-aligned-append__t2.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t2/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M5.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 5.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
         "bc34adeae998a8589dd694cf902ea867": {
             "path": "avc_15_30_60-2021-07-07-online/sequential-track-playback__t3.html",
             "video": [
@@ -596,58 +189,6 @@
             ],
             "audio": [],
             "code": "sequential-track-playback.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "d4ba0f2f3437c404676ed173250ad2c4": {
-            "path": "avc_15_30_60-2021-07-07-online/regular-playback-of-chunked-content__t16.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t16/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "85181240c26c6cf2ae9b9436ec97d69b": {
-            "path": "avc_15_30_60-2021-07-07-online/regular-playback-of-chunked-content__t17.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t17/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
             "switchingSets": {
                 "video": [
                     {
@@ -1031,62 +572,10 @@
                 "audio": []
             }
         },
-        "3d169b66324cf8ac01c3a33317354fe6": {
-            "path": "avc_15_30_60-2021-07-07-online/playback-of-encrypted-content-https__t1-cenc.html",
+        "3afd36f15cb1cb08bc742d35d3507900": {
+            "path": "avc_15_30_60-2021-07-07-online/random-access-to-fragment__t1.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1-cenc/stream.mpd"
-            ],
-            "audio": [],
-            "code": "playback-of-encrypted-content-https.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "ff353c530a7dd5885a5f5348a1af8c67": {
-            "path": "avc_15_30_60-2021-07-07-local/sequential-track-playback__t1.html",
-            "video": [
-                "/content/avc_sets/15_30_60/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "sequential-track-playback.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "fb38d360b02edec792fa5f2d1110447e": {
-            "path": "avc_15_30_60-2021-07-07-local/random-access-to-fragment__t1.html",
-            "video": [
-                "/content/avc_sets/15_30_60/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
             ],
             "audio": [],
             "code": "random-access-to-fragment.html",
@@ -1109,10 +598,10 @@
                 "audio": []
             }
         },
-        "53b0d3fae764e9b311f09a5dbbbb9d19": {
-            "path": "avc_15_30_60-2021-07-07-local/random-access-to-time__t1.html",
+        "9f6a9f916c582eb53ca4d4fd27c36100": {
+            "path": "avc_15_30_60-2021-07-07-online/random-access-to-time__t1.html",
             "video": [
-                "/content/avc_sets/15_30_60/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
             ],
             "audio": [],
             "code": "random-access-to-time.html",
@@ -1135,10 +624,10 @@
                 "audio": []
             }
         },
-        "af312b3bfda9bc86d40bf0a4b982eed0": {
-            "path": "avc_15_30_60-2021-07-07-local/switching-set-playback__ss1.html",
+        "5ebfaa248d3b2b8889a576fec778ec5c": {
+            "path": "avc_15_30_60-2021-07-07-online/switching-set-playback__ss1.html",
             "video": [
-                "/content/avc_sets/15_30_60/ss1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "switching-set-playback.html",
@@ -1210,10 +699,154 @@
                 "audio": []
             }
         },
-        "f4653509cec39dbf21b1c6b68d4edd7a": {
-            "path": "avc_15_30_60-2021-07-07-local/out-of-order-loading__t1.html",
+        "4fc0c8e825a6f18c1284d6476dba8675": {
+            "path": "avc_15_30_60-2021-07-07-online/regular-playback-of-chunked-content__t2.html",
             "video": [
-                "/content/avc_sets/15_30_60/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M5.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 5.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "d4ba0f2f3437c404676ed173250ad2c4": {
+            "path": "avc_15_30_60-2021-07-07-online/regular-playback-of-chunked-content__t16.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t16/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "85181240c26c6cf2ae9b9436ec97d69b": {
+            "path": "avc_15_30_60-2021-07-07-online/regular-playback-of-chunked-content__t17.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t17/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "92a76046822d37a0dcc4045dbf7d080e": {
+            "path": "avc_15_30_60-2021-07-07-online/regular-playback-of-chunked-content-non-aligned-append__t2.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M5.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 5.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "77d90d60ddd9e5be136e314c7b943cde": {
+            "path": "avc_15_30_60-2021-07-07-online/playback-over-wave-baseline-splice-constraints__t1_t2.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd",
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-over-wave-baseline-splice-constraints.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M5.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 5.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "186bd9284d0a0fd5f363e382081f89c7": {
+            "path": "avc_15_30_60-2021-07-07-online/out-of-order-loading__t1.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
             ],
             "audio": [],
             "code": "out-of-order-loading.html",
@@ -1236,10 +869,10 @@
                 "audio": []
             }
         },
-        "d0dbd35a1c2f9d7f3402146294f35ebc": {
-            "path": "avc_15_30_60-2021-07-07-local/overlapping-fragments__ss1.html",
+        "8c6cb00530d7135607bf0f9c56a5b0b2": {
+            "path": "avc_15_30_60-2021-07-07-online/overlapping-fragments__ss1.html",
             "video": [
-                "/content/avc_sets/15_30_60/ss1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
@@ -1311,10 +944,10 @@
                 "audio": []
             }
         },
-        "e825d2bc30bae551c85d44c708c87ff0": {
-            "path": "avc_15_30_60-2021-07-07-local/fullscreen-playback-of-switching-sets__ss1.html",
+        "bac35f5244a946b4f1cb53195150600f": {
+            "path": "avc_15_30_60-2021-07-07-online/fullscreen-playback-of-switching-sets__ss1.html",
             "video": [
-                "/content/avc_sets/15_30_60/ss1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "fullscreen-playback-of-switching-sets.html",
@@ -1386,10 +1019,36 @@
                 "audio": []
             }
         },
-        "e185007af69e9fb4a3ad33fd02412261": {
-            "path": "avc_15_30_60-2021-07-07-local/regular-playback-of-a-cmaf-presentation__t1.html",
+        "3d169b66324cf8ac01c3a33317354fe6": {
+            "path": "avc_15_30_60-2021-07-07-online/playback-of-encrypted-content-https__t1-cenc.html",
             "video": [
-                "/content/avc_sets/15_30_60/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1-cenc/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-of-encrypted-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "e8d1ef25eea4eb323d85d637024acd59": {
+            "path": "avc_15_30_60-2021-07-07-online/regular-playback-of-a-cmaf-presentation__t1.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
             ],
             "audio": [],
             "code": "regular-playback-of-a-cmaf-presentation.html",
@@ -1412,10 +1071,10 @@
                 "audio": []
             }
         },
-        "eee1fefa7f6031d4f6c1163fd82bd8b4": {
-            "path": "avc_15_30_60-2021-07-07-local/random-access-of-a-wave-presentation__t1.html",
+        "dc80514595efbd622b12078bebc8078e": {
+            "path": "avc_15_30_60-2021-07-07-online/random-access-of-a-wave-presentation__t1.html",
             "video": [
-                "/content/avc_sets/15_30_60/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
             ],
             "audio": [],
             "code": "random-access-of-a-wave-presentation.html",
@@ -1438,51 +1097,25 @@
                 "audio": []
             }
         },
-        "b25e2205912b5959ea2a8dcd142d4fd7": {
-            "path": "avc_15_30_60-2021-07-07-local/regular-playback-of-chunked-content__t2.html",
+        "ff353c530a7dd5885a5f5348a1af8c67": {
+            "path": "avc_15_30_60-2021-07-07-local/sequential-track-playback__t1.html",
             "video": [
-                "/content/avc_sets/15_30_60/t2/stream.mpd"
+                "/content/avc_sets/15_30_60/t1/stream.mpd"
             ],
             "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
+            "code": "sequential-track-playback.html",
             "switchingSets": {
                 "video": [
                     {
                         "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M5.016S",
+                        "fragment_duration": "PT0H0M2.021S",
                         "representations": {
                             "2": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
                                 "frame_rate": "30",
-                                "fragment_duration": 5.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "b03b6fec44e74adfaaec01ad4f84f5fa": {
-            "path": "avc_15_30_60-2021-07-07-local/regular-playback-of-chunked-content-non-aligned-append__t2.html",
-            "video": [
-                "/content/avc_sets/15_30_60/t2/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M5.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 5.0
+                                "fragment_duration": 2.0
                             }
                         }
                     }
@@ -1653,58 +1286,6 @@
             ],
             "audio": [],
             "code": "sequential-track-playback.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "fee654b4c9c7165b024228b7d6d70176": {
-            "path": "avc_15_30_60-2021-07-07-local/regular-playback-of-chunked-content__t16.html",
-            "video": [
-                "/content/avc_sets/15_30_60/t16/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "44e225ef0ebd88f5ec76b61d3b8e3864": {
-            "path": "avc_15_30_60-2021-07-07-local/regular-playback-of-chunked-content__t17.html",
-            "video": [
-                "/content/avc_sets/15_30_60/t17/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
             "switchingSets": {
                 "video": [
                     {
@@ -2088,6 +1669,453 @@
                 "audio": []
             }
         },
+        "fb38d360b02edec792fa5f2d1110447e": {
+            "path": "avc_15_30_60-2021-07-07-local/random-access-to-fragment__t1.html",
+            "video": [
+                "/content/avc_sets/15_30_60/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "random-access-to-fragment.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "53b0d3fae764e9b311f09a5dbbbb9d19": {
+            "path": "avc_15_30_60-2021-07-07-local/random-access-to-time__t1.html",
+            "video": [
+                "/content/avc_sets/15_30_60/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "random-access-to-time.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "af312b3bfda9bc86d40bf0a4b982eed0": {
+            "path": "avc_15_30_60-2021-07-07-local/switching-set-playback__ss1.html",
+            "video": [
+                "/content/avc_sets/15_30_60/ss1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "switching-set-playback.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "15",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "b25e2205912b5959ea2a8dcd142d4fd7": {
+            "path": "avc_15_30_60-2021-07-07-local/regular-playback-of-chunked-content__t2.html",
+            "video": [
+                "/content/avc_sets/15_30_60/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M5.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 5.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "fee654b4c9c7165b024228b7d6d70176": {
+            "path": "avc_15_30_60-2021-07-07-local/regular-playback-of-chunked-content__t16.html",
+            "video": [
+                "/content/avc_sets/15_30_60/t16/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "44e225ef0ebd88f5ec76b61d3b8e3864": {
+            "path": "avc_15_30_60-2021-07-07-local/regular-playback-of-chunked-content__t17.html",
+            "video": [
+                "/content/avc_sets/15_30_60/t17/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "b03b6fec44e74adfaaec01ad4f84f5fa": {
+            "path": "avc_15_30_60-2021-07-07-local/regular-playback-of-chunked-content-non-aligned-append__t2.html",
+            "video": [
+                "/content/avc_sets/15_30_60/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M5.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 5.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "cbc59d6e03befb18dfa6e2b00e8d5488": {
+            "path": "avc_15_30_60-2021-07-07-local/playback-over-wave-baseline-splice-constraints__t1_t2.html",
+            "video": [
+                "/content/avc_sets/15_30_60/t1/stream.mpd",
+                "/content/avc_sets/15_30_60/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-over-wave-baseline-splice-constraints.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M5.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 5.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "f4653509cec39dbf21b1c6b68d4edd7a": {
+            "path": "avc_15_30_60-2021-07-07-local/out-of-order-loading__t1.html",
+            "video": [
+                "/content/avc_sets/15_30_60/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "out-of-order-loading.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "d0dbd35a1c2f9d7f3402146294f35ebc": {
+            "path": "avc_15_30_60-2021-07-07-local/overlapping-fragments__ss1.html",
+            "video": [
+                "/content/avc_sets/15_30_60/ss1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "overlapping-fragments.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "15",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "e825d2bc30bae551c85d44c708c87ff0": {
+            "path": "avc_15_30_60-2021-07-07-local/fullscreen-playback-of-switching-sets__ss1.html",
+            "video": [
+                "/content/avc_sets/15_30_60/ss1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "fullscreen-playback-of-switching-sets.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "15",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
         "cb98aa62d5728c1a1878812e02e14c52": {
             "path": "avc_15_30_60-2021-07-07-local/playback-of-encrypted-content-https__t1-cenc.html",
             "video": [
@@ -2095,6 +2123,58 @@
             ],
             "audio": [],
             "code": "playback-of-encrypted-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "e185007af69e9fb4a3ad33fd02412261": {
+            "path": "avc_15_30_60-2021-07-07-local/regular-playback-of-a-cmaf-presentation__t1.html",
+            "video": [
+                "/content/avc_sets/15_30_60/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-a-cmaf-presentation.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "eee1fefa7f6031d4f6c1163fd82bd8b4": {
+            "path": "avc_15_30_60-2021-07-07-local/random-access-of-a-wave-presentation__t1.html",
+            "video": [
+                "/content/avc_sets/15_30_60/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "random-access-of-a-wave-presentation.html",
             "switchingSets": {
                 "video": [
                     {
@@ -2133,413 +2213,6 @@
                                 "type": "video",
                                 "frame_rate": "25",
                                 "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "88b2279592424e5e62a53402cb5086a7": {
-            "path": "avc_12.5_25_50-2021-07-07-online/random-access-to-fragment__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "random-access-to-fragment.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "65c90000ac252a0830c01929d7f25d31": {
-            "path": "avc_12.5_25_50-2021-07-07-online/random-access-to-time__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "random-access-to-time.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "77ceecabc02a778894d79de16cca6128": {
-            "path": "avc_12.5_25_50-2021-07-07-online/switching-set-playback__ss1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/ss1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "switching-set-playback.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "3": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "50",
-                                "fragment_duration": 2.0
-                            },
-                            "4": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "50",
-                                "fragment_duration": 2.0
-                            },
-                            "5": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "6": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "7": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "8": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "9": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "12800/1024",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "fb64c6cca21ae21cb747a92775178f94": {
-            "path": "avc_12.5_25_50-2021-07-07-online/out-of-order-loading__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "out-of-order-loading.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "b08649ad3ec80d1894b8cff49a2c975b": {
-            "path": "avc_12.5_25_50-2021-07-07-online/overlapping-fragments__ss1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/ss1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "overlapping-fragments.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "3": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "50",
-                                "fragment_duration": 2.0
-                            },
-                            "4": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "50",
-                                "fragment_duration": 2.0
-                            },
-                            "5": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "6": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "7": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "8": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "9": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "12800/1024",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "7e4d07cae08096b90e15e07022fa300c": {
-            "path": "avc_12.5_25_50-2021-07-07-online/fullscreen-playback-of-switching-sets__ss1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/ss1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "fullscreen-playback-of-switching-sets.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "3": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "50",
-                                "fragment_duration": 2.0
-                            },
-                            "4": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "50",
-                                "fragment_duration": 2.0
-                            },
-                            "5": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "6": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "7": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "8": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            },
-                            "9": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "12800/1024",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "f73467cd002e60589d42ad8727bfbaeb": {
-            "path": "avc_12.5_25_50-2021-07-07-online/regular-playback-of-a-cmaf-presentation__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-a-cmaf-presentation.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "b6e8e0613ba81b1660282bd703e864ff": {
-            "path": "avc_12.5_25_50-2021-07-07-online/random-access-of-a-wave-presentation__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "random-access-of-a-wave-presentation.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "607af31e13f4ed4e1cf49eefb21c065e": {
-            "path": "avc_12.5_25_50-2021-07-07-online/regular-playback-of-chunked-content__t2.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t2/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M5.014S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 5.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "ccf84b6a9ec56fa933d9ef877aad30ec": {
-            "path": "avc_12.5_25_50-2021-07-07-online/regular-playback-of-chunked-content-non-aligned-append__t2.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t2/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M5.014S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 5.0
                             }
                         }
                     }
@@ -2710,58 +2383,6 @@
             ],
             "audio": [],
             "code": "sequential-track-playback.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "0411cfe2ca5341e9d15368f61c74340e": {
-            "path": "avc_12.5_25_50-2021-07-07-online/regular-playback-of-chunked-content__t16.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t16/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "4324cb86147b33d4239b2866151f869c": {
-            "path": "avc_12.5_25_50-2021-07-07-online/regular-playback-of-chunked-content__t17.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t17/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
             "switchingSets": {
                 "video": [
                     {
@@ -3145,62 +2766,10 @@
                 "audio": []
             }
         },
-        "178aeb6d58c52183aaf7d31584f4cdaa": {
-            "path": "avc_12.5_25_50-2021-07-07-online/playback-of-encrypted-content-https__t1-cenc.html",
+        "88b2279592424e5e62a53402cb5086a7": {
+            "path": "avc_12.5_25_50-2021-07-07-online/random-access-to-fragment__t1.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1-cenc/stream.mpd"
-            ],
-            "audio": [],
-            "code": "playback-of-encrypted-content-https.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "dbeffc00c785814af0cc5676ea94e7c9": {
-            "path": "avc_12.5_25_50-2021-07-07-local/sequential-track-playback__t1.html",
-            "video": [
-                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "sequential-track-playback.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "c8e09df9e1d83303bd608acf0d8085b9": {
-            "path": "avc_12.5_25_50-2021-07-07-local/random-access-to-fragment__t1.html",
-            "video": [
-                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd"
             ],
             "audio": [],
             "code": "random-access-to-fragment.html",
@@ -3223,10 +2792,10 @@
                 "audio": []
             }
         },
-        "ae2b3a0383ae439829d1419ec72e06cb": {
-            "path": "avc_12.5_25_50-2021-07-07-local/random-access-to-time__t1.html",
+        "65c90000ac252a0830c01929d7f25d31": {
+            "path": "avc_12.5_25_50-2021-07-07-online/random-access-to-time__t1.html",
             "video": [
-                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd"
             ],
             "audio": [],
             "code": "random-access-to-time.html",
@@ -3249,10 +2818,10 @@
                 "audio": []
             }
         },
-        "a227160c14b5024af8740f1040fc6e8c": {
-            "path": "avc_12.5_25_50-2021-07-07-local/switching-set-playback__ss1.html",
+        "77ceecabc02a778894d79de16cca6128": {
+            "path": "avc_12.5_25_50-2021-07-07-online/switching-set-playback__ss1.html",
             "video": [
-                "/content/avc_sets/12.5_25_50/ss1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "switching-set-playback.html",
@@ -3324,10 +2893,128 @@
                 "audio": []
             }
         },
-        "197351a3953d0cde4f333fdf11073ae0": {
-            "path": "avc_12.5_25_50-2021-07-07-local/out-of-order-loading__t1.html",
+        "607af31e13f4ed4e1cf49eefb21c065e": {
+            "path": "avc_12.5_25_50-2021-07-07-online/regular-playback-of-chunked-content__t2.html",
             "video": [
-                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M5.014S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 5.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "0411cfe2ca5341e9d15368f61c74340e": {
+            "path": "avc_12.5_25_50-2021-07-07-online/regular-playback-of-chunked-content__t16.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t16/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "4324cb86147b33d4239b2866151f869c": {
+            "path": "avc_12.5_25_50-2021-07-07-online/regular-playback-of-chunked-content__t17.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t17/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "7860e06416e582d02537637ac7e39748": {
+            "path": "avc_12.5_25_50-2021-07-07-online/playback-over-wave-baseline-splice-constraints__t1_t2.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd",
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-over-wave-baseline-splice-constraints.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M5.014S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 5.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "fb64c6cca21ae21cb747a92775178f94": {
+            "path": "avc_12.5_25_50-2021-07-07-online/out-of-order-loading__t1.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd"
             ],
             "audio": [],
             "code": "out-of-order-loading.html",
@@ -3350,10 +3037,10 @@
                 "audio": []
             }
         },
-        "34200279aac24b63ed719effd3b69387": {
-            "path": "avc_12.5_25_50-2021-07-07-local/overlapping-fragments__ss1.html",
+        "b08649ad3ec80d1894b8cff49a2c975b": {
+            "path": "avc_12.5_25_50-2021-07-07-online/overlapping-fragments__ss1.html",
             "video": [
-                "/content/avc_sets/12.5_25_50/ss1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
@@ -3425,10 +3112,10 @@
                 "audio": []
             }
         },
-        "49f313bad39e011091c0acfbdc5b7422": {
-            "path": "avc_12.5_25_50-2021-07-07-local/fullscreen-playback-of-switching-sets__ss1.html",
+        "7e4d07cae08096b90e15e07022fa300c": {
+            "path": "avc_12.5_25_50-2021-07-07-online/fullscreen-playback-of-switching-sets__ss1.html",
             "video": [
-                "/content/avc_sets/12.5_25_50/ss1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "fullscreen-playback-of-switching-sets.html",
@@ -3500,10 +3187,36 @@
                 "audio": []
             }
         },
-        "80c82c6ef1f5f26f96cfeb6f53bc731e": {
-            "path": "avc_12.5_25_50-2021-07-07-local/regular-playback-of-a-cmaf-presentation__t1.html",
+        "178aeb6d58c52183aaf7d31584f4cdaa": {
+            "path": "avc_12.5_25_50-2021-07-07-online/playback-of-encrypted-content-https__t1-cenc.html",
             "video": [
-                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1-cenc/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-of-encrypted-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "f73467cd002e60589d42ad8727bfbaeb": {
+            "path": "avc_12.5_25_50-2021-07-07-online/regular-playback-of-a-cmaf-presentation__t1.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd"
             ],
             "audio": [],
             "code": "regular-playback-of-a-cmaf-presentation.html",
@@ -3526,10 +3239,10 @@
                 "audio": []
             }
         },
-        "ccfb721e08d0cd35016515331c8daead": {
-            "path": "avc_12.5_25_50-2021-07-07-local/random-access-of-a-wave-presentation__t1.html",
+        "b6e8e0613ba81b1660282bd703e864ff": {
+            "path": "avc_12.5_25_50-2021-07-07-online/random-access-of-a-wave-presentation__t1.html",
             "video": [
-                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd"
             ],
             "audio": [],
             "code": "random-access-of-a-wave-presentation.html",
@@ -3552,13 +3265,13 @@
                 "audio": []
             }
         },
-        "5d8419ec3f4b48fb57e32e7ec03a3480": {
-            "path": "avc_12.5_25_50-2021-07-07-local/regular-playback-of-chunked-content__t2.html",
+        "ccf84b6a9ec56fa933d9ef877aad30ec": {
+            "path": "avc_12.5_25_50-2021-07-07-online/regular-playback-of-chunked-content-non-aligned-append__t2.html",
             "video": [
-                "/content/avc_sets/12.5_25_50/t2/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t2/stream.mpd"
             ],
             "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
+            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
             "switchingSets": {
                 "video": [
                     {
@@ -3578,25 +3291,25 @@
                 "audio": []
             }
         },
-        "a634afcfa16f59af88fb3b9ae04e06ea": {
-            "path": "avc_12.5_25_50-2021-07-07-local/regular-playback-of-chunked-content-non-aligned-append__t2.html",
+        "dbeffc00c785814af0cc5676ea94e7c9": {
+            "path": "avc_12.5_25_50-2021-07-07-local/sequential-track-playback__t1.html",
             "video": [
-                "/content/avc_sets/12.5_25_50/t2/stream.mpd"
+                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
             ],
             "audio": [],
-            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
+            "code": "sequential-track-playback.html",
             "switchingSets": {
                 "video": [
                     {
                         "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M5.014S",
+                        "fragment_duration": "PT0H0M2.016S",
                         "representations": {
                             "2": {
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
                                 "frame_rate": "25",
-                                "fragment_duration": 5.0
+                                "fragment_duration": 2.0
                             }
                         }
                     }
@@ -3767,58 +3480,6 @@
             ],
             "audio": [],
             "code": "sequential-track-playback.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "f156591ae16b6748633b5a1883688f39": {
-            "path": "avc_12.5_25_50-2021-07-07-local/regular-playback-of-chunked-content__t16.html",
-            "video": [
-                "/content/avc_sets/12.5_25_50/t16/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "55f3ca29e23ff058e0dff5c4462d8278": {
-            "path": "avc_12.5_25_50-2021-07-07-local/regular-playback-of-chunked-content__t17.html",
-            "video": [
-                "/content/avc_sets/12.5_25_50/t17/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
             "switchingSets": {
                 "video": [
                     {
@@ -4202,6 +3863,453 @@
                 "audio": []
             }
         },
+        "c8e09df9e1d83303bd608acf0d8085b9": {
+            "path": "avc_12.5_25_50-2021-07-07-local/random-access-to-fragment__t1.html",
+            "video": [
+                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "random-access-to-fragment.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "ae2b3a0383ae439829d1419ec72e06cb": {
+            "path": "avc_12.5_25_50-2021-07-07-local/random-access-to-time__t1.html",
+            "video": [
+                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "random-access-to-time.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "a227160c14b5024af8740f1040fc6e8c": {
+            "path": "avc_12.5_25_50-2021-07-07-local/switching-set-playback__ss1.html",
+            "video": [
+                "/content/avc_sets/12.5_25_50/ss1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "switching-set-playback.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "12800/1024",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "5d8419ec3f4b48fb57e32e7ec03a3480": {
+            "path": "avc_12.5_25_50-2021-07-07-local/regular-playback-of-chunked-content__t2.html",
+            "video": [
+                "/content/avc_sets/12.5_25_50/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M5.014S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 5.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "f156591ae16b6748633b5a1883688f39": {
+            "path": "avc_12.5_25_50-2021-07-07-local/regular-playback-of-chunked-content__t16.html",
+            "video": [
+                "/content/avc_sets/12.5_25_50/t16/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "55f3ca29e23ff058e0dff5c4462d8278": {
+            "path": "avc_12.5_25_50-2021-07-07-local/regular-playback-of-chunked-content__t17.html",
+            "video": [
+                "/content/avc_sets/12.5_25_50/t17/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "a634afcfa16f59af88fb3b9ae04e06ea": {
+            "path": "avc_12.5_25_50-2021-07-07-local/regular-playback-of-chunked-content-non-aligned-append__t2.html",
+            "video": [
+                "/content/avc_sets/12.5_25_50/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M5.014S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 5.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "84f62fd4c2924441d2b0e32215d4a278": {
+            "path": "avc_12.5_25_50-2021-07-07-local/playback-over-wave-baseline-splice-constraints__t1_t2.html",
+            "video": [
+                "/content/avc_sets/12.5_25_50/t1/stream.mpd",
+                "/content/avc_sets/12.5_25_50/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-over-wave-baseline-splice-constraints.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M5.014S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 5.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "197351a3953d0cde4f333fdf11073ae0": {
+            "path": "avc_12.5_25_50-2021-07-07-local/out-of-order-loading__t1.html",
+            "video": [
+                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "out-of-order-loading.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "34200279aac24b63ed719effd3b69387": {
+            "path": "avc_12.5_25_50-2021-07-07-local/overlapping-fragments__ss1.html",
+            "video": [
+                "/content/avc_sets/12.5_25_50/ss1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "overlapping-fragments.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "12800/1024",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "49f313bad39e011091c0acfbdc5b7422": {
+            "path": "avc_12.5_25_50-2021-07-07-local/fullscreen-playback-of-switching-sets__ss1.html",
+            "video": [
+                "/content/avc_sets/12.5_25_50/ss1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "fullscreen-playback-of-switching-sets.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "12800/1024",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
         "750d0f5e5f8dd3427acc79b688e89897": {
             "path": "avc_12.5_25_50-2021-07-07-local/playback-of-encrypted-content-https__t1-cenc.html",
             "video": [
@@ -4209,6 +4317,58 @@
             ],
             "audio": [],
             "code": "playback-of-encrypted-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "80c82c6ef1f5f26f96cfeb6f53bc731e": {
+            "path": "avc_12.5_25_50-2021-07-07-local/regular-playback-of-a-cmaf-presentation__t1.html",
+            "video": [
+                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-a-cmaf-presentation.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "ccfb721e08d0cd35016515331c8daead": {
+            "path": "avc_12.5_25_50-2021-07-07-local/random-access-of-a-wave-presentation__t1.html",
+            "video": [
+                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "random-access-of-a-wave-presentation.html",
             "switchingSets": {
                 "video": [
                     {
@@ -4247,413 +4407,6 @@
                                 "type": "video",
                                 "frame_rate": "30000/1001",
                                 "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "a54961da65f8c8777a12c173f7fb3569": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/random-access-to-fragment__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "random-access-to-fragment.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "583d5ae7f1750fb402631080b72bbba4": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/random-access-to-time__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "random-access-to-time.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "fd85f868c162c01dc6cda1740ac45a8a": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/switching-set-playback__ss1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/ss1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "switching-set-playback.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "3": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "60000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "4": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "60000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "5": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "6": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "7": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "8": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "9": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "15000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "8d5f246f9079cc6566180fb500683b50": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/out-of-order-loading__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "out-of-order-loading.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "564026ff7de8b3fac3ee4d56ca0aac81": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/overlapping-fragments__ss1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/ss1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "overlapping-fragments.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "3": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "60000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "4": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "60000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "5": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "6": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "7": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "8": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "9": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "15000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "f79e6906bd19da2dd6b6c2cd5d410d6e": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/fullscreen-playback-of-switching-sets__ss1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/ss1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "fullscreen-playback-of-switching-sets.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "3": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "60000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "4": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "60000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "5": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "6": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "7": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "8": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            },
-                            "9": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "15000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "6ce81fc8961458d926f22c0ee5235af5": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/regular-playback-of-a-cmaf-presentation__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-a-cmaf-presentation.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "6db97f82aa490addc709809be92ce5c4": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/random-access-of-a-wave-presentation__t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "random-access-of-a-wave-presentation.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "d9786f0c0a09ef2190053b457e7a4340": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/regular-playback-of-chunked-content__t2.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t2/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M5.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 5.005
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "0fe331801f2b344d263fcd7ce1847a97": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/regular-playback-of-chunked-content-non-aligned-append__t2.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t2/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M5.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 5.005
                             }
                         }
                     }
@@ -4824,58 +4577,6 @@
             ],
             "audio": [],
             "code": "sequential-track-playback.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "0c7305266f620541394b60e80c1db4ab": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/regular-playback-of-chunked-content__t16.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t16/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "ef3374884e04743f6ad655736dfbfe4f": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/regular-playback-of-chunked-content__t17.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t17/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
             "switchingSets": {
                 "video": [
                     {
@@ -5259,62 +4960,10 @@
                 "audio": []
             }
         },
-        "33ce3896c8e3a5297ea53385753be954": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/playback-of-encrypted-content-https__t1-cenc.html",
+        "a54961da65f8c8777a12c173f7fb3569": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/random-access-to-fragment__t1.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1-cenc/stream.mpd"
-            ],
-            "audio": [],
-            "code": "playback-of-encrypted-content-https.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "8b0f51bc46581fd0ce1193400482333a": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/sequential-track-playback__t1.html",
-            "video": [
-                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "sequential-track-playback.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "39d5897dbd3d2c055e8a3e2bbdcc676a": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/random-access-to-fragment__t1.html",
-            "video": [
-                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
             ],
             "audio": [],
             "code": "random-access-to-fragment.html",
@@ -5337,10 +4986,10 @@
                 "audio": []
             }
         },
-        "6f4762f7df78949cbee86f297d5c1184": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/random-access-to-time__t1.html",
+        "583d5ae7f1750fb402631080b72bbba4": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/random-access-to-time__t1.html",
             "video": [
-                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
             ],
             "audio": [],
             "code": "random-access-to-time.html",
@@ -5363,10 +5012,10 @@
                 "audio": []
             }
         },
-        "7493aa2657a56052b18673617802e5a2": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/switching-set-playback__ss1.html",
+        "fd85f868c162c01dc6cda1740ac45a8a": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/switching-set-playback__ss1.html",
             "video": [
-                "/content/avc_sets/14.985_29.97_59.94/ss1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "switching-set-playback.html",
@@ -5438,10 +5087,154 @@
                 "audio": []
             }
         },
-        "6bd53a1a556b4c3ccc790a9f4679ec3d": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/out-of-order-loading__t1.html",
+        "d9786f0c0a09ef2190053b457e7a4340": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/regular-playback-of-chunked-content__t2.html",
             "video": [
-                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M5.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 5.005
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "0c7305266f620541394b60e80c1db4ab": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/regular-playback-of-chunked-content__t16.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t16/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "ef3374884e04743f6ad655736dfbfe4f": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/regular-playback-of-chunked-content__t17.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t17/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "0fe331801f2b344d263fcd7ce1847a97": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/regular-playback-of-chunked-content-non-aligned-append__t2.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M5.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 5.005
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "4a2b02f614fdc8ae63ca4b1f44f2d9de": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/playback-over-wave-baseline-splice-constraints__t1_t2.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd",
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-over-wave-baseline-splice-constraints.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M5.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 5.005
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "8d5f246f9079cc6566180fb500683b50": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/out-of-order-loading__t1.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
             ],
             "audio": [],
             "code": "out-of-order-loading.html",
@@ -5464,10 +5257,10 @@
                 "audio": []
             }
         },
-        "678a192e5c217db52db937243696ead9": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/overlapping-fragments__ss1.html",
+        "564026ff7de8b3fac3ee4d56ca0aac81": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/overlapping-fragments__ss1.html",
             "video": [
-                "/content/avc_sets/14.985_29.97_59.94/ss1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
@@ -5539,10 +5332,10 @@
                 "audio": []
             }
         },
-        "391a42c3824edf2ef2875df88accde68": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/fullscreen-playback-of-switching-sets__ss1.html",
+        "f79e6906bd19da2dd6b6c2cd5d410d6e": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/fullscreen-playback-of-switching-sets__ss1.html",
             "video": [
-                "/content/avc_sets/14.985_29.97_59.94/ss1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/ss1/stream.mpd"
             ],
             "audio": [],
             "code": "fullscreen-playback-of-switching-sets.html",
@@ -5614,10 +5407,36 @@
                 "audio": []
             }
         },
-        "d005490a70320d78a2b0823c3097fead": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/regular-playback-of-a-cmaf-presentation__t1.html",
+        "33ce3896c8e3a5297ea53385753be954": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/playback-of-encrypted-content-https__t1-cenc.html",
             "video": [
-                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1-cenc/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-of-encrypted-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "6ce81fc8961458d926f22c0ee5235af5": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/regular-playback-of-a-cmaf-presentation__t1.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
             ],
             "audio": [],
             "code": "regular-playback-of-a-cmaf-presentation.html",
@@ -5640,10 +5459,10 @@
                 "audio": []
             }
         },
-        "a390cf921c0b72e1505778fc2f00118a": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/random-access-of-a-wave-presentation__t1.html",
+        "6db97f82aa490addc709809be92ce5c4": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/random-access-of-a-wave-presentation__t1.html",
             "video": [
-                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
             ],
             "audio": [],
             "code": "random-access-of-a-wave-presentation.html",
@@ -5666,51 +5485,25 @@
                 "audio": []
             }
         },
-        "5a1bb572724e17b81684991fd5087413": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/regular-playback-of-chunked-content__t2.html",
+        "8b0f51bc46581fd0ce1193400482333a": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/sequential-track-playback__t1.html",
             "video": [
-                "/content/avc_sets/14.985_29.97_59.94/t2/stream.mpd"
+                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
             ],
             "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
+            "code": "sequential-track-playback.html",
             "switchingSets": {
                 "video": [
                     {
                         "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M5.016S",
+                        "fragment_duration": "PT0H0M2.021S",
                         "representations": {
                             "2": {
                                 "period": 1,
                                 "duration": 59,
                                 "type": "video",
                                 "frame_rate": "30000/1001",
-                                "fragment_duration": 5.005
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "6e73956babe80af94e1ece2b816412c7": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/regular-playback-of-chunked-content-non-aligned-append__t2.html",
-            "video": [
-                "/content/avc_sets/14.985_29.97_59.94/t2/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M5.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 5.005
+                                "fragment_duration": 2.002
                             }
                         }
                     }
@@ -5881,58 +5674,6 @@
             ],
             "audio": [],
             "code": "sequential-track-playback.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "03eeb92a224dfe64fdda2e368c599719": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/regular-playback-of-chunked-content__t16.html",
-            "video": [
-                "/content/avc_sets/14.985_29.97_59.94/t16/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "44162da2a2c5a9998e546d28397584e9": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/regular-playback-of-chunked-content__t17.html",
-            "video": [
-                "/content/avc_sets/14.985_29.97_59.94/t17/stream.mpd"
-            ],
-            "audio": [],
-            "code": "regular-playback-of-chunked-content.html",
             "switchingSets": {
                 "video": [
                     {
@@ -6316,6 +6057,453 @@
                 "audio": []
             }
         },
+        "39d5897dbd3d2c055e8a3e2bbdcc676a": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/random-access-to-fragment__t1.html",
+            "video": [
+                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "random-access-to-fragment.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "6f4762f7df78949cbee86f297d5c1184": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/random-access-to-time__t1.html",
+            "video": [
+                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "random-access-to-time.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "7493aa2657a56052b18673617802e5a2": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/switching-set-playback__ss1.html",
+            "video": [
+                "/content/avc_sets/14.985_29.97_59.94/ss1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "switching-set-playback.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "15000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "5a1bb572724e17b81684991fd5087413": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/regular-playback-of-chunked-content__t2.html",
+            "video": [
+                "/content/avc_sets/14.985_29.97_59.94/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M5.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 5.005
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "03eeb92a224dfe64fdda2e368c599719": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/regular-playback-of-chunked-content__t16.html",
+            "video": [
+                "/content/avc_sets/14.985_29.97_59.94/t16/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "44162da2a2c5a9998e546d28397584e9": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/regular-playback-of-chunked-content__t17.html",
+            "video": [
+                "/content/avc_sets/14.985_29.97_59.94/t17/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "6e73956babe80af94e1ece2b816412c7": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/regular-playback-of-chunked-content-non-aligned-append__t2.html",
+            "video": [
+                "/content/avc_sets/14.985_29.97_59.94/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M5.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 5.005
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "b2b60e0dde1546a56181ae17818e7b57": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/playback-over-wave-baseline-splice-constraints__t1_t2.html",
+            "video": [
+                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd",
+                "/content/avc_sets/14.985_29.97_59.94/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-over-wave-baseline-splice-constraints.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M5.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 5.005
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "6bd53a1a556b4c3ccc790a9f4679ec3d": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/out-of-order-loading__t1.html",
+            "video": [
+                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "out-of-order-loading.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "678a192e5c217db52db937243696ead9": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/overlapping-fragments__ss1.html",
+            "video": [
+                "/content/avc_sets/14.985_29.97_59.94/ss1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "overlapping-fragments.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "15000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "391a42c3824edf2ef2875df88accde68": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/fullscreen-playback-of-switching-sets__ss1.html",
+            "video": [
+                "/content/avc_sets/14.985_29.97_59.94/ss1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "fullscreen-playback-of-switching-sets.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "15000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
         "8a520fc4cb6d09807b151ba456dd69f1": {
             "path": "avc_14.985_29.97_59.94-2021-07-07-local/playback-of-encrypted-content-https__t1-cenc.html",
             "video": [
@@ -6342,29 +6530,41 @@
                 "audio": []
             }
         },
-        "dbcdbc9b7a09254429fb25c87370f919": {
-            "path": "multi-mpd/switching-set-playback__t1.html",
+        "d005490a70320d78a2b0823c3097fead": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/regular-playback-of-a-cmaf-presentation__t1.html",
             "video": [
-                "/content/avc_sets/15_30_60/t1/stream.mpd",
                 "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
             ],
             "audio": [],
-            "code": "switching-set-playback.html",
+            "code": "regular-playback-of-a-cmaf-presentation.html",
             "switchingSets": {
                 "video": [
                     {
-                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "cmaf_track_duration": "PT0H0M59.999S",
                         "fragment_duration": "PT0H0M2.021S",
                         "representations": {
                             "2": {
                                 "period": 1,
-                                "duration": 60,
+                                "duration": 59,
                                 "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
                             }
                         }
-                    },
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "a390cf921c0b72e1505778fc2f00118a": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/random-access-of-a-wave-presentation__t1.html",
+            "video": [
+                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "random-access-of-a-wave-presentation.html",
+            "switchingSets": {
+                "video": [
                     {
                         "cmaf_track_duration": "PT0H0M59.999S",
                         "fragment_duration": "PT0H0M2.021S",

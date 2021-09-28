@@ -448,6 +448,7 @@ function BufferManager(manifests, mediaSource, video, options) {
       var regularTimestamp = 0;
       for (var i = 0; i < startSegment; i ++) {
         var segment = representation.getSegment(i);
+        console.log(representation.getSegmentsCount());
         regularTimestamp += segment.getDuration();
       }
       var actualTimestamp = 0;
