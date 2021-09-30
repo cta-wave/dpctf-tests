@@ -108,7 +108,9 @@
               done(error);
             });
         } else {
-          player.on("onVideoSegmentLoaded", function (event) {
+          var loadedEvent = "onVideoSegmentLoaded";
+          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
+          player.on(loadedEvent, function (event) {
             if (player.getPreBufferedTime() >= minBufferDuration || 
                 player.getPreBufferedTime() >= player.getDuration()) {
               player

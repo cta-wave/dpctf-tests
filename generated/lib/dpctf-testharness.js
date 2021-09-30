@@ -629,7 +629,6 @@ function DpctfTest(config) {
         var defaultParameters = testConfig.all;
         var templateParameters = testConfig[testInfo.code];
         var testParameters = testConfig[testInfo.path];
-        console.log(testInfo.path);
 
         function determineValue(parameter) {
           if (testParameters && testParameters[parameter]) {
@@ -828,7 +827,7 @@ function InfoOverlay(element) {
   }
 
   function updateOverlayInfo(player, testInfo) {
-    var manifest = player.getVideoManifests()[0];
+    var manifest = player.getVideoManifests()[0] || player.getAudioManifests()[0];
     var playingRepresentation = player.getPlayingVideoRepresentation();
     var playingSegment = player.getPlayingVideoSegment();
     var number = "none";

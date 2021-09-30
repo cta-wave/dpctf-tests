@@ -28,7 +28,6 @@ function Player(video) {
     if (!settings.outOfOrderLoading) settings.outOfOrderLoading = false;
     if (!settings.loading) settings.loading = null;
     _settings = settings;
-    console.log(settings);
 
     video.addEventListener("encrypted", function (event) {
       if (event.type !== "encrypted") return;
@@ -89,6 +88,14 @@ function Player(video) {
       eventName.indexOf("Video") !== -1
     ) {
       _videoBufferManager.on(eventName.replace("Video", ""), callback);
+      return;
+    }
+    if (
+      _audioBufferManager &&
+      eventName !== "onAudioManifestParsed" &&
+      eventName.indexOf("Audio") !== -1
+    ) {
+      _audioBufferManager.on(eventName.replace("Audio", ""), callback);
       return;
     }
     _eventEmitter.on(eventName, callback);
@@ -166,7 +173,7 @@ function Player(video) {
     return Promise.all(
       vectorUrls.map((vectorUrl) => ManifestParser.parse(vectorUrl))
     ).then(function (manifests) {
-      _videoBufferManager = new BufferManager(
+      _audioBufferManager = new BufferManager(
         manifests,
         _mediaSource,
         _video,
@@ -211,7 +218,7 @@ function Player(video) {
         }
         setDuration(totalDuration);
       }
-      _eventEmitter.dispatchEvent("onAudioManifestParsed", manifest);
+      _eventEmitter.dispatchEvent("onAudioManifestParsed", manifests);
     });
   }
 
@@ -430,7 +437,6 @@ function BufferManager(manifests, mediaSource, video, options) {
   }
 
   function setSegments(segmentsInfo) {
-    console.log(segmentsInfo);
     var representationNumber = segmentsInfo.representationNumber;
     var startSegment = parseInt(segmentsInfo.startSegment);
     var endSegment = parseInt(segmentsInfo.endSegment);
@@ -442,13 +448,11 @@ function BufferManager(manifests, mediaSource, video, options) {
       representationNumber,
       periodNumber
     );
-    console.log(representation);
     var timestampOffset = 0;
     if (offset !== 0) {
       var regularTimestamp = 0;
       for (var i = 0; i < startSegment; i ++) {
-        var segment = representation.getSegment(i);
-        console.log(representation.getSegmentsCount());
+        var segment = _segments[i];
         regularTimestamp += segment.getDuration();
       }
       var actualTimestamp = 0;
@@ -458,7 +462,6 @@ function BufferManager(manifests, mediaSource, video, options) {
       }
       timestampOffset = regularTimestamp - actualTimestamp;
     }
-    console.log(timestampOffset);
 
     for (var i = startSegment; i <= endSegment; i++) {
       var segment = representation.getSegment(i + offset);
