@@ -38,11 +38,11 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Playback over WAVE Baseline Splice Constraints",
-        description:
-          "Playback over splices enables the content provider to offer a sequence of Switching Sets with less restricted encoding requirements than a track. This feature is especially important in case of program changes and ad insertion.",
-        path: "avc_12.5_25_50-2021-07-07-local/playback-over-wave-baseline-splice-constraints__t1_t2.html",
-        code: "playback-over-wave-baseline-splice-constraints.html",
+        title:
+          "Sequential Playback of Encrypted and Non-Encrypted Baseline Content",
+        description: "",
+        path: "splicing-demo-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
+        code: "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
         params: urlParams,
         observations: [],
       };
@@ -51,7 +51,7 @@
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["/content/avc_sets/12.5_25_50/t1/stream.mpd", "/content/avc_sets/12.5_25_50/t2/stream.mpd"];
+      var videoContentModel = ["/content/avc_sets/15_30_60/t1-cenc/stream.mpd", "/content/avc_sets/15_30_60/t1/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
@@ -63,12 +63,12 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
+        isEncryptedContent: true,
         usePlayout: true,
       });
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration || 
             player.getPreBufferedTime() >= player.getDuration()) {

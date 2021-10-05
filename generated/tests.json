@@ -802,46 +802,6 @@
                 "audio": []
             }
         },
-        "77d90d60ddd9e5be136e314c7b943cde": {
-            "path": "avc_15_30_60-2021-07-07-online/playback-over-wave-baseline-splice-constraints__t1_t2.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t2/stream.mpd"
-            ],
-            "audio": [],
-            "code": "playback-over-wave-baseline-splice-constraints.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    },
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M5.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 5.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
         "186bd9284d0a0fd5f363e382081f89c7": {
             "path": "avc_15_30_60-2021-07-07-online/out-of-order-loading__t1.html",
             "video": [
@@ -1027,46 +987,6 @@
             "code": "playback-of-encrypted-content-https.html",
             "switchingSets": {
                 "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "b4613e36650ff6cc0deb8c8d1980d3dc": {
-            "path": "avc_15_30_60-2021-07-07-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1-cenc/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    },
                     {
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.021S",
@@ -1938,46 +1858,6 @@
                 "audio": []
             }
         },
-        "cbc59d6e03befb18dfa6e2b00e8d5488": {
-            "path": "avc_15_30_60-2021-07-07-local/playback-over-wave-baseline-splice-constraints__t1_t2.html",
-            "video": [
-                "/content/avc_sets/15_30_60/t1/stream.mpd",
-                "/content/avc_sets/15_30_60/t2/stream.mpd"
-            ],
-            "audio": [],
-            "code": "playback-over-wave-baseline-splice-constraints.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    },
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M5.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 5.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
         "f4653509cec39dbf21b1c6b68d4edd7a": {
             "path": "avc_15_30_60-2021-07-07-local/out-of-order-loading__t1.html",
             "video": [
@@ -2163,46 +2043,6 @@
             "code": "playback-of-encrypted-content-https.html",
             "switchingSets": {
                 "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "a1e86834247265136137e808ccf5f9e2": {
-            "path": "avc_15_30_60-2021-07-07-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
-            "video": [
-                "/content/avc_sets/15_30_60/t1-cenc/stream.mpd",
-                "/content/avc_sets/15_30_60/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    },
                     {
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.021S",
@@ -3049,46 +2889,6 @@
                 "audio": []
             }
         },
-        "7860e06416e582d02537637ac7e39748": {
-            "path": "avc_12.5_25_50-2021-07-07-online/playback-over-wave-baseline-splice-constraints__t1_t2.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t2/stream.mpd"
-            ],
-            "audio": [],
-            "code": "playback-over-wave-baseline-splice-constraints.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    },
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M5.014S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 5.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
         "fb64c6cca21ae21cb747a92775178f94": {
             "path": "avc_12.5_25_50-2021-07-07-online/out-of-order-loading__t1.html",
             "video": [
@@ -3274,46 +3074,6 @@
             "code": "playback-of-encrypted-content-https.html",
             "switchingSets": {
                 "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "ae45a9590212ff4186b3b509e8b5fb3a": {
-            "path": "avc_12.5_25_50-2021-07-07-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1-cenc/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    },
                     {
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
@@ -4212,46 +3972,6 @@
                 "audio": []
             }
         },
-        "84f62fd4c2924441d2b0e32215d4a278": {
-            "path": "avc_12.5_25_50-2021-07-07-local/playback-over-wave-baseline-splice-constraints__t1_t2.html",
-            "video": [
-                "/content/avc_sets/12.5_25_50/t1/stream.mpd",
-                "/content/avc_sets/12.5_25_50/t2/stream.mpd"
-            ],
-            "audio": [],
-            "code": "playback-over-wave-baseline-splice-constraints.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    },
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M5.014S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 5.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
         "197351a3953d0cde4f333fdf11073ae0": {
             "path": "avc_12.5_25_50-2021-07-07-local/out-of-order-loading__t1.html",
             "video": [
@@ -4437,46 +4157,6 @@
             "code": "playback-of-encrypted-content-https.html",
             "switchingSets": {
                 "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "86f881fa706b2a0f953231a8543b8b39": {
-            "path": "avc_12.5_25_50-2021-07-07-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
-            "video": [
-                "/content/avc_sets/12.5_25_50/t1-cenc/stream.mpd",
-                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0
-                            }
-                        }
-                    },
                     {
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
@@ -5349,46 +5029,6 @@
                 "audio": []
             }
         },
-        "4a2b02f614fdc8ae63ca4b1f44f2d9de": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/playback-over-wave-baseline-splice-constraints__t1_t2.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t2/stream.mpd"
-            ],
-            "audio": [],
-            "code": "playback-over-wave-baseline-splice-constraints.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    },
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M5.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 5.005
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
         "8d5f246f9079cc6566180fb500683b50": {
             "path": "avc_14.985_29.97_59.94-2021-07-07-online/out-of-order-loading__t1.html",
             "video": [
@@ -5574,46 +5214,6 @@
             "code": "playback-of-encrypted-content-https.html",
             "switchingSets": {
                 "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "4ac33e46f75beed70fbdcbfb977b9b51": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1-cenc/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    },
                     {
                         "cmaf_track_duration": "PT0H0M59.999S",
                         "fragment_duration": "PT0H0M2.021S",
@@ -6486,46 +6086,6 @@
                 "audio": []
             }
         },
-        "b2b60e0dde1546a56181ae17818e7b57": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/playback-over-wave-baseline-splice-constraints__t1_t2.html",
-            "video": [
-                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd",
-                "/content/avc_sets/14.985_29.97_59.94/t2/stream.mpd"
-            ],
-            "audio": [],
-            "code": "playback-over-wave-baseline-splice-constraints.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    },
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M5.016S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 5.005
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
         "6bd53a1a556b4c3ccc790a9f4679ec3d": {
             "path": "avc_14.985_29.97_59.94-2021-07-07-local/out-of-order-loading__t1.html",
             "video": [
@@ -6728,46 +6288,6 @@
                 "audio": []
             }
         },
-        "a137c4218a3bed7e621cc99cf3430454": {
-            "path": "avc_14.985_29.97_59.94-2021-07-07-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
-            "video": [
-                "/content/avc_sets/14.985_29.97_59.94/t1-cenc/stream.mpd",
-                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    },
-                    {
-                        "cmaf_track_duration": "PT0H0M59.999S",
-                        "fragment_duration": "PT0H0M2.021S",
-                        "representations": {
-                            "2": {
-                                "period": 1,
-                                "duration": 59,
-                                "type": "video",
-                                "frame_rate": "30000/1001",
-                                "fragment_duration": 2.002
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
         "d005490a70320d78a2b0823c3097fead": {
             "path": "avc_14.985_29.97_59.94-2021-07-07-local/regular-playback-of-a-cmaf-presentation__t1.html",
             "video": [
@@ -6829,20 +6349,7 @@
             "code": "sequential-track-playback.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "2a9b7572d50e2a3aad30d14514a544bc": {
@@ -6854,20 +6361,7 @@
             "code": "random-access-to-fragment.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "d5271f2c1df041b733fcb6464c062350": {
@@ -6879,20 +6373,7 @@
             "code": "random-access-to-time.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "d1db8c3a5744860444292be3e2e89639": {
@@ -6904,20 +6385,7 @@
             "code": "regular-playback-of-chunked-content.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "7378e2ae1c32d6629b58aa4d26c5fef5": {
@@ -6929,20 +6397,7 @@
             "code": "regular-playback-of-chunked-content-non-aligned-append.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "505f55f5ad5d58eeb4304441023ec9d1": {
@@ -6954,20 +6409,7 @@
             "code": "out-of-order-loading.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "ea795f39e2aa72494a525455ab9fd03b": {
@@ -6979,20 +6421,7 @@
             "code": "overlapping-fragments.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "e50f46f7d4532909b1d720b0ad55ba9d": {
@@ -7020,20 +6449,7 @@
                         }
                     }
                 ],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "e1f5aa69135b52ff0e9aa7f9410061e0": {
@@ -7061,20 +6477,7 @@
                         }
                     }
                 ],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "4f87ff5b1cb696da68f326948f967274": {
@@ -7086,20 +6489,7 @@
             "code": "sequential-track-playback.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "2b62f50330f21aa3f3c0fee27eced568": {
@@ -7111,20 +6501,7 @@
             "code": "sequential-track-playback.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.000S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "c18997e7aba94259894fa66faab59d64": {
@@ -7136,20 +6513,7 @@
             "code": "random-access-to-fragment.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.000S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "583574cf9bef76b10572e886169e2fc7": {
@@ -7161,20 +6525,7 @@
             "code": "random-access-to-time.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.000S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "0cde04c1fc6ba747bb0f584199a2ad71": {
@@ -7186,20 +6537,7 @@
             "code": "regular-playback-of-chunked-content.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.000S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "4882ec2d015fcc37ca9463fb1e3e2974": {
@@ -7211,20 +6549,7 @@
             "code": "regular-playback-of-chunked-content-non-aligned-append.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.000S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "988ceaf0e14c9924e4feb9876f4c7d4c": {
@@ -7236,20 +6561,7 @@
             "code": "out-of-order-loading.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.000S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "685abfa7ff5a335e6612723c188e10d7": {
@@ -7261,20 +6573,7 @@
             "code": "overlapping-fragments.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.000S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "17ae305afab819d52cee9c943c9b0b07": {
@@ -7302,20 +6601,7 @@
                         }
                     }
                 ],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.000S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "92a2cb802467716be6dd2ac89facc8cb": {
@@ -7343,20 +6629,7 @@
                         }
                     }
                 ],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.000S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "6b3c93f79443d381becf769e8e27d087": {
@@ -7368,20 +6641,7 @@
             "code": "sequential-track-playback.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.000S",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "audio",
-                                "fragment_duration": null
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "362351e6492b3c53c4d539791df39958": {
@@ -7946,6 +7206,166 @@
                         }
                     }
                 ]
+            }
+        },
+        "77d90d60ddd9e5be136e314c7b943cde": {
+            "path": "splicing-demo-online/playback-over-wave-baseline-splice-constraints__t1_t2.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd",
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-over-wave-baseline-splice-constraints.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M5.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 5.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "b4613e36650ff6cc0deb8c8d1980d3dc": {
+            "path": "splicing-demo-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1-cenc/stream.mpd",
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "cbc59d6e03befb18dfa6e2b00e8d5488": {
+            "path": "splicing-demo-local/playback-over-wave-baseline-splice-constraints__t1_t2.html",
+            "video": [
+                "/content/avc_sets/15_30_60/t1/stream.mpd",
+                "/content/avc_sets/15_30_60/t2/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-over-wave-baseline-splice-constraints.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M5.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 5.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "a1e86834247265136137e808ccf5f9e2": {
+            "path": "splicing-demo-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
+            "video": [
+                "/content/avc_sets/15_30_60/t1-cenc/stream.mpd",
+                "/content/avc_sets/15_30_60/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
             }
         }
     }

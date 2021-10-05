@@ -253,17 +253,17 @@ function DpctfTest(config) {
               player.setDuration(parameters.duration);
             }
 
-            if (parameters.totalRepresentations) {
-              if (
-                parameters.totalRepresentations !==
-                player.getVideoManifest().getRepresentations().length
-              ) {
-                throw new Error(
-                  "Provided total representations do not match MPD total representations of " +
-                  player.getVideoManifest().getRepresentations().length
-                );
-              }
-            }
+            //if (parameters.totalRepresentations) {
+              //if (
+                //parameters.totalRepresentations !==
+                //player.getVideoManifest().getRepresentations().length
+              //) {
+                //throw new Error(
+                  //"Provided total representations do not match MPD total representations of " +
+                  //player.getVideoManifest().getRepresentations().length
+                //);
+              //}
+            //}
 
             if (!setupTestCallback) resolve();
             setupTestCallback(player, resolve, parameters);

@@ -33,9 +33,6 @@
 
 "regular-playback-of-chunked-content-non-aligned-append","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t2/stream.mpd","","avc_15_30_60-2021-07-07-online"
 
-"playback-over-wave-baseline-splice-constraints","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd","","avc_15_30_60-2021-07-07-online"
-"","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t2/stream.mpd","","avc_15_30_60-2021-07-07-online"
-
 "out-of-order-loading","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd","","avc_15_30_60-2021-07-07-online"
 
 "overlapping-fragments","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/ss1/stream.mpd","","avc_15_30_60-2021-07-07-online"
@@ -43,9 +40,6 @@
 "fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/ss1/stream.mpd","","avc_15_30_60-2021-07-07-online"
 
 "playback-of-encrypted-content-https","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1-cenc/stream.mpd","","avc_15_30_60-2021-07-07-online"
-
-"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1-cenc/stream.mpd","","avc_15_30_60-2021-07-07-online"
-"","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd","","avc_15_30_60-2021-07-07-online"
 
 "regular-playback-of-a-cmaf-presentation","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd","","avc_15_30_60-2021-07-07-online"
 
@@ -87,9 +81,6 @@
 
 "regular-playback-of-chunked-content-non-aligned-append","/content/avc_sets/15_30_60/t2/stream.mpd","","avc_15_30_60-2021-07-07-local"
 
-"playback-over-wave-baseline-splice-constraints","/content/avc_sets/15_30_60/t1/stream.mpd","","avc_15_30_60-2021-07-07-local"
-"","/content/avc_sets/15_30_60/t2/stream.mpd","","avc_15_30_60-2021-07-07-local"
-
 "out-of-order-loading","/content/avc_sets/15_30_60/t1/stream.mpd","","avc_15_30_60-2021-07-07-local"
 
 "overlapping-fragments","/content/avc_sets/15_30_60/ss1/stream.mpd","","avc_15_30_60-2021-07-07-local"
@@ -97,9 +88,6 @@
 "fullscreen-playback-of-switching-sets","/content/avc_sets/15_30_60/ss1/stream.mpd","","avc_15_30_60-2021-07-07-local"
 
 "playback-of-encrypted-content-https","/content/avc_sets/15_30_60/t1-cenc/stream.mpd","","avc_15_30_60-2021-07-07-local"
-
-"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","/content/avc_sets/15_30_60/t1-cenc/stream.mpd","","avc_15_30_60-2021-07-07-local"
-"","/content/avc_sets/15_30_60/t1/stream.mpd","","avc_15_30_60-2021-07-07-local"
 
 "regular-playback-of-a-cmaf-presentation","/content/avc_sets/15_30_60/t1/stream.mpd","","avc_15_30_60-2021-07-07-local"
 
@@ -139,9 +127,6 @@
 "regular-playback-of-chunked-content","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t16/stream.mpd","","avc_12.5_25_50-2021-07-07-online"
 "regular-playback-of-chunked-content","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t17/stream.mpd","","avc_12.5_25_50-2021-07-07-online"
 
-"playback-over-wave-baseline-splice-constraints","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd","","avc_12.5_25_50-2021-07-07-online"
-"","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t2/stream.mpd","","avc_12.5_25_50-2021-07-07-online"
-
 "out-of-order-loading","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd","","avc_12.5_25_50-2021-07-07-online"
 
 "overlapping-fragments","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/ss1/stream.mpd","","avc_12.5_25_50-2021-07-07-online"
@@ -149,9 +134,6 @@
 "fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/ss1/stream.mpd","","avc_12.5_25_50-2021-07-07-online"
 
 "playback-of-encrypted-content-https","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1-cenc/stream.mpd","","avc_12.5_25_50-2021-07-07-online"
-
-"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1-cenc/stream.mpd","","avc_12.5_25_50-2021-07-07-online"
-"","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd","","avc_12.5_25_50-2021-07-07-online"
 
 "regular-playback-of-a-cmaf-presentation","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd","","avc_12.5_25_50-2021-07-07-online"
 
@@ -195,9 +177,6 @@
 
 "regular-playback-of-chunked-content-non-aligned-append","/content/avc_sets/12.5_25_50/t2/stream.mpd","","avc_12.5_25_50-2021-07-07-local"
 
-"playback-over-wave-baseline-splice-constraints","/content/avc_sets/12.5_25_50/t1/stream.mpd","","avc_12.5_25_50-2021-07-07-local"
-"","/content/avc_sets/12.5_25_50/t2/stream.mpd","","avc_12.5_25_50-2021-07-07-local"
-
 "out-of-order-loading","/content/avc_sets/12.5_25_50/t1/stream.mpd","","avc_12.5_25_50-2021-07-07-local"
 
 "overlapping-fragments","/content/avc_sets/12.5_25_50/ss1/stream.mpd","","avc_12.5_25_50-2021-07-07-local"
@@ -205,9 +184,6 @@
 "fullscreen-playback-of-switching-sets","/content/avc_sets/12.5_25_50/ss1/stream.mpd","","avc_12.5_25_50-2021-07-07-local"
 
 "playback-of-encrypted-content-https","/content/avc_sets/12.5_25_50/t1-cenc/stream.mpd","","avc_12.5_25_50-2021-07-07-local"
-
-"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","/content/avc_sets/12.5_25_50/t1-cenc/stream.mpd","","avc_12.5_25_50-2021-07-07-local"
-"","/content/avc_sets/12.5_25_50/t1/stream.mpd","","avc_12.5_25_50-2021-07-07-local"
 
 "regular-playback-of-a-cmaf-presentation","/content/avc_sets/12.5_25_50/t1/stream.mpd","","avc_12.5_25_50-2021-07-07-local"
 
@@ -249,9 +225,6 @@
 
 "regular-playback-of-chunked-content-non-aligned-append","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t2/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-online"
 
-"playback-over-wave-baseline-splice-constraints","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-online"
-"","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t2/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-online"
-
 "out-of-order-loading","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-online"
 
 "overlapping-fragments","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/ss1/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-online"
@@ -259,9 +232,6 @@
 "fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/ss1/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-online"
 
 "playback-of-encrypted-content-https","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1-cenc/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-online"
-
-"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1-cenc/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-online"
-"","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-online"
 
 "regular-playback-of-a-cmaf-presentation","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-online"
 
@@ -303,9 +273,6 @@
 
 "regular-playback-of-chunked-content-non-aligned-append","/content/avc_sets/14.985_29.97_59.94/t2/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-local"
 
-"playback-over-wave-baseline-splice-constraints","/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-local"
-"","/content/avc_sets/14.985_29.97_59.94/t2/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-local"
-
 "out-of-order-loading","/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-local"
 
 "overlapping-fragments","/content/avc_sets/14.985_29.97_59.94/ss1/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-local"
@@ -313,9 +280,6 @@
 "fullscreen-playback-of-switching-sets","/content/avc_sets/14.985_29.97_59.94/ss1/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-local"
 
 "playback-of-encrypted-content-https","/content/avc_sets/14.985_29.97_59.94/t1-cenc/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-local"
-
-"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","/content/avc_sets/14.985_29.97_59.94/t1-cenc/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-local"
-"","/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-local"
 
 "regular-playback-of-a-cmaf-presentation","/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd","","avc_14.985_29.97_59.94-2021-07-07-local"
 
@@ -364,3 +328,16 @@
 
 "sequential-track-playback","","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd","audio-only-online"
 "sequential-track-playback","","/content/avc_sets/15_30_60/t1/stream.mpd","audio-only-local"
+
+
+"playback-over-wave-baseline-splice-constraints","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd","","splicing-demo-online"
+"","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t2/stream.mpd","","splicing-demo-online"
+
+"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1-cenc/stream.mpd","","splicing-demo-online"
+"","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd","","splicing-demo-online"
+
+"playback-over-wave-baseline-splice-constraints","/content/avc_sets/15_30_60/t1/stream.mpd","","splicing-demo-local"
+"","/content/avc_sets/15_30_60/t2/stream.mpd","","splicing-demo-local"
+
+"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","/content/avc_sets/15_30_60/t1-cenc/stream.mpd","","splicing-demo-local"
+"","/content/avc_sets/15_30_60/t1/stream.mpd","","splicing-demo-local"
