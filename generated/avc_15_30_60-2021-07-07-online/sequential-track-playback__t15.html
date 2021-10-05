@@ -126,7 +126,6 @@
           var loadedEvent = "onVideoSegmentLoaded";
           if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
           player.on(loadedEvent, function (event) {
-            console.log(loadedEvent);
             if (player.getPreBufferedTime() >= minBufferDuration || 
                 player.getPreBufferedTime() >= player.getDuration()) {
               player

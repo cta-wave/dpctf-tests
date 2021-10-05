@@ -1,29 +1,28 @@
 {
     "tests": {
         "247b68dd7b6b3a307fb5c54b948eee23": {
-            "path": "avc_15_30_60-2021-07-07-online/sequential-track-playback__t1.html",
-            "video": [
+            "path": "audio-only-online/sequential-track-playback__t1.html",
+            "video": [],
+            "audio": [
                 "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
             ],
-            "audio": [],
             "code": "sequential-track-playback.html",
             "switchingSets": {
-                "video": [
+                "video": [],
+                "audio": [
                     {
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.021S",
                         "representations": {
-                            "2": {
+                            "1": {
                                 "period": 1,
                                 "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
+                                "type": "audio",
+                                "fragment_duration": 1.9969160997732427
                             }
                         }
                     }
-                ],
-                "audio": []
+                ]
             }
         },
         "bc34adeae998a8589dd694cf902ea867": {
@@ -1045,6 +1044,46 @@
                 "audio": []
             }
         },
+        "b4613e36650ff6cc0deb8c8d1980d3dc": {
+            "path": "avc_15_30_60-2021-07-07-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1-cenc/stream.mpd",
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
         "e8d1ef25eea4eb323d85d637024acd59": {
             "path": "avc_15_30_60-2021-07-07-online/regular-playback-of-a-cmaf-presentation__t1.html",
             "video": [
@@ -1098,29 +1137,28 @@
             }
         },
         "ff353c530a7dd5885a5f5348a1af8c67": {
-            "path": "avc_15_30_60-2021-07-07-local/sequential-track-playback__t1.html",
-            "video": [
+            "path": "audio-only-local/sequential-track-playback__t1.html",
+            "video": [],
+            "audio": [
                 "/content/avc_sets/15_30_60/t1/stream.mpd"
             ],
-            "audio": [],
             "code": "sequential-track-playback.html",
             "switchingSets": {
-                "video": [
+                "video": [],
+                "audio": [
                     {
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.021S",
                         "representations": {
-                            "2": {
+                            "1": {
                                 "period": 1,
                                 "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
+                                "type": "audio",
+                                "fragment_duration": 1.9969160997732427
                             }
                         }
                     }
-                ],
-                "audio": []
+                ]
             }
         },
         "89ed0ce2db0cbd136ef3dec2edea78da": {
@@ -2125,6 +2163,46 @@
             "code": "playback-of-encrypted-content-https.html",
             "switchingSets": {
                 "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "a1e86834247265136137e808ccf5f9e2": {
+            "path": "avc_15_30_60-2021-07-07-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
+            "video": [
+                "/content/avc_sets/15_30_60/t1-cenc/stream.mpd",
+                "/content/avc_sets/15_30_60/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    },
                     {
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.021S",
@@ -3196,6 +3274,46 @@
             "code": "playback-of-encrypted-content-https.html",
             "switchingSets": {
                 "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "ae45a9590212ff4186b3b509e8b5fb3a": {
+            "path": "avc_12.5_25_50-2021-07-07-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1-cenc/stream.mpd",
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/12.5_25_50/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    },
                     {
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
@@ -4336,6 +4454,46 @@
                 "audio": []
             }
         },
+        "86f881fa706b2a0f953231a8543b8b39": {
+            "path": "avc_12.5_25_50-2021-07-07-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
+            "video": [
+                "/content/avc_sets/12.5_25_50/t1-cenc/stream.mpd",
+                "/content/avc_sets/12.5_25_50/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
         "80c82c6ef1f5f26f96cfeb6f53bc731e": {
             "path": "avc_12.5_25_50-2021-07-07-local/regular-playback-of-a-cmaf-presentation__t1.html",
             "video": [
@@ -5433,6 +5591,46 @@
                 "audio": []
             }
         },
+        "4ac33e46f75beed70fbdcbfb977b9b51": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1-cenc/stream.mpd",
+                "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
         "6ce81fc8961458d926f22c0ee5235af5": {
             "path": "avc_14.985_29.97_59.94-2021-07-07-online/regular-playback-of-a-cmaf-presentation__t1.html",
             "video": [
@@ -6513,6 +6711,46 @@
             "code": "playback-of-encrypted-content-https.html",
             "switchingSets": {
                 "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "a137c4218a3bed7e621cc99cf3430454": {
+            "path": "avc_14.985_29.97_59.94-2021-07-07-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
+            "video": [
+                "/content/avc_sets/14.985_29.97_59.94/t1-cenc/stream.mpd",
+                "/content/avc_sets/14.985_29.97_59.94/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M59.999S",
+                        "fragment_duration": "PT0H0M2.021S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 59,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    },
                     {
                         "cmaf_track_duration": "PT0H0M59.999S",
                         "fragment_duration": "PT0H0M2.021S",
