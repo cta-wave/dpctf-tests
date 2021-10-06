@@ -976,9 +976,8 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec) {
     keySession
       .generateRequest(initDataType, initData)
       .catch(
-        console.error.bind(
-          console,
-          "Unable to create or initialize key session"
+        console.log(
+          "WARNING: Unable to create or initialize key session"
         )
       );
   }

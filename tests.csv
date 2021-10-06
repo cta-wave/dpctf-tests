@@ -326,18 +326,19 @@
 "random-access-of-a-wave-presentation","/content/avc_sets/15_30_60/t1/stream.mpd","https://dash.akamaized.net/WAVE/vectors/2021-09-29/ac4_sets/at1/stream.mpd","ac4-2021-09-29-online"
 "sequential-track-playback","","https://dash.akamaized.net/WAVE/vectors/2021-09-29/ac4_sets/at_dev/stream.mpd","ac4-2021-09-29-online"
 
+
 "sequential-track-playback","","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd","audio-only-online"
 "sequential-track-playback","","/content/avc_sets/15_30_60/t1/stream.mpd","audio-only-local"
 
 
-"playback-over-wave-baseline-splice-constraints","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd","","splicing-demo-online"
-"","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t2/stream.mpd","","splicing-demo-online"
+"playback-over-wave-baseline-splice-constraints","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/ss1/stream.mpd","","splicing-demo-online"
+"","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t21/stream.mpd","","splicing-demo-online"
 
 "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1-cenc/stream.mpd","","splicing-demo-online"
 "","https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd","","splicing-demo-online"
 
-"playback-over-wave-baseline-splice-constraints","/content/avc_sets/15_30_60/t1/stream.mpd","","splicing-demo-local"
-"","/content/avc_sets/15_30_60/t2/stream.mpd","","splicing-demo-local"
+"playback-over-wave-baseline-splice-constraints","/content/avc_sets/15_30_60/ss1/stream.mpd","","splicing-demo-local"
+"","/content/avc_sets/15_30_60/t21/stream.mpd","","splicing-demo-local"
 
 "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","/content/avc_sets/15_30_60/t1-cenc/stream.mpd","","splicing-demo-local"
 "","/content/avc_sets/15_30_60/t1/stream.mpd","","splicing-demo-local"

@@ -249,7 +249,7 @@ function DpctfTest(config) {
               }
             }
 
-            if (!player.getDuration()) {
+            if (!player.getDuration() && parameters.duration) {
               player.setDuration(parameters.duration);
             }
 
