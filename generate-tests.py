@@ -120,6 +120,7 @@ def main():
         grouping_dir = test["group"]
         template_file_name = ".".join(template_file.split(".")[0:-1])
         test_path_relative = generate_test_path(grouping_dir, template_file_name, video_mpd_urls, audio_mpd_urls)
+        test["id"] = generate_test_id(test_path_relative)
         test_path = "{}/{}".format(DEST_DIR, test_path_relative)
         test["path"] = test_path
         content = load_file(test_template_path)
@@ -279,7 +280,8 @@ def generate_test_json(tests):
 
 def generate_test_id(test_path_relative):
     hashobj = hashlib.md5(test_path_relative.encode("utf-8"))
-    return hashobj.hexdigest()
+    hash = hashobj.hexdigest()
+    return hash
 
 
 def load_file(path):
