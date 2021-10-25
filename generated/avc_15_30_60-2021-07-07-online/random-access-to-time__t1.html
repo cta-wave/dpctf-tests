@@ -49,8 +49,8 @@
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd";
-      var audioContentModel = "";
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/2021-07-07/avc_sets/15_30_60/t1/stream.mpd"];
+      var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -90,7 +90,9 @@
               done(error);
             });
         } else {
-          player.on("onVideoSegmentLoaded", function (event) {
+          var loadedEvent = "onVideoSegmentLoaded";
+          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
+          player.on(loadedEvent, function (event) {
             if (
               player.getPreBufferedTime() >= minBufferDuration ||
               player.getPreBufferedTime() >= timeLeft

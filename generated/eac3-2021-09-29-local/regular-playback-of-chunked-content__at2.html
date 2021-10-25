@@ -38,52 +38,21 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "sequential-track-playback",
-        title: "Sequential Track Playback",
+        id: "regular-playback-of-chunked-content",
+        title: "Regular Playback of Chunked Content",
         description:
-          "Sequential track playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization.",
-        path: "avc_15_30_60-2021-07-26-online/sequential-track-playback__t33.html",
-        code: "sequential-track-playback.html",
-        observations: [
-          {
-            name: "Low start-up delay",
-            description:
-              "The start-up delay should be sufficiently low, i.e., TR [k, 1] – Ti < TSMax.",
-            id: "start-up-delay",
-          },
-          {
-            name: "Render every sample",
-            description:
-              "Every sample S[k,s] shall be rendered and the samples shall be rendered in increasing presentation time order.",
-            id: "every-sample-rendered",
-          },
-          {
-            name: "Duration matches CMAF track",
-            description:
-              "The playback duration of the playback matches the duration of the CMAF Track, i.e. TR[k, S] = TR [k, 1] + td[k].",
-            id: "duration-matches-cmaf-track",
-          },
-          {
-            name: "Presented sample correct",
-            description:
-              "The presented sample matches the one reported by the currentTime value within the tolerance of the sample duration.",
-            id: "sample-matches-current-time",
-          },
-          {
-            name: "Video rendered in entire window",
-            description:
-              "Every video frame S[k,s] shall be rendered such that it fills the entire video output window.",
-            id: "video-fills-entire-output-window",
-          },
-        ],
+          "Sequential Chunked Playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF chunks to the source buffer after initialization.",
+        path: "eac3-2021-09-29-local/regular-playback-of-chunked-content__at2.html",
+        code: "regular-playback-of-chunked-content.html",
+        observations: [],
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = "https://dash.akamaized.net/WAVE/vectors/2021-07-26/avc_sets/15_30_60/t33/stream.mpd";
-      var audioContentModel = "";
+      var videoContentModel = [];
+      var audioContentModel = ["/content/eac3_sets/at2/stream.mpd"];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -100,18 +69,6 @@
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
-
-        dpctfTest.asyncTest(function (test) {
-          var query = location.search.replace(/\?/, "");
-          var match = query.match(/redirect_time=([^&]+)/);
-          var REDIRECT_TIME = match ? match[1] : null;
-          if (!REDIRECT_TIME) REDIRECT_TIME = 5;
-          video.addEventListener("ended", function (event) {
-            assert_true(true);
-            test.done();
-          });
-        }, "video ended event fired");
-
         if (player.getPreBufferedTime() >= minBufferDuration || 
             player.getPreBufferedTime() >= player.getDuration()) {
           player
@@ -123,7 +80,9 @@
               done(error);
             });
         } else {
-          player.on("onVideoSegmentLoaded", function (event) {
+          var loadedEvent = "onVideoSegmentLoaded";
+          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
+          player.on(loadedEvent, function (event) {
             if (player.getPreBufferedTime() >= minBufferDuration || 
                 player.getPreBufferedTime() >= player.getDuration()) {
               player
@@ -137,6 +96,17 @@
             }
           });
         }
+
+        dpctfTest.asyncTest(function (test) {
+          var query = location.search.replace(/\?/, "");
+          var match = query.match(/redirect_time=([^&]+)/);
+          var REDIRECT_TIME = match ? match[1] : null;
+          if (!REDIRECT_TIME) REDIRECT_TIME = 5;
+          video.addEventListener("ended", function (event) {
+            assert_true(true);
+            test.done();
+          });
+        }, "video ended event fired");
       }
     </script>
   </body>
