@@ -67,10 +67,8 @@
 
       function setupTest(player, done, parameters) {
         var randomAccessFragment = parameters.randomAccessFragment;
-        var manifest = player.getVideoManifest();
         var videoSegments = player.getVideoSegments();
         var totalSegments = player.getVideoSegmentsCount();
-        var cmafTrackLength = player.getVideoManifest().getDuration();
 
         var fragmentTime = 0;
         for (var i = 0; i < randomAccessFragment; i++) {
