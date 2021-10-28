@@ -5,21 +5,25 @@
   "sequential-track-playback.html": {
     "min_buffer_duration": 40000,
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "random-access-to-fragment.html": {
     "ts_max": 120,
     "tolerance": 20,
+    "frame_tolerance": 2,
     "random_access_fragment": 10
   },
   "random-access-to-time.html": {
     "ts_max": 120,
     "tolerance": 20,
+    "frame_tolerance": 2,
     "random_access_time": 10
   },
   "switching-set-playback.html": {
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "avc_12.5_25_50-2021-07-07-local/switching-set-playback__ss1.html": {
     "playout": [
@@ -96,16 +100,19 @@
   "regular-playback-of-chunked-content.html": {
     "min_buffer_duration": 1000,
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "regular-playback-of-chunked-content-non-aligned-append.html": {
     "min_buffer_duration": 1000,
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "playback-over-wave-baseline-splice-constraints.html": {
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "splicing-demo-local/playback-over-wave-baseline-splice-constraints__ss1_t21.html": {
     "playout": [
@@ -132,7 +139,8 @@
   "out-of-order-loading.html": {
     "max_buffer_duration": 30000,
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "avc_12.5_25_50-2021-07-07-local/out-of-order-loading__t1.html": {
     "loading": [3, 5, 2, 4, 1, 8, 10, 7, 9, 6, 13, 15, 12, 14, 11]
@@ -154,7 +162,8 @@
   },
   "overlapping-fragments.html": {
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "avc_12.5_25_50-2021-07-07-local/overlapping-fragments__ss1.html": {
     "playout": [
@@ -231,7 +240,8 @@
   "fullscreen-playback-of-switching-sets.html": {
     "max_buffer_duration": 30000,
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "avc_12.5_25_50-2021-07-07-local/fullscreen-playback-of-switching-sets__ss1.html": {
     "playout": [
@@ -308,6 +318,7 @@
   "playback-of-encrypted-content-https.html": {
     "ts_max": 120,
     "tolerance": 20,
+    "frame_tolerance": 2,
     "key_id": "J5kmSWp_XSXaafKzsnmafw",
     "content_key": "ABEiM0RVZneImaq7zN3u_w"
   },
@@ -344,15 +355,18 @@
   },
   "regular-playback-of-a-cmaf-presentation.html": {
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "random-access-of-a-wave-presentation.html": {
     "ts_max": 120,
     "tolerance": 20,
+    "frame_tolerance": 2,
     "random_access_fragment": 10
   },
   "splicing-of-wave-program-with-baseline-constraints.html": {
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   }
 }
