@@ -3,7 +3,9 @@
     "min_buffer_duration": 30000,
     "audio_tolerance": 20,
     "audio_sample_tolerance": 2,
-    "audio_sample_length": 20
+    "audio_sample_length": 20,
+    "duration_tolerance": 20,
+    "duration_frame_tolerance": 0
   },
   "sequential-track-playback.html": {
     "min_buffer_duration": 40000,
