@@ -354,5 +354,9 @@
   "splicing-of-wave-program-with-baseline-constraints.html": {
     "ts_max": 120,
     "tolerance": 20
+  },
+  "low-latency-playback-over-gaps.html": {
+    "gap_duration": 1000,
+    "gap_location_fragment": 5
   }
 }
