@@ -7,7 +7,8 @@ function DpctfTest(config) {
   var outOfOrderLoading = config.outOfOrderLoading || false;
   var executeTestCallback = config.executeTest || function() { };
   var setupTestCallback = config.setupTest;
-  var usePlayout = config.usePlayout;
+  var usePlayout = !!config.usePlayout;
+  var useChangeType = config.useChangeType;
   var videoContentModels = config.videoContentModel || [];
   var audioContentModels = config.audioContentModel || [];
 
@@ -213,6 +214,7 @@ function DpctfTest(config) {
           numberOfSegmentBeforePlay: 2,
           outOfOrderLoading: outOfOrderLoading,
           loading: parameters.loading,
+          useChangeType: useChangeType,
         })
         .then(function() {
           return Promise.all([
@@ -238,6 +240,13 @@ function DpctfTest(config) {
               applyPlayout(parameters.playout);
             }
 
+            if (parameters.gapDuration && parameters.gapLocationFragment) {
+              player.setVideoGaps([{ 
+                gapDuration: parameters.gapDuration, 
+                gapLocationFragment: parameters.gapLocationFragment
+              }]);
+            }
+
             if (parameters.duration && player.getDuration()) {
               const duration = parseInt(player.getDuration() * 100) / 100;
               if (parameters.duration !== duration) {
@@ -254,15 +263,15 @@ function DpctfTest(config) {
             }
 
             //if (parameters.totalRepresentations) {
-              //if (
-                //parameters.totalRepresentations !==
-                //player.getVideoManifest().getRepresentations().length
-              //) {
-                //throw new Error(
-                  //"Provided total representations do not match MPD total representations of " +
-                  //player.getVideoManifest().getRepresentations().length
-                //);
-              //}
+            //if (
+            //parameters.totalRepresentations !==
+            //player.getVideoManifest().getRepresentations().length
+            //) {
+            //throw new Error(
+            //"Provided total representations do not match MPD total representations of " +
+            //player.getVideoManifest().getRepresentations().length
+            //);
+            //}
             //}
 
             if (!setupTestCallback) resolve();
@@ -654,6 +663,8 @@ function DpctfTest(config) {
           contentKey: determineValue("content_key"),
           loading: determineValue("loading"),
           playout: determineValue("playout"),
+          gapLocationFragment: determineValue("gap_location_fragment"),
+          gapDuration: determineValue("gap_duration"),
         };
 
         var playout = determineValue("playout");
