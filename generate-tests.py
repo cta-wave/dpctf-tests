@@ -7,6 +7,8 @@ from pathlib import Path
 import hashlib
 import json
 import urllib.request
+import urllib.error
+import http.client
 import re
 from xml.dom.minidom import parseString
 from python_lib.gweis.isoduration import parse_duration
@@ -187,9 +189,16 @@ def parse_mpd_parameters(content, types):
 def parse_segment_template(node):
     parameters = {}
     segments = node.getElementsByTagName("S")
+    fragment_duration = node.getAttribute("duration")
+    if fragment_duration == "":
+        fragment_duration = None
+    if fragment_duration is not None:
+        fragment_duration = int(fragment_duration)
     timescale = node.getAttribute("timescale")
-    timescale = int(timescale)
-    fragment_duration = None
+    if timescale is not None:
+        timescale = int(timescale)
+        if fragment_duration is not None:
+            fragment_duration = fragment_duration / timescale
     sum = 0
     for segment in segments:
         r = segment.getAttribute("r")
@@ -236,10 +245,17 @@ def load_mpd_content(mpd_path):
     content = ""
     if mpd_path.startswith("http"):
         print("Fetching MPD {}".format(mpd_path))
-        try:
-            content = urllib.request.urlopen(mpd_path).read()
-        except urllib.error.HTTPError:
-            print("Could not load http url:", mpd_path)
+        count = 5
+        while count > 0:
+            try:
+                content = urllib.request.urlopen(mpd_path).read()
+                break;
+            except urllib.error.HTTPError:
+                print("Could not load http url:", mpd_path)
+                break;
+            except http.client.IncompleteRead:
+                print("Incomplete read. Retrying ...")
+                count -= 1;
     else:
         # print("Fetching MPD {}".format(mpd_path))
         # mpd_path = mpd_path.replace("/content/", "https://dash.akamaized.net/WAVE/vectors/")
