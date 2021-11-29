@@ -80,7 +80,7 @@
           var newRepresentationIndex = 1;
 
           var totalSegmentsCount = player
-            .getVideoManifest()
+            .getVideoManifests()[0]
             .getRepresentation(newRepresentationIndex)
             .getTotalSegmentsCount();
           var switchingSegment = player.getPlayingVideoSegment().getNumber();
