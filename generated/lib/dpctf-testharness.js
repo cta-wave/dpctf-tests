@@ -358,7 +358,7 @@ function DpctfTest(config) {
     log("Initializing WAVE service");
     return new Promise(function(resolve) {
       waveService = new WaveService();
-      waveService.initialize("resources/wave-config").then(function(error) {
+      waveService.initialize("../lib/resources/wave-config").then(function(error) {
         if (error) resolve("Failed to initialize wave service: " + error);
         resolve();
       });
