@@ -696,7 +696,7 @@ function DpctfTest(config) {
 
         resolve(parameters);
       });
-      xhr.open("GET", "/test-config.json");
+      xhr.open("GET", "../../test-config.json");
       xhr.send();
     });
   }
