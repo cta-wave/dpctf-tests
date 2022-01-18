@@ -43,39 +43,7 @@
         description:
           "Sequential track playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization.",
         path: "avc_12.5_25_50-2021-09-09-online/sequential-track-playback__t12.html",
-        code: "sequential-track-playback.html",
-        observations: [
-          {
-            name: "Low start-up delay",
-            description:
-              "The start-up delay should be sufficiently low, i.e., TR [k, 1] – Ti < TSMax.",
-            id: "start-up-delay",
-          },
-          {
-            name: "Render every sample",
-            description:
-              "Every sample S[k,s] shall be rendered and the samples shall be rendered in increasing presentation time order.",
-            id: "every-sample-rendered",
-          },
-          {
-            name: "Duration matches CMAF track",
-            description:
-              "The playback duration of the playback matches the duration of the CMAF Track, i.e. TR[k, S] = TR [k, 1] + td[k].",
-            id: "duration-matches-cmaf-track",
-          },
-          {
-            name: "Presented sample correct",
-            description:
-              "The presented sample matches the one reported by the currentTime value within the tolerance of the sample duration.",
-            id: "sample-matches-current-time",
-          },
-          {
-            name: "Video rendered in entire window",
-            description:
-              "Every video frame S[k,s] shall be rendered such that it fills the entire video output window.",
-            id: "video-fills-entire-output-window",
-          },
-        ],
+        code: "sequential-track-playback.html"
       };
 
       var video = document.querySelector("video");

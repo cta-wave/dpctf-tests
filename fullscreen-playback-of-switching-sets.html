@@ -43,15 +43,7 @@
           "Fullscreen playback ensures that the device provide proper scaling and letter boxing.",
         path: "{{TEST_PATH}}",
         code: "{{TEMPLATE_NAME}}",
-        params: urlParams,
-        observations: [
-          {
-            name: "Video rendered in entire window",
-            description:
-              "Every video frame S[k,s] shall be rendered such that it fills the entire video output window.",
-            id: "video-fills-entire-output-window",
-          },
-        ],
+        params: urlParams
       };
 
       var video = document.querySelector("video");
