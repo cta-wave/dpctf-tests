@@ -2,7 +2,7 @@
 
 This repository contains tests for the [DPCTF Test
 Runner](https://github.com/cta-wave/dpctf-test-runner).
-This repository contains tests for the [DPCTF Deploy](https://github.com/cta-wave/dpctf-test-runner).
+To deploy the test runner with the tests in this repository, please follow the instructions in the [DPCTF Deploy](https://github.com/cta-wave/dpctf-test-runner) project.
 
 ## Generate Tests
 
@@ -57,3 +57,11 @@ Specification numbers refer to section numbers in [the DPCTF specification](http
 ### Test configuration
 
 Various parameters are used to configure the tests by specifying them in the test-config.json. A list of available parameters can be found [here](./TEST_CONFIG.md).
+
+## Run Tests
+
+As mentioned in the beginning of this README, in order to run tests in an automated way, please follow the instructions in the [DPCTF Deploy](https://github.com/cta-wave/dpctf-test-runner) project. 
+
+If you need to run dedicated tests e.g. for debugging purposes without the need to deploy the entire test runner, you can use the tests hosted in the [gh-pages](https://github.com/cta-wave/dpctf-tests/tree/github-pages) branch. These tests are accessible via https://cta-wave.github.io/dpctf-tests/generated/path/to/test.html. `path/to/test.html` needs to be replaced with the path of the test you want to run within the [generated test folder](https://github.com/cta-wave/dpctf-tests/tree/github-pages/generated). Examples: 
+* The URL for [avc_15_30_60-2021-09-09-online/sequential-track-playback__t1.html](https://github.com/cta-wave/dpctf-tests/blob/github-pages/generated/avc_15_30_60-2021-09-09-online/sequential-track-playback__t1.html) test is https://cta-wave.github.io/dpctf-tests/generated/avc_15_30_60-2021-09-09-online/sequential-track-playback__t1.html 
+* The URL for [ac4-2021-09-29-online/sequential-track-playback__at1.html](https://github.com/cta-wave/dpctf-tests/blob/github-pages/generated/ac4-2021-09-29-online/sequential-track-playback__at1.html) test is https://cta-wave.github.io/dpctf-tests/generated/ac4-2021-09-29-online/sequential-track-playback__at1.html 
