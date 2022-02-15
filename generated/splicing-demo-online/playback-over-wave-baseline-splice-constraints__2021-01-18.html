@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Regular Playback of a CMAF Presentation</title>
+    <title>Playback over WAVE Baseline Splice Constraints</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="../lib/resources/testharness.js"></script>
     <script src="../lib/resources/testharnessreport.js"></script>
@@ -39,12 +39,12 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "regular-playback-of-a-cmaf-presentation",
-        title: "Regular Playback of a CMAF Presentation",
+        title: "Playback over WAVE Baseline Splice Constraints",
         description:
-          "This case refers to the case for which a CMAF Presentation is provided and is played back. The playback instructs the player to play multiple tracks, but at most one of each media type.",
-        path: "ac4-2021-09-29-online/regular-playback-of-a-cmaf-presentation__t1_at1.html",
-        code: "regular-playback-of-a-cmaf-presentation.html",
+          "Playback over splices enables the content provider to offer a sequence of Switching Sets with less restricted encoding requirements than a track. This feature is especially important in case of program changes and ad insertion.",
+        path: "splicing-demo-online/playback-over-wave-baseline-splice-constraints__2021-01-18.html",
+        code: "playback-over-wave-baseline-splice-constraints.html",
+        params: urlParams,
         observations: [],
       };
 
@@ -52,8 +52,8 @@
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["/content/avc_sets/15_30_60/t1/stream.mpd"];
-      var audioContentModel = ["https://dash.akamaized.net/WAVE/vectors/2021-09-29/ac4_sets/at1/stream.mpd"];
+      var videoContentModel = ["https://www.gpac-licensing.com/downloads/CTA-Wave/splice_main/2021-01-18/stream.mpd", "https://www.gpac-licensing.com/downloads/CTA-Wave/splice_ad/2021-01-18/stream.mpd"];
+      var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -64,11 +64,12 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        usePlayout: false,
+        usePlayout: true,
       });
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
+
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration || 
             player.getPreBufferedTime() >= player.getDuration()) {

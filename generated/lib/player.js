@@ -464,7 +464,7 @@ function BufferManager(manifests, mediaSource, video, options) {
     }
 
     for (var i = startSegment; i <= endSegment; i++) {
-      var segment = representation.getSegment(i + offset);
+      var segment = representation.getSegment(i + offset).copy();
       segment.setTimestampOffset(timestampOffset);
       segment.setManifestIndex(manifestIndex);
       _segments[i + bufferOffset] = segment;

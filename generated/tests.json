@@ -7520,88 +7520,39 @@
                 ]
             }
         },
-        "45aabf8d5531167cec7fc3243431576b": {
-            "path": "splicing-demo-online/playback-over-wave-baseline-splice-constraints__ss1_t21.html",
+        "c17b886fa1fb2a24c67fe55729c94008": {
+            "path": "splicing-demo-online/playback-over-wave-baseline-splice-constraints__2021-01-18.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/ss1/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t21/stream.mpd"
+                "https://www.gpac-licensing.com/downloads/CTA-Wave/splice_main/2021-01-18/stream.mpd",
+                "https://www.gpac-licensing.com/downloads/CTA-Wave/splice_ad/2021-01-18/stream.mpd"
             ],
             "audio": [],
             "code": "playback-over-wave-baseline-splice-constraints.html",
             "switchingSets": {
                 "video": [
                     {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
+                        "cmaf_track_duration": "PT0H0M10.000S",
+                        "fragment_duration": "PT0H0M1.920S",
                         "representations": {
                             "2": {
                                 "period": 1,
-                                "duration": 60,
+                                "duration": 10,
                                 "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "3": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "60",
-                                "fragment_duration": 2.0
-                            },
-                            "4": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "60",
-                                "fragment_duration": 2.0
-                            },
-                            "5": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "6": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "7": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "8": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
-                            },
-                            "9": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "15",
-                                "fragment_duration": 2.0
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92
                             }
                         }
                     },
                     {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
+                        "cmaf_track_duration": "PT0H0M5.760S",
+                        "fragment_duration": "PT0H0M1.920S",
                         "representations": {
                             "2": {
                                 "period": 1,
-                                "duration": 60,
+                                "duration": 5,
                                 "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92
                             }
                         }
                     }
@@ -7609,39 +7560,79 @@
                 "audio": []
             }
         },
-        "a72dd0d57296689cc54c79ffef81c99a": {
-            "path": "splicing-demo-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
+        "559081577be7013bfb60f332ecb17ba8": {
+            "path": "splicing-demo-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__2021-01-18.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1-cenc/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1/stream.mpd"
+                "https://www.gpac-licensing.com/downloads/CTA-Wave/splice_main-cenc/2021-01-18/stream.mpd",
+                "https://www.gpac-licensing.com/downloads/CTA-Wave/splice_ad/2021-01-18/stream.mpd"
             ],
             "audio": [],
             "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
             "switchingSets": {
                 "video": [
                     {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
+                        "cmaf_track_duration": "PT0H0M10.000S",
+                        "fragment_duration": "PT0H0M1.920S",
                         "representations": {
                             "2": {
                                 "period": 1,
-                                "duration": 60,
+                                "duration": 10,
                                 "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92
                             }
                         }
                     },
                     {
-                        "cmaf_track_duration": "PT0H1M0.000S",
-                        "fragment_duration": "PT0H0M2.016S",
+                        "cmaf_track_duration": "PT0H0M5.760S",
+                        "fragment_duration": "PT0H0M1.920S",
                         "representations": {
                             "2": {
                                 "period": 1,
-                                "duration": 60,
+                                "duration": 5,
                                 "type": "video",
-                                "frame_rate": "30",
-                                "fragment_duration": 2.0
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "f0f3e99742b61799cab0d4077037f3ed": {
+            "path": "splicing-demo-online/restricted-splicing-of-encrypted-content-https__2021-01-18.html",
+            "video": [
+                "https://www.gpac-licensing.com/downloads/CTA-Wave/splice_main-cenc/2021-01-18/stream.mpd",
+                "https://www.gpac-licensing.com/downloads/CTA-Wave/splice_ad-cenc/2021-01-18/stream.mpd"
+            ],
+            "audio": [],
+            "code": "restricted-splicing-of-encrypted-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M10.000S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 10,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H0M5.760S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 5,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92
                             }
                         }
                     }
