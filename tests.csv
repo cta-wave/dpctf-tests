@@ -332,11 +332,14 @@
 "sequential-track-playback","","/content/avc_sets/15_30_60/t1/stream.mpd","audio-only-local"
 
 
-"playback-over-wave-baseline-splice-constraints","https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/ss1/stream.mpd","","splicing-demo-online"
-"","https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t21/stream.mpd","","splicing-demo-online"
+"playback-over-wave-baseline-splice-constraints","https://www.gpac-licensing.com/downloads/CTA-Wave/splice_main/2021-01-18/stream.mpd","","splicing-demo-online"
+"","https://www.gpac-licensing.com/downloads/CTA-Wave/splice_ad/2021-01-18/stream.mpd","","splicing-demo-online"
 
-"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1-cenc/stream.mpd","","splicing-demo-online"
-"","https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1/stream.mpd","","splicing-demo-online"
+"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","https://www.gpac-licensing.com/downloads/CTA-Wave/splice_main-cenc/2021-01-18/stream.mpd","","splicing-demo-online"
+"","https://www.gpac-licensing.com/downloads/CTA-Wave/splice_ad/2021-01-18/stream.mpd","","splicing-demo-online"
+
+"restricted-splicing-of-encrypted-content-https","https://www.gpac-licensing.com/downloads/CTA-Wave/splice_main-cenc/2021-01-18/stream.mpd","","splicing-demo-online"
+"","https://www.gpac-licensing.com/downloads/CTA-Wave/splice_ad-cenc/2021-01-18/stream.mpd","","splicing-demo-online"
 
 "playback-over-wave-baseline-splice-constraints","/content/avc_sets/15_30_60/ss1/stream.mpd","","splicing-demo-local"
 "","/content/avc_sets/15_30_60/t21/stream.mpd","","splicing-demo-local"

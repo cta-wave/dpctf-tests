@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Playback over WAVE Baseline Splice Constraints</title>
+    <title>Restricted Splicing of Encrypted Content</title>
+    <link rel="stylesheet" href="../lib/dummy.css" />
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -35,14 +36,14 @@
     <script src="../lib/wave-service.js"></script>
     <script src="../lib/davidshimjs/qrcode.js"></script>
     <script src="../lib/dpctf-testharness.js"></script>
+    <script src="../lib/hbbtv.js"></script>
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Playback over WAVE Baseline Splice Constraints",
-        description:
-          "Playback over splices enables the content provider to offer a sequence of Switching Sets with less restricted encoding requirements than a track. This feature is especially important in case of program changes and ad insertion.",
-        path: "splicing-demo-online/playback-over-wave-baseline-splice-constraints__ss1_t21.html",
-        code: "playback-over-wave-baseline-splice-constraints.html",
+        title: "Restricted Splicing of Encrypted Content",
+        description: "",
+        path: "splicing-demo-online/restricted-splicing-of-encrypted-content-https__2021-01-18.html",
+        code: "restricted-splicing-of-encrypted-content-https.html",
         params: urlParams
       };
 
@@ -50,7 +51,7 @@
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/ss1/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t21/stream.mpd"];
+      var videoContentModel = ["https://www.gpac-licensing.com/downloads/CTA-Wave/splice_main-cenc/2021-01-18/stream.mpd", "https://www.gpac-licensing.com/downloads/CTA-Wave/splice_ad-cenc/2021-01-18/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
@@ -63,6 +64,7 @@
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
         usePlayout: true,
+        isEncryptedContent: true,
       });
 
       function executeTest(player, done, parameters) {
@@ -108,6 +110,6 @@
           });
         }, "video ended event fired");
       }
-    </script>
+     </script>
   </body>
 </html>

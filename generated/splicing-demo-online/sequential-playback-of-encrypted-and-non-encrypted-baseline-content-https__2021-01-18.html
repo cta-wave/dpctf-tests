@@ -35,13 +35,14 @@
     <script src="../lib/wave-service.js"></script>
     <script src="../lib/davidshimjs/qrcode.js"></script>
     <script src="../lib/dpctf-testharness.js"></script>
+    <script src="../lib/hbbtv.js"></script>
     <script>
       // Global variables
       var TEST_INFO = {
         title:
           "Sequential Playback of Encrypted and Non-Encrypted Baseline Content",
         description: "",
-        path: "splicing-demo-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__t1-cenc_t1.html",
+        path: "splicing-demo-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__2021-01-18.html",
         code: "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
         params: urlParams
       };
@@ -50,7 +51,7 @@
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1-cenc/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1/stream.mpd"];
+      var videoContentModel = ["https://www.gpac-licensing.com/downloads/CTA-Wave/splice_main-cenc/2021-01-18/stream.mpd", "https://www.gpac-licensing.com/downloads/CTA-Wave/splice_ad/2021-01-18/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
