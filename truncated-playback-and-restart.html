@@ -78,13 +78,16 @@
 	  var playthroughCount = 0;
           video.addEventListener("ended", function (event) {
 	    playthroughCount += 1;
-            if (playthroughCount <= 1) return;
+	    if (playthroughCount <= 1) {
+              playNextRepresentation();
+	      return;
+            }
             assert_true(true);
             test.done();
           });
         }, "video ended event fired");
 
-        video.addEventListener("ended", function (event) {
+        function playNextRepresentation() {
           var bufferOffset = 0;
           var totalDuration = 0;
           var representationNumber = 1;
@@ -102,7 +105,7 @@
           });
 	  player.setCurrentTime(0);
 	  player.play();
-        });
+        };
 
         if (player.getPreBufferedTime() >= minBufferDuration || 
             player.getPreBufferedTime() >= player.getDuration()) {
