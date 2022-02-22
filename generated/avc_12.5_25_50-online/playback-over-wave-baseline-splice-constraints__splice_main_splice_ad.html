@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Regular Playback of a CMAF Presentation</title>
+    <title>Playback over WAVE Baseline Splice Constraints</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -39,20 +39,20 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "regular-playback-of-a-cmaf-presentation",
-        title: "Regular Playback of a CMAF Presentation",
+        title: "Playback over WAVE Baseline Splice Constraints",
         description:
-          "This case refers to the case for which a CMAF Presentation is provided and is played back. The playback instructs the player to play multiple tracks, but at most one of each media type.",
-        path: "eac3-online/regular-playback-of-a-cmaf-presentation__15_30_60_eac3_sets.html",
-        code: "regular-playback-of-a-cmaf-presentation.html"
+          "Playback over splices enables the content provider to offer a sequence of Switching Sets with less restricted encoding requirements than a track. This feature is especially important in case of program changes and ad insertion.",
+        path: "avc_12.5_25_50-online/playback-over-wave-baseline-splice-constraints__splice_main_splice_ad.html",
+        code: "playback-over-wave-baseline-splice-constraints.html",
+        params: urlParams
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t1/stream.mpd"];
-      var audioContentModel = ["https://dash.akamaized.net/WAVE/vectors/2021-11-17/eac3_sets/at1/stream.mpd"];
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_main/2022-01-18/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_ad/2022-01-18/stream.mpd"];
+      var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -63,11 +63,12 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        usePlayout: false,
+        usePlayout: true,
       });
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
+
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration || 
             player.getPreBufferedTime() >= player.getDuration()) {

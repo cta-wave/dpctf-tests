@@ -2,8 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Restricted Splicing of Encrypted Content</title>
-    <link rel="stylesheet" href="../lib/dummy.css" />
+    <title>Regular Playback of a CMAF Presentation</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -40,19 +39,20 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Restricted Splicing of Encrypted Content",
-        description: "",
-        path: "avc_15_30_60-local/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html",
-        code: "restricted-splicing-of-encrypted-content-https.html",
-        params: urlParams
+        id: "regular-playback-of-a-cmaf-presentation",
+        title: "Regular Playback of a CMAF Presentation",
+        description:
+          "This case refers to the case for which a CMAF Presentation is provided and is played back. The playback instructs the player to play multiple tracks, but at most one of each media type.",
+        path: "eac3-online/regular-playback-of-a-cmaf-presentation__t1_eac3_sets.html",
+        code: "regular-playback-of-a-cmaf-presentation.html"
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["/content/avc_sets/15_30_60/splice_main-cenc/2022-01-18/stream.mpd", "/content/avc_sets/15_30_60/splice_ad-cenc/2022-01-18/stream.mpd"];
-      var audioContentModel = [];
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t1/2022-01-17/stream.mpd"];
+      var audioContentModel = ["https://dash.akamaized.net/WAVE/vectors/2021-11-17/eac3_sets/at1/stream.mpd"];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -63,13 +63,11 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        usePlayout: true,
-        isEncryptedContent: true,
+        usePlayout: false,
       });
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration || 
             player.getPreBufferedTime() >= player.getDuration()) {
@@ -110,6 +108,6 @@
           });
         }, "video ended event fired");
       }
-     </script>
+    </script>
   </body>
 </html>

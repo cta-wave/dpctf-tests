@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Restricted Splicing of Encrypted Content</title>
-    <link rel="stylesheet" href="../lib/dummy.css" />
+    <title>Playback over WAVE Baseline Splice Constraints</title>
     <link rel="stylesheet" href="../lib/style.css" />
-    <script src="../lib/resources/testharness.js"></script>
-    <script src="../lib/resources/testharnessreport.js"></script>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
   </head>
 
   <body>
@@ -40,19 +39,19 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Restricted Splicing of Encrypted Content",
-        description: "",
-        path: "avc_15_30_60-online/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html",
-        code: "restricted-splicing-of-encrypted-content-https.html",
-        params: urlParams,
-        observations: [],
+        title: "Playback over WAVE Baseline Splice Constraints",
+        description:
+          "Playback over splices enables the content provider to offer a sequence of Switching Sets with less restricted encoding requirements than a track. This feature is especially important in case of program changes and ad insertion.",
+        path: "avc_12.5_25_50-local/playback-over-wave-baseline-splice-constraints__splice_main_splice_ad.html",
+        code: "playback-over-wave-baseline-splice-constraints.html",
+        params: urlParams
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_main-cenc/2022-01-18/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_ad-cenc/2022-01-18/stream.mpd"];
+      var videoContentModel = ["/content/avc_sets/15_30_60/splice_main/2022-01-18/stream.mpd", "/content/avc_sets/15_30_60/splice_ad/2022-01-18/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
@@ -65,7 +64,6 @@
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
         usePlayout: true,
-        isEncryptedContent: true,
       });
 
       function executeTest(player, done, parameters) {
@@ -111,6 +109,6 @@
           });
         }, "video ended event fired");
       }
-     </script>
+    </script>
   </body>
 </html>

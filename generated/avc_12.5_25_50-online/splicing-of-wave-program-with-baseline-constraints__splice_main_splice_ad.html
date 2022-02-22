@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Sequential Playback of Encrypted and Non-Encrypted Baseline Content</title>
+    <title>Splicing of WAVE Program with Baseline Constraints</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -39,11 +39,12 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title:
-          "Sequential Playback of Encrypted and Non-Encrypted Baseline Content",
-        description: "",
-        path: "avc_15_30_60-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__splice_main-cenc_splice_ad.html",
-        code: "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
+        id: "splicing-of-wave-program-with-baseline-constraints",
+        title: "Splicing of WAVE Program with Baseline Constraints",
+        description:
+          "Apps want to splice content that was properly conditioned based on the WAVE Program Baseline Constraints. The expectation is that the device plays back these splices seamlessly.",
+        path: "avc_12.5_25_50-online/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad.html",
+        code: "splicing-of-wave-program-with-baseline-constraints.html",
         params: urlParams
       };
 
@@ -51,8 +52,8 @@
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_main-cenc/2022-01-18/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_ad/2022-01-18/stream.mpd"];
-      var audioContentModel = [];
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_main/2022-01-18/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_ad/2022-01-18/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_ad/2022-01-18/stream.mpd"];
+      var audioContentModel = ["https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_main/2022-01-18/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_ad/2022-01-18/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_ad/2022-01-18/stream.mpd"];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -63,12 +64,12 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        isEncryptedContent: true,
         usePlayout: true,
       });
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
+
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration || 
             player.getPreBufferedTime() >= player.getDuration()) {
