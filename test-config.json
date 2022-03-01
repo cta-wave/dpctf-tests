@@ -375,5 +375,9 @@
     "gap_duration": "",
     "gap_location_fragment": 1,
     "playback_mode": ""
+  },
+  "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream.html": {
+    "random_access_from": 5,
+    "random_access_to": 30
   }
 }

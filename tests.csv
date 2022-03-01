@@ -348,3 +348,7 @@
 
 "playback-of-encrypted-content-https","https://www.gpac-licensing.com/downloads/CTA-Wave/splice_clear_cenc_8.14/stream.mpd","","cenc-test"
 "playback-of-encrypted-content-https","https://www.gpac-licensing.com/downloads/CTA-Wave/splice_cenc_8.13/stream.mpd","","cenc-test"
+
+"buffer-underrun-and-recovery","https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1/stream.mpd","","dpcat"
+"truncated-playback-and-restart","https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1/stream.mpd","","dpcat"
+"random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1/stream.mpd","","dpcat"
