@@ -70,6 +70,8 @@ function Player(video) {
 
   function setBufferTime(bufferTime) {
     _settings.bufferTime = bufferTime;
+    if (_videoBufferManager) _videoBufferManager.setBufferTime(bufferTime);
+    if (_audioBufferManager) _audioBufferManager.setBufferTime(bufferTime);
   }
 
   function getBufferTime() {
@@ -313,6 +315,11 @@ function Player(video) {
     _eventEmitter.dispatchEvent(PLAYER_EVENT_START_BUFFERING);
   }
 
+  function pauseBuffering() {
+    if (_videoBufferManager) _videoBufferManager.pauseBuffering();
+    if (_audioBufferManager) _audioBufferManager.pauseBuffering();
+  }
+
   //function getRepresentations() {
   //let videoRepresentations = [];
   //let audioRepresentations = [];
@@ -397,6 +404,7 @@ function Player(video) {
     on,
     off,
     startBuffering,
+    pauseBuffering,
     play,
     loadVideo,
     loadAudio,
@@ -472,7 +480,7 @@ function BufferManager(manifests, mediaSource, video, options) {
     }
 
     for (var i = startSegment; i <= endSegment; i++) {
-      var segment = representation.getSegment(i + offset);
+      var segment = representation.getSegment(i + offset).copy();
       segment.setTimestampOffset(timestampOffset);
       segment.setManifestIndex(manifestIndex);
       _segments[i + bufferOffset] = segment;
@@ -571,6 +579,10 @@ function BufferManager(manifests, mediaSource, video, options) {
     if (!_segments) return;
     _isBuffering = true;
     bufferVideo();
+  }
+
+  function pauseBuffering() {
+    _isBuffering = false;
   }
 
   function bufferVideo() {
@@ -754,7 +766,10 @@ function BufferManager(manifests, mediaSource, video, options) {
         continue;
       _gapTimestampOffset += gap.gapDuration;
     }
+    console.log("segment", bufferInfo.segment.getNumber())
+    console.log("gapOffset", _gapTimestampOffset);
     timestampOffset += _gapTimestampOffset;
+    console.log("timestampoffset", timestampOffset);
 
     if (_sourceBuffer.timestampOffset !== timestampOffset) {
       _sourceBuffer.timestampOffset = timestampOffset;
@@ -888,16 +903,22 @@ function BufferManager(manifests, mediaSource, video, options) {
     return _manifests;
   }
 
+  function setBufferTime(bufferTime) {
+    _bufferTime = bufferTime;
+  }
+
   instance = {
     setSegments,
     getSegments,
     getSegmentsCount,
     getPlayingSegment,
+    setBufferTime,
     clearSegments,
     getPlayingRepresentation,
     getPreBufferedTime,
     getManifests,
     startBuffering,
+    pauseBuffering,
     on: _eventEmitter.on,
     off: _eventEmitter.off,
     setGaps,

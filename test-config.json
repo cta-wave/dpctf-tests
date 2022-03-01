@@ -1,27 +1,36 @@
 {
   "all": {
-    "min_buffer_duration": 30000
+    "min_buffer_duration": 30000,
+    "audio_tolerance": 20,
+    "audio_sample_tolerance": 2,
+    "audio_sample_length": 20,
+    "duration_tolerance": 20,
+    "duration_frame_tolerance": 0
   },
   "sequential-track-playback.html": {
     "min_buffer_duration": 40000,
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "random-access-to-fragment.html": {
     "ts_max": 120,
     "tolerance": 20,
+    "frame_tolerance": 2,
     "random_access_fragment": 10
   },
   "random-access-to-time.html": {
     "ts_max": 120,
     "tolerance": 20,
+    "frame_tolerance": 2,
     "random_access_time": 10
   },
   "switching-set-playback.html": {
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
-  "avc_12.5_25_50-2021-07-07-local/switching-set-playback__ss1.html": {
+  "avc_12.5_25_50-2021-09-09-local/switching-set-playback__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -33,7 +42,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },
-  "avc_12.5_25_50-2021-07-07-online/switching-set-playback__ss1.html": {
+  "avc_12.5_25_50-2021-09-09-online/switching-set-playback__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -45,7 +54,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },
-  "avc_14.985_29.97_59.94-2021-07-07-local/switching-set-playback__ss1.html": {
+  "avc_14.985_29.97_59.94-2021-09-09-local/switching-set-playback__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -57,7 +66,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },
-  "avc_14.985_29.97_59.94-2021-07-07-online/switching-set-playback__ss1.html": {
+  "avc_14.985_29.97_59.94-2021-09-09-online/switching-set-playback__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -69,7 +78,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },
-  "avc_15_30_60-2021-07-07-local/switching-set-playback__ss1.html": {
+  "avc_15_30_60-2021-09-09-local/switching-set-playback__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -81,7 +90,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },
-  "avc_15_30_60-2021-07-07-online/switching-set-playback__ss1.html": {
+  "avc_15_30_60-2021-09-09-online/switching-set-playback__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -96,16 +105,19 @@
   "regular-playback-of-chunked-content.html": {
     "min_buffer_duration": 1000,
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "regular-playback-of-chunked-content-non-aligned-append.html": {
     "min_buffer_duration": 1000,
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "playback-over-wave-baseline-splice-constraints.html": {
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "splicing-demo-local/playback-over-wave-baseline-splice-constraints__ss1_t21.html": {
     "playout": [
@@ -132,31 +144,33 @@
   "out-of-order-loading.html": {
     "max_buffer_duration": 30000,
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
-  "avc_12.5_25_50-2021-07-07-local/out-of-order-loading__t1.html": {
+  "avc_12.5_25_50-2021-09-09-local/out-of-order-loading__t1.html": {
     "loading": [3, 5, 2, 4, 1, 8, 10, 7, 9, 6, 13, 15, 12, 14, 11]
   },
-  "avc_12.5_25_50-2021-07-07-online/out-of-order-loading__t1.html": {
+  "avc_12.5_25_50-2021-09-09-online/out-of-order-loading__t1.html": {
     "loading": [3, 5, 2, 4, 1, 8, 10, 7, 9, 6, 13, 15, 12, 14, 11]
   },
-  "avc_14.985_29.97_59.94-2021-07-07-local/out-of-order-loading__t1.html": {
+  "avc_14.985_29.97_59.94-2021-09-09-local/out-of-order-loading__t1.html": {
     "loading": [3, 5, 2, 4, 1, 8, 10, 7, 9, 6, 13, 15, 12, 14, 11]
   },                                            
-  "avc_14.985_29.97_59.94-2021-07-07-online/out-of-order-loading__t1.html": {
+  "avc_14.985_29.97_59.94-2021-09-09-online/out-of-order-loading__t1.html": {
     "loading": [3, 5, 2, 4, 1, 8, 10, 7, 9, 6, 13, 15, 12, 14, 11]
   },
-  "avc_15_30_60-2021-07-07-local/out-of-order-loading__t1.html": {
+  "avc_15_30_60-2021-09-09-local/out-of-order-loading__t1.html": {
     "loading": [3, 5, 2, 4, 1, 8, 10, 7, 9, 6, 13, 15, 12, 14, 11]
   },                                  
-  "avc_15_30_60-2021-07-07-online/out-of-order-loading__t1.html": {
+  "avc_15_30_60-2021-09-09-online/out-of-order-loading__t1.html": {
     "loading": [3, 5, 2, 4, 1, 8, 10, 7, 9, 6, 13, 15, 12, 14, 11]
   },
   "overlapping-fragments.html": {
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
-  "avc_12.5_25_50-2021-07-07-local/overlapping-fragments__ss1.html": {
+  "avc_12.5_25_50-2021-09-09-local/overlapping-fragments__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -168,7 +182,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },
-  "avc_12.5_25_50-2021-07-07-online/overlapping-fragments__ss1.html": {
+  "avc_12.5_25_50-2021-09-09-online/overlapping-fragments__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -180,7 +194,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },
-  "avc_14.985_29.97_59.94-2021-07-07-local/overlapping-fragments__ss1.html": {
+  "avc_14.985_29.97_59.94-2021-09-09-local/overlapping-fragments__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -192,7 +206,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },                                            
-  "avc_14.985_29.97_59.94-2021-07-07-online/overlapping-fragments__ss1.html": {
+  "avc_14.985_29.97_59.94-2021-09-09-online/overlapping-fragments__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -204,7 +218,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },
-  "avc_15_30_60-2021-07-07-local/overlapping-fragments__ss1.html": {
+  "avc_15_30_60-2021-09-09-local/overlapping-fragments__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -216,7 +230,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },                                  
-  "avc_15_30_60-2021-07-07-online/overlapping-fragments__ss1.html": {
+  "avc_15_30_60-2021-09-09-online/overlapping-fragments__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -231,9 +245,10 @@
   "fullscreen-playback-of-switching-sets.html": {
     "max_buffer_duration": 30000,
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
-  "avc_12.5_25_50-2021-07-07-local/fullscreen-playback-of-switching-sets__ss1.html": {
+  "avc_12.5_25_50-2021-09-09-local/fullscreen-playback-of-switching-sets__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -245,7 +260,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },
-  "avc_12.5_25_50-2021-07-07-online/fullscreen-playback-of-switching-sets__ss1.html": {
+  "avc_12.5_25_50-2021-09-09-online/fullscreen-playback-of-switching-sets__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -257,7 +272,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },
-  "avc_14.985_29.97_59.94-2021-07-07-local/fullscreen-playback-of-switching-sets__ss1.html": {
+  "avc_14.985_29.97_59.94-2021-09-09-local/fullscreen-playback-of-switching-sets__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -269,7 +284,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },                                            
-  "avc_14.985_29.97_59.94-2021-07-07-online/fullscreen-playback-of-switching-sets__ss1.html": {
+  "avc_14.985_29.97_59.94-2021-09-09-online/fullscreen-playback-of-switching-sets__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -281,7 +296,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },
-  "avc_15_30_60-2021-07-07-local/fullscreen-playback-of-switching-sets__ss1.html": {
+  "avc_15_30_60-2021-09-09-local/fullscreen-playback-of-switching-sets__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -293,7 +308,7 @@
       [1, 8, 28], [1, 8, 29], [1, 8, 30]
     ]
   },                                  
-  "avc_15_30_60-2021-07-07-online/fullscreen-playback-of-switching-sets__ss1.html": {
+  "avc_15_30_60-2021-09-09-online/fullscreen-playback-of-switching-sets__ss1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 2, 5],  [1, 2, 6],  [1, 2, 7],  [1, 2, 8],
@@ -308,6 +323,7 @@
   "playback-of-encrypted-content-https.html": {
     "ts_max": 120,
     "tolerance": 20,
+    "frame_tolerance": 2,
     "key_id": "J5kmSWp_XSXaafKzsnmafw",
     "content_key": "ABEiM0RVZneImaq7zN3u_w"
   },
@@ -316,6 +332,11 @@
     "tolerance": 20
   },
   "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html": {
+    "ts_max": 120,
+    "key_id": "J5kmSWp_XSXaafKzsnmafw",
+    "content_key": "ABEiM0RVZneImaq7zN3u_w"
+  },
+  "restricted-splicing-of-encrypted-content-https.html": {
     "ts_max": 120,
     "key_id": "J5kmSWp_XSXaafKzsnmafw",
     "content_key": "ABEiM0RVZneImaq7zN3u_w"
@@ -340,18 +361,77 @@
        [1, 1, 6]
      ]
   },
+  "avc_12.5_25_50-online/playback-over-wave-baseline-splice-constraints__splice_main_splice_ad.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
+  "avc_12.5_25_50-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__splice_main-cenc_splice_ad.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
+  "avc_12.5_25_50-online/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
+  "avc_12.5_25_50-online/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
+  "avc_12.5_25_50-local/playback-over-wave-baseline-splice-constraints__splice_main_splice_ad.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
+  "avc_12.5_25_50-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__splice_main-cenc_splice_ad.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
+  "avc_12.5_25_50-local/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
+  "avc_12.5_25_50-local/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
   "regular-playback-of-a-cmaf-presentation.html": {
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "random-access-of-a-wave-presentation.html": {
     "ts_max": 120,
     "tolerance": 20,
+    "frame_tolerance": 2,
     "random_access_fragment": 10
   },
   "splicing-of-wave-program-with-baseline-constraints.html": {
     "ts_max": 120,
-    "tolerance": 20
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "low-latency-playback-over-gaps.html": {
     "gap_duration": 1000,

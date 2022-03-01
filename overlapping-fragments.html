@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Overlapping Fragments</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -35,6 +35,7 @@
     <script src="../lib/wave-service.js"></script>
     <script src="../lib/davidshimjs/qrcode.js"></script>
     <script src="../lib/dpctf-testharness.js"></script>
+    <script src="../lib/hbbtv.js"></script>
     <script>
       // Global variables
       var TEST_INFO = {
@@ -43,8 +44,7 @@
           "Playback of overlapping fragments assumes that the application can overwrite the buffer with other fragments. This is for example useful in case that a fragment is loaded in lower quality but may then be replaced by a better-quality fragment.",
         path: "{{TEST_PATH}}",
         code: "{{TEMPLATE_NAME}}",
-        params: urlParams,
-        observations: [],
+        params: urlParams
       };
 
       var video = document.querySelector("video");

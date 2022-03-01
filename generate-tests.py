@@ -353,8 +353,8 @@ def generate_test_path(grouping_dir, template_file_name, video_file_paths, audio
         dir_path, file_name = os.path.split(video_file_path)
         dir_split = list(filter(lambda element: element != "" and element != ".", dir_path.split("/")))
         video_identifier = ""
-        if len(dir_split) >= 1:
-            video_identifier = "_".join(dir_split[-1:])
+        if len(dir_split) >= 2:
+            video_identifier = "_".join(dir_split[-2:-1])
         else:
             video_identifier = ".".join(file_name.split(".")[:-1])
         if video_identifier not in identifiers:
@@ -367,7 +367,7 @@ def generate_test_path(grouping_dir, template_file_name, video_file_paths, audio
         dir_split = list(filter(lambda element: element != "" and element != ".", dir_path.split("/")))
         audio_identifier = ""
         if len(dir_split) >= 1:
-            audio_identifier = "_".join(dir_split[-1:])
+            audio_identifier = "_".join(dir_split[-2:-1])
         else:
             audio_identifier = ".".join(file_name.split(".")[:-1])
         if audio_identifier not in identifiers:

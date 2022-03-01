@@ -33,6 +33,7 @@ function DpctfTest(config) {
   var VIDEO_STATE_ENDED = "ended";
   var VIDEO_STATE_ERROR = "error";
   var VIDEO_STATE_STALLED = "stalled";
+  var VIDEO_STATE_FINISHED = "finished";
 
   var _lastAction = ACTION_INITIALIZE;
   var _videoState = VIDEO_STATE_WAITING;
@@ -481,8 +482,26 @@ function DpctfTest(config) {
   }
 
   function asyncTest(testFunc, testName) {
-    var test = async_test(testFunc, testName);
+    var test = async_test(function (test) {
+      var doneCallback = test.done.bind(test);
+      test.done = function () {
+	finishSubTest(test);
+        doneCallback();
+      };
+      testFunc(test);
+    }, testName);
     _runningTests.push(test);
+  }
+
+  function finishSubTest(test) {
+    var index = _runningTests.indexOf(test);
+    _runningTests.splice(index, 1);
+
+    if (_runningTests.length > 0) return;
+    _videoState = VIDEO_STATE_FINISHED;
+    var currentTime = player.getCurrentTime();
+    updateQrCode(currentTime);
+    updateVideoWrapperSize();
   }
 
   function abortTests() {
@@ -665,6 +684,10 @@ function DpctfTest(config) {
           playout: determineValue("playout"),
           gapLocationFragment: determineValue("gap_location_fragment"),
           gapDuration: determineValue("gap_duration"),
+          randomAccessTo: determineValue("random_access_to"),
+          randomAccessFrom: determineValue("random_access_from"),
+	  maximumForwardBuffer: determineValue("maximum_forward_buffer"),
+	  waitingTimeout: determineValue("waiting_timeout")
         };
 
         var playout = determineValue("playout");
@@ -762,8 +785,39 @@ function DpctfTest(config) {
     //}
   }
 
+  function getPlayout() {
+    return parameters.playout;
+  }
+  
+  function setPlayout(playout) {
+    parameters.playout = playout;
+    if (!usePlayout) return;
+    applyPlayout(playout);
+  }	
+
+  function getMinBufferDuration() {
+    return parameters.minBufferDuration;
+  }
+
+  function setMinBufferDuration(minBufferDuration) {
+   parameters.minBufferDuration = minBufferDuration;
+   player.setBufferTime(minBufferDuration);
+  }
+
+  function setGapDuration(gapDuration) {
+   parameters.gapDuration = gapDuration;
+   player.setVideoGaps([{ 
+     gapDuration: parameters.gapDuration, 
+     gapLocationFragment: parameters.gapLocationFragment
+   }]);
+  }
+
   return {
     asyncTest: asyncTest,
+    getPlayout: getPlayout,
+    setPlayout: setPlayout,
+    setMinBufferDuration: setMinBufferDuration,
+    setGapDuration: setGapDuration,
   };
 }
 
