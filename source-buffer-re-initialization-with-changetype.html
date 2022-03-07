@@ -38,14 +38,13 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "sourcebuffer-re-initialization",
-        title: "Source Buffer Re-Initialization (without changeType)",
+        id: "source-buffer-re-initialization-with-changetype",
+        title: "Source Buffer Re-Initialization (with changeType)",
         description:
-          "This test provides a stimulus in case that a source buffer needs to be re-established, for example because of a codec change or a codec parameter change. This frequently happens when the player is transitioning between main content and advertisements or when the user manually selects a new track.",
+          "This test provides a stimulus in case a source buffer needs to be re-established for example because of a codec change or a codec parameter change. This frequently happens when the player is transitioning between main content and advertisements or when the user manually selects a new track. This test uses the changeType method on the SourceBuffer object before a codec change.",
         path: "{{TEST_PATH}}",
         code: "{{TEMPLATE_NAME}}",
-        observations: [
-        ],
+        observations: [],
       };
 
       var video = document.querySelector("video");
@@ -65,6 +64,7 @@
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
         usePlayout: true,
+	useChangeType: true,
       });
 
       function executeTest(player, done, parameters) {
