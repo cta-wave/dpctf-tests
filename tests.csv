@@ -356,7 +356,8 @@
 "sequential-track-playback","","/content/avc_sets/15_30_60/t1/2022-01-17/stream.mpd","audio-only-local"
 
 
-"buffer-underrun-and-recovery","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t1/2022-01-17/stream.mpd","","dpcat"
-"truncated-playback-and-restart","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t1/2022-01-17/stream.mpd","","dpcat"
-"random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t1/2022-01-17/stream.mpd","","dpcat"
+"source-buffer-re-initialization-with-changetype","https://media.axprod.net/TestVectors/Dash/not_protected_dash_1080p_h264/manifest.mpd","","dpcat"
+"buffer-underrun-and-recovery","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t2/2022-01-17/stream.mpd","","dpcat"
+"truncated-playback-and-restart","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_main/2022-01-18/stream.mpd","","dpcat"
+"random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t2/2022-01-17/stream.mpd","","dpcat"
 "low-latency-short-buffer-playback","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t2/2022-01-17/stream.mpd","","dpcat"
