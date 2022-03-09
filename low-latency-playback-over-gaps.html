@@ -69,6 +69,10 @@
         var firstSegment = player.getVideoSegments()[0];
 	var segmentDuration = firstSegment.getDuration();
 	console.log(segmentDuration);
+	var minBufferDuration = segmentDuration;
+	while (minBufferDuration < 500) {
+          minBufferDuration += segmentDuration;
+        }
 	dpctfTest.setMinBufferDuration(segmentDuration);
 	dpctfTest.setGapDuration(segmentDuration);
 	done();
