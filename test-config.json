@@ -433,11 +433,10 @@
     "tolerance": 20,
     "frame_tolerance": 2
   },
-  "low-latency-playback-over-gaps.html": {
-    "gap_duration": 1000,
-    "gap_location_fragment": 5
-  },
   "source-buffer-re-initialization-without-changetype.html": {
+    "ts_max": 120,
+    "tolerance": 20,
+    "frame_tolerance": 2,
     "playout": [
        [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],  [1, 1, 5],
        [1, 1, 6],  [1, 1, 7],  [1, 1, 8],  [1, 2, 9],  [1, 2, 10],
@@ -445,6 +444,9 @@
     ]
   },
   "source-buffer-re-initialization-with-changetype.html": {
+    "ts_max": 120,
+    "tolerance": 20,
+    "frame_tolerance": 2,
     "playout": [
        [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],  [1, 1, 5],
        [1, 1, 6],  [1, 1, 7],  [1, 1, 8],  [1, 2, 9],  [1, 2, 10],
@@ -456,14 +458,35 @@
     "max_buffer_duration": "",
     "gap_duration": "",
     "gap_location_fragment": 1,
-    "playback_mode": ""
+    "playback_mode": "",
+    "ts_max": 120,
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream.html": {
     "random_access_from": 5,
-    "random_access_to": 30
+    "random_access_to": 30,
+    "ts_max": 120,
+    "tolerance": 20,
+    "frame_tolerance": 2
   },
   "low-latency-short-buffer-playback.html": {
     "maximum_forward_buffer": 500,
-    "waiting_timeout": 500
+    "waiting_timeout": 500,
+    "ts_max": 120,
+    "tolerance": 20,
+    "frame_tolerance": 2
+  },
+  "low-latency-initialization.html": {
+    "waiting_time": 5000,
+    "ts_max": 120,
+    "tolerance": 20,
+    "frame_tolerance": 2
+  },
+  "buffer-underrun-and-recovery.html": {
+    "waiting_duration": 500,
+    "ts_max": 120,
+    "tolerance": 20,
+    "frame_tolerance": 2
   }
 }

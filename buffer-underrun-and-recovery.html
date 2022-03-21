@@ -82,8 +82,12 @@
         }, "video ended event fired");
 
         function onPlayerWaiting() {
-          player.startBuffering();
-          done();
+          var waitingDuration = parameters.waitingDuration;
+			    console.log("waiting dur", waitingDuration);
+	  setTimeout(function () {
+            player.startBuffering();
+            done();
+          }, waitingDuration);
 	}
 
         if (player.getPreBufferedTime() >= minBufferDuration || 

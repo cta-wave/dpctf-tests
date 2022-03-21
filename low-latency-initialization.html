@@ -66,11 +66,20 @@
       });
 
       function handleVideoInitialized(player, done, parameters) {
+	var READY_STATE_HAVE_METADATA = 1;
 	var waitingTime = parameters.waitingTime || 500;
+	var handlePlay = function () {
+	  video.removeEventListener("play", handlePlay);
+	  dpctfTest.test(function () {
+	    assert_true(video.readyState === READY_STATE_HAVE_METADATA);
+	  }, "Video ready state is 'HAVE_METADATA'");
+          setTimeout(function() {
+            done();
+	    dpctfTest.setVideoState("appended");
+          }, waitingTime);
+        }
+	video.addEventListener("play", handlePlay);
         player.play();
-        setTimeout(function() {
-          done();
-        }, waitingTime);
       }
 
       function executeTest(player, done, parameters) {
