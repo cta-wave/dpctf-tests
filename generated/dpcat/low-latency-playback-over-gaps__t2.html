@@ -38,20 +38,18 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "truncated-playback-and-restart",
-        title: "Truncated Playback and Restart",
-        description:
-          "",
-        path: "dpcat/truncated-playback-and-restart__t1.html",
-        code: "truncated-playback-and-restart.html",
-        observations: [],
+        id: "low-latency-playback-over-gaps",
+        title: "Low-Latency: Playback over Gaps",
+        description: "",
+        path: "dpcat/low-latency-playback-over-gaps__t2.html",
+        code: "low-latency-playback-over-gaps.html"
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t1/2022-01-17/stream.mpd"];
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t2/2022-01-17/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
@@ -63,8 +61,26 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
+	setupTest: setupTest,
         usePlayout: false,
       });
+
+      function setupTest(player, done, parameters) {
+        var firstSegment = player.getVideoSegments()[0];
+	var segmentDuration = firstSegment.getDuration();
+	var chunks = firstSegment.getChunks();
+	var chunkDuration = segmentDuration / chunks.length;
+	if (chunks.length === 0) chunkDuration = segmentDuration;
+	var minBufferDuration = parameters.minBufferDuration;
+	var maxBufferDuration = parameters.maxBufferDuration;
+	var gapDuration = parameters.gapDuration || segmentDuration * 1000;
+	var gapStart = segmentDuration;
+	if (gapStart > minBufferDuration) gapStart = minBufferDuration;
+	if (gapStart < chunkDuration) gapStart = chunkDuration;
+	dpctfTest.setMinBufferDuration(maxBufferDuration);
+        dpctfTest.setGap(gapStart, gapDuration);
+	done();
+      }
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
@@ -75,44 +91,32 @@
           var match = query.match(/redirect_time=([^&]+)/);
           var REDIRECT_TIME = match ? match[1] : null;
           if (!REDIRECT_TIME) REDIRECT_TIME = 5;
-	  var playthroughCount = 0;
           video.addEventListener("ended", function (event) {
-	    playthroughCount += 1;
-	    if (playthroughCount <= 1) {
-              playNextRepresentation();
-	      return;
-            }
             assert_true(true);
             test.done();
           });
         }, "video ended event fired");
 
-        function playNextRepresentation() {
-          var bufferOffset = 0;
-          var totalDuration = 0;
-          var representationNumber = 1;
-          var periodNumber = 0;
-	  var manifest = player.getVideoManifests()[0];
-          var totalSegmentsCount = manifest
-            .getRepresentation(representationNumber, periodNumber)
-            .getTotalSegmentsCount();
-          var duration = player.setVideoSegments({
-            representationNumber: representationNumber,
-            startSegment: 0,
-            endSegment: totalSegmentsCount - 1,
-            bufferOffset: bufferOffset,
-            periodNumber: periodNumber,
-          });
-	  player.setCurrentTime(0);
-	  player.play();
-        };
+        function onPlayerWaiting() {
+	  var playbackMode = parameters.playbackMode;
+          var gapDuration = parameters.gapDuration;
+	  var waitingDuration = 0;
+	  if (playbackMode === dpctfTest.PLAYBACK_MODE_LIVE) {
+	    waitingDuration = gapDuration;
+          }
+	  setTimeout(function () {
+	    video.removeEventListener("waiting", onPlayerWaiting);
+            player.setCurrentTime(video.buffered.start(1));
+            done();
+          }, waitingDuration);
+	}
 
         if (player.getPreBufferedTime() >= minBufferDuration || 
             player.getPreBufferedTime() >= player.getDuration()) {
           player
             .play()
             .then(function () {
-              done();
+              video.addEventListener("waiting", onPlayerWaiting);
             })
             .catch(function (error) {
               done(error);
@@ -126,7 +130,7 @@
               player
                 .play()
                 .then(function () {
-                  done();
+                  video.addEventListener("waiting", onPlayerWaiting);
                 })
                 .catch(function (error) {
                   done(error);

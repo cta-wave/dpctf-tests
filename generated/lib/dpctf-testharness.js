@@ -7,8 +7,9 @@ function DpctfTest(config) {
   var outOfOrderLoading = config.outOfOrderLoading || false;
   var executeTestCallback = config.executeTest || function() { };
   var setupTestCallback = config.setupTest;
+  var initCallback = config.initCallback;
   var usePlayout = !!config.usePlayout;
-  var useChangeType = config.useChangeType;
+  var useChangeType = !!config.useChangeType;
   var videoContentModels = config.videoContentModel || [];
   var audioContentModels = config.audioContentModel || [];
 
@@ -41,6 +42,9 @@ function DpctfTest(config) {
   var EXECUTION_MODE_AUTO = "auto";
   var EXECUTION_MODE_MANUAL = "manual";
   var EXECUTION_MODE_PRGRAMMATIC = "programmatic";
+
+  var PLAYBACK_MODE_VOD = "vod";
+  var PLAYBACK_MODE_LIVE = "live";
 
   var token = urlParams["token"];
   var _execution_mode = urlParams["mode"] || EXECUTION_MODE_AUTO;
@@ -209,6 +213,17 @@ function DpctfTest(config) {
         updateStatusText();
       });
 
+      function makeInitCallback(initCallback) {
+        if (!initCallback) return null;
+	return function(done) {
+	  try {
+	    initCallback(player, done, parameters);
+	  } catch (error) {
+	    handleError(error);
+	  }
+	}
+      }
+
       player
         .init({
           bufferTime: parameters.minBufferDuration / 1000,
@@ -216,6 +231,7 @@ function DpctfTest(config) {
           outOfOrderLoading: outOfOrderLoading,
           loading: parameters.loading,
           useChangeType: useChangeType,
+	  initCallback: makeInitCallback(initCallback),
         })
         .then(function() {
           return Promise.all([
@@ -493,6 +509,10 @@ function DpctfTest(config) {
     _runningTests.push(test);
   }
 
+  function syncTest(testFunc, testName) {
+    test(testFunc, testName);
+  }
+
   function finishSubTest(test) {
     var index = _runningTests.indexOf(test);
     _runningTests.splice(index, 1);
@@ -687,7 +707,12 @@ function DpctfTest(config) {
           randomAccessTo: determineValue("random_access_to"),
           randomAccessFrom: determineValue("random_access_from"),
 	  maximumForwardBuffer: determineValue("maximum_forward_buffer"),
-	  waitingTimeout: determineValue("waiting_timeout")
+	  waitingTimeout: determineValue("waiting_timeout"),
+	  waitingTime: determineValue("waiting_time"),
+	  waitingDuration: determineValue("waiting_duration"),
+	  appendWindowBoundaries: determineValue("append_window_boundaries"),
+	  playbackMode: determineValue("playback_mode"),
+	  stallToleranceMargin: determineValue("stall_tolerance_margin")
         };
 
         var playout = determineValue("playout");
@@ -804,20 +829,31 @@ function DpctfTest(config) {
    player.setBufferTime(minBufferDuration);
   }
 
-  function setGapDuration(gapDuration) {
+  function setGap(gapStart, gapDuration) {
    parameters.gapDuration = gapDuration;
    player.setVideoGaps([{ 
-     gapDuration: parameters.gapDuration, 
-     gapLocationFragment: parameters.gapLocationFragment
+     gapDuration: parameters.gapDuration / 1000.0, 
+     gapStart: gapStart,
    }]);
   }
 
+  function setVideoState(state) {
+    _videoState = state;
+    var currentTime = player.getCurrentTime();
+    updateQrCode(currentTime);
+    updateStatusText();
+  }
+
   return {
+    PLAYBACK_MODE_VOD: PLAYBACK_MODE_VOD,
+    PLAYBACK_MODE_LIVE: PLAYBACK_MODE_LIVE,
     asyncTest: asyncTest,
+    test: syncTest,
     getPlayout: getPlayout,
     setPlayout: setPlayout,
     setMinBufferDuration: setMinBufferDuration,
-    setGapDuration: setGapDuration,
+    setGap: setGap,
+    setVideoState: setVideoState,
   };
 }
 

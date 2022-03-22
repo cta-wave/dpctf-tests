@@ -38,12 +38,12 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "buffer-underrun-and-recovery",
-        title: "Buffer Underrun and Recovery",
+        id: "truncated-playback-and-restart",
+        title: "Truncated Playback and Restart",
         description:
           "",
-        path: "dpcat/buffer-underrun-and-recovery__t1.html",
-        code: "buffer-underrun-and-recovery.html",
+        path: "dpcat/truncated-playback-and-restart__splice_main.html",
+        code: "truncated-playback-and-restart.html",
         observations: [],
       };
 
@@ -51,7 +51,7 @@
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t1/2022-01-17/stream.mpd"];
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_main/2022-01-18/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
@@ -75,24 +75,44 @@
           var match = query.match(/redirect_time=([^&]+)/);
           var REDIRECT_TIME = match ? match[1] : null;
           if (!REDIRECT_TIME) REDIRECT_TIME = 5;
+	  var playthroughCount = 0;
           video.addEventListener("ended", function (event) {
+	    playthroughCount += 1;
+	    if (playthroughCount <= 1) {
+              playNextRepresentation();
+	      return;
+            }
             assert_true(true);
             test.done();
           });
         }, "video ended event fired");
 
-        function onPlayerWaiting() {
-          player.startBuffering();
-          done();
-	}
+        function playNextRepresentation() {
+          var bufferOffset = 0;
+          var totalDuration = 0;
+          var representationNumber = 1;
+          var periodNumber = 0;
+	  var manifest = player.getVideoManifests()[0];
+          var totalSegmentsCount = manifest
+            .getRepresentation(representationNumber, periodNumber)
+            .getTotalSegmentsCount();
+          var duration = player.setVideoSegments({
+            representationNumber: representationNumber,
+            startSegment: 0,
+            endSegment: totalSegmentsCount - 1,
+            bufferOffset: bufferOffset,
+            periodNumber: periodNumber,
+          });
+	  player.setCurrentTime(0);
+	  player.play();
+        };
 
         if (player.getPreBufferedTime() >= minBufferDuration || 
             player.getPreBufferedTime() >= player.getDuration()) {
           player
             .play()
             .then(function () {
-              player.pauseBuffering();
-              video.addEventListener("waiting", onPlayerWaiting);
+              done();
             })
             .catch(function (error) {
               done(error);
@@ -106,8 +126,7 @@
               player
                 .play()
                 .then(function () {
-                  player.pauseBuffering();
-                  video.addEventListener("waiting", onPlayerWaiting);
+                  done();
                 })
                 .catch(function (error) {
                   done(error);
