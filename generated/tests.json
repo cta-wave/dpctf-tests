@@ -1684,12 +1684,75 @@
         "a8487337e41f67d5d6e541644e7ff2b2": {
             "path": "avc_15_30_60-local/switching-set-playback__ss1.html",
             "video": [
-                "/content/output/avc_sets/15_30_60/ss1/2022-01-17/stream.mpd"
+                "/content/avc_sets/15_30_60/ss1/2022-01-17/stream.mpd"
             ],
             "audio": [],
             "code": "switching-set-playback.html",
             "switchingSets": {
-                "video": [],
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "15",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
                 "audio": []
             }
         },
@@ -1826,24 +1889,150 @@
         "4e70b4986a434373fb06638260dc9f41": {
             "path": "avc_15_30_60-local/overlapping-fragments__ss1.html",
             "video": [
-                "/content/output/avc_sets/15_30_60/ss1/2022-01-17/stream.mpd"
+                "/content/avc_sets/15_30_60/ss1/2022-01-17/stream.mpd"
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
             "switchingSets": {
-                "video": [],
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "15",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
                 "audio": []
             }
         },
         "14bbd6ac33f063a098894b052e8958b6": {
             "path": "avc_15_30_60-local/fullscreen-playback-of-switching-sets__ss1.html",
             "video": [
-                "/content/output/avc_sets/15_30_60/ss1/2022-01-17/stream.mpd"
+                "/content/avc_sets/15_30_60/ss1/2022-01-17/stream.mpd"
             ],
             "audio": [],
             "code": "fullscreen-playback-of-switching-sets.html",
             "switchingSets": {
-                "video": [],
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "15",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
                 "audio": []
             }
         },
@@ -3677,12 +3866,75 @@
         "12db6e45ff8ff47555c57a10495cb2cb": {
             "path": "avc_12.5_25_50-local/switching-set-playback__ss1.html",
             "video": [
-                "/content/output/avc_sets/12.5_25_50/ss1/2022-01-17/stream.mpd"
+                "/content/avc_sets/12.5_25_50/ss1/2022-01-17/stream.mpd"
             ],
             "audio": [],
             "code": "switching-set-playback.html",
             "switchingSets": {
-                "video": [],
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "12800/1024",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
                 "audio": []
             }
         },
@@ -3819,24 +4071,150 @@
         "da78c1cb7e50308743bab0df866f261b": {
             "path": "avc_12.5_25_50-local/overlapping-fragments__ss1.html",
             "video": [
-                "/content/output/avc_sets/12.5_25_50/ss1/2022-01-17/stream.mpd"
+                "/content/avc_sets/12.5_25_50/ss1/2022-01-17/stream.mpd"
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
             "switchingSets": {
-                "video": [],
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "12800/1024",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
                 "audio": []
             }
         },
         "6bb94cb8547dfd49476220ab0a524ed7": {
             "path": "avc_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1.html",
             "video": [
-                "/content/output/avc_sets/12.5_25_50/ss1/2022-01-17/stream.mpd"
+                "/content/avc_sets/12.5_25_50/ss1/2022-01-17/stream.mpd"
             ],
             "audio": [],
             "code": "fullscreen-playback-of-switching-sets.html",
             "switchingSets": {
-                "video": [],
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "12800/1024",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
                 "audio": []
             }
         },
@@ -5790,12 +6168,75 @@
         "307799f45471920a70ede237dd4205db": {
             "path": "avc_14.985_29.97_59.94-local/switching-set-playback__ss1.html",
             "video": [
-                "/content/output/avc_sets/14.985_29.97_59.94/ss1/2022-01-17/stream.mpd"
+                "/content/avc_sets/14.985_29.97_59.94/ss1/2022-01-17/stream.mpd"
             ],
             "audio": [],
             "code": "switching-set-playback.html",
             "switchingSets": {
-                "video": [],
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.006S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "15000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
                 "audio": []
             }
         },
@@ -5932,24 +6373,150 @@
         "09ffc2cd3db796ae117c57d77d26f7e1": {
             "path": "avc_14.985_29.97_59.94-local/overlapping-fragments__ss1.html",
             "video": [
-                "/content/output/avc_sets/14.985_29.97_59.94/ss1/2022-01-17/stream.mpd"
+                "/content/avc_sets/14.985_29.97_59.94/ss1/2022-01-17/stream.mpd"
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
             "switchingSets": {
-                "video": [],
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.006S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "15000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
                 "audio": []
             }
         },
         "1b5fdf9fb66859e9af77fb6cd469a7ef": {
             "path": "avc_14.985_29.97_59.94-local/fullscreen-playback-of-switching-sets__ss1.html",
             "video": [
-                "/content/output/avc_sets/14.985_29.97_59.94/ss1/2022-01-17/stream.mpd"
+                "/content/avc_sets/14.985_29.97_59.94/ss1/2022-01-17/stream.mpd"
             ],
             "audio": [],
             "code": "fullscreen-playback-of-switching-sets.html",
             "switchingSets": {
-                "video": [],
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.006S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "3": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "4": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "60000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "5": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "6": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "7": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "8": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30000/1001",
+                                "fragment_duration": 2.002
+                            },
+                            "9": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "15000/1001",
+                                "fragment_duration": 2.002
+                            }
+                        }
+                    }
+                ],
                 "audio": []
             }
         },
