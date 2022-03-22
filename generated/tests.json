@@ -7676,8 +7676,62 @@
                 ]
             }
         },
-        "64f406c61d1d0f1b418e959bd870c4bc": {
-            "path": "dpcat/source-buffer-re-initialization-with-changetype__Dash.html",
+        "a55adc51af213548f773388808f203b9": {
+            "path": "dpcat-debug/source-buffer-re-initialization-without-changetype__Dash.html",
+            "video": [
+                "https://media.axprod.net/TestVectors/Dash/not_protected_dash_1080p_h264/manifest.mpd"
+            ],
+            "audio": [],
+            "code": "source-buffer-re-initialization-without-changetype.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT734.1666870117188S",
+                        "representations": {
+                            "6": {
+                                "period": 1,
+                                "type": "video",
+                                "duration": 734.1666666666666,
+                                "fragment_duration": 4.0
+                            },
+                            "7": {
+                                "period": 1,
+                                "type": "video",
+                                "duration": 734.1666666666666,
+                                "fragment_duration": 4.0
+                            },
+                            "8": {
+                                "period": 1,
+                                "type": "video",
+                                "duration": 734.1666666666666,
+                                "fragment_duration": 4.0
+                            },
+                            "9": {
+                                "period": 1,
+                                "type": "video",
+                                "duration": 734.1666666666666,
+                                "fragment_duration": 4.0
+                            },
+                            "10": {
+                                "period": 1,
+                                "type": "video",
+                                "duration": 734.1666666666666,
+                                "fragment_duration": 4.0
+                            },
+                            "11": {
+                                "period": 1,
+                                "type": "video",
+                                "duration": 734.1666666666666,
+                                "fragment_duration": 4.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "2ef60900cb3b325d4245e9ebbb11fc70": {
+            "path": "dpcat-debug/source-buffer-re-initialization-with-changetype__Dash.html",
             "video": [
                 "https://media.axprod.net/TestVectors/Dash/not_protected_dash_1080p_h264/manifest.mpd"
             ],
