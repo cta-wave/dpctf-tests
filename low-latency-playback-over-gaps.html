@@ -68,13 +68,17 @@
       function setupTest(player, done, parameters) {
         var firstSegment = player.getVideoSegments()[0];
 	var segmentDuration = firstSegment.getDuration();
-	console.log(segmentDuration);
-	var minBufferDuration = segmentDuration;
-	while (minBufferDuration < 500) {
-          minBufferDuration += segmentDuration;
-        }
-	dpctfTest.setMinBufferDuration(segmentDuration);
-	dpctfTest.setGapDuration(segmentDuration);
+	var chunks = firstSegment.getChunks();
+	var chunkDuration = segmentDuration / chunks.length;
+	if (chunks.length === 0) chunkDuration = segmentDuration;
+	var minBufferDuration = parameters.minBufferDuration;
+	var maxBufferDuration = parameters.maxBufferDuration;
+	var gapDuration = parameters.gapDuration || segmentDuration * 1000;
+	var gapStart = segmentDuration;
+	if (gapStart > minBufferDuration) gapStart = minBufferDuration;
+	if (gapStart < chunkDuration) gapStart = chunkDuration;
+	dpctfTest.setMinBufferDuration(maxBufferDuration);
+        dpctfTest.setGap(gapStart, gapDuration);
 	done();
       }
 
@@ -93,12 +97,26 @@
           });
         }, "video ended event fired");
 
+        function onPlayerWaiting() {
+	  var playbackMode = parameters.playbackMode;
+          var gapDuration = parameters.gapDuration;
+	  var waitingDuration = 0;
+	  if (playbackMode === dpctfTest.PLAYBACK_MODE_LIVE) {
+	    waitingDuration = gapDuration;
+          }
+	  setTimeout(function () {
+	    video.removeEventListener("waiting", onPlayerWaiting);
+            player.setCurrentTime(video.buffered.start(1));
+            done();
+          }, waitingDuration);
+	}
+
         if (player.getPreBufferedTime() >= minBufferDuration || 
             player.getPreBufferedTime() >= player.getDuration()) {
           player
             .play()
             .then(function () {
-              done();
+              video.addEventListener("waiting", onPlayerWaiting);
             })
             .catch(function (error) {
               done(error);
@@ -112,7 +130,7 @@
               player
                 .play()
                 .then(function () {
-                  done();
+                  video.addEventListener("waiting", onPlayerWaiting);
                 })
                 .catch(function (error) {
                   done(error);

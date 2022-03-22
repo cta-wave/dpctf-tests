@@ -454,11 +454,9 @@
     ]
   },
   "low-latency-playback-over-gaps.html": {
-    "min_buffer_duration": 30,
-    "max_buffer_duration": "",
-    "gap_duration": "",
-    "gap_location_fragment": 1,
-    "playback_mode": "",
+    "min_buffer_duration": 5,
+    "max_buffer_duration": 30,
+    "playback_mode": "live",
     "ts_max": 120,
     "tolerance": 20,
     "frame_tolerance": 2
