@@ -232,6 +232,9 @@ function DpctfTest(config) {
           loading: parameters.loading,
           useChangeType: useChangeType,
 	  initCallback: makeInitCallback(initCallback),
+	  maxBackwardBuffer: parameters.maxBackwardBuffer,
+	  timestampOffsets: parameters.timestampOffsets,
+	  appendWindowBoundaries: parameters.appendWindowBoundaries
         })
         .then(function() {
           return Promise.all([
@@ -275,8 +278,8 @@ function DpctfTest(config) {
               }
             }
 
-            if (!player.getDuration() && parameters.duration) {
-              player.setDuration(parameters.duration);
+            if (parameters.playbackDuration) {
+              player.setDuration(parameters.playbackDuration);
             }
 
             //if (parameters.totalRepresentations) {
@@ -712,7 +715,10 @@ function DpctfTest(config) {
 	  waitingDuration: determineValue("waiting_duration"),
 	  appendWindowBoundaries: determineValue("append_window_boundaries"),
 	  playbackMode: determineValue("playback_mode"),
-	  stallToleranceMargin: determineValue("stall_tolerance_margin")
+	  stallToleranceMargin: determineValue("stall_tolerance_margin"),
+	  maxBackwardBuffer: determineValue("max_backward_buffer"),
+	  playbackDuration: determineValue("playback_duration"),
+	  timestampOffsets: determineValue("timestamp_offsets")
         };
 
         var playout = determineValue("playout");

@@ -7939,6 +7939,58 @@
                 ],
                 "audio": []
             }
+        },
+        "9a6958df1431d3f66313a967ce25903e": {
+            "path": "dpcat/long-duration-playback__15_30_60.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "long-duration-playback.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "d86f276878f37378b1b1cd58224e806c": {
+            "path": "dpcat/mse-appendwindow__15_30_60.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1/stream.mpd"
+            ],
+            "audio": [],
+            "code": "mse-appendwindow.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.016S",
+                        "representations": {
+                            "2": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
         }
     }
 }

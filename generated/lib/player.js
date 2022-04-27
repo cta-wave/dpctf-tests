@@ -70,6 +70,8 @@ function Player(video) {
     if (_mediaSource) {
       _mediaSource.duration = duration;
     }
+    if (_videoBufferManager) _videoBufferManager.setDuration(duration);
+    if (_audioBufferManager) _audioBufferManager.setDuration(duration);
   }
 
   function getVideo() {
@@ -89,6 +91,11 @@ function Player(video) {
   function setAppendWindow(appendWindow) {
     if (_videoBufferManager) _videoBufferManager.setAppendWindow(appendWindow);
     if (_audioBufferManager) _audioBufferManager.setAppendWindow(appendWindow);
+  }
+
+  function setMaxBackwardBuffer(maxBackwardBuffer) {
+    if (_videoBufferManager) _videoBufferManager.setMaxBackwardBuffer(maxBackwardBuffer);
+    if (_audioBufferManager) _audioBufferManager.setMaxBackwardBuffer(maxBackwardBuffer);
   }
 
   function play() {
@@ -176,7 +183,7 @@ function Player(video) {
           bufferOffset += totalSegmentsCount;
           totalDuration = duration;
         }
-        setDuration(totalDuration);
+	if (!_duration) setDuration(totalDuration);
       }
       _eventEmitter.dispatchEvent("onVideoManifestParsed", manifests);
     });
@@ -237,7 +244,7 @@ function Player(video) {
           bufferOffset += totalSegmentsCount;
           totalDuration = duration;
         }
-        setDuration(totalDuration);
+        if (!_duration) setDuration(totalDuration);
       }
       _eventEmitter.dispatchEvent("onAudioManifestParsed", manifests);
     });
@@ -472,6 +479,7 @@ function Player(video) {
     setBufferTime,
     getBufferTime,
     setAppendWindow,
+    setMaxBackwardBuffer,
     on,
     off,
     startBuffering,
@@ -501,7 +509,7 @@ function BufferManager(manifests, mediaSource, video, options) {
   let _playingSegment;
   let _gaps = [];
   let _playingRepresentation;
-  let _bufferingSegment;
+  let _bufferingSegment = 0;
   let _isBuffering;
   let _isBufferingSegment;
   let _isAppendingBuffer;
@@ -519,6 +527,11 @@ function BufferManager(manifests, mediaSource, video, options) {
   let _currentMimeCodec;
   let _registerMimeCodecChange = options.registerMimeCodecChange;
   let _initCallback = options.initCallback;
+  let _maxBackwardBuffer = options.maxBackwardBuffer;
+  let _duration = options.duration;
+  let _appendWindowBoundaries = options.appendWindowBoundaries;
+  let _currentAppendWindow = 0;
+  let _timestampOffsets = options.timestampOffsets;
 
   let _eventEmitter = new EventEmitter();
 
@@ -576,7 +589,7 @@ function BufferManager(manifests, mediaSource, video, options) {
       if (!segment) continue;
       totalDuration += segment.getDuration();
     }
-    _mediaSource.duration = totalDuration;
+    if (!_duration) _mediaSource.duration = totalDuration;
     return totalDuration;
   }
 
@@ -716,6 +729,15 @@ function BufferManager(manifests, mediaSource, video, options) {
     if (!_sourceBuffer) {
       _sourceBuffer = _mediaSource.addSourceBuffer(mimeCodec);
       _currentMimeCodec = mimeCodec;
+      if (_appendWindowBoundaries) {
+        for (var i = 0; i < _appendWindowBoundaries.length; i++) {
+          if (_bufferingSegment <= _appendWindowBoundaries[i].lastPlayoutEntry - 1) {
+            _currentAppendWindow = i;
+            setAppendWindow(_appendWindowBoundaries[i]);
+            break;
+          }
+        }
+      }
     }
 
     return new Promise(function(resolve) {
@@ -840,6 +862,13 @@ function BufferManager(manifests, mediaSource, video, options) {
     }
 
     _isAppendingBuffer = true;
+	
+    if (_appendWindowBoundaries) {
+      if (_bufferingSegment > _appendWindowBoundaries[_currentAppendWindow].lastPlayoutEntry - 1) {
+        _currentAppendWindow++;
+	setAppendWindow(_appendWindowBoundaries[_currentAppendWindow]);
+      }
+    }
 
     var arrayBuffer = bufferInfo.arrayBuffer;
     var representationNumber = bufferInfo.segment.getRepresentationNumber();
@@ -872,6 +901,10 @@ function BufferManager(manifests, mediaSource, video, options) {
     _lastInitSegmentUrl = initSegmentUrl;
 
     var timestampOffset = bufferInfo.segment.getTimestampOffset();
+    var segmentNumber = bufferInfo.segment.getNumber();
+    if (_timestampOffsets && _timestampOffsets[segmentNumber]) {
+      timestampOffset += _timestampOffsets[segmentNumber] / 1000.0;
+    }
 
     if (_sourceBuffer.timestampOffset !== timestampOffset) {
       _sourceBuffer.timestampOffset = timestampOffset;
@@ -912,7 +945,16 @@ function BufferManager(manifests, mediaSource, video, options) {
         _eventEmitter.dispatchEvent("onSegmentLoaded", {
           totalSegmentsLoaded: _bufferingSegment,
         });
+	handleMaxBackwardBuffer();
       });
+  }
+
+  function handleMaxBackwardBuffer() {
+    if (_maxBackwardBuffer) {
+      var end = video.currentTime - _maxBackwardBuffer;
+      if (end <= 0) return;
+      _sourceBuffer.remove(0, end);
+    }
   }
 
   function appendVideoBuffer(arrayBuffer) {
@@ -987,6 +1029,7 @@ function BufferManager(manifests, mediaSource, video, options) {
   }
 
   function setAppendWindow(appendWindow) {
+    if (!appendWindow) return;
     var start = appendWindow.start / 1000.0;
     var end = appendWindow.end / 1000.0;
 
@@ -1026,6 +1069,13 @@ function BufferManager(manifests, mediaSource, video, options) {
     _sourceBuffer = null;
   }
 
+  function setMaxBackwardBuffer(maxBackwardBuffer) {
+    _maxBackwardBuffer = maxBackwardBuffer;
+  }
+
+  function setDuration(duration) {
+  }
+
   instance = {
     setSegments,
     getSegments,
@@ -1038,6 +1088,8 @@ function BufferManager(manifests, mediaSource, video, options) {
     getPlayingRepresentation,
     getPreBufferedTime,
     getManifests,
+    setMaxBackwardBuffer,
+    setDuration,
     startBuffering,
     pauseBuffering,
     on: _eventEmitter.on,

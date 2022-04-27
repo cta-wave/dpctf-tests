@@ -364,3 +364,5 @@
 "low-latency-playback-over-gaps","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t2/2022-01-17/stream.mpd","","dpcat"
 "low-latency-short-buffer-playback","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t2/2022-01-17/stream.mpd","","dpcat"
 "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t2/2022-01-17/stream.mpd","","dpcat"
+"long-duration-playback","https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1/stream.mpd","","dpcat"
+"mse-appendwindow","https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1/stream.mpd","","dpcat"
