@@ -61,14 +61,8 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        setupTest: setupTest,
         usePlayout: false,
       });
-
-      function setupTest(player, done, parameters) {
-	var appendWindowBoundaries = paramters.appendWindowBoundaries;
-        player.setAppendWindow(appendWindowBoundaries[0]);
-      }
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
