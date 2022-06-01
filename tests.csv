@@ -43,7 +43,7 @@
 
 "regular-playback-of-a-cmaf-presentation","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t1/2022-01-17/stream.mpd","","avc_15_30_60-online"
 
-"random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t1/2022-01-17/stream.mpd","","avc_15_30_60-online"
+"random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t1/2022-01-17/stream.mpd","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t1/2022-01-17/stream.mpd","avc_15_30_60-online"
 
 
 "sequential-track-playback","/content/avc_sets/15_30_60/t1/2022-01-17/stream.mpd","","avc_15_30_60-local"
@@ -91,7 +91,7 @@
 
 "regular-playback-of-a-cmaf-presentation","/content/avc_sets/15_30_60/t1/2022-01-17/stream.mpd","","avc_15_30_60-local"
 
-"random-access-of-a-wave-presentation","/content/avc_sets/15_30_60/t1/2022-01-17/stream.mpd","","avc_15_30_60-local"
+"random-access-of-a-wave-presentation","/content/avc_sets/15_30_60/t1/2022-01-17/stream.mpd","/content/avc_sets/15_30_60/t1/2022-01-17/stream.mpd","avc_15_30_60-local"
 
 
 "sequential-track-playback","https://dash.akamaized.net/WAVE/vectors/avc_sets/12.5_25_50/t1/2022-01-17/stream.mpd","","avc_12.5_25_50-online"
@@ -137,7 +137,7 @@
 
 "regular-playback-of-a-cmaf-presentation","https://dash.akamaized.net/WAVE/vectors/avc_sets/12.5_25_50/t1/2022-01-17/stream.mpd","","avc_12.5_25_50-online"
 
-"random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/avc_sets/12.5_25_50/t1/2022-01-17/stream.mpd","","avc_12.5_25_50-online"
+"random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/avc_sets/12.5_25_50/t1/2022-01-17/stream.mpd","https://dash.akamaized.net/WAVE/vectors/avc_sets/12.5_25_50/t1/2022-01-17/stream.mpd","avc_12.5_25_50-online"
 
 "regular-playback-of-chunked-content-non-aligned-append","https://dash.akamaized.net/WAVE/vectors/avc_sets/12.5_25_50/t2/2022-01-17/stream.mpd","","avc_12.5_25_50-online"
 
@@ -199,7 +199,7 @@
 
 "regular-playback-of-a-cmaf-presentation","/content/avc_sets/12.5_25_50/t1/2022-01-17/stream.mpd","","avc_12.5_25_50-local"
 
-"random-access-of-a-wave-presentation","/content/avc_sets/12.5_25_50/t1/2022-01-17/stream.mpd","","avc_12.5_25_50-local"
+"random-access-of-a-wave-presentation","/content/avc_sets/12.5_25_50/t1/2022-01-17/stream.mpd","/content/avc_sets/12.5_25_50/t1/2022-01-17/stream.mpd","avc_12.5_25_50-local"
 
 "playback-over-wave-baseline-splice-constraints","/content/avc_sets/15_30_60/splice_main/2022-01-18/stream.mpd","","avc_12.5_25_50-local"
 "","/content/avc_sets/15_30_60/splice_ad/2022-01-18/stream.mpd","","avc_12.5_25_50-local"
@@ -259,7 +259,7 @@
 
 "regular-playback-of-a-cmaf-presentation","https://dash.akamaized.net/WAVE/vectors/avc_sets/14.985_29.97_59.94/t1/2022-01-17/stream.mpd","","avc_14.985_29.97_59.94-online"
 
-"random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/avc_sets/14.985_29.97_59.94/t1/2022-01-17/stream.mpd","","avc_14.985_29.97_59.94-online"
+"random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/avc_sets/14.985_29.97_59.94/t1/2022-01-17/stream.mpd","https://dash.akamaized.net/WAVE/vectors/avc_sets/14.985_29.97_59.94/t1/2022-01-17/stream.mpd","avc_14.985_29.97_59.94-online"
 
 
 "sequential-track-playback","/content/avc_sets/14.985_29.97_59.94/t1/2022-01-17/stream.mpd","","avc_14.985_29.97_59.94-local"
@@ -307,7 +307,7 @@
 
 "regular-playback-of-a-cmaf-presentation","/content/avc_sets/14.985_29.97_59.94/t1/2022-01-17/stream.mpd","","avc_14.985_29.97_59.94-local"
 
-"random-access-of-a-wave-presentation","/content/avc_sets/14.985_29.97_59.94/t1/2022-01-17/stream.mpd","","avc_14.985_29.97_59.94-local"
+"random-access-of-a-wave-presentation","/content/avc_sets/14.985_29.97_59.94/t1/2022-01-17/stream.mpd","/content/avc_sets/14.985_29.97_59.94/t1/2022-01-17/stream.mpd","avc_14.985_29.97_59.94-local"
 
 "sequential-track-playback","","https://dash.akamaized.net/WAVE/vectors/2021-11-17/eac3_sets/at1/stream.mpd","eac3-online"
 "random-access-to-fragment","","https://dash.akamaized.net/WAVE/vectors/2021-11-17/eac3_sets/at1/stream.mpd","eac3-online"

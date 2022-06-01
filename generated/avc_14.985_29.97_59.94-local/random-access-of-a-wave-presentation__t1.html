@@ -51,11 +51,12 @@
       var statusText = document.getElementById("status-text");
 
       var videoContentModel = ["/content/avc_sets/14.985_29.97_59.94/t1/2022-01-17/stream.mpd"];
-      var audioContentModel = [];
+      var audioContentModel = ["/content/avc_sets/14.985_29.97_59.94/t1/2022-01-17/stream.mpd"];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
         videoContentModel: videoContentModel,
+	audioContentModel: audioContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
         statusTextElement: statusText,
