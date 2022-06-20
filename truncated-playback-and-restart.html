@@ -64,6 +64,7 @@
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
         usePlayout: false,
+        autoCloseStream: false,
       });
 
       function executeTest(player, done, parameters) {
@@ -75,13 +76,15 @@
           var match = query.match(/redirect_time=([^&]+)/);
           var REDIRECT_TIME = match ? match[1] : null;
           if (!REDIRECT_TIME) REDIRECT_TIME = 5;
-	  var playthroughCount = 0;
-          video.addEventListener("ended", function (event) {
-	    playthroughCount += 1;
-	    if (playthroughCount <= 1) {
+          var playthroughCount = 0;
+          video.addEventListener("waiting", function (event) {
+            if (player.getCurrentTime() < player.getDuration() - 1) return;
+            if (playthroughCount < 1) {
               playNextRepresentation();
-	      return;
+              playthroughCount += 1;
+              return;
             }
+            player.closeStream();
             assert_true(true);
             test.done();
           });
