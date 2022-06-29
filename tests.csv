@@ -357,9 +357,12 @@
 
 
 "source-buffer-re-initialization-without-changetype","https://media.axprod.net/TestVectors/Dash/not_protected_dash_1080p_h264/manifest.mpd","","dpcat-debug"
+"","https://media.axprod.net/TestVectors/Dash/not_protected_dash_1080p_h264/manifest.mpd","","dpcat-debug"
 "source-buffer-re-initialization-with-changetype","https://media.axprod.net/TestVectors/Dash/not_protected_dash_1080p_h264/manifest.mpd","","dpcat-debug"
+"","https://media.axprod.net/TestVectors/Dash/not_protected_dash_1080p_h264/manifest.mpd","","dpcat-debug"
 "buffer-underrun-and-recovery","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t2/2022-01-17/stream.mpd","","dpcat"
 "truncated-playback-and-restart","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_main/2022-01-18/stream.mpd","","dpcat"
+"","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_ad/2022-01-18/stream.mpd","","dpcat"
 "low-latency-initialization","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t2/2022-01-17/stream.mpd","","dpcat"
 "low-latency-playback-over-gaps","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t2/2022-01-17/stream.mpd","","dpcat"
 "low-latency-short-buffer-playback","https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t2/2022-01-17/stream.mpd","","dpcat"
