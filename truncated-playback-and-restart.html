@@ -15,9 +15,7 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>
-        To show/hide debug overlay press up/down or button beneath
-      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -40,8 +38,7 @@
       var TEST_INFO = {
         id: "truncated-playback-and-restart",
         title: "Truncated Playback and Restart",
-        description:
-          "",
+        description: "",
         path: "{{TEST_PATH}}",
         code: "{{TEMPLATE_NAME}}",
         observations: [],
@@ -77,41 +74,62 @@
           var REDIRECT_TIME = match ? match[1] : null;
           if (!REDIRECT_TIME) REDIRECT_TIME = 5;
           var playthroughCount = 0;
-          video.addEventListener("waiting", function (event) {
-            if (player.getCurrentTime() < player.getDuration() - 1) return;
-            if (playthroughCount < 1) {
-              playNextRepresentation();
-              playthroughCount += 1;
+          var handleTimeUpdate = function (event) {
+            if (video.currentTime < parameters.secondPlayoutSwitchingTime)
               return;
-            }
-            player.closeStream();
+            player.setCurrentTime(0);
+            player.truncateBuffer().then(function () {
+              player.on("onAllVideoSegmentsLoaded", function () {
+                player.closeStream();
+              });
+              dpctfTest.applyPlayout(parameters.secondPlayout);
+              player.startBuffering();
+              if (
+                player.getPreBufferedTime() >= minBufferDuration ||
+                player.getPreBufferedTime() >= player.getDuration()
+              ) {
+                player
+                  .play()
+                  .then(function () {
+                    done();
+                  })
+                  .catch(function (error) {
+                    done(error);
+                  });
+              } else {
+                var loadedEvent = "onVideoSegmentLoaded";
+                if (videoContentModel.length === 0)
+                  loadedEvent = "onAudioSegmentLoaded";
+                player.on(loadedEvent, function (event) {
+                  if (
+                    player.getPreBufferedTime() >= minBufferDuration ||
+                    player.getPreBufferedTime() >= player.getDuration()
+                  ) {
+                    player
+                      .play()
+                      .then(function () {
+                        done();
+                      })
+                      .catch(function (error) {
+                        done(error);
+                      });
+                  }
+                });
+              }
+            });
+            video.removeEventListener("timeupdate", handleTimeUpdate);
+          };
+          video.addEventListener("timeupdate", handleTimeUpdate);
+          video.addEventListener("ended", function (event) {
             assert_true(true);
             test.done();
           });
         }, "video ended event fired");
 
-        function playNextRepresentation() {
-          var bufferOffset = 0;
-          var totalDuration = 0;
-          var representationNumber = 1;
-          var periodNumber = 0;
-	  var manifest = player.getVideoManifests()[0];
-          var totalSegmentsCount = manifest
-            .getRepresentation(representationNumber, periodNumber)
-            .getTotalSegmentsCount();
-          var duration = player.setVideoSegments({
-            representationNumber: representationNumber,
-            startSegment: 0,
-            endSegment: totalSegmentsCount - 1,
-            bufferOffset: bufferOffset,
-            periodNumber: periodNumber,
-          });
-	  player.setCurrentTime(0);
-	  player.play();
-        };
-
-        if (player.getPreBufferedTime() >= minBufferDuration || 
-            player.getPreBufferedTime() >= player.getDuration()) {
+        if (
+          player.getPreBufferedTime() >= minBufferDuration ||
+          player.getPreBufferedTime() >= player.getDuration()
+        ) {
           player
             .play()
             .then(function () {
@@ -122,10 +140,13 @@
             });
         } else {
           var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
+          if (videoContentModel.length === 0)
+            loadedEvent = "onAudioSegmentLoaded";
           player.on(loadedEvent, function (event) {
-            if (player.getPreBufferedTime() >= minBufferDuration || 
-                player.getPreBufferedTime() >= player.getDuration()) {
+            if (
+              player.getPreBufferedTime() >= minBufferDuration ||
+              player.getPreBufferedTime() >= player.getDuration()
+            ) {
               player
                 .play()
                 .then(function () {

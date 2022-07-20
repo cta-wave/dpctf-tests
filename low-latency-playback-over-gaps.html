@@ -15,9 +15,7 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>
-        To show/hide debug overlay press up/down or button beneath
-      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -42,7 +40,7 @@
         title: "Low-Latency: Playback over Gaps",
         description: "",
         path: "{{TEST_PATH}}",
-        code: "{{TEMPLATE_NAME}}"
+        code: "{{TEMPLATE_NAME}}",
       };
 
       var video = document.querySelector("video");
@@ -61,25 +59,25 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-	setupTest: setupTest,
+        setupTest: setupTest,
         usePlayout: false,
       });
 
       function setupTest(player, done, parameters) {
         var firstSegment = player.getVideoSegments()[0];
-	var segmentDuration = firstSegment.getDuration();
-	var chunks = firstSegment.getChunks();
-	var chunkDuration = segmentDuration / chunks.length;
-	if (chunks.length === 0) chunkDuration = segmentDuration;
-	var minBufferDuration = parameters.minBufferDuration;
-	var maxBufferDuration = parameters.maxBufferDuration;
-	var gapDuration = parameters.gapDuration || segmentDuration * 1000;
-	var gapStart = segmentDuration;
-	if (gapStart > minBufferDuration) gapStart = minBufferDuration;
-	if (gapStart < chunkDuration) gapStart = chunkDuration;
-	dpctfTest.setMinBufferDuration(maxBufferDuration);
+        var segmentDuration = firstSegment.getDuration();
+        var chunks = firstSegment.getChunks();
+        var chunkDuration = segmentDuration / chunks.length;
+        if (chunks.length === 0) chunkDuration = segmentDuration;
+        var minBufferDuration = parameters.minBufferDuration;
+        var maxBufferDuration = parameters.maxBufferDuration;
+        var gapDuration = parameters.gapDuration || segmentDuration * 1000;
+        var gapStart = segmentDuration;
+        if (gapStart > minBufferDuration) gapStart = minBufferDuration;
+        if (gapStart < chunkDuration) gapStart = chunkDuration;
+        dpctfTest.setMinBufferDuration(maxBufferDuration);
         dpctfTest.setGap(gapStart, gapDuration);
-	done();
+        done();
       }
 
       function executeTest(player, done, parameters) {
@@ -98,21 +96,23 @@
         }, "video ended event fired");
 
         function onPlayerWaiting() {
-	  var playbackMode = parameters.playbackMode;
+          var playbackMode = parameters.playbackMode;
           var gapDuration = parameters.gapDuration;
-	  var waitingDuration = 0;
-	  if (playbackMode === dpctfTest.PLAYBACK_MODE_LIVE) {
-	    waitingDuration = gapDuration;
+          var waitingDuration = 0;
+          if (playbackMode === dpctfTest.PLAYBACK_MODE_LIVE) {
+            waitingDuration = gapDuration;
           }
-	  setTimeout(function () {
-	    video.removeEventListener("waiting", onPlayerWaiting);
+          setTimeout(function () {
+            video.removeEventListener("waiting", onPlayerWaiting);
             player.setCurrentTime(video.buffered.start(1));
             done();
           }, waitingDuration);
-	}
+        }
 
-        if (player.getPreBufferedTime() >= minBufferDuration || 
-            player.getPreBufferedTime() >= player.getDuration()) {
+        if (
+          player.getPreBufferedTime() >= minBufferDuration ||
+          player.getPreBufferedTime() >= player.getDuration()
+        ) {
           player
             .play()
             .then(function () {
@@ -123,10 +123,13 @@
             });
         } else {
           var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
+          if (videoContentModel.length === 0)
+            loadedEvent = "onAudioSegmentLoaded";
           player.on(loadedEvent, function (event) {
-            if (player.getPreBufferedTime() >= minBufferDuration || 
-                player.getPreBufferedTime() >= player.getDuration()) {
+            if (
+              player.getPreBufferedTime() >= minBufferDuration ||
+              player.getPreBufferedTime() >= player.getDuration()
+            ) {
               player
                 .play()
                 .then(function () {

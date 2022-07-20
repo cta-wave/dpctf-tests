@@ -62,6 +62,11 @@
   "low-latency-initialization.html": {
     "waiting_time": 5000
   },
+  "truncated-playback-and-restart.html": {
+    "playout": [[1, 1, 1],  [1, 1, 2],  [1, 1, 3]],
+    "second_playout": [[2, 1, 1],  [2, 1, 2],  [2, 1, 3],  [2, 1, 4],  [2, 1, 5],  [2, 1, 6]],
+    "second_playout_switching_time": 5
+  },
   "buffer-underrun-and-recovery.html": {
     "waiting_duration": 500
   },
@@ -86,15 +91,15 @@
   "source-buffer-re-initialization-without-changetype.html": {
     "playout": [
        [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],  [1, 1, 5],
-       [1, 1, 6],  [1, 1, 7],  [1, 1, 8],  [1, 2, 9],  [1, 2, 10],
-       [1, 2, 11], [1, 2, 12], [1, 2, 13], [1, 2, 14], [1, 2, 15]
+       [1, 1, 6],  [1, 1, 7],  [1, 1, 8],  [2, 2, 9],  [2, 2, 10],
+       [2, 2, 11], [2, 2, 12], [2, 2, 13], [2, 2, 14], [2, 2, 15]
     ]
   },
   "source-buffer-re-initialization-with-changetype.html": {
     "playout": [
        [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],  [1, 1, 5],
-       [1, 1, 6],  [1, 1, 7],  [1, 1, 8],  [1, 2, 9],  [1, 2, 10],
-       [1, 2, 11], [1, 2, 12], [1, 2, 13], [1, 2, 14], [1, 2, 15]
+       [1, 1, 6],  [1, 1, 7],  [1, 1, 8],  [2, 2, 9],  [2, 2, 10],
+       [2, 2, 11], [2, 2, 12], [2, 2, 13], [2, 2, 14], [2, 2, 15]
     ]
   },
   "avc_15_30_60-local/switching-set-playback__ss1.html": {
