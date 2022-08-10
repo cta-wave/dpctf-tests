@@ -15,7 +15,9 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>To show/hide debug overlay press up/down or button beneath</div>
+      <div>
+        To show/hide debug overlay press up/down or button beneath
+      </div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -36,19 +38,18 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "truncated-playback-and-restart",
-        title: "Truncated Playback and Restart",
-        description: "",
-        path: "dpcat/truncated-playback-and-restart__splice_main_splice_ad.html",
-        code: "truncated-playback-and-restart.html",
-        observations: [],
+        id: "long-duration-playback",
+        title: "Long Duration Playback",
+        description: "This requirement addresses the proper playback of a WAVE presentation over a longer time; in particular, no drift in the playout occurs.",
+        path: "dpcat-online/long-duration-playback__15_30_60.html",
+        code: "long-duration-playback.html",
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_main/2022-01-18/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/splice_ad/2022-01-18/stream.mpd"];
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
@@ -61,7 +62,6 @@
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
         usePlayout: false,
-        autoCloseStream: false,
       });
 
       function executeTest(player, done, parameters) {
@@ -73,63 +73,14 @@
           var match = query.match(/redirect_time=([^&]+)/);
           var REDIRECT_TIME = match ? match[1] : null;
           if (!REDIRECT_TIME) REDIRECT_TIME = 5;
-          var playthroughCount = 0;
-          var handleTimeUpdate = function (event) {
-            if (video.currentTime < parameters.secondPlayoutSwitchingTime)
-              return;
-            player.setCurrentTime(0);
-            player.truncateBuffer().then(function () {
-              player.on("onAllVideoSegmentsLoaded", function () {
-                player.closeStream();
-              });
-              dpctfTest.applyPlayout(parameters.secondPlayout);
-              player.startBuffering();
-              if (
-                player.getPreBufferedTime() >= minBufferDuration ||
-                player.getPreBufferedTime() >= player.getDuration()
-              ) {
-                player
-                  .play()
-                  .then(function () {
-                    done();
-                  })
-                  .catch(function (error) {
-                    done(error);
-                  });
-              } else {
-                var loadedEvent = "onVideoSegmentLoaded";
-                if (videoContentModel.length === 0)
-                  loadedEvent = "onAudioSegmentLoaded";
-                player.on(loadedEvent, function (event) {
-                  if (
-                    player.getPreBufferedTime() >= minBufferDuration ||
-                    player.getPreBufferedTime() >= player.getDuration()
-                  ) {
-                    player
-                      .play()
-                      .then(function () {
-                        done();
-                      })
-                      .catch(function (error) {
-                        done(error);
-                      });
-                  }
-                });
-              }
-            });
-            video.removeEventListener("timeupdate", handleTimeUpdate);
-          };
-          video.addEventListener("timeupdate", handleTimeUpdate);
           video.addEventListener("ended", function (event) {
             assert_true(true);
             test.done();
           });
         }, "video ended event fired");
 
-        if (
-          player.getPreBufferedTime() >= minBufferDuration ||
-          player.getPreBufferedTime() >= player.getDuration()
-        ) {
+        if (player.getPreBufferedTime() >= minBufferDuration || 
+            player.getPreBufferedTime() >= player.getDuration()) {
           player
             .play()
             .then(function () {
@@ -140,13 +91,10 @@
             });
         } else {
           var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0)
-            loadedEvent = "onAudioSegmentLoaded";
+          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
           player.on(loadedEvent, function (event) {
-            if (
-              player.getPreBufferedTime() >= minBufferDuration ||
-              player.getPreBufferedTime() >= player.getDuration()
-            ) {
+            if (player.getPreBufferedTime() >= minBufferDuration || 
+                player.getPreBufferedTime() >= player.getDuration()) {
               player
                 .play()
                 .then(function () {

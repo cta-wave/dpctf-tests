@@ -38,18 +38,18 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "long-duration-playback",
-        title: "Long Duration Playback",
-        description: "This requirement addresses the proper playback of a WAVE presentation over a longer time; in particular, no drift in the playout occurs.",
-        path: "dpcat/long-duration-playback__15_30_60.html",
-        code: "long-duration-playback.html",
+        id: "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream",
+        title: "Random access from one place in a stream to a different place in the same stream",
+        description: "",
+        path: "dpcat-local/random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream__t2.html",
+        code: "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream.html"
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/2021-09-09/avc_sets/15_30_60/t1/stream.mpd"];
+      var videoContentModel = ["/content/avc_sets/15_30_60/t2/2022-01-17/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
@@ -78,6 +78,17 @@
             test.done();
           });
         }, "video ended event fired");
+
+        var randomAccessFrom = parameters.randomAccessFrom;
+        var randomAccessTo = parameters.randomAccessTo;
+        function handleRandomAccess(currentTime) {
+          if (currentTime < randomAccessFrom) return;
+          player.setCurrentTime(randomAccessTo);
+          player.off(handleRandomAccess);
+        }
+        if (randomAccessFrom && randomAccessTo) {
+          player.on("onTimeUpdate", handleRandomAccess);
+        }
 
         if (player.getPreBufferedTime() >= minBufferDuration || 
             player.getPreBufferedTime() >= player.getDuration()) {

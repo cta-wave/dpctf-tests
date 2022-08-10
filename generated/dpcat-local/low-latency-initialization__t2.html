@@ -38,20 +38,18 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "buffer-underrun-and-recovery",
-        title: "Buffer Underrun and Recovery",
-        description:
-          "",
-        path: "dpcat/buffer-underrun-and-recovery__t2.html",
-        code: "buffer-underrun-and-recovery.html",
-        observations: [],
+        id: "low-latency-initialization",
+        title: "Low-Latency (1): Initialization",
+        description: "",
+        path: "dpcat-local/low-latency-initialization__t2.html",
+        code: "low-latency-initialization.html"
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/avc_sets/15_30_60/t2/2022-01-17/stream.mpd"];
+      var videoContentModel = ["/content/avc_sets/15_30_60/t2/2022-01-17/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
@@ -64,7 +62,25 @@
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
         usePlayout: false,
+	initCallback: handleVideoInitialized,
       });
+
+      function handleVideoInitialized(player, done, parameters) {
+	var READY_STATE_HAVE_METADATA = 1;
+	var waitingTime = parameters.waitingTime || 500;
+	var handlePlay = function () {
+	  video.removeEventListener("play", handlePlay);
+	  dpctfTest.test(function () {
+	    assert_true(video.readyState === READY_STATE_HAVE_METADATA);
+	  }, "Video ready state is 'HAVE_METADATA'");
+          setTimeout(function() {
+            done();
+	    dpctfTest.setVideoState("appended");
+          }, waitingTime);
+        }
+	video.addEventListener("play", handlePlay);
+        player.play();
+      }
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
@@ -81,21 +97,12 @@
           });
         }, "video ended event fired");
 
-        function onPlayerWaiting() {
-          var waitingDuration = parameters.waitingDuration;
-	  setTimeout(function () {
-            player.startBuffering();
-            done();
-          }, waitingDuration);
-	}
-
         if (player.getPreBufferedTime() >= minBufferDuration || 
             player.getPreBufferedTime() >= player.getDuration()) {
           player
             .play()
             .then(function () {
-              player.pauseBuffering();
-              video.addEventListener("waiting", onPlayerWaiting);
+              done();
             })
             .catch(function (error) {
               done(error);
@@ -109,8 +116,7 @@
               player
                 .play()
                 .then(function () {
-                  player.pauseBuffering();
-                  video.addEventListener("waiting", onPlayerWaiting);
+                  done();
                 })
                 .catch(function (error) {
                   done(error);

@@ -15,7 +15,9 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>To show/hide debug overlay press up/down or button beneath</div>
+      <div>
+        To show/hide debug overlay press up/down or button beneath
+      </div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -36,11 +38,11 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "low-latency-playback-over-gaps",
-        title: "Low-Latency: Playback over Gaps",
+        id: "low-latency-initialization",
+        title: "Low-Latency (1): Initialization",
         description: "",
-        path: "dpcat/low-latency-playback-over-gaps__t2.html",
-        code: "low-latency-playback-over-gaps.html",
+        path: "dpcat-online/low-latency-initialization__t2.html",
+        code: "low-latency-initialization.html"
       };
 
       var video = document.querySelector("video");
@@ -59,25 +61,25 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        setupTest: setupTest,
         usePlayout: false,
+	initCallback: handleVideoInitialized,
       });
 
-      function setupTest(player, done, parameters) {
-        var firstSegment = player.getVideoSegments()[0];
-        var segmentDuration = firstSegment.getDuration();
-        var chunks = firstSegment.getChunks();
-        var chunkDuration = segmentDuration / chunks.length;
-        if (chunks.length === 0) chunkDuration = segmentDuration;
-        var minBufferDuration = parameters.minBufferDuration;
-        var maxBufferDuration = parameters.maxBufferDuration;
-        var gapDuration = parameters.gapDuration || segmentDuration * 1000;
-        var gapStart = segmentDuration;
-        if (gapStart > minBufferDuration) gapStart = minBufferDuration;
-        if (gapStart < chunkDuration) gapStart = chunkDuration;
-        dpctfTest.setMinBufferDuration(maxBufferDuration);
-        dpctfTest.setGap(gapStart, gapDuration);
-        done();
+      function handleVideoInitialized(player, done, parameters) {
+	var READY_STATE_HAVE_METADATA = 1;
+	var waitingTime = parameters.waitingTime || 500;
+	var handlePlay = function () {
+	  video.removeEventListener("play", handlePlay);
+	  dpctfTest.test(function () {
+	    assert_true(video.readyState === READY_STATE_HAVE_METADATA);
+	  }, "Video ready state is 'HAVE_METADATA'");
+          setTimeout(function() {
+            done();
+	    dpctfTest.setVideoState("appended");
+          }, waitingTime);
+        }
+	video.addEventListener("play", handlePlay);
+        player.play();
       }
 
       function executeTest(player, done, parameters) {
@@ -95,45 +97,26 @@
           });
         }, "video ended event fired");
 
-        function onPlayerWaiting() {
-          var playbackMode = parameters.playbackMode;
-          var gapDuration = parameters.gapDuration;
-          var waitingDuration = 0;
-          if (playbackMode === dpctfTest.PLAYBACK_MODE_LIVE) {
-            waitingDuration = gapDuration;
-          }
-          setTimeout(function () {
-            video.removeEventListener("waiting", onPlayerWaiting);
-            player.setCurrentTime(video.buffered.start(1));
-            done();
-          }, waitingDuration);
-        }
-
-        if (
-          player.getPreBufferedTime() >= minBufferDuration ||
-          player.getPreBufferedTime() >= player.getDuration()
-        ) {
+        if (player.getPreBufferedTime() >= minBufferDuration || 
+            player.getPreBufferedTime() >= player.getDuration()) {
           player
             .play()
             .then(function () {
-              video.addEventListener("waiting", onPlayerWaiting);
+              done();
             })
             .catch(function (error) {
               done(error);
             });
         } else {
           var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0)
-            loadedEvent = "onAudioSegmentLoaded";
+          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
           player.on(loadedEvent, function (event) {
-            if (
-              player.getPreBufferedTime() >= minBufferDuration ||
-              player.getPreBufferedTime() >= player.getDuration()
-            ) {
+            if (player.getPreBufferedTime() >= minBufferDuration || 
+                player.getPreBufferedTime() >= player.getDuration()) {
               player
                 .play()
                 .then(function () {
-                  video.addEventListener("waiting", onPlayerWaiting);
+                  done();
                 })
                 .catch(function (error) {
                   done(error);

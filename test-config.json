@@ -97,7 +97,12 @@
        [2, 2, 11], [2, 2, 12], [2, 2, 13], [2, 2, 14], [2, 2, 15]
     ]
   },
-  "dpcat/truncated-playback-and-restart__splice_main_splice_ad.html": {
+  "dpcat-online/truncated-playback-and-restart__splice_main_splice_ad.html": {
+    "playout": [[1, 1, 1],  [1, 1, 2],  [1, 1, 3]],
+    "second_playout": [[2, 1, 1],  [2, 1, 2],  [2, 1, 3]],
+    "second_playout_switching_time": 5
+  },
+  "dpcat-local/truncated-playback-and-restart__splice_main_splice_ad.html": {
     "playout": [[1, 1, 1],  [1, 1, 2],  [1, 1, 3]],
     "second_playout": [[2, 1, 1],  [2, 1, 2],  [2, 1, 3]],
     "second_playout_switching_time": 5
