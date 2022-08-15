@@ -49,7 +49,8 @@
   "low-latency-playback-over-gaps.html": {
     "min_buffer_duration": 5,
     "max_buffer_duration": 30,
-    "playback_mode": "live"
+    "playback_mode": "live",
+    "stall_tolerance_margin": 300
   },
   "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream.html": {
     "random_access_from": 5,
