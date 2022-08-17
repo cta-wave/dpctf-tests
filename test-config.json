@@ -54,7 +54,8 @@
   },
   "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream.html": {
     "random_access_from": 5,
-    "random_access_to": 30
+    "random_access_to": 30,
+    "random_access_from_tolerance": 200
   },
   "low-latency-short-buffer-playback.html": {
     "maximum_forward_buffer": 500,
