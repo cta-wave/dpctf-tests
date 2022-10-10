@@ -1,6 +1,6 @@
 function ManifestParser() {}
 
-ManifestParser.parse = function (manifestUrl) {
+ManifestParser.parse = function (manifestUrl, manifestIndex) {
   return ManifestParser.fetchInformation(manifestUrl).then(function (
     parsedManifest
   ) {
@@ -60,6 +60,7 @@ ManifestParser.parse = function (manifestUrl) {
             initSegmentUrl: initSegmentUrl,
             periodNumber: periodId,
             timestampOffset: segment.timestampOffset,
+            manifestIndex: manifestIndex,
           })
         );
       }
@@ -257,6 +258,10 @@ function Representation(attributes) {
     return _periodNumber;
   }
 
+  function getManifestIndex() {
+    return _segments[0].getManifestIndex();
+  }
+
   function toString() {
     var string = "";
     string += "MimeCodec: " + _mimeCodec + ";";
@@ -281,6 +286,7 @@ function Representation(attributes) {
     getSegments,
     getTotalSegmentsCount,
     getPeriodNumber,
+    getManifestIndex,
     toString,
   };
 
