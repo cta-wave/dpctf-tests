@@ -60,11 +60,12 @@ Various parameters are used to configure the tests by specifying them in the tes
 
 ## Run Tests
 
-As mentioned in the beginning of this README, in order to run tests in an automated way, please follow the instructions in the [DPCTF Deploy](https://github.com/cta-wave/dpctf-test-runner) project. 
+As mentioned in the beginning of this README, in order to run tests in an automated way, please follow the instructions in the [DPCTF Deploy](https://github.com/cta-wave/dpctf-test-runner) project.
 
-If you need to run dedicated tests e.g. for debugging purposes without the need to deploy the entire test runner, you can use the tests hosted in the [gh-pages](https://github.com/cta-wave/dpctf-tests/tree/github-pages) branch. These tests are accessible via https://cta-wave.github.io/dpctf-tests/generated/path/to/test.html. `path/to/test.html` needs to be replaced with the path of the test you want to run within the [generated test folder](https://github.com/cta-wave/dpctf-tests/tree/github-pages/generated). Examples: 
-* The URL for [avc_15_30_60-2021-09-09-online/sequential-track-playback__t1.html](https://github.com/cta-wave/dpctf-tests/blob/github-pages/generated/avc_15_30_60-2021-09-09-online/sequential-track-playback__t1.html) test is https://cta-wave.github.io/dpctf-tests/generated/avc_15_30_60-2021-09-09-online/sequential-track-playback__t1.html 
-* The URL for [ac4-2021-09-29-online/sequential-track-playback__at1.html](https://github.com/cta-wave/dpctf-tests/blob/github-pages/generated/ac4-2021-09-29-online/sequential-track-playback__at1.html) test is https://cta-wave.github.io/dpctf-tests/generated/ac4-2021-09-29-online/sequential-track-playback__at1.html 
+If you need to run dedicated tests e.g. for debugging purposes without the need to deploy the entire test runner, you can use the tests hosted in the [gh-pages](https://github.com/cta-wave/dpctf-tests/tree/github-pages) branch. These tests are accessible via https://cta-wave.github.io/dpctf-tests/generated/path/to/test.html. `path/to/test.html` needs to be replaced with the path of the test you want to run within the [generated test folder](https://github.com/cta-wave/dpctf-tests/tree/github-pages/generated). Examples:
+
+- The URL for [avc_15_30_60-2021-09-09-online/sequential-track-playback\_\_t1.html](https://github.com/cta-wave/dpctf-tests/blob/github-pages/generated/avc_15_30_60-2021-09-09-online/sequential-track-playback__t1.html) test is https://cta-wave.github.io/dpctf-tests/generated/avc_15_30_60-2021-09-09-online/sequential-track-playback__t1.html
+- The URL for [ac4-2021-09-29-online/sequential-track-playback\_\_at1.html](https://github.com/cta-wave/dpctf-tests/blob/github-pages/generated/ac4-2021-09-29-online/sequential-track-playback__at1.html) test is https://cta-wave.github.io/dpctf-tests/generated/ac4-2021-09-29-online/sequential-track-playback__at1.html
 
 ## Creating new tests
 
@@ -75,3 +76,9 @@ To create new tests proceed as follows:
 - Run `generate-tests.py my-new-file.csv` script which generates the tests in the generated folder only for entries in the new CSV file.
 - If you are developer of new tests, usually you need a simple way to debug a single dedicated new developed test without the need to setup of whole docker which includes the test-runner. The only thing you need to do as developer of new tests in this phase is to serve the generated files via http/https and debug the test in browser.
 - Once the new tests are implemented and tested, you can add the entries to the CSV file [tests.csv](https://github.com/cta-wave/dpctf-tests/blob/master/tests.csv), generate the tests, push to git (in a feature branch) and test everything together using [dpctf-deploy](https://github.com/cta-wave/dpctf-deploy). Please make sure when you create the docker image to use the new feature branch of [dpctf-tests](https://github.com/cta-wave/dpctf-tests) and not the main branch.
+
+## Known Bugs
+
+### Video not scaled properly
+
+It may occur that the browser fails to load the required css stylesheet. As a result the video is not scale across the entire viewport. If you encouter this bug, please raise an issue.
