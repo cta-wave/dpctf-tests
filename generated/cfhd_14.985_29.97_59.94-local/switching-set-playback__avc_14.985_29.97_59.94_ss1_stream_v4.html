@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Overlapping Fragments</title>
+    <title>Switching Set Playback</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -39,63 +39,38 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Overlapping Fragments",
+        title: "Switching Set Playback",
         description:
-          "Playback of overlapping fragments assumes that the application can overwrite the buffer with other fragments. This is for example useful in case that a fragment is loaded in lower quality but may then be replaced by a better-quality fragment.",
-        path: "cfhd_12.5_25_50-local/overlapping-fragments__ss1.html",
-        code: "overlapping-fragments.html",
+          "Playback of a switching set assumes that the application can switch across the fragments of different tracks without observing any temporal or spatial misalignment during playback.",
+        path: "cfhd_14.985_29.97_59.94-local/switching-set-playback__avc_14.985_29.97_59.94_ss1_stream_v4.html",
+        code: "switching-set-playback.html",
         params: urlParams
       };
-
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
-      var overwriteCurrentFragment = true;
 
-      var videoContentModel = ["/content/cfhd_sets/12.5_25_50/ss1/2022-10-17/stream.mpd"];
+      var videoContentModel = ["/content/avc_14.985_29.97_59.94_ss1_stream_v4.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
         videoContentModel: videoContentModel,
-        audioContentModel: audioContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
+        setupTest: setupTest,
         usePlayout: true,
       });
 
+      function setupTest(player, done, parameters) {
+        done();
+      }
+
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-
-        var handleRandomSwitch = function (currentTime) {
-          var duration = player.getDuration();
-          var switchingTime = duration * 0.3;
-
-          if (currentTime < switchingTime) return;
-          if (Math.random() > 0.05) return;
-
-          var newRepresentationIndex = 1;
-
-          var totalSegmentsCount = player
-            .getVideoManifests()[0]
-            .getRepresentation(newRepresentationIndex)
-            .getTotalSegmentsCount();
-          var switchingSegment = player.getPlayingVideoSegment().getNumber();
-          if (!overwriteCurrentFragment) {
-            switchingSegment += 1;
-          }
-          player.setVideoSegments({
-            representationNumber: 1,
-            startSegment: switchingSegment,
-            endSegment: totalSegmentsCount - 1,
-          });
-          player.off(handleRandomSwitch);
-        };
-        player.on("onTimeUpdate", handleRandomSwitch);
-
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration || 
             player.getPreBufferedTime() >= player.getDuration()) {
@@ -128,8 +103,6 @@
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
           var match = query.match(/redirect_time=([^&]+)/);
-          var REDIRECT_TIME = match ? match[1] : null;
-          if (!REDIRECT_TIME) REDIRECT_TIME = 5;
           video.addEventListener("ended", function (event) {
             assert_true(true);
             test.done();

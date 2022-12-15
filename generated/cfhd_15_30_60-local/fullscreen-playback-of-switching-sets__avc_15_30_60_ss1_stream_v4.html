@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Overlapping Fragments</title>
+    <title>Full Screen Playback of Switching Sets</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -39,24 +39,25 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Overlapping Fragments",
+        title: "Full Screen Playback of Switching Sets",
         description:
-          "Playback of overlapping fragments assumes that the application can overwrite the buffer with other fragments. This is for example useful in case that a fragment is loaded in lower quality but may then be replaced by a better-quality fragment.",
-        path: "cfhd_15_30_60-local/overlapping-fragments__ss1.html",
-        code: "overlapping-fragments.html",
+          "Fullscreen playback ensures that the device provide proper scaling and letter boxing.",
+        path: "cfhd_15_30_60-local/fullscreen-playback-of-switching-sets__avc_15_30_60_ss1_stream_v4.html",
+        code: "fullscreen-playback-of-switching-sets.html",
         params: urlParams
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
-      var overwriteCurrentFragment = true;
 
-      var videoContentModel = ["/content/cfhd_sets/15_30_60/ss1/2022-10-17/stream.mpd"];
+      var videoContentModel = ["/content/avc_15_30_60_ss1_stream_v4.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
+//        outOfOrderLoading: true,
+        usePlayout: true,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
         videoElement: video,
@@ -64,37 +65,10 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        usePlayout: true,
       });
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-
-        var handleRandomSwitch = function (currentTime) {
-          var duration = player.getDuration();
-          var switchingTime = duration * 0.3;
-
-          if (currentTime < switchingTime) return;
-          if (Math.random() > 0.05) return;
-
-          var newRepresentationIndex = 1;
-
-          var totalSegmentsCount = player
-            .getVideoManifests()[0]
-            .getRepresentation(newRepresentationIndex)
-            .getTotalSegmentsCount();
-          var switchingSegment = player.getPlayingVideoSegment().getNumber();
-          if (!overwriteCurrentFragment) {
-            switchingSegment += 1;
-          }
-          player.setVideoSegments({
-            representationNumber: 1,
-            startSegment: switchingSegment,
-            endSegment: totalSegmentsCount - 1,
-          });
-          player.off(handleRandomSwitch);
-        };
-        player.on("onTimeUpdate", handleRandomSwitch);
 
         player.startBuffering();
         if (player.getPreBufferedTime() >= minBufferDuration || 
