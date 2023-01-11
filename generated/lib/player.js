@@ -1019,30 +1019,26 @@ function BufferManager(manifests, mediaSource, video, options) {
 
   function updateBufferingSegment() {
     var currentTime = video.currentTime;
-    var bufferedRanges = _sourceBuffer.buffered;
     var segments = _segments;
 
-    var currentRange = null;
-    for (var range in bufferedRanges) {
-      if (range.start > currentTime || range.end < currentTime) continue;
-      currentRange = range;
-      break;
-    }
-
     var bufferEdge = currentTime;
-    if (currentRange) bufferEdge = currentRange.end;
+    if (_sourceBuffer) {
+      var bufferedRanges = _sourceBuffer.buffered;
+      var currentRange = null;
+      for (var range in bufferedRanges) {
+        if (range.start > currentTime || range.end < currentTime) continue;
+        currentRange = range;
+        break;
+      }
+      if (currentRange) bufferEdge = currentRange.end;
+    }
 
     var segmentTime = 0;
     var bufferEdgeSegment = null;
     for (var i = 0; i < Object.keys(segments).length; i++) {
       var segment = segments[i];
       segmentTime += segment.getDuration();
-      if (segmentTime <= _video.currentTime) continue;
-      var manifestIndex = segment.getManifestIndex();
-      var representation = _manifests[manifestIndex].getRepresentation(
-        segment.getRepresentationNumber(),
-        segment.getPeriodNumber()
-      );
+      if (segmentTime <= bufferEdge) continue;
       bufferEdgeSegment = segment;
       break;
     }
