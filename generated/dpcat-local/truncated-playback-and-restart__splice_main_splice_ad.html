@@ -69,14 +69,10 @@
         player.startBuffering();
 
         dpctfTest.asyncTest(function (test) {
-          var query = location.search.replace(/\?/, "");
-          var match = query.match(/redirect_time=([^&]+)/);
-          var REDIRECT_TIME = match ? match[1] : null;
-          if (!REDIRECT_TIME) REDIRECT_TIME = 5;
-          var playthroughCount = 0;
           var handleTimeUpdate = function (event) {
             if (video.currentTime < parameters.secondPlayoutSwitchingTime)
               return;
+            player.pause();
             player.setCurrentTime(0);
             player.truncateBuffer().then(function () {
               player.on("onAllVideoSegmentsLoaded", function () {
@@ -84,38 +80,7 @@
               });
               dpctfTest.applyPlayout(parameters.secondPlayout);
               player.startBuffering();
-              if (
-                player.getPreBufferedTime() >= minBufferDuration ||
-                player.getPreBufferedTime() >= player.getDuration()
-              ) {
-                player
-                  .play()
-                  .then(function () {
-                    done();
-                  })
-                  .catch(function (error) {
-                    done(error);
-                  });
-              } else {
-                var loadedEvent = "onVideoSegmentLoaded";
-                if (videoContentModel.length === 0)
-                  loadedEvent = "onAudioSegmentLoaded";
-                player.on(loadedEvent, function (event) {
-                  if (
-                    player.getPreBufferedTime() >= minBufferDuration ||
-                    player.getPreBufferedTime() >= player.getDuration()
-                  ) {
-                    player
-                      .play()
-                      .then(function () {
-                        done();
-                      })
-                      .catch(function (error) {
-                        done(error);
-                      });
-                  }
-                });
-              }
+              player.playOnBufferLoaded(minBufferDuration);
             });
             video.removeEventListener("timeupdate", handleTimeUpdate);
           };
@@ -126,38 +91,7 @@
           });
         }, "video ended event fired");
 
-        if (
-          player.getPreBufferedTime() >= minBufferDuration ||
-          player.getPreBufferedTime() >= player.getDuration()
-        ) {
-          player
-            .play()
-            .then(function () {
-              done();
-            })
-            .catch(function (error) {
-              done(error);
-            });
-        } else {
-          var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0)
-            loadedEvent = "onAudioSegmentLoaded";
-          player.on(loadedEvent, function (event) {
-            if (
-              player.getPreBufferedTime() >= minBufferDuration ||
-              player.getPreBufferedTime() >= player.getDuration()
-            ) {
-              player
-                .play()
-                .then(function () {
-                  done();
-                })
-                .catch(function (error) {
-                  done(error);
-                });
-            }
-          });
-        }
+        player.playOnBufferLoaded(minBufferDuration).then(done);
       }
     </script>
   </body>

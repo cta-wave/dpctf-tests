@@ -15,9 +15,7 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>
-        To show/hide debug overlay press up/down or button beneath
-      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -40,7 +38,8 @@
       var TEST_INFO = {
         id: "long-duration-playback",
         title: "Long Duration Playback",
-        description: "This requirement addresses the proper playback of a WAVE presentation over a longer time; in particular, no drift in the playout occurs.",
+        description:
+          "This requirement addresses the proper playback of a WAVE presentation over a longer time; in particular, no drift in the playout occurs.",
         path: "{{TEST_PATH}}",
         code: "{{TEMPLATE_NAME}}",
       };
@@ -66,46 +65,35 @@
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
+        var playbackDuration = parameters.playbackDuration;
         player.startBuffering();
 
-        dpctfTest.asyncTest(function (test) {
-          var query = location.search.replace(/\?/, "");
-          var match = query.match(/redirect_time=([^&]+)/);
-          var REDIRECT_TIME = match ? match[1] : null;
-          if (!REDIRECT_TIME) REDIRECT_TIME = 5;
-          video.addEventListener("ended", function (event) {
-            assert_true(true);
-            test.done();
-          });
-        }, "video ended event fired");
-
-        if (player.getPreBufferedTime() >= minBufferDuration || 
-            player.getPreBufferedTime() >= player.getDuration()) {
-          player
-            .play()
-            .then(function () {
-              done();
-            })
-            .catch(function (error) {
-              done(error);
-            });
-        } else {
-          var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
-          player.on(loadedEvent, function (event) {
-            if (player.getPreBufferedTime() >= minBufferDuration || 
-                player.getPreBufferedTime() >= player.getDuration()) {
-              player
-                .play()
-                .then(function () {
-                  done();
-                })
-                .catch(function (error) {
-                  done(error);
+        if (playbackDuration) {
+          dpctfTest.asyncTest(function (test) {
+            video.addEventListener("timeupdate", function (event) {
+              if (video.currentTime >= parameters.playbackDuration) {
+                player.pause().then(function () {
+                  dpctfTest.setVideoState(dpctfTest.VIDEO_STATE_FINISHED);
+                  assert_true(true);
+                  test.done();
                 });
-            }
-          });
+              }
+            });
+          }, "video played specified duration");
+        } else {
+          dpctfTest.asyncTest(function (test) {
+            var query = location.search.replace(/\?/, "");
+            var match = query.match(/redirect_time=([^&]+)/);
+            var REDIRECT_TIME = match ? match[1] : null;
+            if (!REDIRECT_TIME) REDIRECT_TIME = 5;
+            video.addEventListener("ended", function (event) {
+              assert_true(true);
+              test.done();
+            });
+          }, "video ended event fired");
         }
+
+        player.playOnBufferLoaded(minBufferDuration).then(done);
       }
     </script>
   </body>

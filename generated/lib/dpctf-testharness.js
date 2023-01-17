@@ -30,6 +30,7 @@ function DpctfTest(config) {
   var ACTION_INITIALIZE = "initialize";
   var ACTION_PLAY = "play";
   var ACTION_PAUSE = "pause";
+  var ACTION_REPRESENTATION_CHANGE = "representation_change";
 
   var VIDEO_STATE_WAITING = "waiting";
   var VIDEO_STATE_BUFFERING = "buffering";
@@ -138,6 +139,15 @@ function DpctfTest(config) {
         if (_videoState === VIDEO_STATE_ERROR) return;
         _lastAction = ACTION_PLAY;
         _videoState = VIDEO_STATE_PLAYING;
+        var currentTime = player.getCurrentTime();
+        updateQrCode(currentTime);
+        updateVideoWrapperSize();
+      });
+
+      video.addEventListener("pause", function () {
+        if (_videoState === VIDEO_STATE_ERROR) return;
+        _lastAction = ACTION_PAUSE;
+        _videoState = VIDEO_STATE_PAUSED;
         var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateVideoWrapperSize();
@@ -289,7 +299,6 @@ function DpctfTest(config) {
             if (parameters.playbackDuration) {
               player.setDuration(parameters.playbackDuration);
             }
-
             //if (parameters.totalRepresentations) {
             //if (
             //parameters.totalRepresentations !==
@@ -359,6 +368,15 @@ function DpctfTest(config) {
 
           player.on("onPlayingVideoRepresentationChange", function () {
             infoOverlay.updateOverlayInfo(player, testInfo);
+            var eventData = { type: "representation_changed" };
+            waveService.sendSessionEvent(
+              token,
+              WaveService.PLAYBACK_EVENT,
+              eventData
+            );
+            _lastAction = ACTION_REPRESENTATION_CHANGE;
+            updateQrCode(player.getCurrentTime());
+            updateStatusText();
           });
 
           if (!player.getVideoManifests()) {
@@ -488,23 +506,32 @@ function DpctfTest(config) {
   function applyPlayout(playout) {
     player.clearVideoSegments();
     var ranges = Object.keys(playout);
+    var promises = [];
     for (var range of ranges) {
       var config = playout[range];
       var manifestIndex = config.manifestIndex;
       var representationNumber = config.representationNumber;
       var offset = config.offset;
       var rangeParts = range.split("-");
-      player.setVideoSegments({
+      var promise = player.setVideoSegments({
         manifestIndex: manifestIndex,
         representationNumber: representationNumber,
         segmentOffset: offset,
         startSegment: rangeParts[0],
         endSegment: rangeParts[1],
       });
+      promises.push(promise);
     }
+
+    Promise.all(promises).then(function () {
+      if (parameters.playbackDuration) {
+        player.setDuration(parameters.playbackDuration);
+      }
+    });
   }
 
   function finishTest() {
+    console.log("finish")
     done();
   }
 
@@ -875,6 +902,8 @@ function DpctfTest(config) {
   return {
     PLAYBACK_MODE_VOD: PLAYBACK_MODE_VOD,
     PLAYBACK_MODE_LIVE: PLAYBACK_MODE_LIVE,
+    VIDEO_STATE_ENDED: VIDEO_STATE_ENDED,
+    VIDEO_STATE_FINISHED: VIDEO_STATE_FINISHED,
     asyncTest: asyncTest,
     test: syncTest,
     getPlayout: getPlayout,
