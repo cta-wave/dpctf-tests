@@ -15,9 +15,7 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>
-        To show/hide debug overlay press up/down or button beneath
-      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -40,8 +38,7 @@
       var TEST_INFO = {
         id: "buffer-underrun-and-recovery",
         title: "Buffer Underrun and Recovery",
-        description:
-          "",
+        description: "",
         path: "dpcat-online/buffer-underrun-and-recovery__t2.html",
         code: "buffer-underrun-and-recovery.html",
         observations: [],
@@ -82,42 +79,20 @@
         }, "video ended event fired");
 
         function onPlayerWaiting() {
-          var waitingDuration = parameters.waitingDuration;
-	  setTimeout(function () {
+          var waitingDuration = parameters.waitingDuration || 1000;
+          setTimeout(function () {
             player.startBuffering();
             done();
           }, waitingDuration);
-	}
-
-        if (player.getPreBufferedTime() >= minBufferDuration || 
-            player.getPreBufferedTime() >= player.getDuration()) {
-          player
-            .play()
-            .then(function () {
-              player.pauseBuffering();
-              video.addEventListener("waiting", onPlayerWaiting);
-            })
-            .catch(function (error) {
-              done(error);
-            });
-        } else {
-          var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
-          player.on(loadedEvent, function (event) {
-            if (player.getPreBufferedTime() >= minBufferDuration || 
-                player.getPreBufferedTime() >= player.getDuration()) {
-              player
-                .play()
-                .then(function () {
-                  player.pauseBuffering();
-                  video.addEventListener("waiting", onPlayerWaiting);
-                })
-                .catch(function (error) {
-                  done(error);
-                });
-            }
-          });
         }
+
+        player
+          .playOnBufferLoaded(minBufferDuration)
+          .then(function () {
+            player.pauseBuffering();
+            video.addEventListener("waiting", onPlayerWaiting);
+          })
+          .catch(done);
       }
     </script>
   </body>

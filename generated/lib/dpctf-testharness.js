@@ -531,7 +531,6 @@ function DpctfTest(config) {
   }
 
   function finishTest() {
-    console.log("finish")
     done();
   }
 

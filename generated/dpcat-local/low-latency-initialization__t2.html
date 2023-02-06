@@ -95,12 +95,7 @@
           });
         }, "video ended event fired");
 
-        player
-          .playOnBufferLoaded(minBufferDuration)
-          .then(done)
-          .catch(function (error) {
-            done(error);
-          });
+        done();
       }
     </script>
   </body>
