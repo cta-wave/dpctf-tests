@@ -189,6 +189,10 @@ def parse_mpd_parameters(content, types):
 
             parameters["segmentTimeline"] = segmentTimelines
             break
+
+        source = dom_tree.getElementsByTagName("Source")
+        if len(source) > 0:
+            parameters["source"] = source[0].firstChild.nodeValue
         
         representations = period.getElementsByTagName("Representation")
         for representation in representations:

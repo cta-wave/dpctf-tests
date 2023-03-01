@@ -19,6 +19,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -53,6 +54,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -87,6 +89,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -121,6 +124,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -155,6 +159,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -189,6 +194,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -223,6 +229,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -257,6 +264,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -291,6 +299,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L2_1920x1080@60_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -325,6 +334,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_K1_1600x900@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -359,6 +369,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_J1_1280x720@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -393,6 +404,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_J1_1280x720@60_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -427,6 +439,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_I1_1024x576@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -461,6 +474,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_H1_960x540@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -495,6 +509,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_G1_852x480@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -529,6 +544,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_F1_768x432@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -563,6 +579,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_E1_720x404@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -597,6 +614,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_D1_704x396@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -631,6 +649,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_C1_640x360@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -665,6 +684,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_B1_512x288@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -699,6 +719,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_A1_480x270@30_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -733,6 +754,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_A1_480x270@15_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -767,6 +789,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -801,6 +824,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -835,6 +859,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/15_30_60/t19": {
                                 "period": 1,
@@ -925,6 +950,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -959,6 +985,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -993,6 +1020,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1027,6 +1055,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1061,6 +1090,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1095,6 +1125,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/15_30_60/t19": {
                                 "period": 1,
@@ -1185,6 +1216,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/15_30_60/t19": {
                                 "period": 1,
@@ -1275,6 +1307,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1309,6 +1342,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1343,6 +1377,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1377,6 +1412,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1411,6 +1447,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1445,6 +1482,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1479,6 +1517,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1513,6 +1552,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1547,6 +1587,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1581,6 +1622,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1615,6 +1657,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1649,6 +1692,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L2_1920x1080@60_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1683,6 +1727,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_K1_1600x900@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1717,6 +1762,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_J1_1280x720@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1751,6 +1797,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_J1_1280x720@60_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1785,6 +1832,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_I1_1024x576@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1819,6 +1867,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_H1_960x540@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1853,6 +1902,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_G1_852x480@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1887,6 +1937,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_F1_768x432@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1921,6 +1972,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_E1_720x404@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1955,6 +2007,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_D1_704x396@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1989,6 +2042,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_C1_640x360@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2023,6 +2077,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_B1_512x288@30_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2057,6 +2112,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_A1_480x270@30_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2091,6 +2147,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_A1_480x270@15_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2125,6 +2182,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2159,6 +2217,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2193,6 +2252,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/15_30_60/t19": {
                                 "period": 1,
@@ -2283,6 +2343,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2317,6 +2378,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2351,6 +2413,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2385,6 +2448,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2419,6 +2483,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2453,6 +2518,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/15_30_60/t19": {
                                 "period": 1,
@@ -2543,6 +2609,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/15_30_60/t19": {
                                 "period": 1,
@@ -2633,6 +2700,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2667,6 +2735,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2701,6 +2770,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2735,6 +2805,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2769,6 +2840,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2803,6 +2875,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2837,6 +2910,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2871,6 +2945,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2905,6 +2980,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2939,6 +3015,7 @@
                                 "d": 64000
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -2973,6 +3050,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3007,6 +3085,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L2_1920x1080@50_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3041,6 +3120,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_K1_1600x900@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3075,6 +3155,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_J1_1280x720@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3109,6 +3190,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_J1_1280x720@50_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3143,6 +3225,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_I1_1024x576@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3177,6 +3260,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_H1_960x540@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3211,6 +3295,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_G1_852x480@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3245,6 +3330,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_F1_768x432@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3279,6 +3365,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_E1_720x404@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3313,6 +3400,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_D1_704x396@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3347,6 +3435,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_C1_640x360@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3381,6 +3470,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_B1_512x288@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3415,6 +3505,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_A1_480x270@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3449,6 +3540,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_A1_480x270@12.5_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3483,6 +3575,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3517,6 +3610,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3551,6 +3645,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/12.5_25_50/t19": {
                                 "period": 1,
@@ -3641,6 +3736,7 @@
                                 "d": 64000
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3675,6 +3771,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3709,6 +3806,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3743,6 +3841,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3777,6 +3876,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/12.5_25_50/t19": {
                                 "period": 1,
@@ -3867,6 +3967,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/12.5_25_50/t19": {
                                 "period": 1,
@@ -3957,6 +4058,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -3991,6 +4093,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4025,6 +4128,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4059,6 +4163,7 @@
                                 "d": 64000
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4097,6 +4202,7 @@
                                 "d": 19200
                             }
                         ],
+                        "source": "CTA WAVE - splice_main_croatia_A1_1280x720@25_10 version 2 (2021-08-05) - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -4118,6 +4224,7 @@
                                 "d": 92160
                             }
                         ],
+                        "source": "CTA WAVE - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -4156,6 +4263,7 @@
                                 "d": 19200
                             }
                         ],
+                        "source": "CTA WAVE - splice_main_croatia_A1_1280x720@25_10 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -4177,6 +4285,7 @@
                                 "d": 92160
                             }
                         ],
+                        "source": "CTA WAVE - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -4215,6 +4324,7 @@
                                 "d": 19200
                             }
                         ],
+                        "source": "CTA WAVE - splice_main_croatia_A1_1280x720@25_10 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -4236,6 +4346,7 @@
                                 "d": 92160
                             }
                         ],
+                        "source": "CTA WAVE - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -4279,6 +4390,7 @@
                                 "d": 19200
                             }
                         ],
+                        "source": "CTA WAVE - splice_main_croatia_A1_1280x720@25_10 version 2 (2021-08-05) - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -4300,6 +4412,7 @@
                                 "d": 92160
                             }
                         ],
+                        "source": "CTA WAVE - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -4321,6 +4434,7 @@
                                 "d": 92160
                             }
                         ],
+                        "source": "CTA WAVE - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -4347,6 +4461,7 @@
                                 "d": 19200
                             }
                         ],
+                        "source": "CTA WAVE - splice_main_croatia_A1_1280x720@25_10 version 2 (2021-08-05) - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -4368,6 +4483,7 @@
                                 "d": 92160
                             }
                         ],
+                        "source": "CTA WAVE - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -4389,6 +4505,7 @@
                                 "d": 92160
                             }
                         ],
+                        "source": "CTA WAVE - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -4422,6 +4539,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4456,6 +4574,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4490,6 +4609,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4524,6 +4644,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4558,6 +4679,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4592,6 +4714,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4626,6 +4749,7 @@
                                 "d": 64000
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4660,6 +4784,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4694,6 +4819,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L2_1920x1080@50_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4728,6 +4854,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_K1_1600x900@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4762,6 +4889,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_J1_1280x720@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4796,6 +4924,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_J1_1280x720@50_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4830,6 +4959,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_I1_1024x576@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4864,6 +4994,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_H1_960x540@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4898,6 +5029,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_G1_852x480@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4932,6 +5064,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_F1_768x432@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -4966,6 +5099,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_E1_720x404@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5000,6 +5134,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_D1_704x396@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5034,6 +5169,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_C1_640x360@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5068,6 +5204,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_B1_512x288@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5102,6 +5239,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_A1_480x270@25_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5136,6 +5274,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_A1_480x270@12.5_60 version 2 (2021-08-04)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5170,6 +5309,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5204,6 +5344,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5238,6 +5379,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/12.5_25_50/t19": {
                                 "period": 1,
@@ -5328,6 +5470,7 @@
                                 "d": 64000
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5362,6 +5505,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5396,6 +5540,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5430,6 +5575,7 @@
                                 "d": 64000
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5464,6 +5610,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5498,6 +5645,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/12.5_25_50/t19": {
                                 "period": 1,
@@ -5588,6 +5736,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/12.5_25_50/t19": {
                                 "period": 1,
@@ -5678,6 +5827,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5712,6 +5862,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5746,6 +5897,7 @@
                                 "d": 25600
                             }
                         ],
+                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -5784,6 +5936,7 @@
                                 "d": 19200
                             }
                         ],
+                        "source": "CTA WAVE - splice_main_croatia_A1_1280x720@25_10 version 2 (2021-08-05) - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -5805,6 +5958,7 @@
                                 "d": 92160
                             }
                         ],
+                        "source": "CTA WAVE - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -5843,6 +5997,7 @@
                                 "d": 19200
                             }
                         ],
+                        "source": "CTA WAVE - splice_main_croatia_A1_1280x720@25_10 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -5864,6 +6019,7 @@
                                 "d": 92160
                             }
                         ],
+                        "source": "CTA WAVE - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -5902,6 +6058,7 @@
                                 "d": 19200
                             }
                         ],
+                        "source": "CTA WAVE - splice_main_croatia_A1_1280x720@25_10 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -5923,6 +6080,7 @@
                                 "d": 92160
                             }
                         ],
+                        "source": "CTA WAVE - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -5964,6 +6122,7 @@
                                 "d": 19200
                             }
                         ],
+                        "source": "CTA WAVE - splice_main_croatia_A1_1280x720@25_10 version 2 (2021-08-05) - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -5985,6 +6144,7 @@
                                 "d": 92160
                             }
                         ],
+                        "source": "CTA WAVE - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -6011,6 +6171,7 @@
                                 "d": 19200
                             }
                         ],
+                        "source": "CTA WAVE - splice_main_croatia_A1_1280x720@25_10 version 2 (2021-08-05) - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -6032,6 +6193,7 @@
                                 "d": 92160
                             }
                         ],
+                        "source": "CTA WAVE - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -6068,6 +6230,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6105,6 +6268,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6142,6 +6306,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6179,6 +6344,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6216,6 +6382,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6253,6 +6420,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6290,6 +6458,7 @@
                                 "d": 149149
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6327,6 +6496,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6364,6 +6534,7 @@
                                 "d": 116116
                             }
                         ],
+                        "source": "tos_L2_1920x1080@59.94_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6401,6 +6572,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_K1_1600x900@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6438,6 +6610,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_J1_1280x720@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6475,6 +6648,7 @@
                                 "d": 116116
                             }
                         ],
+                        "source": "tos_J1_1280x720@59.94_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6512,6 +6686,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_I1_1024x576@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6549,6 +6724,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_H1_960x540@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6586,6 +6762,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_G1_852x480@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6623,6 +6800,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_F1_768x432@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6660,6 +6838,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_E1_720x404@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6697,6 +6876,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_D1_704x396@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6734,6 +6914,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_C1_640x360@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6771,6 +6952,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_B1_512x288@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6808,6 +6990,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_A1_480x270@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6845,6 +7028,7 @@
                                 "d": 29029
                             }
                         ],
+                        "source": "tos_A1_480x270@14.985_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6882,6 +7066,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6919,6 +7104,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -6956,6 +7142,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_L2_1920x1080@59.94_60 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/14.985_29.97_59.94/t19": {
                                 "period": 1,
@@ -7076,6 +7263,7 @@
                                 "d": 149149
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7113,6 +7301,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7150,6 +7339,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7187,6 +7377,7 @@
                                 "d": 149149
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7224,6 +7415,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7261,6 +7453,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_L2_1920x1080@59.94_60 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/14.985_29.97_59.94/t19": {
                                 "period": 1,
@@ -7381,6 +7574,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_L2_1920x1080@59.94_60 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/14.985_29.97_59.94/t19": {
                                 "period": 1,
@@ -7501,6 +7695,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7538,6 +7733,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7575,6 +7771,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7612,6 +7809,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7649,6 +7847,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7686,6 +7885,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7723,6 +7923,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7760,6 +7961,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7797,6 +7999,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7834,6 +8037,7 @@
                                 "d": 149149
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7871,6 +8075,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7908,6 +8113,7 @@
                                 "d": 116116
                             }
                         ],
+                        "source": "tos_L2_1920x1080@59.94_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7945,6 +8151,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_K1_1600x900@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -7982,6 +8189,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_J1_1280x720@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8019,6 +8227,7 @@
                                 "d": 116116
                             }
                         ],
+                        "source": "tos_J1_1280x720@59.94_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8056,6 +8265,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_I1_1024x576@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8093,6 +8303,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_H1_960x540@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8130,6 +8341,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_G1_852x480@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8167,6 +8379,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_F1_768x432@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8204,6 +8417,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_E1_720x404@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8241,6 +8455,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_D1_704x396@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8278,6 +8493,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_C1_640x360@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8315,6 +8531,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_B1_512x288@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8352,6 +8569,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_A1_480x270@29.97_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8389,6 +8607,7 @@
                                 "d": 29029
                             }
                         ],
+                        "source": "tos_A1_480x270@14.985_60 version 2 (2021-08-03)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8426,6 +8645,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8463,6 +8683,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8500,6 +8721,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_L2_1920x1080@59.94_60 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/14.985_29.97_59.94/t19": {
                                 "period": 1,
@@ -8620,6 +8842,7 @@
                                 "d": 149149
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8657,6 +8880,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8694,6 +8918,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8731,6 +8956,7 @@
                                 "d": 149149
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8768,6 +8994,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -8805,6 +9032,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_L2_1920x1080@59.94_60 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/14.985_29.97_59.94/t19": {
                                 "period": 1,
@@ -8925,6 +9153,7 @@
                                 "d": 58058
                             }
                         ],
+                        "source": "tos_L2_1920x1080@59.94_60 version 3 (2022-04-20)",
                         "representations": {
                             "cfhd_sets/14.985_29.97_59.94/t19": {
                                 "period": 1,
@@ -9045,6 +9274,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -9082,6 +9312,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -9119,6 +9350,7 @@
                                 "d": 59059
                             }
                         ],
+                        "source": "tos_L1_1920x1080@29.97_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -9148,6 +9380,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9176,6 +9409,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9204,6 +9438,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9232,6 +9467,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9260,6 +9496,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9288,6 +9525,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9316,6 +9554,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9351,6 +9590,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -9368,6 +9608,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9403,6 +9644,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -9420,6 +9662,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9448,6 +9691,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9476,6 +9720,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9504,6 +9749,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9532,6 +9778,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9560,6 +9807,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9588,6 +9836,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9616,6 +9865,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9651,6 +9901,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -9668,6 +9919,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9703,6 +9955,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -9720,6 +9973,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9748,6 +10002,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9776,6 +10031,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9804,6 +10060,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9832,6 +10089,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9860,6 +10118,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9888,6 +10147,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9916,6 +10176,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -9951,6 +10212,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -9968,6 +10230,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -10003,6 +10266,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -10020,6 +10284,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.016S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -10048,6 +10313,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -10076,6 +10342,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -10104,6 +10371,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -10132,6 +10400,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -10160,6 +10429,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -10188,6 +10458,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -10216,6 +10487,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -10251,6 +10523,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -10268,6 +10541,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -10303,6 +10577,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -10320,6 +10595,7 @@
                         "cmaf_track_duration": "PT0H1M0.000S",
                         "fragment_duration": "PT0H0M2.000S",
                         "segmentTimeline": [],
+                        "source": "CTA WAVE",
                         "representations": {
                             "1": {
                                 "audioSamplingRate": 48000,
@@ -10354,6 +10630,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {}
                     }
                 ]
@@ -10379,6 +10656,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {}
                     }
                 ]
@@ -10859,6 +11137,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -10897,6 +11176,7 @@
                                 "d": 19200
                             }
                         ],
+                        "source": "CTA WAVE - splice_main_croatia_A1_1280x720@25_10 version 2 (2021-08-05) - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -10918,6 +11198,7 @@
                                 "d": 92160
                             }
                         ],
+                        "source": "CTA WAVE - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -10952,6 +11233,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -10986,6 +11268,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -11020,6 +11303,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -11054,6 +11338,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -11088,6 +11373,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -11122,6 +11408,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -11156,6 +11443,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -11194,6 +11482,7 @@
                                 "d": 19200
                             }
                         ],
+                        "source": "CTA WAVE - splice_main_croatia_A1_1280x720@25_10 version 2 (2021-08-05) - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -11215,6 +11504,7 @@
                                 "d": 92160
                             }
                         ],
+                        "source": "CTA WAVE - splice_ad_bbb_AD-A1_1280x720@25_5.76 version 2 (2021-08-05)",
                         "representations": {
                             "2": {
                                 "period": 1,
@@ -11249,6 +11539,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -11283,6 +11574,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -11317,6 +11609,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -11351,6 +11644,7 @@
                                 "d": 76800
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -11385,6 +11679,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -11419,6 +11714,7 @@
                                 "d": 30720
                             }
                         ],
+                        "source": "tos_L1_1920x1080@30_30 version 3 (2022-04-20)",
                         "representations": {
                             "1": {
                                 "period": 1,
