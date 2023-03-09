@@ -172,6 +172,11 @@ def parse_mpd_parameters(content, types):
         for segmentTemplate in segmentTemplates:
             if segmentTemplate.parentNode.tagName == "Representation":
                 continue
+
+            if segmentTemplate.hasAttribute("timescale"):
+                timescale = segmentTemplate.getAttribute("timescale")
+                parameters["timescale"] = int(timescale)
+
             segmentTimelines = []
             segmentTimelineNodes = segmentTemplate.getElementsByTagName("S")
             for segmentTimelineNode in segmentTimelineNodes:
