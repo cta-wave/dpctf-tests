@@ -15,9 +15,7 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>
-        To show/hide debug overlay press up/down or button beneath
-      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -42,7 +40,7 @@
         title: "Low-Latency (2): Short Buffer Playback",
         description: "",
         path: "{{TEST_PATH}}",
-        code: "{{TEMPLATE_NAME}}"
+        code: "{{TEMPLATE_NAME}}",
       };
 
       var video = document.querySelector("video");
@@ -66,11 +64,12 @@
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-	var maximumForwardBuffer = parameters.maximumForwardBuffer / 1000;
-	var waitingTimeout = parameters.waitingTimeout;
+        var maximumForwardBuffer = parameters.maximumForwardBuffer / 1000;
+        var waitingTimeout = parameters.waitingTimeout;
 
-	if (!maximumForwardBuffer) done("Missing parameter 'maximum_froward_buffer'");
-	if (!waitingTimeout) done("Missing parameter 'waiting_timeout'");
+        if (!maximumForwardBuffer)
+          done("Missing parameter 'maximum_froward_buffer'");
+        if (!waitingTimeout) done("Missing parameter 'waiting_timeout'");
 
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
@@ -84,17 +83,21 @@
         }, "video ended event fired");
 
         function handleSegmentLoaded(event) {
-	  if (player.getPreBufferedTime() < maximumForwardBuffer) return;
-	  var timeout = {};
-          video.addEventListener("playing", function() {
+          if (player.getPreBufferedTime() < maximumForwardBuffer) return;
+          var timeout = {};
+          video.addEventListener("playing", function () {
             clearTimeout(timeout.handle);
-	    player.off(handleSegmentLoaded);
+            player.off(handleSegmentLoaded);
             done();
           });
-	  timeout.handle = setTimeout(function () {
-	    player.off(handleSegmentLoaded);
-            done("Video did not change to playing state in time (" + waitingTimeout + "ms)");
-	  }, waitingTimeout);
+          timeout.handle = setTimeout(function () {
+            player.off(handleSegmentLoaded);
+            done(
+              "Video did not change to playing state in time (" +
+                waitingTimeout +
+                "ms)"
+            );
+          }, waitingTimeout);
           player
             .play()
             .then(function () {})

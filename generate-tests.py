@@ -168,10 +168,44 @@ def parse_mpd_parameters(content, types):
         periodDuration = period.getAttribute("duration")
         if periodDuration != "":
             periodDuration = parse_duration(periodDuration).seconds
+        segmentTemplates = period.getElementsByTagName("SegmentTemplate")
+        for segmentTemplate in segmentTemplates:
+            if segmentTemplate.parentNode.tagName == "Representation":
+                continue
+
+            if segmentTemplate.hasAttribute("timescale"):
+                timescale = segmentTemplate.getAttribute("timescale")
+                parameters["timescale"] = int(timescale)
+
+            segmentTimelines = []
+            segmentTimelineNodes = segmentTemplate.getElementsByTagName("S")
+            for segmentTimelineNode in segmentTimelineNodes:
+                segmentTimeline = {}
+                if segmentTimelineNode.hasAttribute("r"):
+                    r = segmentTimelineNode.getAttribute("r")
+                    segmentTimeline["r"] = int(r)
+                if segmentTimelineNode.hasAttribute("t"):
+                    t = segmentTimelineNode.getAttribute("t")
+                    segmentTimeline["t"] = int(t)
+                if segmentTimelineNode.hasAttribute("d"):
+                    d = segmentTimelineNode.getAttribute("d")
+                    segmentTimeline["d"] = int(d)
+                segmentTimelines.append(segmentTimeline)
+
+            parameters["segmentTimeline"] = segmentTimelines
+            break
+
+        source = dom_tree.getElementsByTagName("Source")
+        if len(source) > 0:
+            parameters["source"] = source[0].firstChild.nodeValue
+        
         representations = period.getElementsByTagName("Representation")
         for representation in representations:
             representationId = representation.getAttribute("id")
             rep_parameters = {}
+            if representation.hasAttribute("audioSamplingRate"):
+                audioSamplingRate = representation.getAttribute("audioSamplingRate")
+                rep_parameters["audioSamplingRate"] = int(audioSamplingRate)
             rep_parameters["period"] = periodNumber
             if periodDuration != "":
                 rep_parameters["duration"] = periodDuration
@@ -200,6 +234,22 @@ def parse_mpd_parameters(content, types):
                     segment_templates[0])
                 rep_parameters = merge_parameters(
                     rep_parameters, seg_template_params)
+
+            segmentTimelines = []
+            segmentTimelineNodes = representation.getElementsByTagName("S")
+            for segmentTimelineNode in segmentTimelineNodes:
+                segmentTimeline = {}
+                if segmentTimelineNode.hasAttribute("r"):
+                    r = segmentTimelineNode.getAttribute("r")
+                    segmentTimeline["r"] = int(r)
+                if segmentTimelineNode.hasAttribute("t"):
+                    t = segmentTimelineNode.getAttribute("t")
+                    segmentTimeline["t"] = int(t)
+                if segmentTimelineNode.hasAttribute("d"):
+                    d = segmentTimelineNode.getAttribute("d")
+                    segmentTimeline["d"] = int(d)
+                segmentTimelines.append(segmentTimeline)
+            rep_parameters["segmentTimeline"] = segmentTimelines
 
             representation_parameters[representationId] = rep_parameters
 
