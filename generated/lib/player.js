@@ -16,9 +16,11 @@ function Player(video) {
   let _videoBufferManager;
   let _audioBufferManager;
   let _protectionController;
+  let _mimeCodecChanges = {};
 
   var PLAYER_EVENT_START_BUFFERING = Player.PLAYER_EVENT_START_BUFFERING;
   var PLAYER_EVENT_TRIGGER_PLAY = Player.PLAYER_EVENT_TRIGGER_PLAY;
+  var PLAYER_EVENT_TRIGGER_PAUSE = Player.PLAYER_EVENT_TRIGGER_PAUSE;
 
   function init(settings) {
     if (_mediaSource) throw new Error("Player already initialized");
@@ -27,6 +29,10 @@ function Player(video) {
     if (!settings.concatAndSplit) settings.concatAndSplit = false;
     if (!settings.outOfOrderLoading) settings.outOfOrderLoading = false;
     if (!settings.loading) settings.loading = null;
+    if (!settings.useChangeType) settings.useChangeType = false;
+    if (!"autoCloseStream" in settings) {
+      settings.autoCloseStream = true;
+    }
     _settings = settings;
 
     video.addEventListener("encrypted", function (event) {
@@ -36,6 +42,12 @@ function Player(video) {
         initDataType: event.initDataType,
       };
       _protectionController.handleEncryption(config);
+    });
+    video.addEventListener("waiting", function (event) {
+      handleBufferUnderrun(event);
+    });
+    video.addEventListener("playing", function (event) {
+      video.autoplay = true;
     });
     return new Promise((resolve) => {
       createMediaSource().then(function (mediaSource) {
@@ -51,6 +63,10 @@ function Player(video) {
 
   function setCurrentTime(currentTime) {
     _video.currentTime = currentTime;
+    if (_videoBufferManager)
+      _videoBufferManager.handleCurrentTimeChange(currentTime);
+    if (_audioBufferManager)
+      _audioBufferManager.handleCurrentTimeChange(currentTime);
   }
 
   function getDuration() {
@@ -62,6 +78,8 @@ function Player(video) {
     if (_mediaSource) {
       _mediaSource.duration = duration;
     }
+    if (_videoBufferManager) _videoBufferManager.setDuration(duration);
+    if (_audioBufferManager) _audioBufferManager.setDuration(duration);
   }
 
   function getVideo() {
@@ -70,15 +88,80 @@ function Player(video) {
 
   function setBufferTime(bufferTime) {
     _settings.bufferTime = bufferTime;
+    if (_videoBufferManager) _videoBufferManager.setBufferTime(bufferTime);
+    if (_audioBufferManager) _audioBufferManager.setBufferTime(bufferTime);
   }
 
   function getBufferTime() {
     return _settings.bufferTime;
   }
 
+  function setAppendWindow(appendWindow) {
+    if (_videoBufferManager) _videoBufferManager.setAppendWindow(appendWindow);
+    if (_audioBufferManager) _audioBufferManager.setAppendWindow(appendWindow);
+  }
+
+  function setMaxBackwardBuffer(maxBackwardBuffer) {
+    if (_videoBufferManager)
+      _videoBufferManager.setMaxBackwardBuffer(maxBackwardBuffer);
+    if (_audioBufferManager)
+      _audioBufferManager.setMaxBackwardBuffer(maxBackwardBuffer);
+  }
+
   function play() {
     _eventEmitter.dispatchEvent(PLAYER_EVENT_TRIGGER_PLAY);
     return _video.play();
+  }
+
+  function playOnBufferLoaded(duration) {
+    return new Promise(function (done) {
+      if (
+        getPreBufferedTime() >= duration ||
+        getPreBufferedTime() >= getDuration()
+      ) {
+        play()
+          .then(function () {
+            done();
+          })
+          .catch(function (error) {
+            done(error);
+          });
+      } else {
+        var loadedEvent = "onVideoSegmentLoaded";
+        if (_videoBufferManager.getManifests().length === 0)
+          loadedEvent = "onAudioSegmentLoaded";
+        var handler = function (event) {
+          if (
+            getPreBufferedTime() >= duration ||
+            getPreBufferedTime() >= getDuration()
+          ) {
+            play()
+              .then(function () {
+                done();
+              })
+              .catch(function (error) {
+                done(error);
+              })
+              .finally(function () {
+                off(handler);
+              });
+          }
+        };
+        on(loadedEvent, handler);
+      }
+    });
+  }
+
+  function pause() {
+    return new Promise(function (resolve) {
+      var handlePausingFinished = function () {
+        _video.removeEventListener("pause", handlePausingFinished);
+        resolve();
+      };
+      _eventEmitter.dispatchEvent(PLAYER_EVENT_TRIGGER_PAUSE);
+      _video.addEventListener("pause", handlePausingFinished);
+      _video.pause();
+    });
   }
 
   function on(eventName, callback) {
@@ -113,14 +196,20 @@ function Player(video) {
     }
     if (!_mediaSource) throw new Error("Player not initialized");
     return Promise.all(
-      vectorUrls.map((vectorUrl) => ManifestParser.parse(vectorUrl))
+      vectorUrls.map((vectorUrl, index) =>
+        ManifestParser.parse(vectorUrl, index)
+      )
     ).then(function (manifests) {
+      _settings.registerMimeCodecChange = function (timestamp, mimeCodec) {
+        registerMimeCodecChange("video", timestamp, mimeCodec);
+      };
       _videoBufferManager = new BufferManager(
         manifests,
         _mediaSource,
         _video,
         _settings
       );
+      var promises = [];
       for (let manifest of manifests) {
         var bufferOffset = 0;
         var totalDuration = 0;
@@ -148,19 +237,23 @@ function Player(video) {
           var totalSegmentsCount = manifest
             .getRepresentation(representationNumber, periodNumber)
             .getTotalSegmentsCount();
-          var duration = _videoBufferManager.setSegments({
-            representationNumber: representationNumber,
-            startSegment: 0,
-            endSegment: totalSegmentsCount - 1,
-            bufferOffset: bufferOffset,
-            periodNumber: periodNumber,
-          });
-          bufferOffset += totalSegmentsCount;
-          totalDuration = duration;
+          var promise = _videoBufferManager
+            .setSegments({
+              representationNumber: representationNumber,
+              startSegment: 0,
+              endSegment: totalSegmentsCount - 1,
+              bufferOffset: bufferOffset,
+              periodNumber: periodNumber,
+            })
+            .then(function (duration) {
+              bufferOffset += totalSegmentsCount;
+              setDuration(duration);
+            });
+          promises.push(promise);
+          _eventEmitter.dispatchEvent("onVideoManifestParsed", manifests);
+          return Promise.all(promises).then(Promise.resolve());
         }
-        setDuration(totalDuration);
       }
-      _eventEmitter.dispatchEvent("onVideoManifestParsed", manifests);
     });
   }
 
@@ -171,8 +264,13 @@ function Player(video) {
     }
     if (!_mediaSource) throw new Error("Player not initialized");
     return Promise.all(
-      vectorUrls.map((vectorUrl) => ManifestParser.parse(vectorUrl))
+      vectorUrls.map((vectorUrl, index) =>
+        ManifestParser.parse(vectorUrl, index)
+      )
     ).then(function (manifests) {
+      _settings.registerMimeCodecChange = function (timestamp, mimeCodec) {
+        registerMimeCodecChange("audio", timestamp, mimeCodec);
+      };
       _audioBufferManager = new BufferManager(
         manifests,
         _mediaSource,
@@ -206,17 +304,20 @@ function Player(video) {
           var totalSegmentsCount = manifest
             .getRepresentation(representationNumber, periodNumber)
             .getTotalSegmentsCount();
-          var duration = _audioBufferManager.setSegments({
-            representationNumber: representationNumber,
-            startSegment: 0,
-            endSegment: totalSegmentsCount - 1,
-            bufferOffset: bufferOffset,
-            periodNumber: periodNumber,
-          });
-          bufferOffset += totalSegmentsCount;
-          totalDuration = duration;
+          _audioBufferManager
+            .setSegments({
+              representationNumber: representationNumber,
+              startSegment: 0,
+              endSegment: totalSegmentsCount - 1,
+              bufferOffset: bufferOffset,
+              periodNumber: periodNumber,
+            })
+            .then(function (duration) {
+              bufferOffset += totalSegmentsCount;
+              totalDuration = duration;
+              setDuration(totalDuration);
+            });
         }
-        setDuration(totalDuration);
       }
       _eventEmitter.dispatchEvent("onAudioManifestParsed", manifests);
     });
@@ -313,6 +414,76 @@ function Player(video) {
     _eventEmitter.dispatchEvent(PLAYER_EVENT_START_BUFFERING);
   }
 
+  function pauseBuffering() {
+    if (_videoBufferManager) _videoBufferManager.pauseBuffering();
+    if (_audioBufferManager) _audioBufferManager.pauseBuffering();
+  }
+
+  function registerMimeCodecChange(type, timestamp, mimeCodec) {
+    _mimeCodecChanges[timestamp] = { mimeCodec, type };
+  }
+
+  function handleBufferUnderrun(event) {
+    let videoMimeCodec = null;
+    if (_videoBufferManager) {
+      videoMimeCodec = _videoBufferManager.getCurrentMimeCodec();
+    }
+    let audioMimeCodec = null;
+    if (_audioBufferManager) {
+      audioMimeCodec = _audioBufferManager.getCurrentMimeCodec();
+    }
+    var isChangeType = false;
+    for (let timestamp of Object.keys(_mimeCodecChanges).sort()) {
+      if (timestamp < video.currentTime) continue;
+      let change = _mimeCodecChanges[timestamp];
+      switch (change.type) {
+        case "video":
+          videoMimeCodec = change.mimeCodec;
+          break;
+        case "audio":
+          audioMimeCodec = change.mimeCodec;
+          break;
+      }
+      isChangeType = true;
+      break;
+    }
+    if (!isChangeType) return;
+    let currentTime = 0;
+    let bufferManager = _videoBufferManager || _audioBufferManager;
+    let currentSegment = bufferManager.getPlayingSegment();
+    for (let segment of bufferManager.getSegments()) {
+      currentTime += segment.getDuration();
+      if (segment === currentSegment) break;
+    }
+    video.removeAttribute("src");
+    video.load();
+    createMediaSource().then(function (mediaSource) {
+      setCurrentTime(currentTime);
+      if (_videoBufferManager) {
+        _videoBufferManager.setMediaSource(mediaSource);
+        _videoBufferManager.startBuffering();
+      }
+      if (_audioBufferManager) {
+        _audioBufferManager.setMediaSource(mediaSource);
+        _audioBufferManager.startBuffering();
+      }
+    });
+  }
+
+  function closeStream() {
+    if (_videoBufferManager) _videoBufferManager.closeBuffer();
+    if (_audioBufferManager) _audioBufferManager.closeBuffer();
+  }
+
+  function truncateBuffer() {
+    var promises = [];
+    if (_videoBufferManager)
+      promises.push(_videoBufferManager.truncateBuffer());
+    if (_audioBufferManager)
+      promises.push(_audioBufferManager.truncateBuffer());
+    return Promise.all(promises);
+  }
+
   //function getRepresentations() {
   //let videoRepresentations = [];
   //let audioRepresentations = [];
@@ -347,7 +518,11 @@ function Player(video) {
 
   function setVideoSegments(segmentsInfo) {
     if (!_videoBufferManager) return;
-    _videoBufferManager.setSegments(segmentsInfo);
+    return _videoBufferManager
+      .setSegments(segmentsInfo)
+      .then(function (duration) {
+        setDuration(duration);
+      });
   }
 
   function getVideoSegments() {
@@ -370,6 +545,11 @@ function Player(video) {
     return _audioBufferManager.clearSegments();
   }
 
+  function setVideoGaps(gaps) {
+    if (!_videoBufferManager) return;
+    return _videoBufferManager.setGaps(gaps);
+  }
+
   instance = {
     init,
     getVideoManifests,
@@ -384,18 +564,26 @@ function Player(video) {
     setVideoSegments,
     getVideoSegments,
     getVideoSegmentsCount,
+    setVideoGaps,
     clearAudioSegments,
     clearVideoSegments,
     setBufferTime,
     getBufferTime,
+    setAppendWindow,
+    setMaxBackwardBuffer,
     on,
     off,
     startBuffering,
+    pauseBuffering,
     play,
+    playOnBufferLoaded,
+    pause,
     loadVideo,
     loadAudio,
     getPreBufferedTime,
     setProtectionData,
+    closeStream,
+    truncateBuffer,
   };
 
   return instance;
@@ -414,8 +602,9 @@ function BufferManager(manifests, mediaSource, video, options) {
   _video.addEventListener("seeking", handleSeeking);
   let _segments = {};
   let _playingSegment;
+  let _gaps = [];
   let _playingRepresentation;
-  let _bufferingSegment;
+  let _bufferingSegment = 0;
   let _isBuffering;
   let _isBufferingSegment;
   let _isAppendingBuffer;
@@ -424,11 +613,21 @@ function BufferManager(manifests, mediaSource, video, options) {
   let _parallelLoading = options.parallelLoading || false;
   let _outOfOrderLoading = options.outOfOrderLoading || false;
   let _loading = options.loading || null;
+  let _useChangeType = options.useChangeType;
   let _sourceBuffer;
   let _bufferQueue;
   let _bufferingRepresentationNumber;
   let _bufferingPeriodNumber;
   let _lastInitSegmentUrl;
+  let _currentMimeCodec;
+  let _registerMimeCodecChange = options.registerMimeCodecChange;
+  let _initCallback = options.initCallback;
+  let _maxBackwardBuffer = options.maxBackwardBuffer;
+  let _duration = options.duration;
+  let _appendWindowBoundaries = options.appendWindowBoundaries;
+  let _currentAppendWindow = 0;
+  let _timestampOffsets = options.timestampOffsets;
+  let _autoCloseStream = options.autoCloseStream;
 
   let _eventEmitter = new EventEmitter();
 
@@ -451,12 +650,12 @@ function BufferManager(manifests, mediaSource, video, options) {
     var timestampOffset = 0;
     if (offset !== 0) {
       var regularTimestamp = 0;
-      for (var i = 0; i < startSegment; i ++) {
+      for (var i = 0; i < startSegment; i++) {
         var segment = _segments[i];
         regularTimestamp += segment.getDuration();
       }
       var actualTimestamp = 0;
-      for (var i = 0; i < startSegment + offset; i ++) {
+      for (var i = 0; i < startSegment + offset; i++) {
         var segment = representation.getSegment(i);
         actualTimestamp += segment.getDuration();
       }
@@ -464,6 +663,13 @@ function BufferManager(manifests, mediaSource, video, options) {
     }
 
     for (var i = startSegment; i <= endSegment; i++) {
+      if (representation.getTotalSegmentsCount() <= i + offset)
+        throw new Error(
+          "Segment index in playout out of bounds: " +
+            (i + offset + 1) +
+            ", but only got " +
+            representation.getTotalSegmentsCount()
+        );
       var segment = representation.getSegment(i + offset).copy();
       segment.setTimestampOffset(timestampOffset);
       segment.setManifestIndex(manifestIndex);
@@ -486,11 +692,14 @@ function BufferManager(manifests, mediaSource, video, options) {
       if (!segment) continue;
       totalDuration += segment.getDuration();
     }
-    return totalDuration;
+    setDuration(totalDuration);
+    return waitForSourceBufferUpdate().then(function () {
+      return Promise.resolve(totalDuration);
+    });
   }
 
   function clearSegments() {
-    _segments = [];
+    _segments = {};
   }
 
   function getSegmentsCount() {
@@ -538,7 +747,9 @@ function BufferManager(manifests, mediaSource, video, options) {
   function setPlayingRepresentation(representation) {
     if (
       _playingRepresentation &&
-      _playingRepresentation.getNumber() === representation.getNumber()
+      _playingRepresentation.getNumber() === representation.getNumber() &&
+      _playingRepresentation.getManifestIndex() ===
+        representation.getManifestIndex()
     )
       return;
     _playingRepresentation = representation;
@@ -548,11 +759,25 @@ function BufferManager(manifests, mediaSource, video, options) {
     );
   }
 
+  function setGaps(gaps) {
+    _gaps = [];
+    for (var gap of gaps) {
+      _gaps.push({
+        start: gap.gapStart,
+        duration: gap.gapDuration,
+      });
+    }
+  }
+
   function startBuffering() {
     if (_isBuffering) return;
     if (!_segments) return;
     _isBuffering = true;
     bufferVideo();
+  }
+
+  function pauseBuffering() {
+    _isBuffering = false;
   }
 
   function bufferVideo() {
@@ -566,7 +791,9 @@ function BufferManager(manifests, mediaSource, video, options) {
     if (!segment) {
       _isBuffering = false;
       _isBufferingSegment = false;
-      _mediaSource.endOfStream();
+      var updating = _sourceBuffer.updating;
+      _eventEmitter.dispatchEvent("onAllSegmentsLoaded");
+      if (_autoCloseStream) _mediaSource.endOfStream();
       return;
     }
     bufferSegment(segment).then(function () {
@@ -577,6 +804,7 @@ function BufferManager(manifests, mediaSource, video, options) {
 
   function getPreBufferedTime() {
     var bufferedTime = 0;
+    if (_bufferingSegment >= _segments.length) return;
     for (var i = 0; i < _bufferingSegment; i++) {
       var segment = _segments[i];
       bufferedTime += segment.getDuration();
@@ -608,6 +836,19 @@ function BufferManager(manifests, mediaSource, video, options) {
 
     if (!_sourceBuffer) {
       _sourceBuffer = _mediaSource.addSourceBuffer(mimeCodec);
+      _currentMimeCodec = mimeCodec;
+      if (_appendWindowBoundaries) {
+        for (var i = 0; i < _appendWindowBoundaries.length; i++) {
+          if (
+            _bufferingSegment <=
+            _appendWindowBoundaries[i].lastPlayoutEntry - 1
+          ) {
+            _currentAppendWindow = i;
+            setAppendWindow(_appendWindowBoundaries[i]);
+            break;
+          }
+        }
+      }
     }
 
     return new Promise(function (resolve) {
@@ -713,15 +954,59 @@ function BufferManager(manifests, mediaSource, video, options) {
     var bufferInfo = _bufferQueue.shift();
     if (!bufferInfo) return;
 
+    for (var gap of _gaps) {
+      var currentSegment = bufferInfo.segment;
+      var segmentTime = 0;
+      for (var index in _segments) {
+        var segment = _segments[index];
+        if (segment.getNumber() === currentSegment.getNumber()) break;
+        segmentTime += segment.getDuration();
+      }
+      var gapStart = gap.start;
+      var gapEnd = gapStart + gap.duration;
+      if (segmentTime >= gapStart && segmentTime < gapEnd) {
+        bufferInfo.resolve();
+        appendQueuedBuffers();
+        _bufferingSegment++;
+        return Promise.resolve();
+      }
+    }
+
     _isAppendingBuffer = true;
+
+    if (_appendWindowBoundaries) {
+      if (
+        _bufferingSegment >
+        _appendWindowBoundaries[_currentAppendWindow].lastPlayoutEntry - 1
+      ) {
+        _currentAppendWindow++;
+        setAppendWindow(_appendWindowBoundaries[_currentAppendWindow]);
+      }
+    }
 
     var arrayBuffer = bufferInfo.arrayBuffer;
     var representationNumber = bufferInfo.segment.getRepresentationNumber();
     var periodNumber = bufferInfo.segment.getPeriodNumber();
     var manifestIndex = bufferInfo.segment.getManifestIndex();
 
-    var isRepresentationChange =
-      representationNumber !== _bufferingRepresentationNumber;
+    var representation = _manifests[manifestIndex].getRepresentation(
+      representationNumber,
+      periodNumber
+    );
+    var nextMimeCodec = representation.getMimeCodec();
+    var isCodecChange = nextMimeCodec !== _currentMimeCodec;
+    if (!_useChangeType && isCodecChange) {
+      _bufferQueue.unshift(bufferInfo);
+      _isAppendingBuffer = false;
+      let timestamp = 0;
+      for (let i = 1; i <= bufferInfo.segment.getNumber(); i++) {
+        timestamp += _segments[i].getDuration();
+      }
+      _registerMimeCodecChange(timestamp, nextMimeCodec);
+      _isBuffering = false;
+      _isBufferingSegment = false;
+      return;
+    }
 
     var isPeriodChange = periodNumber !== _bufferingPeriodNumber;
 
@@ -730,32 +1015,36 @@ function BufferManager(manifests, mediaSource, video, options) {
     _lastInitSegmentUrl = initSegmentUrl;
 
     var timestampOffset = bufferInfo.segment.getTimestampOffset();
+    var segmentNumber = bufferInfo.segment.getNumber();
+    if (_timestampOffsets && _timestampOffsets[segmentNumber]) {
+      timestampOffset += _timestampOffsets[segmentNumber] / 1000.0;
+    }
 
     if (_sourceBuffer.timestampOffset !== timestampOffset) {
       _sourceBuffer.timestampOffset = timestampOffset;
     }
 
     new Promise(function (resolve) {
-      if (!isRepresentationChange && !isInitSegmentChange && !isPeriodChange) {
+      if (!isCodecChange && !isInitSegmentChange && !isPeriodChange) {
         resolve();
         return;
       }
       _bufferingRepresentationNumber = representationNumber;
       _bufferingPeriodNumber = periodNumber;
 
-      if (isRepresentationChange) {
-        var representation = _manifests[manifestIndex].getRepresentation(
-          representationNumber,
-          periodNumber
-        );
-        var mimeCodec = representation.getMimeCodec();
-
-        _sourceBuffer.changeType(mimeCodec);
+      if (isCodecChange && _useChangeType) {
+        _sourceBuffer.changeType(nextMimeCodec);
       }
 
       return fetchSegment(initSegmentUrl)
         .then(function (arrayBuffer) {
           return appendVideoBuffer(arrayBuffer);
+        })
+        .then(function () {
+          if (!_initCallback) return;
+          return new Promise(function (resolve) {
+            _initCallback(resolve);
+          });
         })
         .then(resolve);
     })
@@ -770,7 +1059,69 @@ function BufferManager(manifests, mediaSource, video, options) {
         _eventEmitter.dispatchEvent("onSegmentLoaded", {
           totalSegmentsLoaded: _bufferingSegment,
         });
+        handleMaxBackwardBuffer();
       });
+  }
+
+  function handleMaxBackwardBuffer() {
+    if (_maxBackwardBuffer) {
+      var end = video.currentTime - _maxBackwardBuffer;
+      if (end <= 0) return;
+      _sourceBuffer.remove(0, end);
+    }
+  }
+
+  function truncateBuffer() {
+    return waitForSourceBufferUpdate().then(function () {
+      _sourceBuffer.remove(0, video.duration);
+      updateBufferingSegment();
+      return waitForSourceBufferUpdate();
+    });
+  }
+
+  function waitForSourceBufferUpdate() {
+    if (!_sourceBuffer) return Promise.resolve();
+    if (!_sourceBuffer.updating) return Promise.resolve();
+    return new Promise(function (resolve) {
+      var handleBufferAppended = function () {
+        _sourceBuffer.removeEventListener("updateend", handleBufferAppended);
+        resolve();
+      };
+      _sourceBuffer.addEventListener("updateend", handleBufferAppended);
+    });
+  }
+
+  function updateBufferingSegment() {
+    var currentTime = video.currentTime;
+    var segments = _segments;
+
+    var bufferEdge = currentTime;
+    if (_sourceBuffer) {
+      var bufferedRanges = _sourceBuffer.buffered;
+      var currentRange = null;
+      for (var range in bufferedRanges) {
+        if (range.start > currentTime || range.end < currentTime) continue;
+        currentRange = range;
+        break;
+      }
+      if (currentRange) bufferEdge = currentRange.end;
+    }
+
+    var segmentTime = 0;
+    var bufferEdgeSegment = null;
+    for (var i = 0; i < Object.keys(segments).length; i++) {
+      var segment = segments[i];
+      segmentTime += segment.getDuration();
+      if (segmentTime <= bufferEdge) continue;
+      bufferEdgeSegment = segment;
+      break;
+    }
+
+    if (bufferEdgeSegment) _bufferingSegment = bufferEdgeSegment.getNumber();
+  }
+
+  function handleCurrentTimeChange(currentTime) {
+    updateBufferingSegment();
   }
 
   function appendVideoBuffer(arrayBuffer) {
@@ -784,14 +1135,8 @@ function BufferManager(manifests, mediaSource, video, options) {
       );
       return;
     }
-    return new Promise(function (resolve) {
-      sourceBuffer.appendBuffer(arrayBuffer);
-      var handleBufferAppended = function () {
-        sourceBuffer.removeEventListener("updateend", handleBufferAppended);
-        resolve();
-      };
-      sourceBuffer.addEventListener("updateend", handleBufferAppended);
-    });
+    sourceBuffer.appendBuffer(arrayBuffer);
+    return waitForSourceBufferUpdate();
   }
 
   function fetchSegment(url) {
@@ -844,6 +1189,15 @@ function BufferManager(manifests, mediaSource, video, options) {
     return newArrayBuffers;
   }
 
+  function setAppendWindow(appendWindow) {
+    if (!appendWindow) return;
+    var start = appendWindow.start / 1000.0;
+    var end = appendWindow.end / 1000.0;
+
+    _sourceBuffer.appendWindowStart = start;
+    _sourceBuffer.appendWindowEnd = end;
+  }
+
   function handleTimeUpdate(event) {
     updatePlayingSegment();
     bufferVideo();
@@ -851,8 +1205,13 @@ function BufferManager(manifests, mediaSource, video, options) {
 
   function handleSeeking(event) {
     updatePlayingSegment();
-    _bufferingSegment = getPlayingSegment().getNumber() - 1;
+    updateBufferingSegment();
     bufferVideo();
+  }
+
+  function closeBuffer() {
+    if (!_mediaSource) return;
+    _mediaSource.endOfStream();
   }
 
   function dispatchVideoErrorEvent(error) {
@@ -863,18 +1222,51 @@ function BufferManager(manifests, mediaSource, video, options) {
     return _manifests;
   }
 
+  function setBufferTime(bufferTime) {
+    _bufferTime = bufferTime;
+  }
+
+  function getCurrentMimeCodec() {
+    return _currentMimeCodec;
+  }
+
+  function setMediaSource(mediaSource) {
+    _mediaSource = mediaSource;
+    _sourceBuffer = null;
+  }
+
+  function setMaxBackwardBuffer(maxBackwardBuffer) {
+    _maxBackwardBuffer = maxBackwardBuffer;
+  }
+
+  function setDuration(duration) {
+    _duration = duration;
+    _mediaSource.duration = duration;
+  }
+
   instance = {
     setSegments,
     getSegments,
     getSegmentsCount,
     getPlayingSegment,
+    setBufferTime,
+    getCurrentMimeCodec,
+    setMediaSource,
     clearSegments,
     getPlayingRepresentation,
     getPreBufferedTime,
     getManifests,
+    setMaxBackwardBuffer,
+    setDuration,
     startBuffering,
+    pauseBuffering,
     on: _eventEmitter.on,
     off: _eventEmitter.off,
+    setGaps,
+    setAppendWindow,
+    closeBuffer,
+    truncateBuffer,
+    handleCurrentTimeChange,
   };
 
   return instance;
@@ -976,9 +1368,7 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec) {
     keySession
       .generateRequest(initDataType, initData)
       .catch(
-        console.log(
-          "WARNING: Unable to create or initialize key session"
-        )
+        console.log("WARNING: Unable to create or initialize key session")
       );
   }
 

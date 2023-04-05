@@ -1981,8 +1981,8 @@
       return repBaseUrls.map(function (baseUrl) {
         return {
           segmentInfo: merge(
-            adaptationSetSegmentInfo,
-            representationSegmentInfo
+            representationSegmentInfo,
+            adaptationSetSegmentInfo
           ),
           attributes: merge(attributes, {
             baseUrl: baseUrl,

@@ -1,7 +1,7 @@
-function ManifestParser() { }
+function ManifestParser() {}
 
-ManifestParser.parse = function(manifestUrl) {
-  return ManifestParser.fetchInformation(manifestUrl).then(function(
+ManifestParser.parse = function (manifestUrl, manifestIndex) {
+  return ManifestParser.fetchInformation(manifestUrl).then(function (
     parsedManifest
   ) {
     var periods = {};
@@ -60,6 +60,7 @@ ManifestParser.parse = function(manifestUrl) {
             initSegmentUrl: initSegmentUrl,
             periodNumber: periodId,
             timestampOffset: segment.timestampOffset,
+            manifestIndex: manifestIndex,
           })
         );
       }
@@ -91,14 +92,17 @@ ManifestParser.parse = function(manifestUrl) {
   });
 };
 
-ManifestParser.fetchInformation = function(manifestUrl) {
-  return new Promise(function(resolve) {
+ManifestParser.fetchInformation = function (manifestUrl) {
+  return new Promise(function (resolve, reject) {
     var mpdParser = window["mpdParser"];
     var xhr = new XMLHttpRequest();
     xhr.open("GET", manifestUrl);
     xhr.responseType = "text";
     xhr.overrideMimeType("text/xml");
-    xhr.onload = function() {
+    xhr.onload = function () {
+      if (xhr.status === 404) {
+        reject(new Error("Could not find manifest: " + manifestUrl));
+      }
       if (xhr.readyState === xhr.DONE && xhr.status === 200) {
         var parsedManifest = mpdParser.parse(xhr.responseText, {
           manifestUri: manifestUrl,
@@ -180,7 +184,7 @@ function Segment(attributes) {
       initSegmentUrl: _initSegmentUrl,
       periodNumber: _periodNumber,
       timestampOffset: _timestampOffset,
-      manifestIndex: _manifestIndex
+      manifestIndex: _manifestIndex,
     });
   }
 
@@ -254,6 +258,10 @@ function Representation(attributes) {
     return _periodNumber;
   }
 
+  function getManifestIndex() {
+    return _segments[0].getManifestIndex();
+  }
+
   function toString() {
     var string = "";
     string += "MimeCodec: " + _mimeCodec + ";";
@@ -278,6 +286,7 @@ function Representation(attributes) {
     getSegments,
     getTotalSegmentsCount,
     getPeriodNumber,
+    getManifestIndex,
     toString,
   };
 
