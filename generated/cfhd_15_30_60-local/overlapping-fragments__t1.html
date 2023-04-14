@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Overlapping Fragments</title>
+    <link rel="stylesheet" href="../lib/style.css" />
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+
+  <body>
+    <div id="content-wrapper">
+      <div id="video-wrapper">
+        <video></video>
+        <div><div id="qr-code"></div></div>
+        <div><div id="status-text"></div></div>
+      </div>
+      <div>
+        To show/hide debug overlay press up/down or button beneath
+      </div>
+      <div id="debug-wrapper">
+        <div>
+          <div class="button" id="debug-button">Debug Overlay</div>
+        </div>
+        <div id="debug"></div>
+        <div id="log"></div>
+      </div>
+    </div>
+    <div id="info-overlay"></div>
+    <script src="../lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/player.js"></script>
+    <script src="../lib/manifest_parser.js"></script>
+    <script src="../lib/mpd-parser.js"></script>
+    <script src="../lib/wave-service.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
+    <script src="../lib/hbbtv.js"></script>
+    <script>
+      // Global variables
+      var TEST_INFO = {
+        title: "Overlapping Fragments",
+        description:
+          "Playback of overlapping fragments assumes that the application can overwrite the buffer with other fragments. This is for example useful in case that a fragment is loaded in lower quality but may then be replaced by a better-quality fragment.",
+        path: "cfhd_15_30_60-local/overlapping-fragments__t1.html",
+        code: "overlapping-fragments.html",
+        params: urlParams
+      };
+
+      var video = document.querySelector("video");
+      var qrCode = document.getElementById("qr-code");
+      var statusText = document.getElementById("status-text");
+      var overwriteCurrentFragment = true;
+
+      var videoContentModel = ["/content/cfhd_sets/15_30_60/t1/2023-04-06/stream.mpd"];
+      var audioContentModel = [];
+
+      var dpctfTest = new DpctfTest({
+        testInfo: TEST_INFO,
+        videoContentModel: videoContentModel,
+        audioContentModel: audioContentModel,
+        videoElement: video,
+        qrCodeElement: qrCode,
+        statusTextElement: statusText,
+        infoOverlayElement: document.getElementById("info-overlay"),
+        executeTest: executeTest,
+        usePlayout: true,
+      });
+
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
+
+        var handleRandomSwitch = function (currentTime) {
+          var duration = player.getDuration();
+          var switchingTime = duration * 0.3;
+
+          if (currentTime < switchingTime) return;
+          if (Math.random() > 0.05) return;
+
+          var newRepresentationIndex = 1;
+
+          var totalSegmentsCount = player
+            .getVideoManifests()[0]
+            .getRepresentation(newRepresentationIndex)
+            .getTotalSegmentsCount();
+          var switchingSegment = player.getPlayingVideoSegment().getNumber();
+          if (!overwriteCurrentFragment) {
+            switchingSegment += 1;
+          }
+          player.setVideoSegments({
+            representationNumber: 1,
+            startSegment: switchingSegment,
+            endSegment: totalSegmentsCount - 1,
+          });
+          player.off(handleRandomSwitch);
+        };
+        player.on("onTimeUpdate", handleRandomSwitch);
+
+        player.startBuffering();
+        if (player.getPreBufferedTime() >= minBufferDuration || 
+            player.getPreBufferedTime() >= player.getDuration()) {
+          player
+            .play()
+            .then(function () {
+              done();
+            })
+            .catch(function (error) {
+              done(error);
+            });
+        } else {
+          var loadedEvent = "onVideoSegmentLoaded";
+          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
+          player.on(loadedEvent, function (event) {
+            if (player.getPreBufferedTime() >= minBufferDuration || 
+                player.getPreBufferedTime() >= player.getDuration()) {
+              player
+                .play()
+                .then(function () {
+                  done();
+                })
+                .catch(function (error) {
+                  done(error);
+                });
+            }
+          });
+        }
+
+        dpctfTest.asyncTest(function (test) {
+          var query = location.search.replace(/\?/, "");
+          var match = query.match(/redirect_time=([^&]+)/);
+          var REDIRECT_TIME = match ? match[1] : null;
+          if (!REDIRECT_TIME) REDIRECT_TIME = 5;
+          video.addEventListener("ended", function (event) {
+            assert_true(true);
+            test.done();
+          });
+        }, "video ended event fired");
+      }
+    </script>
+  </body>
+</html>

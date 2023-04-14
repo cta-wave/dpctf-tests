@@ -50,12 +50,13 @@
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["/content/cfhd_sets/12.5_25_50/t1/2022-10-17/stream.mpd"];
+      var videoContentModel = ["/content/cfhd_sets/12.5_25_50/t1/2023-04-06/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
         videoContentModel: videoContentModel,
+	audioContentModel: audioContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
         statusTextElement: statusText,
