@@ -5456,9 +5456,9 @@
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-20/stream.mpd"
             ],
             "audio": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-06/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-06/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-06/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-20/stream.mpd",
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-20/stream.mpd",
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-20/stream.mpd"
             ],
             "code": "splicing-of-wave-program-with-baseline-constraints.html",
             "switchingSets": {
@@ -5536,7 +5536,53 @@
                         }
                     }
                 ],
-                "audio": []
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT0H0M10.000S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 4,
+                                "t": 0,
+                                "d": 24576
+                            },
+                            {
+                                "d": 5120
+                            }
+                        ],
+                        "source": "splice_main_croatia_A1_1280x720@25_10 version 4",
+                        "representations": {}
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H0M5.760S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 2,
+                                "t": 0,
+                                "d": 24576
+                            }
+                        ],
+                        "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
+                        "representations": {}
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H0M5.760S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 2,
+                                "t": 0,
+                                "d": 24576
+                            }
+                        ],
+                        "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
+                        "representations": {}
+                    }
+                ]
             }
         },
         "a34b0f02ed08cd6e38cc9860a6134624": {
@@ -7542,8 +7588,8 @@
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-20/stream.mpd"
             ],
             "audio": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-06/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-06/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-20/stream.mpd",
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-20/stream.mpd"
             ],
             "code": "splicing-of-wave-program-with-baseline-constraints.html",
             "switchingSets": {
@@ -7598,7 +7644,39 @@
                         }
                     }
                 ],
-                "audio": []
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT0H0M10.000S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 4,
+                                "t": 0,
+                                "d": 24576
+                            },
+                            {
+                                "d": 5120
+                            }
+                        ],
+                        "source": "splice_main_croatia_A1_1280x720@25_10 version 4",
+                        "representations": {}
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H0M5.760S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 2,
+                                "t": 0,
+                                "d": 24576
+                            }
+                        ],
+                        "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
+                        "representations": {}
+                    }
+                ]
             }
         },
         "5a20452dacfba850e097083f88abc2be": {
