@@ -42,7 +42,7 @@
         title: "Switching Set Playback",
         description:
           "Playback of a switching set assumes that the application can switch across the fragments of different tracks without observing any temporal or spatial misalignment during playback.",
-        path: "cfhd_12.5_25_50-local/switching-set-playback__avc_12.5_25_50_ss1_stream_v4.html",
+        path: "cfhd_14.985_29.97_59.94-local/switching-set-playback__ss1.html",
         code: "switching-set-playback.html",
         params: urlParams
       };
@@ -50,7 +50,7 @@
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["/content/avc_12.5_25_50_ss1_stream_v4.mpd"];
+      var videoContentModel = ["/content/switching_sets/14.985_29.97_59.94/ss1/2023-04-28/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
