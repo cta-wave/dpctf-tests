@@ -176,12 +176,32 @@
        [2, 1, 11], [2, 1, 12], [2, 1, 13], [2, 1, 14], [2, 1, 15]
     ]
   },
-  "dpcat-online/truncated-playback-and-restart__splice_main_splice_ad.html": {
+  "cfhd_12.5_25_50-local/truncated-playback-and-restart__splice_main_splice_ad.html": {
     "playout": [[1, 1, 1],  [1, 1, 2],  [1, 1, 3]],
     "second_playout": [[2, 1, 1],  [2, 1, 2],  [2, 1, 3]],
     "second_playout_switching_time": 5
   },
-  "dpcat-local/truncated-playback-and-restart__splice_main_splice_ad.html": {
+  "cfhd_12.5_25_50-online/truncated-playback-and-restart__splice_main_splice_ad.html": {
+    "playout": [[1, 1, 1],  [1, 1, 2],  [1, 1, 3]],
+    "second_playout": [[2, 1, 1],  [2, 1, 2],  [2, 1, 3]],
+    "second_playout_switching_time": 5
+  },
+  "cfhd_15_30_60-local/truncated-playback-and-restart__splice_main_splice_ad.html": {
+    "playout": [[1, 1, 1],  [1, 1, 2],  [1, 1, 3]],
+    "second_playout": [[2, 1, 1],  [2, 1, 2],  [2, 1, 3]],
+    "second_playout_switching_time": 5
+  },
+  "cfhd_15_30_60-online/truncated-playback-and-restart__splice_main_splice_ad.html": {
+    "playout": [[1, 1, 1],  [1, 1, 2],  [1, 1, 3]],
+    "second_playout": [[2, 1, 1],  [2, 1, 2],  [2, 1, 3]],
+    "second_playout_switching_time": 5
+  },
+  "cfhd_14.985_29.97_59.94-local/truncated-playback-and-restart__splice_main_splice_ad.html": {
+    "playout": [[1, 1, 1],  [1, 1, 2],  [1, 1, 3]],
+    "second_playout": [[2, 1, 1],  [2, 1, 2],  [2, 1, 3]],
+    "second_playout_switching_time": 5
+  },
+  "cfhd_14.985_29.97_59.94-online/truncated-playback-and-restart__splice_main_splice_ad.html": {
     "playout": [[1, 1, 1],  [1, 1, 2],  [1, 1, 3]],
     "second_playout": [[2, 1, 1],  [2, 1, 2],  [2, 1, 3]],
     "second_playout_switching_time": 5
