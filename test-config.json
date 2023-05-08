@@ -67,7 +67,8 @@
     "render_threshold": 200
   },
   "buffer-underrun-and-recovery.html": {
-    "waiting_duration": 500
+    "waiting_duration": 500,
+    "min_buffer_duration": 10000
   },
   "long-duration-playback.html": {
     "max_backward_buffer": 5,
