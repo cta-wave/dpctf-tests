@@ -87,6 +87,34 @@
 	    {"start": 53999, "end": 60000, "lastPlayoutEntry": 30}
 	]
   },
+  "cfhd_14.985_29.97_59.94-local/mse-appendwindow__t1.html": {
+    "append_window_boundaries": [
+	    {"start": 0, "end": 6006, "lastPlayoutEntry": 3}, 
+	    {"start": 6005, "end": 12012, "lastPlayoutEntry": 6},
+	    {"start": 12011, "end": 18018, "lastPlayoutEntry": 9},
+	    {"start": 18017, "end": 24024, "lastPlayoutEntry": 12},
+	    {"start": 24023, "end": 30030, "lastPlayoutEntry": 15},
+	    {"start": 30029, "end": 36036, "lastPlayoutEntry": 18},
+	    {"start": 36035, "end": 42042, "lastPlayoutEntry": 21},
+	    {"start": 42041, "end": 48048, "lastPlayoutEntry": 24},
+	    {"start": 48047, "end": 54054, "lastPlayoutEntry": 27},
+	    {"start": 54053, "end": 60060, "lastPlayoutEntry": 30}
+	]
+  },
+  "cfhd_14.985_29.97_59.94-online/mse-appendwindow__t1.html": {
+    "append_window_boundaries": [
+	    {"start": 0, "end": 6006, "lastPlayoutEntry": 3}, 
+	    {"start": 6005, "end": 12012, "lastPlayoutEntry": 6},
+	    {"start": 12011, "end": 18018, "lastPlayoutEntry": 9},
+	    {"start": 18017, "end": 24024, "lastPlayoutEntry": 12},
+	    {"start": 24023, "end": 30030, "lastPlayoutEntry": 15},
+	    {"start": 30029, "end": 36036, "lastPlayoutEntry": 18},
+	    {"start": 36035, "end": 42042, "lastPlayoutEntry": 21},
+	    {"start": 42041, "end": 48048, "lastPlayoutEntry": 24},
+	    {"start": 48047, "end": 54054, "lastPlayoutEntry": 27},
+	    {"start": 54053, "end": 60060, "lastPlayoutEntry": 30}
+	]
+  },
   "source-buffer-re-initialization-without-changetype.html": {
     "playout": [
        [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],  [1, 1, 5],
