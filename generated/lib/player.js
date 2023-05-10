@@ -1,6 +1,9 @@
 var sessions = [];
 var messageFormat = "utf8";
 
+const VIDEO = "video";
+const AUDIO = "audio";
+
 function Player(video) {
   let instance;
   let _settings;
@@ -190,6 +193,28 @@ function Player(video) {
   }
 
   function loadVideo(vectorUrls) {
+    console.log("loading video");
+    return loadMedia({ vectorUrls, mediaType: VIDEO }).then(
+      ({ bufferManager, manifests }) => {
+        _videoBufferManager = bufferManager;
+        _eventEmitter.dispatchEvent("onVideoManifestParsed", manifests);
+        console.log("video done");
+      }
+    );
+  }
+
+  function loadAudio(vectorUrls) {
+    console.log("loading audio");
+    return loadMedia({ vectorUrls, mediaType: AUDIO }).then(
+      ({ bufferManager, manifests }) => {
+        _audioBufferManager = bufferManager;
+        _eventEmitter.dispatchEvent("onAudioManifestParsed", manifests);
+        console.log("audio done");
+      }
+    );
+  }
+
+  function loadMedia({ vectorUrls, mediaType }) {
     if (!vectorUrls || vectorUrls.length === 0) {
       console.log("Warning: No video mpd provided!");
       return;
@@ -201,9 +226,9 @@ function Player(video) {
       )
     ).then(function (manifests) {
       _settings.registerMimeCodecChange = function (timestamp, mimeCodec) {
-        registerMimeCodecChange("video", timestamp, mimeCodec);
+        registerMimeCodecChange(mediaType, timestamp, mimeCodec);
       };
-      _videoBufferManager = new BufferManager(
+      let bufferManager = new BufferManager(
         manifests,
         _mediaSource,
         _video,
@@ -212,34 +237,26 @@ function Player(video) {
       var promises = [];
       for (let manifest of manifests) {
         var bufferOffset = 0;
-        var totalDuration = 0;
-        var representationNumber;
         for (var periodId in manifest.getPeriods()) {
           var period = manifest.getPeriods()[periodId];
-          var videoRepresentation;
-          for (var representation of period) {
-            if (
-              representationNumber &&
-              representationNumber === representation.getNumber()
-            ) {
-              videoRepresentation = representation;
-              break;
-            } else {
-              if (representation.getMimeCodec().indexOf("video") === -1)
-                continue;
-              videoRepresentation = representation;
-              representationNumber = videoRepresentation.getNumber();
-              break;
-            }
+          var representation;
+          for (var nextRepresentation of period) {
+            if (nextRepresentation.getMimeCodec().indexOf(mediaType) === -1)
+              continue;
+            representation = nextRepresentation;
+            break;
           }
-          var periodNumber = videoRepresentation.getPeriodNumber();
+          if (!representation) {
+            throw new Error("No representation of type " + mediaType + " found!");
+          }
+          var periodNumber = representation.getPeriodNumber();
 
           var totalSegmentsCount = manifest
-            .getRepresentation(representationNumber, periodNumber)
+            .getRepresentation(representation.getNumber(), periodNumber)
             .getTotalSegmentsCount();
-          var promise = _videoBufferManager
+          var promise = bufferManager
             .setSegments({
-              representationNumber: representationNumber,
+              representationNumber: representation.getNumber(),
               startSegment: 0,
               endSegment: totalSegmentsCount - 1,
               bufferOffset: bufferOffset,
@@ -250,76 +267,11 @@ function Player(video) {
               setDuration(duration);
             });
           promises.push(promise);
-          _eventEmitter.dispatchEvent("onVideoManifestParsed", manifests);
-          return Promise.all(promises).then(Promise.resolve());
+          return Promise.all(promises).then(
+            Promise.resolve({ bufferManager, manifests })
+          );
         }
       }
-    });
-  }
-
-  function loadAudio(vectorUrls) {
-    if (!vectorUrls || vectorUrls.length === 0) {
-      console.log("Warning: No audio mpd provided!");
-      return;
-    }
-    if (!_mediaSource) throw new Error("Player not initialized");
-    return Promise.all(
-      vectorUrls.map((vectorUrl, index) =>
-        ManifestParser.parse(vectorUrl, index)
-      )
-    ).then(function (manifests) {
-      _settings.registerMimeCodecChange = function (timestamp, mimeCodec) {
-        registerMimeCodecChange("audio", timestamp, mimeCodec);
-      };
-      _audioBufferManager = new BufferManager(
-        manifests,
-        _mediaSource,
-        _video,
-        _settings
-      );
-      for (let manifest of manifests) {
-        var bufferOffset = 0;
-        var totalDuration = 0;
-        var representationNumber;
-        for (var periodId in manifest.getPeriods()) {
-          var period = manifest.getPeriods()[periodId];
-          var audioRepresentation;
-          for (var representation of period) {
-            if (
-              representationNumber &&
-              representationNumber === representation.getNumber()
-            ) {
-              audioRepresentation = representation;
-              break;
-            } else {
-              if (representation.getMimeCodec().indexOf("audio") === -1)
-                continue;
-              audioRepresentation = representation;
-              representationNumber = audioRepresentation.getNumber();
-              break;
-            }
-          }
-          var periodNumber = audioRepresentation.getPeriodNumber();
-
-          var totalSegmentsCount = manifest
-            .getRepresentation(representationNumber, periodNumber)
-            .getTotalSegmentsCount();
-          _audioBufferManager
-            .setSegments({
-              representationNumber: representationNumber,
-              startSegment: 0,
-              endSegment: totalSegmentsCount - 1,
-              bufferOffset: bufferOffset,
-              periodNumber: periodNumber,
-            })
-            .then(function (duration) {
-              bufferOffset += totalSegmentsCount;
-              totalDuration = duration;
-              setDuration(totalDuration);
-            });
-        }
-      }
-      _eventEmitter.dispatchEvent("onAudioManifestParsed", manifests);
     });
   }
 
@@ -437,10 +389,10 @@ function Player(video) {
       if (timestamp < video.currentTime) continue;
       let change = _mimeCodecChanges[timestamp];
       switch (change.type) {
-        case "video":
+        case VIDEO:
           videoMimeCodec = change.mimeCodec;
           break;
-        case "audio":
+        case AUDIO:
           audioMimeCodec = change.mimeCodec;
           break;
       }
@@ -1048,7 +1000,7 @@ function BufferManager(manifests, mediaSource, video, options) {
 
       return fetchSegment(initSegmentUrl)
         .then(function (arrayBuffer) {
-          return appendVideoBuffer(arrayBuffer);
+          return appendBuffer(arrayBuffer);
         })
         .then(function () {
           if (!_initCallback) return;
@@ -1059,7 +1011,7 @@ function BufferManager(manifests, mediaSource, video, options) {
         .then(resolve);
     })
       .then(function () {
-        return appendVideoBuffer(arrayBuffer);
+        return appendBuffer(arrayBuffer);
       })
       .then(function () {
         _isAppendingBuffer = false;
@@ -1134,18 +1086,14 @@ function BufferManager(manifests, mediaSource, video, options) {
     updateBufferingSegment();
   }
 
-  function appendVideoBuffer(arrayBuffer) {
-    return appendBuffer(arrayBuffer, _sourceBuffer);
-  }
-
-  function appendBuffer(arrayBuffer, sourceBuffer) {
+  function appendBuffer(arrayBuffer) {
     if (_video.error) {
       dispatchVideoErrorEvent(
         new Error("Video Error: " + _video.error.message)
       );
       return;
     }
-    sourceBuffer.appendBuffer(arrayBuffer);
+    _sourceBuffer.appendBuffer(arrayBuffer);
     return waitForSourceBufferUpdate();
   }
 

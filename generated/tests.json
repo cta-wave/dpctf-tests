@@ -5488,12 +5488,10 @@
             "path": "cfhd_12.5_25_50-online/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd",
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
             ],
             "audio": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd",
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
             ],
             "code": "splicing-of-wave-program-with-baseline-constraints.html",
@@ -5547,29 +5545,6 @@
                                 "segmentTimeline": []
                             }
                         }
-                    },
-                    {
-                        "cmaf_track_duration": "PT0H0M5.760S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 12800,
-                        "segmentTimeline": [
-                            {
-                                "r": 2,
-                                "t": 0,
-                                "d": 24576
-                            }
-                        ],
-                        "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 5,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 1.92,
-                                "segmentTimeline": []
-                            }
-                        }
                     }
                 ],
                 "audio": [
@@ -5588,20 +5563,6 @@
                             }
                         ],
                         "source": "splice_main_croatia_A1_1280x720@25_10 version 4",
-                        "representations": {}
-                    },
-                    {
-                        "cmaf_track_duration": "PT0H0M5.760S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 12800,
-                        "segmentTimeline": [
-                            {
-                                "r": 2,
-                                "t": 0,
-                                "d": 24576
-                            }
-                        ],
-                        "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
                         "representations": {}
                     },
                     {
@@ -7629,15 +7590,15 @@
                 "audio": []
             }
         },
-        "373a1a0ae4d9b647325fff973fec7f8d": {
-            "path": "cfhd_12.5_25_50-local/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad.html",
+        "1ca7c7d61de8d288126f845242840580": {
+            "path": "cfhd_12.5_25_50-local/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad_at1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd",
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
             ],
             "audio": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/caac_sets/aac_lc/at1/2022-02-11/stream.mpd",
+                "https://dash.akamaized.net/WAVE/vectors/caac_sets/aac_lc/at1/2022-02-11/stream.mpd"
             ],
             "code": "splicing-of-wave-program-with-baseline-constraints.html",
             "switchingSets": {
@@ -7694,35 +7655,38 @@
                 ],
                 "audio": [
                     {
-                        "cmaf_track_duration": "PT0H0M10.000S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 12800,
-                        "segmentTimeline": [
-                            {
-                                "r": 4,
-                                "t": 0,
-                                "d": 24576
-                            },
-                            {
-                                "d": 5120
+                        "cmaf_track_duration": "PT00H01M00.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [],
+                        "source": "CTA WAVE",
+                        "representations": {
+                            "1": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 60,
+                                "type": "audio",
+                                "fragment_duration": 1.984,
+                                "segmentTimeline": []
                             }
-                        ],
-                        "source": "splice_main_croatia_A1_1280x720@25_10 version 4",
-                        "representations": {}
+                        }
                     },
                     {
-                        "cmaf_track_duration": "PT0H0M5.760S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 12800,
-                        "segmentTimeline": [
-                            {
-                                "r": 2,
-                                "t": 0,
-                                "d": 24576
+                        "cmaf_track_duration": "PT00H01M00.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [],
+                        "source": "CTA WAVE",
+                        "representations": {
+                            "1": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 60,
+                                "type": "audio",
+                                "fragment_duration": 1.984,
+                                "segmentTimeline": []
                             }
-                        ],
-                        "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
-                        "representations": {}
+                        }
                     }
                 ]
             }
