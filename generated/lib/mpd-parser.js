@@ -1074,9 +1074,9 @@
       var segmentTime = S.t || 0;
       var chunkNumber = S.k || 0;
 
-      if (chunkNumber > 0) {
-        duration *= chunkNumber;
-      }
+      //if (chunkNumber > 0) {
+      //  duration *= chunkNumber;
+      //}
 
       if (time < 0) {
         // first segment
@@ -1329,7 +1329,7 @@
       var uri = constructTemplateUrl(attributes.media || "", templateValues);
       if (segment.chunks) {
         var chunks = segment.chunks.map(function (chunk) {
-          var templateValues = { SubNumber: chunk.number };
+          var templateValues = { SubNumber: chunk.number - 1 };
           var chunkUri = constructTemplateUrl(uri, templateValues);
           return {
             uri: chunkUri,

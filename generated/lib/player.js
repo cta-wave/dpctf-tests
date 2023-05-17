@@ -482,9 +482,19 @@ function Player(video) {
     return _videoBufferManager.getSegments();
   }
 
+  function getAudioSegments() {
+    if (!_audioBufferManager) return;
+    return _audioBufferManager.getSegments();
+  }
+
   function getVideoSegmentsCount() {
     if (!_videoBufferManager) return;
     return _videoBufferManager.getSegmentsCount();
+  }
+
+  function getAudioSegmentsCount() {
+    if (!_audioBufferManager) return;
+    return _audioBufferManager.getSegmentsCount();
   }
 
   function clearVideoSegments() {
@@ -515,7 +525,9 @@ function Player(video) {
     getPlayingVideoRepresentation,
     setVideoSegments,
     getVideoSegments,
+    getAudioSegments,
     getVideoSegmentsCount,
+    getAudioSegmentsCount,
     setVideoGaps,
     clearAudioSegments,
     clearVideoSegments,
@@ -876,6 +888,7 @@ function BufferManager(manifests, mediaSource, video, options) {
               arrayBuffer: arrayBuffer,
               segment: segment,
               chunkNumber: fetchJob.chunkNumber,
+              lastChunk: fetchJob.chunkNumber == fetchJobs.length,
             });
           });
           if (_parallelLoading) {
@@ -1017,7 +1030,14 @@ function BufferManager(manifests, mediaSource, video, options) {
         _isAppendingBuffer = false;
         bufferInfo.resolve();
         appendQueuedBuffers();
-        _bufferingSegment++;
+
+        if (
+          !bufferInfo.chunkNumber ||
+          (bufferInfo.chunkNumber && bufferInfo.lastChunk)
+        ) {
+          _bufferingSegment++;
+        }
+
         _eventEmitter.dispatchEvent("onSegmentLoaded", {
           totalSegmentsLoaded: _bufferingSegment,
         });

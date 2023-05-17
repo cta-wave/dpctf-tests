@@ -15,9 +15,7 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>
-        To show/hide debug overlay press up/down or button beneath
-      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -44,7 +42,7 @@
         description:
           "In scenarios such as live programs, the client accesses an ongoing Presentation to join in the live event. This is a typical case that media needs to be accessed and played back at a random access time.",
         path: "cfhd_14.985_29.97_59.94-local/random-access-of-a-wave-presentation__t1.html",
-        code: "random-access-of-a-wave-presentation.html"
+        code: "random-access-of-a-wave-presentation.html",
       };
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
@@ -56,7 +54,7 @@
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
         videoContentModel: videoContentModel,
-	audioContentModel: audioContentModel,
+        audioContentModel: audioContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
         statusTextElement: statusText,
@@ -67,11 +65,12 @@
 
       function setupTest(player, done, parameters) {
         var randomAccessFragment = parameters.randomAccessFragment;
-        var videoSegments = player.getVideoSegments();
+        var segments = player.getVideoSegments();
+        if (!segments) segments = player.getAudioSegments();
 
         var fragmentTime = 0;
         for (var i = 0; i < randomAccessFragment; i++) {
-          var segmentDuration = videoSegments[i].getDuration();
+          var segmentDuration = segments[i].getDuration();
           fragmentTime += segmentDuration;
         }
         player.setCurrentTime(fragmentTime);
@@ -99,7 +98,8 @@
             });
         } else {
           var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
+          if (videoContentModel.length === 0)
+            loadedEvent = "onAudioSegmentLoaded";
           player.on(loadedEvent, function (event) {
             if (
               player.getPreBufferedTime() >= minBufferDuration ||
