@@ -44,10 +44,10 @@
 "playback-of-encrypted-content-https","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1-cenc/2023-04-28/stream.mpd","","cfhd_15_30_60-online"
 
 "source-buffer-re-initialization-without-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd","","chh1-15_30_60-online"
-"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/15_30_60/t1/2023-04-28/stream.mpd","","chh1-15_30_60-online"
+"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1-15_30_60-online"
 
 "source-buffer-re-initialization-with-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd","","chh1-15_30_60-online"
-"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/15_30_60/t1/2023-04-28/stream.mpd","","chh1-15_30_60-online"
+"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1-15_30_60-online"
 
 "buffer-underrun-and-recovery","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t2/2023-04-28/stream.mpd","","cfhd_15_30_60-online"
 
@@ -114,10 +114,10 @@
 "playback-of-encrypted-content-https","/content/cfhd_sets/15_30_60/t1-cenc/2023-04-28/stream.mpd","","cfhd_15_30_60-local"
 
 "source-buffer-re-initialization-without-changetype","/content/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd","","chh1-15_30_60-local"
-"","/content/chh1_sets/15_30_60/t1/2023-04-28/stream.mpd","","chh1-15_30_60-local"
+"","/content/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1-15_30_60-local"
 
 "source-buffer-re-initialization-with-changetype","/content/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd","","chh1-15_30_60-local"
-"","/content/chh1_sets/15_30_60/t1/2023-04-28/stream.mpd","","chh1-15_30_60-local"
+"","/content/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1-15_30_60-local"
 
 "buffer-underrun-and-recovery","/content/cfhd_sets/15_30_60/t2/2023-04-28/stream.mpd","","cfhd_15_30_60-local"
 
@@ -194,10 +194,10 @@
 "","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd","","cfhd_12.5_25_50-online"
 
 "source-buffer-re-initialization-without-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","chh1_12.5_25_50-online"
-"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","chh1_12.5_25_50-online"
+"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/t1/2023-05-12/stream.mpd","","chh1_12.5_25_50-online"
 
 "source-buffer-re-initialization-with-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","chh1_12.5_25_50-online"
-"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","chh1_12.5_25_50-online"
+"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/t1/2023-05-12/stream.mpd","","chh1_12.5_25_50-online"
 
 "buffer-underrun-and-recovery","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t2/2023-04-28/stream.mpd","","cfhd_12.5_25_50-online"
 
@@ -296,10 +296,10 @@
 "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","/content/cfhd_sets/12.5_25_50/t2/2023-04-28/stream.mpd","","cfhd_12.5_25_50-local"
 
 "source-buffer-re-initialization-without-changetype","/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","chh1_12.5_25_50-local"
-"","/content/chh1_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","chh1_12.5_25_50-local"
+"","/content/chh1_sets/12.5_25_50/t1/2023-05-12/stream.mpd","","chh1_12.5_25_50-local"
 
 "source-buffer-re-initialization-with-changetype","/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","chh1_12.5_25_50-local"
-"","/content/chh1_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","chh1_12.5_25_50-local"
+"","/content/chh1_sets/12.5_25_50/t1/2023-05-12/stream.mpd","","chh1_12.5_25_50-local"
 
 "regular-playback-of-a-cmaf-presentation","/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","cfhd_12.5_25_50-local"
 
@@ -360,10 +360,10 @@
 "playback-of-encrypted-content-https","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1-cenc/2023-04-28/stream.mpd","","cfhd_14.985_29.97_59.94-online"
 
 "source-buffer-re-initialization-without-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","","chh1_14.985_29.97_59.94-online"
-"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","","chh1_14.985_29.97_59.94-online"
+"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/14.985_29.97_59.94/t1/2023-05-12/stream.mpd","","chh1_14.985_29.97_59.94-online"
 
 "source-buffer-re-initialization-with-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","","chh1_14.985_29.97_59.94-online"
-"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","","chh1_14.985_29.97_59.94-online"
+"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/14.985_29.97_59.94/t1/2023-05-12/stream.mpd","","chh1_14.985_29.97_59.94-online"
 
 "buffer-underrun-and-recovery","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t2/2023-04-28/stream.mpd","","cfhd_14.985_29.97_59.94-online"
 
@@ -430,10 +430,10 @@
 "playback-of-encrypted-content-https","/content/cfhd_sets/14.985_29.97_59.94/t1-cenc/2023-04-28/stream.mpd","","cfhd_14.985_29.97_59.94-local"
 
 "source-buffer-re-initialization-without-changetype","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","","chh1_14.985_29.97_59.94-local"
-"","/content/chh1_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","","chh1_14.985_29.97_59.94-local"
+"","/content/chh1_sets/14.985_29.97_59.94/t1/2023-05-12/stream.mpd","","chh1_14.985_29.97_59.94-local"
 
 "source-buffer-re-initialization-with-changetype","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","","chh1_14.985_29.97_59.94-local"
-"","/content/chh1_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","","chh1_14.985_29.97_59.94-local"
+"","/content/chh1_sets/14.985_29.97_59.94/t1/2023-05-12/stream.mpd","","chh1_14.985_29.97_59.94-local"
 
 "buffer-underrun-and-recovery","/content/cfhd_sets/14.985_29.97_59.94/t2/2023-04-28/stream.mpd","","cfhd_14.985_29.97_59.94-local"
 
