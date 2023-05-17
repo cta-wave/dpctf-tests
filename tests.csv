@@ -482,12 +482,10 @@
 
 "random-access-of-a-wave-presentation","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","caac_sets-online"
 
-"random-access-of-a-wave-presentation","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","caac_sets-online"
-
 "playback-over-wave-baseline-splice-constraints","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at13/2023-04-27/stream.mpd","caac_sets-online"
 "","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","caac_sets-online"
 
-"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","","caac_sets-online"
+"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","caac_sets-online"
 
 "splicing-of-wave-program-with-baseline-constraints","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at13/2023-04-27/stream.mpd","caac_sets-online"
 "","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","caac_sets-online"
@@ -521,7 +519,7 @@
 "playback-over-wave-baseline-splice-constraints","","/content/caac_sets/aac_lc/at13/2023-04-27/stream.mpd","caac_sets-local"
 "","","/content/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","caac_sets-local"
 
-"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","/content/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","","caac_sets-local"
+"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","","/content/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","caac_sets-local"
 
 "splicing-of-wave-program-with-baseline-constraints","","/content/caac_sets/aac_lc/at13/2023-04-27/stream.mpd","caac_sets-local"
 "","","/content/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","caac_sets-local"

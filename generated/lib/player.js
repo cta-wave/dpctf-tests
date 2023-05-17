@@ -193,32 +193,32 @@ function Player(video) {
   }
 
   function loadVideo(vectorUrls) {
-    console.log("loading video");
+    if (!vectorUrls || vectorUrls.length === 0) {
+      console.log("Warning: No video mpd provided!");
+      return;
+    }
     return loadMedia({ vectorUrls, mediaType: VIDEO }).then(
       ({ bufferManager, manifests }) => {
         _videoBufferManager = bufferManager;
         _eventEmitter.dispatchEvent("onVideoManifestParsed", manifests);
-        console.log("video done");
       }
     );
   }
 
   function loadAudio(vectorUrls) {
-    console.log("loading audio");
+    if (!vectorUrls || vectorUrls.length === 0) {
+      console.log("Warning: No audio mpd provided!");
+      return;
+    }
     return loadMedia({ vectorUrls, mediaType: AUDIO }).then(
       ({ bufferManager, manifests }) => {
         _audioBufferManager = bufferManager;
         _eventEmitter.dispatchEvent("onAudioManifestParsed", manifests);
-        console.log("audio done");
       }
     );
   }
 
   function loadMedia({ vectorUrls, mediaType }) {
-    if (!vectorUrls || vectorUrls.length === 0) {
-      console.log("Warning: No video mpd provided!");
-      return;
-    }
     if (!_mediaSource) throw new Error("Player not initialized");
     return Promise.all(
       vectorUrls.map((vectorUrl, index) =>
@@ -247,7 +247,9 @@ function Player(video) {
             break;
           }
           if (!representation) {
-            throw new Error("No representation of type " + mediaType + " found!");
+            throw new Error(
+              "No representation of type " + mediaType + " found!"
+            );
           }
           var periodNumber = representation.getPeriodNumber();
 
@@ -267,9 +269,10 @@ function Player(video) {
               setDuration(duration);
             });
           promises.push(promise);
-          return Promise.all(promises).then(
-            Promise.resolve({ bufferManager, manifests })
-          );
+          return Promise.all(promises).then(() => ({
+            bufferManager,
+            manifests,
+          }));
         }
       }
     });
@@ -482,6 +485,15 @@ function Player(video) {
     return _videoBufferManager.getSegments();
   }
 
+  function setAudioSegments(segmentsInfo) {
+    if (!_audioBufferManager) return;
+    return _audioBufferManager
+      .setSegments(segmentsInfo)
+      .then(function (duration) {
+        setDuration(duration);
+      });
+  }
+
   function getAudioSegments() {
     if (!_audioBufferManager) return;
     return _audioBufferManager.getSegments();
@@ -525,6 +537,7 @@ function Player(video) {
     getPlayingVideoRepresentation,
     setVideoSegments,
     getVideoSegments,
+    setAudioSegments,
     getAudioSegments,
     getVideoSegmentsCount,
     getAudioSegmentsCount,
