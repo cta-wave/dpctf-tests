@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Splicing of WAVE Program with Baseline Constraints</title>
+    <title>Full Screen Playback of Switching Sets</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -39,12 +39,11 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "splicing-of-wave-program-with-baseline-constraints",
-        title: "Splicing of WAVE Program with Baseline Constraints",
+        title: "Full Screen Playback of Switching Sets",
         description:
-          "Apps want to splice content that was properly conditioned based on the WAVE Program Baseline Constraints. The expectation is that the device plays back these splices seamlessly.",
-        path: "cfhd_12.5_25_50-online/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad.html",
-        code: "splicing-of-wave-program-with-baseline-constraints.html",
+          "Fullscreen playback ensures that the device provide proper scaling and letter boxing.",
+        path: "cfhd_14.985_29.97_59.94-online/fullscreen-playback-of-switching-sets__ss1.html",
+        code: "fullscreen-playback-of-switching-sets.html",
         params: urlParams
       };
 
@@ -52,11 +51,13 @@
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"];
-      var audioContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"];
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/switching_sets/14.985_29.97_59.94/ss1/2023-04-28/stream.mpd"];
+      var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
+//        outOfOrderLoading: true,
+        usePlayout: true,
         videoContentModel: videoContentModel,
         audioContentModel: audioContentModel,
         videoElement: video,
@@ -64,7 +65,6 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        usePlayout: true,
       });
 
       function executeTest(player, done, parameters) {

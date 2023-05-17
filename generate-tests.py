@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!python
 
 import sys
 import os
@@ -60,7 +60,21 @@ def main():
         audio_file_name = str(audio_mpd_url).split("/")[-1]
         audio_file_name = ".".join(audio_file_name.split(".")[0:-1])
         test_id = generate_test_id(
-            template_file + video_mpd_url + audio_mpd_url)
+            template_file + "video" + video_mpd_url + "audio" + audio_mpd_url)
+
+        duplicate_test = None
+        if test[0] != "":
+            for lookup_test in tests:
+                if lookup_test["id"] != test_id: continue
+                duplicate_test = lookup_test
+                break
+        
+        if duplicate_test is not None:
+            if "copies" not in duplicate_test:
+                duplicate_test["copies"] = 1
+            duplicate_test["copies"] += 1
+            current_test_id = test_id
+            continue
 
         video_parameters = None
         if video_mpd_url:
@@ -138,7 +152,14 @@ def main():
         content = load_file(test_template_path)
         content = generate_test(
             content, video_mpd_urls, audio_mpd_urls, test_path_relative, template_file)
-        write_file(test_path, content)
+
+        if "copies" in test:
+            without_ext = test_path.replace(".html","")
+            for i in range(1, test["copies"] + 1):
+                copy_test_path = without_ext + "-" + str(i) + ".html"
+                write_file(copy_test_path, content)
+        else:
+            write_file(test_path, content)
 
     test_json_content = generate_test_json(tests)
     test_json_content = json.dumps(test_json_content, indent=4)
