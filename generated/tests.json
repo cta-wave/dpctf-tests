@@ -1636,12 +1636,14 @@
                 "audio": []
             }
         },
-        "7842b2688862266a113a40b8cc580066": {
-            "path": "cfhd_15_30_60-online/regular-playback-of-a-cmaf-presentation__t1.html",
+        "902279ffec7afbf49fe7899a7e0bfee2": {
+            "path": "cfhd_15_30_60-online/regular-playback-of-a-cmaf-presentation__t1_at1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd"
             ],
-            "audio": [],
+            "audio": [
+                "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
+            ],
             "code": "regular-playback-of-a-cmaf-presentation.html",
             "switchingSets": {
                 "video": [
@@ -1669,15 +1671,47 @@
                         }
                     }
                 ],
-                "audio": []
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT00H00M30.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [
+                            {
+                                "t": 0,
+                                "d": 93184
+                            },
+                            {
+                                "r": 13,
+                                "d": 95232
+                            },
+                            {
+                                "d": 13568
+                            }
+                        ],
+                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN01_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 30,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ]
             }
         },
-        "f6ea1ef677613839ac4505adf32d61ef": {
-            "path": "cfhd_15_30_60-online/random-access-of-a-wave-presentation__t1.html",
+        "90bb120922267d80329e5682dcb6ac53": {
+            "path": "cfhd_15_30_60-online/random-access-of-a-wave-presentation__t1_at1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd"
             ],
-            "audio": [],
+            "audio": [
+                "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
+            ],
             "code": "random-access-of-a-wave-presentation.html",
             "switchingSets": {
                 "video": [
@@ -1705,7 +1739,37 @@
                         }
                     }
                 ],
-                "audio": []
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT00H00M30.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [
+                            {
+                                "t": 0,
+                                "d": 93184
+                            },
+                            {
+                                "r": 13,
+                                "d": 95232
+                            },
+                            {
+                                "d": 13568
+                            }
+                        ],
+                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN01_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 30,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ]
             }
         },
         "c30f670e85ed06ac71b87378ecfdb97c": {
@@ -3380,12 +3444,14 @@
                 "audio": []
             }
         },
-        "de4ae2f1624540105d20f086287d8973": {
-            "path": "cfhd_15_30_60-local/regular-playback-of-a-cmaf-presentation__t1.html",
+        "3c89a0db3e21996af0e64b1630202d09": {
+            "path": "cfhd_15_30_60-local/regular-playback-of-a-cmaf-presentation__t1_at1.html",
             "video": [
                 "/content/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd"
             ],
-            "audio": [],
+            "audio": [
+                "/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
+            ],
             "code": "regular-playback-of-a-cmaf-presentation.html",
             "switchingSets": {
                 "video": [
@@ -3413,15 +3479,47 @@
                         }
                     }
                 ],
-                "audio": []
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT00H00M30.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [
+                            {
+                                "t": 0,
+                                "d": 93184
+                            },
+                            {
+                                "r": 13,
+                                "d": 95232
+                            },
+                            {
+                                "d": 13568
+                            }
+                        ],
+                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN01_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 30,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ]
             }
         },
-        "38e06c2f166e27be30a7f5aeeab97dba": {
-            "path": "cfhd_15_30_60-local/random-access-of-a-wave-presentation__t1.html",
+        "014725c8e1b09f414685c71b305b0778": {
+            "path": "cfhd_15_30_60-local/random-access-of-a-wave-presentation__t1_at1.html",
             "video": [
                 "/content/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd"
             ],
-            "audio": [],
+            "audio": [
+                "/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
+            ],
             "code": "random-access-of-a-wave-presentation.html",
             "switchingSets": {
                 "video": [
@@ -3449,7 +3547,37 @@
                         }
                     }
                 ],
-                "audio": []
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT00H00M30.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [
+                            {
+                                "t": 0,
+                                "d": 93184
+                            },
+                            {
+                                "r": 13,
+                                "d": 95232
+                            },
+                            {
+                                "d": 13568
+                            }
+                        ],
+                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN01_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 30,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ]
             }
         },
         "37557096501df13052771e4a12b57603": {
@@ -5340,12 +5468,14 @@
                 "audio": []
             }
         },
-        "c16a01f16fdd6c8cee4e63656b9f0248": {
-            "path": "cfhd_12.5_25_50-online/regular-playback-of-a-cmaf-presentation__t1.html",
+        "ca4ce926a8cba2e20ec028344b7d4f71": {
+            "path": "cfhd_12.5_25_50-online/regular-playback-of-a-cmaf-presentation__t1_at1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
             ],
-            "audio": [],
+            "audio": [
+                "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
+            ],
             "code": "regular-playback-of-a-cmaf-presentation.html",
             "switchingSets": {
                 "video": [
@@ -5373,15 +5503,47 @@
                         }
                     }
                 ],
-                "audio": []
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT00H00M30.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [
+                            {
+                                "t": 0,
+                                "d": 93184
+                            },
+                            {
+                                "r": 13,
+                                "d": 95232
+                            },
+                            {
+                                "d": 13568
+                            }
+                        ],
+                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN01_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 30,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ]
             }
         },
-        "9867d122d1cdaf22ede6906f5afa891d": {
-            "path": "cfhd_12.5_25_50-online/random-access-of-a-wave-presentation__t1.html",
+        "2f6601001851ecaf17df6fcad96096e5": {
+            "path": "cfhd_12.5_25_50-online/random-access-of-a-wave-presentation__t1_at1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
             ],
-            "audio": [],
+            "audio": [
+                "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
+            ],
             "code": "random-access-of-a-wave-presentation.html",
             "switchingSets": {
                 "video": [
@@ -5409,7 +5571,37 @@
                         }
                     }
                 ],
-                "audio": []
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT00H00M30.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [
+                            {
+                                "t": 0,
+                                "d": 93184
+                            },
+                            {
+                                "r": 13,
+                                "d": 95232
+                            },
+                            {
+                                "d": 13568
+                            }
+                        ],
+                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN01_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 30,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ]
             }
         },
         "1b05b6222a4f92b09325a70d3d41268d": {
@@ -5448,15 +5640,15 @@
                 "audio": []
             }
         },
-        "9a946467dfa26ca3c4c199181ae46172": {
-            "path": "cfhd_12.5_25_50-online/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad.html",
+        "5f9c10f1d0e8c0c95f17c6a5118c441d": {
+            "path": "cfhd_12.5_25_50-online/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad_at13_at14.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd",
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
             ],
             "audio": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at13/2023-04-27/stream.mpd",
+                "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at14/2023-04-27/stream.mpd"
             ],
             "code": "splicing-of-wave-program-with-baseline-constraints.html",
             "switchingSets": {
@@ -5513,35 +5705,61 @@
                 ],
                 "audio": [
                     {
-                        "cmaf_track_duration": "PT0H0M10.000S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 12800,
+                        "cmaf_track_duration": "PT00H00M10.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
                         "segmentTimeline": [
                             {
-                                "r": 4,
                                 "t": 0,
-                                "d": 24576
+                                "d": 93184
                             },
                             {
-                                "d": 5120
+                                "r": 3,
+                                "d": 95232
+                            },
+                            {
+                                "d": 5888
                             }
                         ],
-                        "source": "splice_main_croatia_A1_1280x720@25_10 version 4",
-                        "representations": {}
+                        "source": "PN03_128000@48000_10 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN03_128000@48000_60": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 10,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
                     },
                     {
-                        "cmaf_track_duration": "PT0H0M5.760S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 12800,
+                        "cmaf_track_duration": "PT00H00M05.760S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
                         "segmentTimeline": [
                             {
-                                "r": 2,
                                 "t": 0,
-                                "d": 24576
+                                "d": 93184
+                            },
+                            {
+                                "d": 95232
+                            },
+                            {
+                                "d": 88064
                             }
                         ],
-                        "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
-                        "representations": {}
+                        "source": "PN04_128000@48000_5.76 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN04_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 5,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
                     }
                 ]
             }
@@ -7470,12 +7688,14 @@
                 "audio": []
             }
         },
-        "41f60ffb3a413a7ba4484db4cc12d8be": {
-            "path": "cfhd_12.5_25_50-local/regular-playback-of-a-cmaf-presentation__t1.html",
+        "acb1378ec94bd441241f71121babaf3b": {
+            "path": "cfhd_12.5_25_50-local/regular-playback-of-a-cmaf-presentation__t1_at1.html",
             "video": [
                 "/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
             ],
-            "audio": [],
+            "audio": [
+                "/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
+            ],
             "code": "regular-playback-of-a-cmaf-presentation.html",
             "switchingSets": {
                 "video": [
@@ -7503,15 +7723,47 @@
                         }
                     }
                 ],
-                "audio": []
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT00H00M30.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [
+                            {
+                                "t": 0,
+                                "d": 93184
+                            },
+                            {
+                                "r": 13,
+                                "d": 95232
+                            },
+                            {
+                                "d": 13568
+                            }
+                        ],
+                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN01_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 30,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ]
             }
         },
-        "5d13f0cc80fe0a0388a0eb6219eb1c4d": {
-            "path": "cfhd_12.5_25_50-local/random-access-of-a-wave-presentation__t1.html",
+        "18c5a4f14669f11041b3be7ececce505": {
+            "path": "cfhd_12.5_25_50-local/random-access-of-a-wave-presentation__t1_at1.html",
             "video": [
                 "/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
             ],
-            "audio": [],
+            "audio": [
+                "/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
+            ],
             "code": "random-access-of-a-wave-presentation.html",
             "switchingSets": {
                 "video": [
@@ -7539,18 +7791,48 @@
                         }
                     }
                 ],
-                "audio": []
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT00H00M30.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [
+                            {
+                                "t": 0,
+                                "d": 93184
+                            },
+                            {
+                                "r": 13,
+                                "d": 95232
+                            },
+                            {
+                                "d": 13568
+                            }
+                        ],
+                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN01_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 30,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ]
             }
         },
-        "373a1a0ae4d9b647325fff973fec7f8d": {
-            "path": "cfhd_12.5_25_50-local/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad.html",
+        "a783940751a37ca0333d381d269cd658": {
+            "path": "cfhd_12.5_25_50-local/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad_at13_at14.html",
             "video": [
                 "/content/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd",
                 "/content/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
             ],
             "audio": [
-                "/content/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd",
-                "/content/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
+                "/content/caac_sets/aac_lc/at13/2023-04-27/stream.mpd",
+                "/content/caac_sets/aac_lc/at14/2023-04-27/stream.mpd"
             ],
             "code": "splicing-of-wave-program-with-baseline-constraints.html",
             "switchingSets": {
@@ -7607,35 +7889,61 @@
                 ],
                 "audio": [
                     {
-                        "cmaf_track_duration": "PT0H0M10.000S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 12800,
+                        "cmaf_track_duration": "PT00H00M10.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
                         "segmentTimeline": [
                             {
-                                "r": 4,
                                 "t": 0,
-                                "d": 24576
+                                "d": 93184
                             },
                             {
-                                "d": 5120
+                                "r": 3,
+                                "d": 95232
+                            },
+                            {
+                                "d": 5888
                             }
                         ],
-                        "source": "splice_main_croatia_A1_1280x720@25_10 version 4",
-                        "representations": {}
+                        "source": "PN03_128000@48000_10 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN03_128000@48000_60": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 10,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
                     },
                     {
-                        "cmaf_track_duration": "PT0H0M5.760S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 12800,
+                        "cmaf_track_duration": "PT00H00M05.760S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
                         "segmentTimeline": [
                             {
-                                "r": 2,
                                 "t": 0,
-                                "d": 24576
+                                "d": 93184
+                            },
+                            {
+                                "d": 95232
+                            },
+                            {
+                                "d": 88064
                             }
                         ],
-                        "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
-                        "representations": {}
+                        "source": "PN04_128000@48000_5.76 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN04_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 5,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
                     }
                 ]
             }
@@ -9495,12 +9803,14 @@
                 "audio": []
             }
         },
-        "c05e7353b129dbb52b5750ce83d2f42f": {
-            "path": "cfhd_14.985_29.97_59.94-online/regular-playback-of-a-cmaf-presentation__t1.html",
+        "fa06d2221b8976a9b9e622487e01962b": {
+            "path": "cfhd_14.985_29.97_59.94-online/regular-playback-of-a-cmaf-presentation__t1_at1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd"
             ],
-            "audio": [],
+            "audio": [
+                "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
+            ],
             "code": "regular-playback-of-a-cmaf-presentation.html",
             "switchingSets": {
                 "video": [
@@ -9531,15 +9841,47 @@
                         }
                     }
                 ],
-                "audio": []
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT00H00M30.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [
+                            {
+                                "t": 0,
+                                "d": 93184
+                            },
+                            {
+                                "r": 13,
+                                "d": 95232
+                            },
+                            {
+                                "d": 13568
+                            }
+                        ],
+                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN01_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 30,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ]
             }
         },
-        "ab43aaf483ad1201c1d1e7a5e8197eb1": {
-            "path": "cfhd_14.985_29.97_59.94-online/random-access-of-a-wave-presentation__t1.html",
+        "d84dcb4dd139673c92838e8c24ed64f4": {
+            "path": "cfhd_14.985_29.97_59.94-online/random-access-of-a-wave-presentation__t1_at1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd"
             ],
-            "audio": [],
+            "audio": [
+                "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
+            ],
             "code": "random-access-of-a-wave-presentation.html",
             "switchingSets": {
                 "video": [
@@ -9570,7 +9912,37 @@
                         }
                     }
                 ],
-                "audio": []
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT00H00M30.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [
+                            {
+                                "t": 0,
+                                "d": 93184
+                            },
+                            {
+                                "r": 13,
+                                "d": 95232
+                            },
+                            {
+                                "d": 13568
+                            }
+                        ],
+                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN01_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 30,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ]
             }
         },
         "e6fffa2ca25ac632ddff5f4975f19c34": {
@@ -11431,12 +11803,14 @@
                 "audio": []
             }
         },
-        "2d66e4592e666cb9b1641c25e4de6865": {
-            "path": "cfhd_14.985_29.97_59.94-local/regular-playback-of-a-cmaf-presentation__t1.html",
+        "0608e97807e108a1648641009c91e512": {
+            "path": "cfhd_14.985_29.97_59.94-local/regular-playback-of-a-cmaf-presentation__t1_at1.html",
             "video": [
                 "/content/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd"
             ],
-            "audio": [],
+            "audio": [
+                "/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
+            ],
             "code": "regular-playback-of-a-cmaf-presentation.html",
             "switchingSets": {
                 "video": [
@@ -11467,15 +11841,47 @@
                         }
                     }
                 ],
-                "audio": []
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT00H00M30.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [
+                            {
+                                "t": 0,
+                                "d": 93184
+                            },
+                            {
+                                "r": 13,
+                                "d": 95232
+                            },
+                            {
+                                "d": 13568
+                            }
+                        ],
+                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN01_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 30,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ]
             }
         },
-        "c6c76d1674816952a03271814726bcf9": {
-            "path": "cfhd_14.985_29.97_59.94-local/random-access-of-a-wave-presentation__t1.html",
+        "9686914cba2afafc3f5c8f2e53b284cc": {
+            "path": "cfhd_14.985_29.97_59.94-local/random-access-of-a-wave-presentation__t1_at1.html",
             "video": [
                 "/content/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd"
             ],
-            "audio": [],
+            "audio": [
+                "/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
+            ],
             "code": "random-access-of-a-wave-presentation.html",
             "switchingSets": {
                 "video": [
@@ -11506,7 +11912,37 @@
                         }
                     }
                 ],
-                "audio": []
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT00H00M30.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [
+                            {
+                                "t": 0,
+                                "d": 93184
+                            },
+                            {
+                                "r": 13,
+                                "d": 95232
+                            },
+                            {
+                                "d": 13568
+                            }
+                        ],
+                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN01_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 30,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ]
             }
         },
         "a07097d1d9748e909d7ee46b704965d8": {
@@ -12175,90 +12611,6 @@
                 ]
             }
         },
-        "92c94243e8526ae5d7f0a6a5f75a8332": {
-            "path": "caac_sets-online/regular-playback-of-a-cmaf-presentation__at1.html",
-            "video": [],
-            "audio": [
-                "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
-            ],
-            "code": "regular-playback-of-a-cmaf-presentation.html",
-            "switchingSets": {
-                "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT00H00M30.000S",
-                        "fragment_duration": "PT0H0M1.984S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "t": 0,
-                                "d": 93184
-                            },
-                            {
-                                "r": 13,
-                                "d": 95232
-                            },
-                            {
-                                "d": 13568
-                            }
-                        ],
-                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN01_128000@48000_30": {
-                                "audioSamplingRate": 48000,
-                                "period": 1,
-                                "duration": 30,
-                                "type": "audio",
-                                "fragment_duration": 1.9413333333333334,
-                                "segmentTimeline": []
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        "85629eba583fb193708e6be07c12ed07": {
-            "path": "caac_sets-online/random-access-of-a-wave-presentation__at1.html",
-            "video": [],
-            "audio": [
-                "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
-            ],
-            "code": "random-access-of-a-wave-presentation.html",
-            "switchingSets": {
-                "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT00H00M30.000S",
-                        "fragment_duration": "PT0H0M1.984S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "t": 0,
-                                "d": 93184
-                            },
-                            {
-                                "r": 13,
-                                "d": 95232
-                            },
-                            {
-                                "d": 13568
-                            }
-                        ],
-                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN01_128000@48000_30": {
-                                "audioSamplingRate": 48000,
-                                "period": 1,
-                                "duration": 30,
-                                "type": "audio",
-                                "fragment_duration": 1.9413333333333334,
-                                "segmentTimeline": []
-                            }
-                        }
-                    }
-                ]
-            }
-        },
         "064c39ab08c3e3fa46442a04189d7500": {
             "path": "caac_sets-online/playback-over-wave-baseline-splice-constraints__at13_at14.html",
             "video": [],
@@ -12340,77 +12692,6 @@
             "switchingSets": {
                 "video": [],
                 "audio": [
-                    {
-                        "cmaf_track_duration": "PT00H00M05.760S",
-                        "fragment_duration": "PT0H0M1.984S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "t": 0,
-                                "d": 93184
-                            },
-                            {
-                                "d": 95232
-                            },
-                            {
-                                "d": 88064
-                            }
-                        ],
-                        "source": "PN04_128000@48000_5.76 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN04_128000@48000_30": {
-                                "audioSamplingRate": 48000,
-                                "period": 1,
-                                "duration": 5,
-                                "type": "audio",
-                                "fragment_duration": 1.9413333333333334,
-                                "segmentTimeline": []
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        "536785bf1a686dcafbda800456ca1563": {
-            "path": "caac_sets-online/splicing-of-wave-program-with-baseline-constraints__at13_at14.html",
-            "video": [],
-            "audio": [
-                "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at13/2023-04-27/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at14/2023-04-27/stream.mpd"
-            ],
-            "code": "splicing-of-wave-program-with-baseline-constraints.html",
-            "switchingSets": {
-                "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT00H00M10.000S",
-                        "fragment_duration": "PT0H0M1.984S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "t": 0,
-                                "d": 93184
-                            },
-                            {
-                                "r": 3,
-                                "d": 95232
-                            },
-                            {
-                                "d": 5888
-                            }
-                        ],
-                        "source": "PN03_128000@48000_10 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN03_128000@48000_60": {
-                                "audioSamplingRate": 48000,
-                                "period": 1,
-                                "duration": 10,
-                                "type": "audio",
-                                "fragment_duration": 1.9413333333333334,
-                                "segmentTimeline": []
-                            }
-                        }
-                    },
                     {
                         "cmaf_track_duration": "PT00H00M05.760S",
                         "fragment_duration": "PT0H0M1.984S",
@@ -13069,90 +13350,6 @@
                 ]
             }
         },
-        "39029106f6fbebc426c5655660e0f374": {
-            "path": "caac_sets-local/regular-playback-of-a-cmaf-presentation__at1.html",
-            "video": [],
-            "audio": [
-                "/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
-            ],
-            "code": "regular-playback-of-a-cmaf-presentation.html",
-            "switchingSets": {
-                "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT00H00M30.000S",
-                        "fragment_duration": "PT0H0M1.984S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "t": 0,
-                                "d": 93184
-                            },
-                            {
-                                "r": 13,
-                                "d": 95232
-                            },
-                            {
-                                "d": 13568
-                            }
-                        ],
-                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN01_128000@48000_30": {
-                                "audioSamplingRate": 48000,
-                                "period": 1,
-                                "duration": 30,
-                                "type": "audio",
-                                "fragment_duration": 1.9413333333333334,
-                                "segmentTimeline": []
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        "4d587673ecfbe1f53e350fd4f736372e": {
-            "path": "caac_sets-local/random-access-of-a-wave-presentation__at1.html",
-            "video": [],
-            "audio": [
-                "/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
-            ],
-            "code": "random-access-of-a-wave-presentation.html",
-            "switchingSets": {
-                "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT00H00M30.000S",
-                        "fragment_duration": "PT0H0M1.984S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "t": 0,
-                                "d": 93184
-                            },
-                            {
-                                "r": 13,
-                                "d": 95232
-                            },
-                            {
-                                "d": 13568
-                            }
-                        ],
-                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN01_128000@48000_30": {
-                                "audioSamplingRate": 48000,
-                                "period": 1,
-                                "duration": 30,
-                                "type": "audio",
-                                "fragment_duration": 1.9413333333333334,
-                                "segmentTimeline": []
-                            }
-                        }
-                    }
-                ]
-            }
-        },
         "a181eeca671b14bb66fc0e4484be15af": {
             "path": "caac_sets-local/playback-over-wave-baseline-splice-constraints__at13_at14.html",
             "video": [],
@@ -13234,77 +13431,6 @@
             "switchingSets": {
                 "video": [],
                 "audio": [
-                    {
-                        "cmaf_track_duration": "PT00H00M05.760S",
-                        "fragment_duration": "PT0H0M1.984S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "t": 0,
-                                "d": 93184
-                            },
-                            {
-                                "d": 95232
-                            },
-                            {
-                                "d": 88064
-                            }
-                        ],
-                        "source": "PN04_128000@48000_5.76 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN04_128000@48000_30": {
-                                "audioSamplingRate": 48000,
-                                "period": 1,
-                                "duration": 5,
-                                "type": "audio",
-                                "fragment_duration": 1.9413333333333334,
-                                "segmentTimeline": []
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        "a257cadbcfa9b4026351e29815ab81e2": {
-            "path": "caac_sets-local/splicing-of-wave-program-with-baseline-constraints__at13_at14.html",
-            "video": [],
-            "audio": [
-                "/content/caac_sets/aac_lc/at13/2023-04-27/stream.mpd",
-                "/content/caac_sets/aac_lc/at14/2023-04-27/stream.mpd"
-            ],
-            "code": "splicing-of-wave-program-with-baseline-constraints.html",
-            "switchingSets": {
-                "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT00H00M10.000S",
-                        "fragment_duration": "PT0H0M1.984S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "t": 0,
-                                "d": 93184
-                            },
-                            {
-                                "r": 3,
-                                "d": 95232
-                            },
-                            {
-                                "d": 5888
-                            }
-                        ],
-                        "source": "PN03_128000@48000_10 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN03_128000@48000_60": {
-                                "audioSamplingRate": 48000,
-                                "period": 1,
-                                "duration": 10,
-                                "type": "audio",
-                                "fragment_duration": 1.9413333333333334,
-                                "segmentTimeline": []
-                            }
-                        }
-                    },
                     {
                         "cmaf_track_duration": "PT00H00M05.760S",
                         "fragment_duration": "PT0H0M1.984S",

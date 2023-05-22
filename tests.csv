@@ -61,9 +61,9 @@
 
 "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t2/2023-04-28/stream.mpd","","cfhd_15_30_60-online"
 
-"regular-playback-of-a-cmaf-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd","","cfhd_15_30_60-online"
+"regular-playback-of-a-cmaf-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_15_30_60-online"
 
-"random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd","","cfhd_15_30_60-online"
+"random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_15_30_60-online"
 
 "long-duration-playback","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd","","cfhd_15_30_60-online"
 
@@ -131,9 +131,9 @@
 
 "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","/content/cfhd_sets/15_30_60/t2/2023-04-28/stream.mpd","","cfhd_15_30_60-local"
 
-"regular-playback-of-a-cmaf-presentation","/content/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd","","cfhd_15_30_60-local"
+"regular-playback-of-a-cmaf-presentation","/content/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd","/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_15_30_60-local"
 
-"random-access-of-a-wave-presentation","/content/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd","","cfhd_15_30_60-local"
+"random-access-of-a-wave-presentation","/content/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd","/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_15_30_60-local"
 
 "long-duration-playback","/content/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd","","cfhd_15_30_60-local"
 
@@ -214,14 +214,14 @@
 
 "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t2/2023-04-28/stream.mpd","","cfhd_12.5_25_50-online"
 
-"regular-playback-of-a-cmaf-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","cfhd_12.5_25_50-online"
+"regular-playback-of-a-cmaf-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_12.5_25_50-online"
 
-"random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","cfhd_12.5_25_50-online"
+"random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_12.5_25_50-online"
 
 "regular-playback-of-chunked-content-non-aligned-append","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t2/2023-04-28/stream.mpd","","cfhd_12.5_25_50-online"
 
-"splicing-of-wave-program-with-baseline-constraints","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd","cfhd_12.5_25_50-online"
-"","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd","cfhd_12.5_25_50-online"
+"splicing-of-wave-program-with-baseline-constraints","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at13/2023-04-27/stream.mpd","cfhd_12.5_25_50-online"
+"","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","cfhd_12.5_25_50-online"
 
 "long-duration-playback","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","cfhd_12.5_25_50-online"
 
@@ -301,12 +301,12 @@
 "source-buffer-re-initialization-with-changetype","/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","chh1_12.5_25_50-local"
 "","/content/chh1_sets/12.5_25_50/t1/2023-05-12/stream.mpd","","chh1_12.5_25_50-local"
 
-"regular-playback-of-a-cmaf-presentation","/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","cfhd_12.5_25_50-local"
+"regular-playback-of-a-cmaf-presentation","/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_12.5_25_50-local"
 
-"random-access-of-a-wave-presentation","/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","cfhd_12.5_25_50-local"
+"random-access-of-a-wave-presentation","/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_12.5_25_50-local"
 
-"splicing-of-wave-program-with-baseline-constraints","/content/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd","/content/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd","cfhd_12.5_25_50-local"
-"","/content/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd","/content/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd","cfhd_12.5_25_50-online"
+"splicing-of-wave-program-with-baseline-constraints","/content/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd","/content/caac_sets/aac_lc/at13/2023-04-27/stream.mpd","cfhd_12.5_25_50-local"
+"","/content/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd","/content/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","cfhd_12.5_25_50-online"
 
 "long-duration-playback","/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","cfhd_12.5_25_50-local"
 
@@ -377,9 +377,9 @@
 
 "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t2/2023-04-28/stream.mpd","","cfhd_14.985_29.97_59.94-online"
 
-"regular-playback-of-a-cmaf-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","","cfhd_14.985_29.97_59.94-online"
+"regular-playback-of-a-cmaf-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_14.985_29.97_59.94-online"
 
-"random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","","cfhd_14.985_29.97_59.94-online"
+"random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_14.985_29.97_59.94-online"
 
 "long-duration-playback","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","","cfhd_14.985_29.97_59.94-online"
 
@@ -447,9 +447,9 @@
 
 "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","/content/cfhd_sets/14.985_29.97_59.94/t2/2023-04-28/stream.mpd","","cfhd_14.985_29.97_59.94-local"
 
-"regular-playback-of-a-cmaf-presentation","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","","cfhd_14.985_29.97_59.94-local"
+"regular-playback-of-a-cmaf-presentation","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_14.985_29.97_59.94-local"
 
-"random-access-of-a-wave-presentation","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","","cfhd_14.985_29.97_59.94-local"
+"random-access-of-a-wave-presentation","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_14.985_29.97_59.94-local"
 
 "long-duration-playback","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd","","cfhd_14.985_29.97_59.94-local"
 
@@ -478,17 +478,10 @@
 
 "playback-of-encrypted-content-https","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at5/2023-04-27/stream.mpd","caac_sets-online"
 
-"regular-playback-of-a-cmaf-presentation","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","caac_sets-online"
-
-"random-access-of-a-wave-presentation","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","caac_sets-online"
-
 "playback-over-wave-baseline-splice-constraints","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at13/2023-04-27/stream.mpd","caac_sets-online"
 "","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","caac_sets-online"
 
 "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","caac_sets-online"
-
-"splicing-of-wave-program-with-baseline-constraints","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at13/2023-04-27/stream.mpd","caac_sets-online"
-"","","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","caac_sets-online"
 
 
 "sequential-track-playback","","/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","caac_sets-local"
@@ -512,17 +505,10 @@
 
 "playback-of-encrypted-content-https","","/content/caac_sets/aac_lc/at5/2023-04-27/stream.mpd","caac_sets-local"
 
-"regular-playback-of-a-cmaf-presentation","","/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","caac_sets-local"
-
-"random-access-of-a-wave-presentation","","/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","caac_sets-local"
-
 "playback-over-wave-baseline-splice-constraints","","/content/caac_sets/aac_lc/at13/2023-04-27/stream.mpd","caac_sets-local"
 "","","/content/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","caac_sets-local"
 
 "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","","/content/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","caac_sets-local"
-
-"splicing-of-wave-program-with-baseline-constraints","","/content/caac_sets/aac_lc/at13/2023-04-27/stream.mpd","caac_sets-local"
-"","","/content/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","caac_sets-local"
 
 
 

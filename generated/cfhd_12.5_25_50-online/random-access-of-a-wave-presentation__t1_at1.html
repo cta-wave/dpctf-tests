@@ -41,14 +41,14 @@
         title: "Random Access of a WAVE Presentation",
         description:
           "In scenarios such as live programs, the client accesses an ongoing Presentation to join in the live event. This is a typical case that media needs to be accessed and played back at a random access time.",
-        path: "caac_sets-online/random-access-of-a-wave-presentation__at1.html",
+        path: "cfhd_12.5_25_50-online/random-access-of-a-wave-presentation__t1_at1.html",
         code: "random-access-of-a-wave-presentation.html",
       };
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = [];
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"];
       var audioContentModel = ["https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"];
 
       var dpctfTest = new DpctfTest({
@@ -61,6 +61,7 @@
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
         setupTest: setupTest,
+        usePlayout: false,
       });
 
       function setupTest(player, done, parameters) {
