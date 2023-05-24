@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Regular Playback of Chunked Content</title>
+    <title>Regular Playback of Chunked Content, non-aligned append</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -39,19 +39,18 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "regular-playback-of-chunked-content",
-        title: "Regular Playback of Chunked Content",
+        title: "Regular Playback of Chunked Content, non-aligned append",
         description:
-          "Sequential Chunked Playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF chunks to the source buffer after initialization.",
-        path: "cfhd_12.5_25_50-local/regular-playback-of-chunked-content__t16.html",
-        code: "regular-playback-of-chunked-content.html"
+          "Sequential Chunked Playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF chunks to the source buffer after initialization.  Non-aligned refers to the situation where the data that is appended to the source buffer is appended progressively in pieces that do not necessarily align with the boundaries of the CMAF chunks.",
+        path: "cfhd_12.5_25_50-online/regular-playback-of-chunked-content-non-aligned-append__chunked.html",
+        code: "regular-playback-of-chunked-content-non-aligned-append.html",
+        params: urlParams
       };
-
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["/content/cfhd_sets/12.5_25_50/t16/2023-04-28/stream.mpd"];
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/chunked/2023-05-21/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
@@ -63,7 +62,6 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        usePlayout: false,
       });
 
       function executeTest(player, done, parameters) {
