@@ -15,9 +15,7 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>
-        To show/hide debug overlay press up/down or button beneath
-      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -39,10 +37,10 @@
       // Global variables
       var TEST_INFO = {
         id: "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream",
-        title: "Random access from one place in a stream to a different place in the same stream",
+        title:
+          "Random access from one place in a stream to a different place in the same stream",
         description: "",
-        path: "cfhd_12.5_25_50-online/random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream__t2.html",
-        code: "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream.html"
+        code: "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream.html",
       };
 
       var video = document.querySelector("video");
@@ -90,33 +88,7 @@
           player.on("onTimeUpdate", handleRandomAccess);
         }
 
-        if (player.getPreBufferedTime() >= minBufferDuration || 
-            player.getPreBufferedTime() >= player.getDuration()) {
-          player
-            .play()
-            .then(function () {
-              done();
-            })
-            .catch(function (error) {
-              done(error);
-            });
-        } else {
-          var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
-          player.on(loadedEvent, function (event) {
-            if (player.getPreBufferedTime() >= minBufferDuration || 
-                player.getPreBufferedTime() >= player.getDuration()) {
-              player
-                .play()
-                .then(function () {
-                  done();
-                })
-                .catch(function (error) {
-                  done(error);
-                });
-            }
-          });
-        }
+        player.playOnBufferLoaded(minBufferDuration).then(done);
       }
     </script>
   </body>

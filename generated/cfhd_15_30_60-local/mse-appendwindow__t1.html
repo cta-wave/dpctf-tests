@@ -41,7 +41,6 @@
         id: "mse-appendwindow",
         title: "MSE AppendWindow",
         description: "",
-        path: "cfhd_15_30_60-local/mse-appendwindow__t1.html",
         code: "mse-appendwindow.html",
       };
 
@@ -79,33 +78,7 @@
           });
         }, "video ended event fired");
 
-        if (player.getPreBufferedTime() >= minBufferDuration || 
-            player.getPreBufferedTime() >= player.getDuration()) {
-          player
-            .play()
-            .then(function () {
-              done();
-            })
-            .catch(function (error) {
-              done(error);
-            });
-        } else {
-          var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
-          player.on(loadedEvent, function (event) {
-            if (player.getPreBufferedTime() >= minBufferDuration || 
-                player.getPreBufferedTime() >= player.getDuration()) {
-              player
-                .play()
-                .then(function () {
-                  done();
-                })
-                .catch(function (error) {
-                  done(error);
-                });
-            }
-          });
-        }
+        player.playOnBufferLoaded(minBufferDuration).then(done);
       }
     </script>
   </body>

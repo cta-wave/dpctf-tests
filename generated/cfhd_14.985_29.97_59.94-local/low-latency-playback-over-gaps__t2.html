@@ -39,7 +39,6 @@
         id: "low-latency-playback-over-gaps",
         title: "Low-Latency: Playback over Gaps",
         description: "",
-        path: "cfhd_14.985_29.97_59.94-local/low-latency-playback-over-gaps__t2.html",
         code: "low-latency-playback-over-gaps.html",
       };
 
@@ -109,38 +108,7 @@
           }, waitingDuration);
         }
 
-        if (
-          player.getPreBufferedTime() >= minBufferDuration ||
-          player.getPreBufferedTime() >= player.getDuration()
-        ) {
-          player
-            .play()
-            .then(function () {
-              video.addEventListener("waiting", onPlayerWaiting);
-            })
-            .catch(function (error) {
-              done(error);
-            });
-        } else {
-          var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0)
-            loadedEvent = "onAudioSegmentLoaded";
-          player.on(loadedEvent, function (event) {
-            if (
-              player.getPreBufferedTime() >= minBufferDuration ||
-              player.getPreBufferedTime() >= player.getDuration()
-            ) {
-              player
-                .play()
-                .then(function () {
-                  video.addEventListener("waiting", onPlayerWaiting);
-                })
-                .catch(function (error) {
-                  done(error);
-                });
-            }
-          });
-        }
+        player.playOnBufferLoaded(minBufferDuration).then(done);
       }
     </script>
   </body>

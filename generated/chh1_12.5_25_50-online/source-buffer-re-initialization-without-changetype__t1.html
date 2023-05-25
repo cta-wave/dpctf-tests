@@ -15,9 +15,7 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>
-        To show/hide debug overlay press up/down or button beneath
-      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -42,7 +40,6 @@
         title: "Source Buffer Re-Initialization (without changeType)",
         description:
           "This test provides a stimulus in case that a source buffer needs to be re-established, for example because of a codec change or a codec parameter change. This frequently happens when the player is transitioning between main content and advertisements or when the user manually selects a new track.",
-        path: "chh1_12.5_25_50-online/source-buffer-re-initialization-without-changetype__t1.html",
         code: "source-buffer-re-initialization-without-changetype.html",
         observations: [],
       };
@@ -82,33 +79,7 @@
           });
         }, "video ended event fired");
 
-        if (player.getPreBufferedTime() >= minBufferDuration || 
-            player.getPreBufferedTime() >= player.getDuration()) {
-          player
-            .play()
-            .then(function () {
-              done();
-            })
-            .catch(function (error) {
-              done(error);
-            });
-        } else {
-          var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
-          player.on(loadedEvent, function (event) {
-            if (player.getPreBufferedTime() >= minBufferDuration || 
-                player.getPreBufferedTime() >= player.getDuration()) {
-              player
-                .play()
-                .then(function () {
-                  done();
-                })
-                .catch(function (error) {
-                  done(error);
-                });
-            }
-          });
-        }
+        player.playOnBufferLoaded(minBufferDuration).then(done);
       }
     </script>
   </body>

@@ -448,7 +448,6 @@ def generate_test(template, video_mpd_url, audio_mpd_url, test_path, template_na
         "\"{{VIDEO_MPD_URL}}\"", json.dumps(video_mpd_url))
     template = template.replace(
         "\"{{AUDIO_MPD_URL}}\"", json.dumps(audio_mpd_url))
-    template = template.replace("{{TEST_PATH}}", test_path)
     template = template.replace("{{TEMPLATE_NAME}}", template_name)
     return template
 

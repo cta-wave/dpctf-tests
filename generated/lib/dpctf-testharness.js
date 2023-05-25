@@ -18,6 +18,8 @@ function DpctfTest(config) {
     autoCloseStream = !!config.autoCloseStream;
   }
 
+  testInfo.path = location.pathname.substring(1);
+
   var parameters = null;
 
   var waveService = null;

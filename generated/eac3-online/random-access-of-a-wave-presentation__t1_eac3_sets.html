@@ -41,7 +41,6 @@
         title: "Random Access of a WAVE Presentation",
         description:
           "In scenarios such as live programs, the client accesses an ongoing Presentation to join in the live event. This is a typical case that media needs to be accessed and played back at a random access time.",
-        path: "eac3-online/random-access-of-a-wave-presentation__t1_eac3_sets.html",
         code: "random-access-of-a-wave-presentation.html",
       };
       var video = document.querySelector("video");
@@ -85,38 +84,7 @@
         var totalTime = player.getDuration();
         var timeLeft = parseInt(totalTime - currentTime);
         player.startBuffering();
-        if (
-          player.getPreBufferedTime() >= minBufferDuration ||
-          player.getPreBufferedTime() >= timeLeft
-        ) {
-          player
-            .play()
-            .then(function () {
-              done();
-            })
-            .catch(function (error) {
-              done(error);
-            });
-        } else {
-          var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0)
-            loadedEvent = "onAudioSegmentLoaded";
-          player.on(loadedEvent, function (event) {
-            if (
-              player.getPreBufferedTime() >= minBufferDuration ||
-              player.getPreBufferedTime() >= timeLeft
-            ) {
-              player
-                .play()
-                .then(function () {
-                  done();
-                })
-                .catch(function (error) {
-                  done(error);
-                });
-            }
-          });
-        }
+        player.playOnBufferLoaded(minBufferDuration).then(done);
 
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
