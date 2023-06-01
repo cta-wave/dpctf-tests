@@ -30,6 +30,7 @@
     "min_buffer_duration": 1000
   },
   "out-of-order-loading.html": {
+    "min_buffer_duration": 15000,
     "max_buffer_duration": 30000
   },
   "fullscreen-playback-of-switching-sets.html": {

@@ -108,7 +108,8 @@
     (function (root) {
       /* jshint ignore:end */
 
-      var URL_REGEX = /^((?:[a-zA-Z0-9+\-.]+:)?)(\/\/[^\/?#]*)?((?:[^\/\?#]*\/)*.*?)??(;.*?)?(\?.*?)?(#.*?)?$/;
+      var URL_REGEX =
+        /^((?:[a-zA-Z0-9+\-.]+:)?)(\/\/[^\/?#]*)?((?:[^\/\?#]*\/)*.*?)??(;.*?)?(\?.*?)?(#.*?)?$/;
       var FIRST_SEGMENT_REGEX = /^([^\/?#]*)(.*)$/;
       var SLASH_DOT_REGEX = /(?:\/|^)\.(?=\/)/g;
       var SLASH_DOT_DOT_REGEX = /(?:\/|^)\.\.\/(?!\.\.\/).*?(?=\/)/g;
@@ -1141,7 +1142,7 @@
           time: time,
           timeline: timeline,
           chunks: [],
-          timestampOffset: periodStart - (presentationTimeOffset / timescale),
+          timestampOffset: periodStart - presentationTimeOffset / timescale,
         };
 
         if (chunkNumber) {
@@ -1521,7 +1522,8 @@
     var SECONDS_IN_HOUR = 60 * 60;
     var SECONDS_IN_MIN = 60; // P10Y10M10DT10H10M10.1S
 
-    var durationRegex = /P(?:(\d*)Y)?(?:(\d*)M)?(?:(\d*)D)?(?:T(?:(\d*)H)?(?:(\d*)M)?(?:([\d.]*)S)?)?/;
+    var durationRegex =
+      /P(?:(\d*)Y)?(?:(\d*)M)?(?:(\d*)D)?(?:T(?:(\d*)H)?(?:(\d*)M)?(?:([\d.]*)S)?)?/;
     var match = durationRegex.exec(str);
 
     if (!match) {
@@ -1899,7 +1901,6 @@
         sourceURL: template.initialization,
       };
     }
-
     var segmentInfo = {
       template: template,
       timeline:
@@ -1978,12 +1979,13 @@
         parseAttributes(representation)
       );
       var representationSegmentInfo = getSegmentInformation(representation);
+      var info = representationSegmentInfo;
+      var isValidSegmentInfo = info.template || info.timeline;
       return repBaseUrls.map(function (baseUrl) {
         return {
-          segmentInfo: merge(
-            representationSegmentInfo,
-            adaptationSetSegmentInfo
-          ),
+          segmentInfo: isValidSegmentInfo
+            ? representationSegmentInfo
+            : adaptationSetSegmentInfo,
           attributes: merge(attributes, {
             baseUrl: baseUrl,
           }),

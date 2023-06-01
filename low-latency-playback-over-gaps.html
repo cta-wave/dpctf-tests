@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Low-Latency: Playback over Gaps</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -108,7 +108,9 @@
           }, waitingDuration);
         }
 
-        player.playOnBufferLoaded(minBufferDuration).then(done);
+        player
+          .playOnBufferLoaded(minBufferDuration)
+          .then(video.addEventListener("waiting", onPlayerWaiting));
       }
     </script>
   </body>
