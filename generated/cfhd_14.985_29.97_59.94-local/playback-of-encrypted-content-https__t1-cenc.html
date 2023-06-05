@@ -43,7 +43,6 @@
         id: "playback-of-encrypted-content",
         title: "Playback of encrypted content",
         description: "",
-        path: "cfhd_14.985_29.97_59.94-local/playback-of-encrypted-content-https__t1-cenc.html",
         code: "playback-of-encrypted-content-https.html"
       };
 
@@ -51,7 +50,7 @@
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["/content/cfhd_sets/14.985_29.97_59.94/t1-cenc/2022-10-17/stream.mpd"];
+      var videoContentModel = ["/content/cfhd_sets/14.985_29.97_59.94/t1-cenc/2023-04-28/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
@@ -69,33 +68,7 @@
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
-        if (player.getPreBufferedTime() >= minBufferDuration || 
-            player.getPreBufferedTime() >= player.getDuration()) {
-          player
-            .play()
-            .then(function () {
-              done();
-            })
-            .catch(function (error) {
-              done(error);
-            });
-        } else {
-          var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
-          player.on(loadedEvent, function (event) {
-            if (player.getPreBufferedTime() >= minBufferDuration || 
-                player.getPreBufferedTime() >= player.getDuration()) {
-              player
-                .play()
-                .then(function () {
-                  done();
-                })
-                .catch(function (error) {
-                  done(error);
-                });
-            }
-          });
-        }
+        player.playOnBufferLoaded(minBufferDuration).then(done);
 
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");

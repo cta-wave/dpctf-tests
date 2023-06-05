@@ -15,9 +15,7 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>
-        To show/hide debug overlay press up/down or button beneath
-      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -43,8 +41,7 @@
         title: "Random Access to Fragment",
         description:
           "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
-        path: "ac4-online/random-access-to-fragment__ac4_sets.html",
-        code: "random-access-to-fragment.html"
+        code: "random-access-to-fragment.html",
       };
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
@@ -67,12 +64,16 @@
 
       function setupTest(player, done, parameters) {
         var randomAccessFragment = parameters.randomAccessFragment;
-        var videoSegments = player.getVideoSegments();
+        var segments = player.getVideoSegments();
         var totalSegments = player.getVideoSegmentsCount();
+        if (!segments) {
+          totalSegments = player.getAudioSegmentsCount();
+          segments = player.getAudioSegments();
+        }
 
         var fragmentTime = 0;
         for (var i = 0; i < randomAccessFragment; i++) {
-          var segmentDuration = videoSegments[i].getDuration();
+          var segmentDuration = segments[i].getDuration();
           fragmentTime += segmentDuration;
         }
         player.setCurrentTime(fragmentTime);
@@ -86,37 +87,7 @@
         var totalTime = player.getDuration();
         var timeLeft = parseInt(totalTime - currentTime);
         player.startBuffering();
-        if (
-          player.getPreBufferedTime() >= minBufferDuration ||
-          player.getPreBufferedTime() >= timeLeft
-        ) {
-          player
-            .play()
-            .then(function () {
-              done();
-            })
-            .catch(function (error) {
-              done(error);
-            });
-        } else {
-          var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
-          player.on(loadedEvent, function (event) {
-            if (
-              player.getPreBufferedTime() >= minBufferDuration ||
-              player.getPreBufferedTime() >= timeLeft
-            ) {
-              player
-                .play()
-                .then(function () {
-                  done();
-                })
-                .catch(function (error) {
-                  done(error);
-                });
-            }
-          });
-        }
+        player.playOnBufferLoaded(minBufferDuration).then(done);
 
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");

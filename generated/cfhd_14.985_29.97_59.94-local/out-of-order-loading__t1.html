@@ -15,9 +15,7 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>
-        To show/hide debug overlay press up/down or button beneath
-      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -42,15 +40,14 @@
         title: "Out-Of-Order Loading",
         description:
           "Out of order loading refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization, but CMAF fragments are loaded out of order within the buffer duration.",
-        path: "cfhd_14.985_29.97_59.94-local/out-of-order-loading__t1.html",
         code: "out-of-order-loading.html",
-        params: urlParams
+        params: urlParams,
       };
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["/content/cfhd_sets/14.985_29.97_59.94/t1/2022-10-17/stream.mpd"];
+      var videoContentModel = ["/content/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
@@ -68,33 +65,7 @@
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
-        if (player.getPreBufferedTime() >= minBufferDuration || 
-            player.getPreBufferedTime() >= player.getDuration()) {
-          player
-            .play()
-            .then(function () {
-              done();
-            })
-            .catch(function (error) {
-              done(error);
-            });
-        } else {
-          var loadedEvent = "onVideoSegmentLoaded";
-          if (videoContentModel.length === 0) loadedEvent = "onAudioSegmentLoaded";
-          player.on(loadedEvent, function (event) {
-            if (player.getPreBufferedTime() >= minBufferDuration || 
-                player.getPreBufferedTime() >= player.getDuration()) {
-              player
-                .play()
-                .then(function () {
-                  done();
-                })
-                .catch(function (error) {
-                  done(error);
-                });
-            }
-          });
-        }
+        player.playOnBufferLoaded(minBufferDuration).then(done);
 
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Switching Set Playback</title>
+    <link rel="stylesheet" href="../lib/style.css" />
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+
+  <body>
+    <div id="content-wrapper">
+      <div id="video-wrapper">
+        <video></video>
+        <div><div id="qr-code"></div></div>
+        <div><div id="status-text"></div></div>
+      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
+      <div id="debug-wrapper">
+        <div>
+          <div class="button" id="debug-button">Debug Overlay</div>
+        </div>
+        <div id="debug"></div>
+        <div id="log"></div>
+      </div>
+    </div>
+    <div id="info-overlay"></div>
+    <script src="../lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/player.js"></script>
+    <script src="../lib/manifest_parser.js"></script>
+    <script src="../lib/mpd-parser.js"></script>
+    <script src="../lib/wave-service.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
+    <script src="../lib/hbbtv.js"></script>
+    <script>
+      // Global variables
+      var TEST_INFO = {
+        title: "Switching Set Playback",
+        description:
+          "Playback of a switching set assumes that the application can switch across the fragments of different tracks without observing any temporal or spatial misalignment during playback.",
+        code: "switching-set-playback.html",
+        params: urlParams,
+      };
+      var video = document.querySelector("video");
+      var qrCode = document.getElementById("qr-code");
+      var statusText = document.getElementById("status-text");
+
+<<<<<<< HEAD:generated/cfhd_15_30_60-local/switching-set-playback__avc_15_30_60_ss1_stream_v4.html
+      var videoContentModel = ["/content/avc_15_30_60_ss1_stream_v4.mpd"];
+=======
+      var videoContentModel = ["/content/switching_sets/12.5_25_50/ss1/2023-04-28/stream.mpd"];
+>>>>>>> content-2023-04-28:generated/cfhd_12.5_25_50-local/switching-set-playback__ss1-1.html
+      var audioContentModel = [];
+
+      var dpctfTest = new DpctfTest({
+        testInfo: TEST_INFO,
+        videoContentModel: videoContentModel,
+        videoElement: video,
+        qrCodeElement: qrCode,
+        statusTextElement: statusText,
+        infoOverlayElement: document.getElementById("info-overlay"),
+        executeTest: executeTest,
+        setupTest: setupTest,
+        usePlayout: true,
+      });
+
+      function setupTest(player, done, parameters) {
+        done();
+      }
+
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
+        player.startBuffering();
+        player.playOnBufferLoaded(minBufferDuration).then(done);
+
+        dpctfTest.asyncTest(function (test) {
+          var query = location.search.replace(/\?/, "");
+          var match = query.match(/redirect_time=([^&]+)/);
+          video.addEventListener("ended", function (event) {
+            assert_true(true);
+            test.done();
+          });
+        }, "video ended event fired");
+      }
+    </script>
+  </body>
+</html>
