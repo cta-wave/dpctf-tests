@@ -1565,13 +1565,9 @@
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd"
             ],
-<<<<<<< HEAD
-            "audio": [],
-=======
             "audio": [
                 "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
             ],
->>>>>>> content-2023-04-28
             "code": "random-access-of-a-wave-presentation.html",
             "switchingSets": {
                 "video": [
@@ -1599,9 +1595,6 @@
                         }
                     }
                 ],
-<<<<<<< HEAD
-                "audio": []
-=======
                 "audio": [
                     {
                         "cmaf_track_duration": "PT00H00M30.000S",
@@ -1633,7 +1626,6 @@
                         }
                     }
                 ]
->>>>>>> content-2023-04-28
             }
         },
         "c30f670e85ed06ac71b87378ecfdb97c": {
@@ -2539,11 +2531,7 @@
         "854b4ebec458f0e86732bba50a383438": {
             "path": "cfhd_15_30_60-local/switching-set-playback__ss1.html",
             "video": [
-<<<<<<< HEAD
-                "/content/avc_15_30_60_ss1_stream_v4.mpd"
-=======
                 "/content/switching_sets/15_30_60/ss1/2023-04-28/stream.mpd"
->>>>>>> content-2023-04-28
             ],
             "audio": [],
             "code": "switching-set-playback.html",
@@ -2671,11 +2659,7 @@
         "7982be016d932e1c9ad4a679ed98a0c3": {
             "path": "cfhd_15_30_60-local/overlapping-fragments__t1.html",
             "video": [
-<<<<<<< HEAD
-                "/content/avc_15_30_60_ss1_stream_v4.mpd"
-=======
                 "/content/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd"
->>>>>>> content-2023-04-28
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
@@ -2711,11 +2695,7 @@
         "fd5cf095ea6e1ba9eba325e698f35ba4": {
             "path": "cfhd_15_30_60-local/fullscreen-playback-of-switching-sets__ss1.html",
             "video": [
-<<<<<<< HEAD
-                "/content/avc_15_30_60_ss1_stream_v4.mpd"
-=======
                 "/content/switching_sets/15_30_60/ss1/2023-04-28/stream.mpd"
->>>>>>> content-2023-04-28
             ],
             "audio": [],
             "code": "fullscreen-playback-of-switching-sets.html",
@@ -3249,13 +3229,9 @@
             "video": [
                 "/content/cfhd_sets/15_30_60/t1/2023-04-28/stream.mpd"
             ],
-<<<<<<< HEAD
-            "audio": [],
-=======
             "audio": [
                 "/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
             ],
->>>>>>> content-2023-04-28
             "code": "random-access-of-a-wave-presentation.html",
             "switchingSets": {
                 "video": [
@@ -3283,9 +3259,6 @@
                         }
                     }
                 ],
-<<<<<<< HEAD
-                "audio": []
-=======
                 "audio": [
                     {
                         "cmaf_track_duration": "PT00H00M30.000S",
@@ -3317,7 +3290,6 @@
                         }
                     }
                 ]
->>>>>>> content-2023-04-28
             }
         },
         "37557096501df13052771e4a12b57603": {
@@ -4804,11 +4776,7 @@
                 "https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/t1/2023-05-12/stream.mpd"
             ],
             "audio": [],
-<<<<<<< HEAD
-            "code": "random-access-of-a-wave-presentation.html",
-=======
             "code": "source-buffer-re-initialization-with-changetype.html",
->>>>>>> content-2023-04-28
             "switchingSets": {
                 "video": [
                     {
@@ -6339,11 +6307,7 @@
         "dc28653d08eb8e03cac531a4ae081850": {
             "path": "cfhd_12.5_25_50-local/switching-set-playback__ss1.html",
             "video": [
-<<<<<<< HEAD
-                "/content/avc_12.5_25_50_ss1_stream_v4.mpd"
-=======
                 "/content/switching_sets/12.5_25_50/ss1/2023-04-28/stream.mpd"
->>>>>>> content-2023-04-28
             ],
             "audio": [],
             "code": "switching-set-playback.html",
@@ -6370,11 +6334,7 @@
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
                             },
-<<<<<<< HEAD
-                            "chdf_sets/12.5_25_50/t20": {
-=======
                             "../../../../chdf_sets/12.5_25_50/t20/2023-04-28/1": {
->>>>>>> content-2023-04-28
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
@@ -6382,11 +6342,7 @@
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
                             },
-<<<<<<< HEAD
-                            "cfhd_sets/12.5_25_50/t23": {
-=======
                             "../../../../cfhd_sets/12.5_25_50/t23/2023-04-28/1": {
->>>>>>> content-2023-04-28
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
@@ -6394,11 +6350,7 @@
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
                             },
-<<<<<<< HEAD
-                            "cfhd_sets/12.5_25_50/t24": {
-=======
                             "../../../../cfhd_sets/12.5_25_50/t24/2023-04-28/1": {
->>>>>>> content-2023-04-28
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
@@ -6406,11 +6358,7 @@
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
                             },
-<<<<<<< HEAD
-                            "cfhd_sets/12.5_25_50/t25": {
-=======
                             "../../../../cfhd_sets/12.5_25_50/t25/2023-04-28/1": {
->>>>>>> content-2023-04-28
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
@@ -6418,11 +6366,7 @@
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
                             },
-<<<<<<< HEAD
-                            "cfhd_sets/12.5_25_50/t28": {
-=======
                             "../../../../cfhd_sets/12.5_25_50/t28/2023-04-28/1": {
->>>>>>> content-2023-04-28
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
@@ -6430,11 +6374,7 @@
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
                             },
-<<<<<<< HEAD
-                            "cfhd_sets/12.5_25_50/t32": {
-=======
                             "../../../../cfhd_sets/12.5_25_50/t32/2023-04-28/1": {
->>>>>>> content-2023-04-28
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
@@ -6442,11 +6382,7 @@
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
                             },
-<<<<<<< HEAD
-                            "cfhd_sets/12.5_25_50/t34": {
-=======
                             "../../../../cfhd_sets/12.5_25_50/t34/2023-04-28/1": {
->>>>>>> content-2023-04-28
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
@@ -6634,11 +6570,7 @@
         "8991f28bd4984bb6e84af282384925d3": {
             "path": "cfhd_12.5_25_50-local/overlapping-fragments__t1.html",
             "video": [
-<<<<<<< HEAD
-                "/content/avc_12.5_25_50_ss1_stream_v4.mpd"
-=======
                 "/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
->>>>>>> content-2023-04-28
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
@@ -6664,65 +6596,6 @@
                                 "frame_rate": "25",
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
-<<<<<<< HEAD
-                            },
-                            "chdf_sets/12.5_25_50/t20": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "50",
-                                "fragment_duration": 2.0,
-                                "segmentTimeline": []
-                            },
-                            "cfhd_sets/12.5_25_50/t23": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "50",
-                                "fragment_duration": 2.0,
-                                "segmentTimeline": []
-                            },
-                            "cfhd_sets/12.5_25_50/t24": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0,
-                                "segmentTimeline": []
-                            },
-                            "cfhd_sets/12.5_25_50/t25": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0,
-                                "segmentTimeline": []
-                            },
-                            "cfhd_sets/12.5_25_50/t28": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0,
-                                "segmentTimeline": []
-                            },
-                            "cfhd_sets/12.5_25_50/t32": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 2.0,
-                                "segmentTimeline": []
-                            },
-                            "cfhd_sets/12.5_25_50/t34": {
-                                "period": 1,
-                                "duration": 60,
-                                "type": "video",
-                                "frame_rate": "12800/1024",
-                                "fragment_duration": 2.0,
-                                "segmentTimeline": []
-=======
->>>>>>> content-2023-04-28
                             }
                         }
                     }
@@ -6733,11 +6606,7 @@
         "daebbd6563b908ceae92689f53fce712": {
             "path": "cfhd_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1.html",
             "video": [
-<<<<<<< HEAD
-                "/content/avc_12.5_25_50_ss1_stream_v4.mpd"
-=======
                 "/content/switching_sets/12.5_25_50/ss1/2023-04-28/stream.mpd"
->>>>>>> content-2023-04-28
             ],
             "audio": [],
             "code": "fullscreen-playback-of-switching-sets.html",
@@ -6764,11 +6633,7 @@
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
                             },
-<<<<<<< HEAD
-                            "chdf_sets/12.5_25_50/t20": {
-=======
                             "../../../../chdf_sets/12.5_25_50/t20/2023-04-28/1": {
->>>>>>> content-2023-04-28
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
@@ -6776,11 +6641,7 @@
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
                             },
-<<<<<<< HEAD
-                            "cfhd_sets/12.5_25_50/t23": {
-=======
                             "../../../../cfhd_sets/12.5_25_50/t23/2023-04-28/1": {
->>>>>>> content-2023-04-28
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
@@ -6788,11 +6649,7 @@
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
                             },
-<<<<<<< HEAD
-                            "cfhd_sets/12.5_25_50/t24": {
-=======
                             "../../../../cfhd_sets/12.5_25_50/t24/2023-04-28/1": {
->>>>>>> content-2023-04-28
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
@@ -6800,11 +6657,7 @@
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
                             },
-<<<<<<< HEAD
-                            "cfhd_sets/12.5_25_50/t25": {
-=======
                             "../../../../cfhd_sets/12.5_25_50/t25/2023-04-28/1": {
->>>>>>> content-2023-04-28
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
@@ -6812,11 +6665,7 @@
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
                             },
-<<<<<<< HEAD
-                            "cfhd_sets/12.5_25_50/t28": {
-=======
                             "../../../../cfhd_sets/12.5_25_50/t28/2023-04-28/1": {
->>>>>>> content-2023-04-28
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
@@ -6824,11 +6673,7 @@
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
                             },
-<<<<<<< HEAD
-                            "cfhd_sets/12.5_25_50/t32": {
-=======
                             "../../../../cfhd_sets/12.5_25_50/t32/2023-04-28/1": {
->>>>>>> content-2023-04-28
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
@@ -6836,11 +6681,7 @@
                                 "fragment_duration": 2.0,
                                 "segmentTimeline": []
                             },
-<<<<<<< HEAD
-                            "cfhd_sets/12.5_25_50/t34": {
-=======
                             "../../../../cfhd_sets/12.5_25_50/t34/2023-04-28/1": {
->>>>>>> content-2023-04-28
                                 "period": 1,
                                 "duration": 60,
                                 "type": "video",
@@ -7488,13 +7329,9 @@
             "video": [
                 "/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
             ],
-<<<<<<< HEAD
-            "audio": [],
-=======
             "audio": [
                 "/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
             ],
->>>>>>> content-2023-04-28
             "code": "random-access-of-a-wave-presentation.html",
             "switchingSets": {
                 "video": [
@@ -7522,9 +7359,6 @@
                         }
                     }
                 ],
-<<<<<<< HEAD
-                "audio": []
-=======
                 "audio": [
                     {
                         "cmaf_track_duration": "PT00H00M30.000S",
@@ -7556,7 +7390,6 @@
                         }
                     }
                 ]
->>>>>>> content-2023-04-28
             }
         },
         "a783940751a37ca0333d381d269cd658": {
@@ -9458,13 +9291,9 @@
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd"
             ],
-<<<<<<< HEAD
-            "audio": [],
-=======
             "audio": [
                 "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
             ],
->>>>>>> content-2023-04-28
             "code": "random-access-of-a-wave-presentation.html",
             "switchingSets": {
                 "video": [
@@ -9495,9 +9324,6 @@
                         }
                     }
                 ],
-<<<<<<< HEAD
-                "audio": []
-=======
                 "audio": [
                     {
                         "cmaf_track_duration": "PT00H00M30.000S",
@@ -9529,7 +9355,6 @@
                         }
                     }
                 ]
->>>>>>> content-2023-04-28
             }
         },
         "e6fffa2ca25ac632ddff5f4975f19c34": {
@@ -10510,11 +10335,7 @@
         "e1ccd20651c76ad3da5b9f6bf727e7bc": {
             "path": "cfhd_14.985_29.97_59.94-local/switching-set-playback__ss1.html",
             "video": [
-<<<<<<< HEAD
-                "/content/avc_14.985_29.97_59.94_ss1_stream_v4.mpd"
-=======
                 "/content/switching_sets/14.985_29.97_59.94/ss1/2023-04-28/stream.mpd"
->>>>>>> content-2023-04-28
             ],
             "audio": [],
             "code": "switching-set-playback.html",
@@ -10675,11 +10496,7 @@
         "f0760496d3ac2b57a88089d65605640a": {
             "path": "cfhd_14.985_29.97_59.94-local/overlapping-fragments__t1.html",
             "video": [
-<<<<<<< HEAD
-                "/content/avc_14.985_29.97_59.94_ss1_stream_v4.mpd"
-=======
                 "/content/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd"
->>>>>>> content-2023-04-28
             ],
             "audio": [],
             "code": "overlapping-fragments.html",
@@ -10718,11 +10535,7 @@
         "3d3daf8f424506bc7fc04dfb53768093": {
             "path": "cfhd_14.985_29.97_59.94-local/fullscreen-playback-of-switching-sets__ss1.html",
             "video": [
-<<<<<<< HEAD
-                "/content/avc_14.985_29.97_59.94_ss1_stream_v4.mpd"
-=======
                 "/content/switching_sets/14.985_29.97_59.94/ss1/2023-04-28/stream.mpd"
->>>>>>> content-2023-04-28
             ],
             "audio": [],
             "code": "fullscreen-playback-of-switching-sets.html",
@@ -11322,13 +11135,9 @@
             "video": [
                 "/content/cfhd_sets/14.985_29.97_59.94/t1/2023-04-28/stream.mpd"
             ],
-<<<<<<< HEAD
-            "audio": [],
-=======
             "audio": [
                 "/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
             ],
->>>>>>> content-2023-04-28
             "code": "random-access-of-a-wave-presentation.html",
             "switchingSets": {
                 "video": [
@@ -11359,9 +11168,6 @@
                         }
                     }
                 ],
-<<<<<<< HEAD
-                "audio": []
-=======
                 "audio": [
                     {
                         "cmaf_track_duration": "PT00H00M30.000S",
@@ -12910,7 +12716,6 @@
                         }
                     }
                 ]
->>>>>>> content-2023-04-28
             }
         },
         "8e8cfa1898818ac12b7ae21cc5370bc2": {
