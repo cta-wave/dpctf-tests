@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Random Access of a WAVE Presentation</title>
+    <title>Sequential Track Playback</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -37,18 +37,19 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "random-access-of-a-wave-presentation",
-        title: "Random Access of a WAVE Presentation",
+        id: "sequential-track-playback",
+        title: "Sequential Track Playback",
         description:
-          "In scenarios such as live programs, the client accesses an ongoing Presentation to join in the live event. This is a typical case that media needs to be accessed and played back at a random access time.",
-        code: "random-access-of-a-wave-presentation.html",
+          "Sequential track playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization.",
+        code: "sequential-track-playback.html",
       };
+
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"];
-      var audioContentModel = ["https://dash.akamaized.net/WAVE/vectors/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"];
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t10/2023-04-28/stream.mpd"];
+      var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -59,32 +60,12 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        setupTest: setupTest,
         usePlayout: false,
       });
 
-      function setupTest(player, done, parameters) {
-        var randomAccessFragment = parameters.randomAccessFragment;
-        var segments = player.getVideoSegments();
-        if (!segments) segments = player.getAudioSegments();
-
-        var fragmentTime = 0;
-        for (var i = 0; i < randomAccessFragment; i++) {
-          var segmentDuration = segments[i].getDuration();
-          fragmentTime += segmentDuration;
-        }
-        player.setCurrentTime(fragmentTime);
-
-        done();
-      }
-
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-        var currentTime = player.getCurrentTime();
-        var totalTime = player.getDuration();
-        var timeLeft = parseInt(totalTime - currentTime);
         player.startBuffering();
-        player.playOnBufferLoaded(minBufferDuration).then(done);
 
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
@@ -96,6 +77,8 @@
             test.done();
           });
         }, "video ended event fired");
+
+        player.playOnBufferLoaded(minBufferDuration).then(done);
       }
     </script>
   </body>

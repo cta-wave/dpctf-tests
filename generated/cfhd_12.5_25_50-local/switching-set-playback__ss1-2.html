@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Regular Playback of Chunked Content</title>
+    <title>Switching Set Playback</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -37,31 +37,34 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "regular-playback-of-chunked-content",
-        title: "Regular Playback of Chunked Content",
+        title: "Switching Set Playback",
         description:
-          "Sequential Chunked Playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF chunks to the source buffer after initialization.",
-        code: "regular-playback-of-chunked-content.html",
+          "Playback of a switching set assumes that the application can switch across the fragments of different tracks without observing any temporal or spatial misalignment during playback.",
+        code: "switching-set-playback.html",
+        params: urlParams,
       };
-
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t17/2022-10-17/stream.mpd"];
+      var videoContentModel = ["/content/switching_sets/12.5_25_50/ss1/2023-04-28/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
         videoContentModel: videoContentModel,
-        audioContentModel: audioContentModel,
         videoElement: video,
         qrCodeElement: qrCode,
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        usePlayout: false,
+        setupTest: setupTest,
+        usePlayout: true,
       });
+
+      function setupTest(player, done, parameters) {
+        done();
+      }
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
@@ -71,8 +74,6 @@
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
           var match = query.match(/redirect_time=([^&]+)/);
-          var REDIRECT_TIME = match ? match[1] : null;
-          if (!REDIRECT_TIME) REDIRECT_TIME = 5;
           video.addEventListener("ended", function (event) {
             assert_true(true);
             test.done();

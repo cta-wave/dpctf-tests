@@ -1,7 +1,7 @@
 {
     "tests": {
-        "5712d6d4949a7bc7c922560b7855e966": {
-            "path": "hbbtv-testing-online/sequential-track-playback__t1.html",
+        "e8af129476fa925eb951d9e4d55a7638": {
+            "path": "cfhd_12.5_25_50-online/sequential-track-playback__t1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
             ],
@@ -36,10 +36,10 @@
                 "audio": []
             }
         },
-        "1f47da44ca19251af6004ead05d09c91": {
-            "path": "hbbtv-testing-online/regular-playback-of-chunked-content__t2.html",
+        "bdc03a0aacec1704b5820877926d5eca": {
+            "path": "cfhd_12.5_25_50-online/regular-playback-of-chunked-content__t2.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t2/2022-10-17/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t2/2023-04-28/stream.mpd"
             ],
             "audio": [],
             "code": "regular-playback-of-chunked-content.html",
@@ -56,7 +56,7 @@
                                 "d": 64000
                             }
                         ],
-                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -72,10 +72,10 @@
                 "audio": []
             }
         },
-        "6923d6dc8d1e179ac520ae504679fb1b": {
-            "path": "hbbtv-testing-online/sequential-track-playback__t3.html",
+        "d66b9bf1da1021d2ac300e3ca73ec0e2": {
+            "path": "cfhd_12.5_25_50-online/sequential-track-playback__t3.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t3/2022-10-17/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t3/2023-04-28/stream.mpd"
             ],
             "audio": [],
             "code": "sequential-track-playback.html",
@@ -92,7 +92,7 @@
                                 "d": 25600
                             }
                         ],
-                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -108,10 +108,10 @@
                 "audio": []
             }
         },
-        "f94e0b131ce286169fc8a2f2036c6110": {
-            "path": "hbbtv-testing-online/random-access-to-fragment__t1.html",
+        "628c45702677cef0ee5074bdd0225f87": {
+            "path": "cfhd_12.5_25_50-online/random-access-to-fragment__t1.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2022-10-17/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
             ],
             "audio": [],
             "code": "random-access-to-fragment.html",
@@ -128,7 +128,7 @@
                                 "d": 25600
                             }
                         ],
-                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -144,10 +144,10 @@
                 "audio": []
             }
         },
-        "ab25b4052075eaa3c01328547b871fed": {
-            "path": "hbbtv-testing-online/random-access-to-time__t1.html",
+        "bc9968474e76d3e155e137b6b6766b7d": {
+            "path": "cfhd_12.5_25_50-online/random-access-to-time__t1.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2022-10-17/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
             ],
             "audio": [],
             "code": "random-access-to-time.html",
@@ -164,7 +164,7 @@
                                 "d": 25600
                             }
                         ],
-                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -180,8 +180,8 @@
                 "audio": []
             }
         },
-        "e868334e4200bb6e7281a65c0a793adb": {
-            "path": "hbbtv-testing-online/switching-set-playback__ss1.html",
+        "a4c50f20d8f78646a482704790369c98": {
+            "path": "cfhd_12.5_25_50-online/switching-set-playback__ss1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/switching_sets/12.5_25_50/ss1/2023-04-28/stream.mpd"
             ],
@@ -272,10 +272,10 @@
                 "audio": []
             }
         },
-        "7bc01d701a133e3c090d0e2e23f19e69": {
-            "path": "hbbtv-testing-online/regular-playback-of-chunked-content-non-aligned-append__t2.html",
+        "1b05b6222a4f92b09325a70d3d41268d": {
+            "path": "cfhd_12.5_25_50-online/regular-playback-of-chunked-content-non-aligned-append__t2.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t2/2022-10-17/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t2/2023-04-28/stream.mpd"
             ],
             "audio": [],
             "code": "regular-playback-of-chunked-content-non-aligned-append.html",
@@ -292,7 +292,7 @@
                                 "d": 64000
                             }
                         ],
-                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -308,8 +308,8 @@
                 "audio": []
             }
         },
-        "38718dc8352de29398dbdd70a9c8b30e": {
-            "path": "hbbtv-testing-online/playback-over-wave-baseline-splice-constraints__splice_main_splice_ad.html",
+        "3485dcce40ddd847b535b43b58de5865": {
+            "path": "cfhd_12.5_25_50-online/playback-over-wave-baseline-splice-constraints__splice_main_splice_ad.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd",
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
@@ -371,10 +371,10 @@
                 "audio": []
             }
         },
-        "ca1cc76a181f3d75860c30562667c3d1": {
-            "path": "hbbtv-testing-online/out-of-order-loading__t1.html",
+        "a8be08cd8d7a2b0b91a178664288141a": {
+            "path": "cfhd_12.5_25_50-online/out-of-order-loading__t1.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2022-10-17/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
             ],
             "audio": [],
             "code": "out-of-order-loading.html",
@@ -391,7 +391,7 @@
                                 "d": 25600
                             }
                         ],
-                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -407,8 +407,8 @@
                 "audio": []
             }
         },
-        "b0240ae600d5f76a53a59721777dceb8": {
-            "path": "hbbtv-testing-online/overlapping-fragments__ss1.html",
+        "ae1f7a7d6c82fb339e113bc6b5ad0f76": {
+            "path": "cfhd_12.5_25_50-online/overlapping-fragments__ss1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/switching_sets/12.5_25_50/ss1/2023-04-28/stream.mpd"
             ],
@@ -499,8 +499,8 @@
                 "audio": []
             }
         },
-        "30178d9af46eeefa02b3ef40b00d57d8": {
-            "path": "hbbtv-testing-online/fullscreen-playback-of-switching-sets__ss1.html",
+        "743d6b305fa34a7dc984bd4670fe4efc": {
+            "path": "cfhd_12.5_25_50-online/fullscreen-playback-of-switching-sets__ss1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/switching_sets/12.5_25_50/ss1/2023-04-28/stream.mpd"
             ],
@@ -591,8 +591,8 @@
                 "audio": []
             }
         },
-        "46fd608c19fbe27bc1c22c541e0a67d4": {
-            "path": "hbbtv-testing-online/playback-of-encrypted-content-https__t1-cenc.html",
+        "b50905bbdbbfbb3ac2b1e2e9ca209093": {
+            "path": "cfhd_12.5_25_50-online/playback-of-encrypted-content-https__t1-cenc.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1-cenc/2023-04-28/stream.mpd"
             ],
@@ -627,8 +627,8 @@
                 "audio": []
             }
         },
-        "1b281e254ce6ab5b25b7081cdf3cb744": {
-            "path": "hbbtv-testing-online/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html",
+        "290c18fd19e088fe8678fbae68c3ead9": {
+            "path": "cfhd_12.5_25_50-online/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main-cenc/2023-04-28/stream.mpd",
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad-cenc/2023-04-28/stream.mpd"
@@ -690,8 +690,8 @@
                 "audio": []
             }
         },
-        "30ad6acc93651daa97dfa8086a854125": {
-            "path": "hbbtv-testing-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__splice_main-cenc_splice_ad.html",
+        "2192fe7953fba95f4fe6c26ed169d001": {
+            "path": "cfhd_12.5_25_50-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__splice_main-cenc_splice_ad.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main-cenc/2023-04-28/stream.mpd",
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
@@ -753,14 +753,80 @@
                 "audio": []
             }
         },
-        "fbf2cd8bee865360804730ddfac806fe": {
-            "path": "hbbtv-testing-online/random-access-of-a-wave-presentation__t1_at1.html",
+        "ca4ce926a8cba2e20ec028344b7d4f71": {
+            "path": "cfhd_12.5_25_50-online/regular-playback-of-a-cmaf-presentation__t1_at1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
             ],
             "audio": [
-                "https://dash.akamaized.net/WAVE/vectors/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
             ],
+            "code": "regular-playback-of-a-cmaf-presentation.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT00H00M30.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [
+                            {
+                                "t": 0,
+                                "d": 93184
+                            },
+                            {
+                                "r": 13,
+                                "d": 95232
+                            },
+                            {
+                                "d": 13568
+                            }
+                        ],
+                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN01_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 30,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "9867d122d1cdaf22ede6906f5afa891d": {
+            "path": "cfhd_12.5_25_50-online/random-access-of-a-wave-presentation__t1.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
             "code": "random-access-of-a-wave-presentation.html",
             "switchingSets": {
                 "video": [
@@ -791,20 +857,8 @@
                 "audio": []
             }
         },
-        "acc4029d3085930f294b699608132f84": {
-            "path": "hbbtv-testing-online/random-access-of-a-wave-presentation__12.5_25_50.html",
-            "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/stream.mpd"
-            ],
-            "audio": [],
-            "code": "random-access-of-a-wave-presentation.html",
-            "switchingSets": {
-                "video": [],
-                "audio": []
-            }
-        },
-        "554e2cd8e9e2a2fe3b212a21077c0e1d": {
-            "path": "hbbtv-testing-online/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad.html",
+        "9a946467dfa26ca3c4c199181ae46172": {
+            "path": "cfhd_12.5_25_50-online/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd"
             ],
@@ -859,10 +913,10 @@
                 ]
             }
         },
-        "abaa39c101bdfee3e2887adc5320ce6d": {
-            "path": "hbbtv-testing-online/sequential-track-playback__t10.html",
+        "980f8dc58840841719ac0f5379b06a24": {
+            "path": "cfhd_12.5_25_50-online/sequential-track-playback__t10.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t10/2022-10-17/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t10/2023-04-28/stream.mpd"
             ],
             "audio": [],
             "code": "sequential-track-playback.html",
@@ -879,7 +933,7 @@
                                 "d": 25600
                             }
                         ],
-                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -895,10 +949,10 @@
                 "audio": []
             }
         },
-        "ddef9446b97640b7b88f200a191f2ec3": {
-            "path": "hbbtv-testing-online/sequential-track-playback__t11.html",
+        "f44ff4ba355bdeffb8dd7e533cbd2a24": {
+            "path": "cfhd_12.5_25_50-online/sequential-track-playback__t11.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t11/2022-10-17/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t11/2023-04-28/stream.mpd"
             ],
             "audio": [],
             "code": "sequential-track-playback.html",
@@ -915,7 +969,7 @@
                                 "d": 25600
                             }
                         ],
-                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -931,10 +985,10 @@
                 "audio": []
             }
         },
-        "01210253e808ff9a8846ed21e3d8975b": {
-            "path": "hbbtv-testing-online/sequential-track-playback__t12.html",
+        "2a33d2df71f2bd062a3236548158d059": {
+            "path": "cfhd_12.5_25_50-online/sequential-track-playback__t12.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t12/2022-10-17/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t12/2023-04-28/stream.mpd"
             ],
             "audio": [],
             "code": "sequential-track-playback.html",
@@ -951,7 +1005,7 @@
                                 "d": 25600
                             }
                         ],
-                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -967,10 +1021,10 @@
                 "audio": []
             }
         },
-        "b10e2c58ab22c8a74b66bfb865d86841": {
-            "path": "hbbtv-testing-online/sequential-track-playback__t13.html",
+        "61dbd25f2c5acfa0d9be70b34c1b88aa": {
+            "path": "cfhd_12.5_25_50-online/sequential-track-playback__t13.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t13/2022-10-17/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t13/2023-04-28/stream.mpd"
             ],
             "audio": [],
             "code": "sequential-track-playback.html",
@@ -987,7 +1041,7 @@
                                 "d": 25600
                             }
                         ],
-                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1003,10 +1057,10 @@
                 "audio": []
             }
         },
-        "a6d47dd9bdc627d24bbca626c2b0ce27": {
-            "path": "hbbtv-testing-online/sequential-track-playback__t14.html",
+        "98be2eb5be23143d3a461b5255ace555": {
+            "path": "cfhd_12.5_25_50-online/sequential-track-playback__t14.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t14/2022-10-17/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t14/2023-04-28/stream.mpd"
             ],
             "audio": [],
             "code": "sequential-track-playback.html",
@@ -1023,7 +1077,7 @@
                                 "d": 64000
                             }
                         ],
-                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1039,10 +1093,10 @@
                 "audio": []
             }
         },
-        "71071d4f4cb932098a4b103a5fda11e1": {
-            "path": "hbbtv-testing-online/sequential-track-playback__t15.html",
+        "92f29ba307ef97c8bff8a689830c71b4": {
+            "path": "cfhd_12.5_25_50-online/sequential-track-playback__t15.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t15/2022-10-17/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t15/2023-04-28/stream.mpd"
             ],
             "audio": [],
             "code": "sequential-track-playback.html",
@@ -1059,7 +1113,7 @@
                                 "d": 25600
                             }
                         ],
-                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1075,10 +1129,10 @@
                 "audio": []
             }
         },
-        "88c1870df451a9446d3d672edb259fd5": {
-            "path": "hbbtv-testing-online/regular-playback-of-chunked-content__t16.html",
+        "a325859c2440b34620ed7cc27b762fb7": {
+            "path": "cfhd_12.5_25_50-online/regular-playback-of-chunked-content__t16.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t16/2022-10-17/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t16/2023-04-28/stream.mpd"
             ],
             "audio": [],
             "code": "regular-playback-of-chunked-content.html",
@@ -1095,7 +1149,7 @@
                                 "d": 25600
                             }
                         ],
-                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -1111,10 +1165,10 @@
                 "audio": []
             }
         },
-        "3353338f0ef3f6c1d4e0447adf9b2193": {
-            "path": "hbbtv-testing-online/regular-playback-of-chunked-content__t17.html",
+        "eb4cd7fb29136ea757890ac18443f991": {
+            "path": "cfhd_12.5_25_50-online/regular-playback-of-chunked-content__t17.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t17/2022-10-17/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t17/2023-04-28/stream.mpd"
             ],
             "audio": [],
             "code": "regular-playback-of-chunked-content.html",
@@ -1131,7 +1185,1208 @@
                                 "d": 25600
                             }
                         ],
-                        "source": "croatia_L1_1920x1080@25_30 version 3 (2022-04-20)",
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "ccebba2d231becc5b17612e2612e3a98": {
+            "path": "cfhd_12.5_25_50-local/sequential-track-playback__t1.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-track-playback.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "6233ec6c9d73fb16edcc58e224fd1c55": {
+            "path": "cfhd_12.5_25_50-local/regular-playback-of-chunked-content__t2.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t2/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M5.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 5,
+                                "t": 0,
+                                "d": 64000
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 5.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "b346a511753d664bcb0dfca1c6021111": {
+            "path": "cfhd_12.5_25_50-local/sequential-track-playback__t3.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t3/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-track-playback.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "c8cd8a8d7928612e325edcef4a3e954c": {
+            "path": "cfhd_12.5_25_50-local/random-access-to-fragment__t1.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "random-access-to-fragment.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "851fb725a4dff202467e7e0b8b9c47e3": {
+            "path": "cfhd_12.5_25_50-local/random-access-to-time__t1.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "random-access-to-time.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "dc28653d08eb8e03cac531a4ae081850": {
+            "path": "cfhd_12.5_25_50-local/switching-set-playback__ss1.html",
+            "video": [
+                "/content/switching_sets/12.5_25_50/ss1/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "switching-set-playback.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 29,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4",
+                        "representations": {
+                            "../../../../cfhd_sets/12.5_25_50/t19/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../chdf_sets/12.5_25_50/t20/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t23/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t24/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t25/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t28/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t32/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t34/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "12800/1024",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "901fd30a4cd78b26bc9e097f7f629448": {
+            "path": "cfhd_12.5_25_50-local/regular-playback-of-chunked-content-non-aligned-append__t2.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t2/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content-non-aligned-append.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M5.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 5,
+                                "t": 0,
+                                "d": 64000
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 5.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "b206c640cfe11059cf6d40abbf005141": {
+            "path": "cfhd_12.5_25_50-local/playback-over-wave-baseline-splice-constraints__splice_main_splice_ad.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd",
+                "/content/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-over-wave-baseline-splice-constraints.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M10.000S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 4,
+                                "t": 0,
+                                "d": 24576
+                            },
+                            {
+                                "d": 5120
+                            }
+                        ],
+                        "source": "splice_main_croatia_A1_1280x720@25_10 version 4",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 10,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92,
+                                "segmentTimeline": []
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H0M5.760S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 2,
+                                "t": 0,
+                                "d": 24576
+                            }
+                        ],
+                        "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 5,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "2714a3fae53f3d17b30d928b5900472b": {
+            "path": "cfhd_12.5_25_50-local/out-of-order-loading__t1.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "out-of-order-loading.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "5c5a15a7c25b31344f7c58c6ce885586": {
+            "path": "cfhd_12.5_25_50-local/overlapping-fragments__ss1.html",
+            "video": [
+                "/content/switching_sets/12.5_25_50/ss1/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "overlapping-fragments.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 29,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4",
+                        "representations": {
+                            "../../../../cfhd_sets/12.5_25_50/t19/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../chdf_sets/12.5_25_50/t20/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t23/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t24/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t25/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t28/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t32/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t34/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "12800/1024",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "daebbd6563b908ceae92689f53fce712": {
+            "path": "cfhd_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1.html",
+            "video": [
+                "/content/switching_sets/12.5_25_50/ss1/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "fullscreen-playback-of-switching-sets.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 29,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4",
+                        "representations": {
+                            "../../../../cfhd_sets/12.5_25_50/t19/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../chdf_sets/12.5_25_50/t20/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t23/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t24/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t25/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t28/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t32/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t34/2023-04-28/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "12800/1024",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "8d1f7a5fa74d9d1c490f1b261566cc55": {
+            "path": "cfhd_12.5_25_50-local/playback-of-encrypted-content-https__t1-cenc.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t1-cenc/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-of-encrypted-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "2d0e0006855c44b84b66a6786b5da260": {
+            "path": "cfhd_12.5_25_50-local/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/splice_main-cenc/2023-04-28/stream.mpd",
+                "/content/cfhd_sets/12.5_25_50/splice_ad-cenc/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "restricted-splicing-of-encrypted-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M10.000S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 4,
+                                "t": 0,
+                                "d": 24576
+                            },
+                            {
+                                "d": 5120
+                            }
+                        ],
+                        "source": "splice_main_croatia_A1_1280x720@25_10 version 4",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 10,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92,
+                                "segmentTimeline": []
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H0M5.760S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 2,
+                                "t": 0,
+                                "d": 24576
+                            }
+                        ],
+                        "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 5,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "1e3ea0f1e18aad0a164ef4d65fac75ea": {
+            "path": "cfhd_12.5_25_50-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__splice_main-cenc_splice_ad.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/splice_main-cenc/2023-04-28/stream.mpd",
+                "/content/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M10.000S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 4,
+                                "t": 0,
+                                "d": 24576
+                            },
+                            {
+                                "d": 5120
+                            }
+                        ],
+                        "source": "splice_main_croatia_A1_1280x720@25_10 version 4",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 10,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92,
+                                "segmentTimeline": []
+                            }
+                        }
+                    },
+                    {
+                        "cmaf_track_duration": "PT0H0M5.760S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 2,
+                                "t": 0,
+                                "d": 24576
+                            }
+                        ],
+                        "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 5,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "acb1378ec94bd441241f71121babaf3b": {
+            "path": "cfhd_12.5_25_50-local/regular-playback-of-a-cmaf-presentation__t1_at1.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
+            ],
+            "audio": [
+                "/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd"
+            ],
+            "code": "regular-playback-of-a-cmaf-presentation.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT00H00M30.000S",
+                        "fragment_duration": "PT0H0M1.984S",
+                        "timescale": 48000,
+                        "segmentTimeline": [
+                            {
+                                "t": 0,
+                                "d": 93184
+                            },
+                            {
+                                "r": 13,
+                                "d": 95232
+                            },
+                            {
+                                "d": 13568
+                            }
+                        ],
+                        "source": "PN01_128000@48000_30 version 4 (2023-02-28)",
+                        "representations": {
+                            "PN01_128000@48000_30": {
+                                "audioSamplingRate": 48000,
+                                "period": 1,
+                                "duration": 30,
+                                "type": "audio",
+                                "fragment_duration": 1.9413333333333334,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "5d13f0cc80fe0a0388a0eb6219eb1c4d": {
+            "path": "cfhd_12.5_25_50-local/random-access-of-a-wave-presentation__t1.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "random-access-of-a-wave-presentation.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "373a1a0ae4d9b647325fff973fec7f8d": {
+            "path": "cfhd_12.5_25_50-local/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd"
+            ],
+            "audio": [
+                "/content/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
+            ],
+            "code": "splicing-of-wave-program-with-baseline-constraints.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M10.000S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 4,
+                                "t": 0,
+                                "d": 24576
+                            },
+                            {
+                                "d": 5120
+                            }
+                        ],
+                        "source": "splice_main_croatia_A1_1280x720@25_10 version 4",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 10,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": [
+                    {
+                        "cmaf_track_duration": "PT0H0M5.760S",
+                        "fragment_duration": "PT0H0M1.920S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 2,
+                                "t": 0,
+                                "d": 24576
+                            }
+                        ],
+                        "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
+                        "representations": {}
+                    }
+                ]
+            }
+        },
+        "a87341fe6770cf76e86ee1bc70251ba6": {
+            "path": "cfhd_12.5_25_50-local/sequential-track-playback__t10.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t10/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-track-playback.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "905ddf2b6d5d8a3e8b8d31be542e39c0": {
+            "path": "cfhd_12.5_25_50-local/sequential-track-playback__t11.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t11/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-track-playback.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "88dbc0b4c8a239784f91619e0df18c9b": {
+            "path": "cfhd_12.5_25_50-local/sequential-track-playback__t12.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t12/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-track-playback.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "b8c819f4d538d71ffc508bad93370925": {
+            "path": "cfhd_12.5_25_50-local/sequential-track-playback__t13.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t13/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-track-playback.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "fa5524c6387afc7342da7728a1499863": {
+            "path": "cfhd_12.5_25_50-local/sequential-track-playback__t14.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t14/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-track-playback.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M5.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 5,
+                                "t": 0,
+                                "d": 64000
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 5.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "1bb61992147bd256373c37a717622abf": {
+            "path": "cfhd_12.5_25_50-local/sequential-track-playback__t15.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t15/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "sequential-track-playback.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "7daf27c0550153cbdd9829546a608108": {
+            "path": "cfhd_12.5_25_50-local/regular-playback-of-chunked-content__t16.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t16/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "segmentTimeline": []
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "3f8ede86f4f0a2a327bb86b0637e3686": {
+            "path": "cfhd_12.5_25_50-local/regular-playback-of-chunked-content__t17.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t17/2023-04-28/stream.mpd"
+            ],
+            "audio": [],
+            "code": "regular-playback-of-chunked-content.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
                         "representations": {
                             "1": {
                                 "period": 1,

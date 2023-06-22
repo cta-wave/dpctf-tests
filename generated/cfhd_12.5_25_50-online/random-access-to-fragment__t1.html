@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Random Access of a WAVE Presentation</title>
+    <title>Random Access to Fragment</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -37,17 +37,17 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "random-access-of-a-wave-presentation",
-        title: "Random Access of a WAVE Presentation",
+        id: "random-access-to-fragment",
+        title: "Random Access to Fragment",
         description:
-          "In scenarios such as live programs, the client accesses an ongoing Presentation to join in the live event. This is a typical case that media needs to be accessed and played back at a random access time.",
-        code: "random-access-of-a-wave-presentation.html",
+          "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
+        code: "random-access-to-fragment.html",
       };
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/stream.mpd"];
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
@@ -60,13 +60,16 @@
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
         setupTest: setupTest,
-        usePlayout: false,
       });
 
       function setupTest(player, done, parameters) {
         var randomAccessFragment = parameters.randomAccessFragment;
         var segments = player.getVideoSegments();
-        if (!segments) segments = player.getAudioSegments();
+        var totalSegments = player.getVideoSegmentsCount();
+        if (!segments) {
+          totalSegments = player.getAudioSegmentsCount();
+          segments = player.getAudioSegments();
+        }
 
         var fragmentTime = 0;
         for (var i = 0; i < randomAccessFragment; i++) {

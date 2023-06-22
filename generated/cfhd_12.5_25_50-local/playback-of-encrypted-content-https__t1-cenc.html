@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Sequential Track Playback</title>
+    <title>Playback of encrypted content</title>
+    <link rel="stylesheet" href="../lib/dummy.css" />
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -15,7 +16,9 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>To show/hide debug overlay press up/down or button beneath</div>
+      <div>
+        To show/hide debug overlay press up/down or button beneath
+      </div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -37,18 +40,17 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "sequential-track-playback",
-        title: "Sequential Track Playback",
-        description:
-          "Sequential track playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization.",
-        code: "sequential-track-playback.html",
+        id: "playback-of-encrypted-content",
+        title: "Playback of encrypted content",
+        description: "",
+        code: "playback-of-encrypted-content-https.html"
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t3/2022-10-17/stream.mpd"];
+      var videoContentModel = ["/content/cfhd_sets/12.5_25_50/t1-cenc/2023-04-28/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
@@ -60,12 +62,13 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        usePlayout: false,
+        isEncryptedContent: true,
       });
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
+        player.playOnBufferLoaded(minBufferDuration).then(done);
 
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
@@ -77,8 +80,6 @@
             test.done();
           });
         }, "video ended event fired");
-
-        player.playOnBufferLoaded(minBufferDuration).then(done);
       }
     </script>
   </body>
