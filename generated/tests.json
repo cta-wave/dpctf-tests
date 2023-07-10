@@ -860,11 +860,10 @@
         "9a946467dfa26ca3c4c199181ae46172": {
             "path": "cfhd_12.5_25_50-online/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd"
-            ],
-            "audio": [
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd",
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
             ],
+            "audio": [],
             "code": "splicing-of-wave-program-with-baseline-constraints.html",
             "switchingSets": {
                 "video": [
@@ -893,9 +892,7 @@
                                 "segmentTimeline": []
                             }
                         }
-                    }
-                ],
-                "audio": [
+                    },
                     {
                         "cmaf_track_duration": "PT0H0M5.760S",
                         "fragment_duration": "PT0H0M1.920S",
@@ -908,9 +905,19 @@
                             }
                         ],
                         "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
-                        "representations": {}
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 5,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92,
+                                "segmentTimeline": []
+                            }
+                        }
                     }
-                ]
+                ],
+                "audio": []
             }
         },
         "980f8dc58840841719ac0f5379b06a24": {
@@ -2061,11 +2068,10 @@
         "373a1a0ae4d9b647325fff973fec7f8d": {
             "path": "cfhd_12.5_25_50-local/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad.html",
             "video": [
-                "/content/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd"
-            ],
-            "audio": [
+                "/content/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd",
                 "/content/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd"
             ],
+            "audio": [],
             "code": "splicing-of-wave-program-with-baseline-constraints.html",
             "switchingSets": {
                 "video": [
@@ -2094,9 +2100,7 @@
                                 "segmentTimeline": []
                             }
                         }
-                    }
-                ],
-                "audio": [
+                    },
                     {
                         "cmaf_track_duration": "PT0H0M5.760S",
                         "fragment_duration": "PT0H0M1.920S",
@@ -2109,9 +2113,19 @@
                             }
                         ],
                         "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
-                        "representations": {}
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 5,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 1.92,
+                                "segmentTimeline": []
+                            }
+                        }
                     }
-                ]
+                ],
+                "audio": []
             }
         },
         "a87341fe6770cf76e86ee1bc70251ba6": {
