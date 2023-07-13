@@ -65,10 +65,11 @@ def main():
         duplicate_test = None
         if test[0] != "":
             for lookup_test in tests:
-                if lookup_test["id"] != test_id: continue
+                if lookup_test["id"] != test_id:
+                    continue
                 duplicate_test = lookup_test
                 break
-        
+
         if duplicate_test is not None:
             if "copies" not in duplicate_test:
                 duplicate_test["copies"] = 1
@@ -137,6 +138,19 @@ def main():
 
             current_test_id = test_id
 
+    tests_with_copy = []
+    for test in tests:
+        if "copies" not in test:
+            continue
+        tests_with_copy.append(test)
+
+    for test in tests_with_copy:
+        for i in range(1, test["copies"] + 1):
+            test_copy = test.copy()
+            test_copy["copy_number"] = i
+            tests.append(test_copy)
+        tests.remove(test)
+
     for test in tests:
         test_template_path = test["template"]
         video_mpd_urls = test["video"]
@@ -144,8 +158,11 @@ def main():
         template_file = test["template_file"]
         grouping_dir = test["group"]
         template_file_name = ".".join(template_file.split(".")[0:-1])
+        copy_number = None
+        if "copy_number" in test:
+            copy_number = test["copy_number"]
         test_path_relative = generate_test_path(
-            grouping_dir, template_file_name, video_mpd_urls, audio_mpd_urls)
+            grouping_dir, template_file_name, video_mpd_urls, audio_mpd_urls, copy_number)
         test["id"] = generate_test_id(test_path_relative)
         test_path = "{}/{}".format(DEST_DIR, test_path_relative)
         test["path"] = test_path
@@ -153,13 +170,7 @@ def main():
         content = generate_test(
             content, video_mpd_urls, audio_mpd_urls, test_path_relative, template_file)
 
-        if "copies" in test:
-            without_ext = test_path.replace(".html","")
-            for i in range(1, test["copies"] + 1):
-                copy_test_path = without_ext + "-" + str(i) + ".html"
-                write_file(copy_test_path, content)
-        else:
-            write_file(test_path, content)
+        write_file(test_path, content)
 
     test_json_content = generate_test_json(tests)
     test_json_content = json.dumps(test_json_content, indent=4)
@@ -219,13 +230,14 @@ def parse_mpd_parameters(content, types):
         source = dom_tree.getElementsByTagName("Source")
         if len(source) > 0:
             parameters["source"] = source[0].firstChild.nodeValue
-        
+
         representations = period.getElementsByTagName("Representation")
         for representation in representations:
             representationId = representation.getAttribute("id")
             rep_parameters = {}
             if representation.hasAttribute("audioSamplingRate"):
-                audioSamplingRate = representation.getAttribute("audioSamplingRate")
+                audioSamplingRate = representation.getAttribute(
+                    "audioSamplingRate")
                 rep_parameters["audioSamplingRate"] = int(audioSamplingRate)
             rep_parameters["period"] = periodNumber
             if periodDuration != "":
@@ -452,7 +464,7 @@ def generate_test(template, video_mpd_url, audio_mpd_url, test_path, template_na
     return template
 
 
-def generate_test_path(grouping_dir, template_file_name, video_file_paths, audio_file_paths):
+def generate_test_path(grouping_dir, template_file_name, video_file_paths, audio_file_paths, copy_number):
     identifiers = []
     for video_file_path in video_file_paths:
         if video_file_path.startswith("http"):
@@ -489,7 +501,12 @@ def generate_test_path(grouping_dir, template_file_name, video_file_paths, audio
     while os.path.exists(test_path + suffix + ".html"):
         suffix = str(count)
         count += 1
-    return test_path + suffix + ".html"
+
+    copy_string = ""
+    if type(copy_number) is int:
+        copy_string = "-" + str(copy_number)
+
+    return test_path + suffix + copy_string + ".html"
 
 
 main()
