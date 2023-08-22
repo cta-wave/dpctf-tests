@@ -209,22 +209,12 @@ def parse_mpd_parameters(content, types):
                 timescale = segmentTemplate.getAttribute("timescale")
                 parameters["timescale"] = int(timescale)
 
-            segmentTimelines = []
-            segmentTimelineNodes = segmentTemplate.getElementsByTagName("S")
-            for segmentTimelineNode in segmentTimelineNodes:
-                segmentTimeline = {}
-                if segmentTimelineNode.hasAttribute("r"):
-                    r = segmentTimelineNode.getAttribute("r")
-                    segmentTimeline["r"] = int(r)
-                if segmentTimelineNode.hasAttribute("t"):
-                    t = segmentTimelineNode.getAttribute("t")
-                    segmentTimeline["t"] = int(t)
-                if segmentTimelineNode.hasAttribute("d"):
-                    d = segmentTimelineNode.getAttribute("d")
-                    segmentTimeline["d"] = int(d)
-                segmentTimelines.append(segmentTimeline)
-
-            parameters["segmentTimeline"] = segmentTimelines
+            segment_timeline_nodes = segmentTemplate.getElementsByTagName(
+                "SegmentTimeline")
+            if len(segment_timeline_nodes) != 0:
+                segment_timelines = parse_segment_timelines(
+                    segment_timeline_nodes[0])
+                parameters["segmentTimeline"] = segment_timelines
             break
 
         source = dom_tree.getElementsByTagName("Source")
@@ -235,18 +225,22 @@ def parse_mpd_parameters(content, types):
         for representation in representations:
             representationId = representation.getAttribute("id")
             rep_parameters = {}
+            rep_parameters["period"] = periodNumber
+
             if representation.hasAttribute("audioSamplingRate"):
                 audioSamplingRate = representation.getAttribute(
                     "audioSamplingRate")
                 rep_parameters["audioSamplingRate"] = int(audioSamplingRate)
-            rep_parameters["period"] = periodNumber
+
             if periodDuration != "":
                 rep_parameters["duration"] = periodDuration
+
             mime_type = representation.getAttribute("mimeType")
             content_type = re.search("^(.+)\/", mime_type).group(1)
             if content_type not in types:
                 continue
             rep_parameters["type"] = content_type
+
             if representation.hasAttribute("frameRate"):
                 frame_rate = representation.getAttribute("frameRate")
                 rep_parameters["frame_rate"] = frame_rate
@@ -258,42 +252,39 @@ def parse_mpd_parameters(content, types):
                     representation, "AdaptationSet")
                 segment_templates = adaptation_set.getElementsByTagName(
                     "SegmentTemplate")
-                seg_template_params = parse_segment_template(
-                    segment_templates[0])
-                rep_parameters = merge_parameters(
-                    rep_parameters, seg_template_params)
-            else:
-                seg_template_params = parse_segment_template(
-                    segment_templates[0])
-                rep_parameters = merge_parameters(
-                    rep_parameters, seg_template_params)
 
-            segmentTimelines = []
-            segmentTimelineNodes = representation.getElementsByTagName("S")
-            for segmentTimelineNode in segmentTimelineNodes:
-                segmentTimeline = {}
-                if segmentTimelineNode.hasAttribute("r"):
-                    r = segmentTimelineNode.getAttribute("r")
-                    segmentTimeline["r"] = int(r)
-                if segmentTimelineNode.hasAttribute("t"):
-                    t = segmentTimelineNode.getAttribute("t")
-                    segmentTimeline["t"] = int(t)
-                if segmentTimelineNode.hasAttribute("d"):
-                    d = segmentTimelineNode.getAttribute("d")
-                    segmentTimeline["d"] = int(d)
-                segmentTimelines.append(segmentTimeline)
-            rep_parameters["segmentTimeline"] = segmentTimelines
+            seg_template_params = parse_segment_template(
+                segment_templates[0])
+            rep_parameters = merge_parameters(
+                rep_parameters, seg_template_params)
 
             representation_parameters[representationId] = rep_parameters
 
-    parameters["representations"] = representation_parameters
+        parameters["representations"] = representation_parameters
 
     return parameters
 
 
+def parse_segment_timelines(segment_timeline_node):
+    segment_timelines = []
+    s_nodes = segment_timeline_node.getElementsByTagName("S")
+    for s_node in s_nodes:
+        segment_timeline = {}
+        if s_node.hasAttribute("r"):
+            r = s_node.getAttribute("r")
+            segment_timeline["r"] = int(r)
+        if s_node.hasAttribute("t"):
+            t = s_node.getAttribute("t")
+            segment_timeline["t"] = int(t)
+        if s_node.hasAttribute("d"):
+            d = s_node.getAttribute("d")
+            segment_timeline["d"] = int(d)
+        segment_timelines.append(segment_timeline)
+    return segment_timelines
+
+
 def parse_segment_template(node):
     parameters = {}
-    segments = node.getElementsByTagName("S")
     fragment_duration = node.getAttribute("duration")
     if fragment_duration == "":
         fragment_duration = None
@@ -305,6 +296,7 @@ def parse_segment_template(node):
         if fragment_duration is not None:
             fragment_duration = fragment_duration / timescale
     sum = 0
+    segments = node.getElementsByTagName("S")
     for segment in segments:
         r = segment.getAttribute("r")
         if r == "":
@@ -320,6 +312,13 @@ def parse_segment_template(node):
     duration = sum / timescale
     parameters["duration"] = duration
     parameters["fragment_duration"] = fragment_duration
+    parameters["timescale"] = timescale
+
+    segment_timeline_nodes = node.getElementsByTagName("SegmentTimeline")
+    if len(segment_timeline_nodes) != 0:
+        segment_timelines = parse_segment_timelines(segment_timeline_nodes[0])
+        parameters["segmentTimeline"] = segment_timelines
+
     return parameters
 
 
@@ -327,6 +326,8 @@ def merge_parameters(setA, setB):
     parameter_names = [
         "duration",
         "fragment_duration",
+        "timescale",
+        "segmentTimeline",
     ]
     for parameter_name in parameter_names:
         if parameter_name in setA:
