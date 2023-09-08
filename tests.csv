@@ -161,8 +161,8 @@
 
 "regular-playback-of-chunked-content","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/chunked/2023-05-21/stream.mpd","","cfhd_12.5_25_50-online"
 
-"playback-over-wave-baseline-splice-constraints","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at13/2023-04-27/stream.mpd","cfhd_12.5_25_50-online"
-"","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","cfhd_12.5_25_50-online"
+"playback-over-wave-baseline-splice-constraints","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd","","cfhd_12.5_25_50-online"
+"","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd","","cfhd_12.5_25_50-online"
 
 "out-of-order-loading","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","cfhd_12.5_25_50-online"
 
@@ -246,8 +246,8 @@
 
 "regular-playback-of-chunked-content-non-aligned-append","/content/cfhd_sets/12.5_25_50/chunked/2023-05-21/stream.mpd","","cfhd_12.5_25_50-local"
 
-"playback-over-wave-baseline-splice-constraints","/content/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd","/content/caac_sets/aac_lc/at13/2023-04-27/stream.mpd","cfhd_12.5_25_50-local"
-"","/content/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd","/content/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","cfhd_12.5_25_50-online"
+"playback-over-wave-baseline-splice-constraints","/content/cfhd_sets/12.5_25_50/splice_main/2023-04-28/stream.mpd","","cfhd_12.5_25_50-local"
+"","/content/cfhd_sets/12.5_25_50/splice_ad/2023-04-28/stream.mpd","","cfhd_12.5_25_50-online"
 
 "out-of-order-loading","/content/cfhd_sets/12.5_25_50/t1/2023-04-28/stream.mpd","","cfhd_12.5_25_50-local"
 
