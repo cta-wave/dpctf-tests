@@ -1743,8 +1743,8 @@
                 ]
             }
         },
-        "c30f670e85ed06ac71b87378ecfdb97c": {
-            "path": "cfhd_15_30_60-online/long-duration-playback__t1.html",
+        "3cf6c33375522be2615d7f18c94b8b02": {
+            "path": "cfhd_15_30_60-long-online/long-duration-playback__t1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd"
             ],
@@ -3529,8 +3529,8 @@
                 ]
             }
         },
-        "37557096501df13052771e4a12b57603": {
-            "path": "cfhd_15_30_60-local/long-duration-playback__t1.html",
+        "cffb65482112b68d906e279eb9d74eef": {
+            "path": "cfhd_15_30_60-long-local/long-duration-playback__t1.html",
             "video": [
                 "/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd"
             ],
@@ -5887,8 +5887,8 @@
                 ]
             }
         },
-        "a34b0f02ed08cd6e38cc9860a6134624": {
-            "path": "cfhd_12.5_25_50-online/long-duration-playback__t1.html",
+        "2234605517347c71552b9ee4eb37dd60": {
+            "path": "cfhd_12.5_25_50-long-online/long-duration-playback__t1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd"
             ],
@@ -8245,8 +8245,8 @@
                 ]
             }
         },
-        "5a20452dacfba850e097083f88abc2be": {
-            "path": "cfhd_12.5_25_50-local/long-duration-playback__t1.html",
+        "f539a2886568b2326d785b0423c874f5": {
+            "path": "cfhd_12.5_25_50-long-local/long-duration-playback__t1.html",
             "video": [
                 "/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd"
             ],
@@ -10265,8 +10265,8 @@
                 ]
             }
         },
-        "e6fffa2ca25ac632ddff5f4975f19c34": {
-            "path": "cfhd_14.985_29.97_59.94-online/long-duration-playback__t1.html",
+        "45cedc323bac5f461a3362c5273697ad": {
+            "path": "cfhd_14.985_29.97_59.94-long-online/long-duration-playback__t1.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd"
             ],
@@ -12291,8 +12291,8 @@
                 ]
             }
         },
-        "a07097d1d9748e909d7ee46b704965d8": {
-            "path": "cfhd_14.985_29.97_59.94-local/long-duration-playback__t1.html",
+        "89d9c16087bd40d07ddc22f4752863a9": {
+            "path": "cfhd_14.985_29.97_59.94-long-local/long-duration-playback__t1.html",
             "video": [
                 "/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd"
             ],
