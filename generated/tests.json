@@ -433,7 +433,7 @@
         "20aa4d6b5d23261aee624ba26b565e1d": {
             "path": "cfhd_12.5_25_50-online/regular-playback-of-chunked-content__chunked.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/chunked/2023-05-21/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/chunked/2023-09-01/stream.mpd"
             ],
             "audio": [],
             "code": "regular-playback-of-chunked-content.html",
@@ -1021,7 +1021,7 @@
         "0e7a11c5585eced0c48afef0c14b84c1": {
             "path": "cfhd_12.5_25_50-online/regular-playback-of-chunked-content-non-aligned-append__chunked.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/chunked/2023-05-21/stream.mpd"
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/chunked/2023-09-01/stream.mpd"
             ],
             "audio": [],
             "code": "regular-playback-of-chunked-content-non-aligned-append.html",
@@ -1660,7 +1660,7 @@
         "0e768a8b19f4c2700036045c9070572f": {
             "path": "cfhd_12.5_25_50-local/regular-playback-of-chunked-content__chunked.html",
             "video": [
-                "/content/cfhd_sets/12.5_25_50/chunked/2023-05-21/stream.mpd"
+                "/content/cfhd_sets/12.5_25_50/chunked/2023-09-01/stream.mpd"
             ],
             "audio": [],
             "code": "regular-playback-of-chunked-content.html",
@@ -2248,7 +2248,7 @@
         "1ce4ed6e2f99d53f8dadca5faf899ca7": {
             "path": "cfhd_12.5_25_50-local/regular-playback-of-chunked-content-non-aligned-append__chunked.html",
             "video": [
-                "/content/cfhd_sets/12.5_25_50/chunked/2023-05-21/stream.mpd"
+                "/content/cfhd_sets/12.5_25_50/chunked/2023-09-01/stream.mpd"
             ],
             "audio": [],
             "code": "regular-playback-of-chunked-content-non-aligned-append.html",
