@@ -375,6 +375,18 @@
   "caac_sets-online/out-of-order-loading__t1.html": {
     "loading": [3, 5, 2, 4, 1, 8, 10, 7, 9, 6, 16, 13, 15, 12, 14, 11]
   },
+  "eac3-local/out-of-order-loading__t1.html": {
+    "loading": [3, 5, 2, 4, 1, 8, 10, 7, 9, 6, 13, 15, 12, 14, 11]
+  },
+  "eac3-sets-online/out-of-order-loading__t1.html": {
+    "loading": [3, 5, 2, 4, 1, 8, 10, 7, 9, 6, 13, 15, 12, 14, 11]
+  },
+  "ac4-local/out-of-order-loading__t1.html": {
+    "loading": [3, 5, 2, 4, 1, 8, 10, 7, 9, 6, 13, 15, 12, 14, 11]
+  },
+  "ac4-sets-online/out-of-order-loading__t1.html": {
+    "loading": [3, 5, 2, 4, 1, 8, 10, 7, 9, 6, 13, 15, 12, 14, 11]
+  },
   "cfhd_15_30_60-local/overlapping-fragments__t1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
@@ -416,6 +428,54 @@
     ]
   },                                            
   "cfhd_14.985_29.97_59.94-online/overlapping-fragments__t1.html": {
+    "playout": [
+      [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
+      [1, 1, 5],  [1, 1, 6],  [1, 1, 7],  [1, 1, 8],
+      [1, 1, 9],  [1, 1, 10], [1, 1, 11], [1, 1, 12],
+      [1, 1, 13], [1, 1, 14], [1, 1, 15]
+    ]
+  },
+  "caac_sets-local/overlapping-fragments__at1.html": {
+    "playout": [
+      [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
+      [1, 1, 5],  [1, 1, 6],  [1, 1, 7],  [1, 1, 8],
+      [1, 1, 9],  [1, 1, 10], [1, 1, 11], [1, 1, 12],
+      [1, 1, 13], [1, 1, 14], [1, 1, 15], [1, 1, 16]
+    ]
+  },
+  "caac_sets-online/overlapping-fragments__at1.html": {
+    "playout": [
+      [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
+      [1, 1, 5],  [1, 1, 6],  [1, 1, 7],  [1, 1, 8],
+      [1, 1, 9],  [1, 1, 10], [1, 1, 11], [1, 1, 12],
+      [1, 1, 13], [1, 1, 14], [1, 1, 15], [1, 1, 16]
+    ]
+  },
+  "eac3-local/overlapping-fragments__at1.html": {
+    "playout": [
+      [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
+      [1, 1, 5],  [1, 1, 6],  [1, 1, 7],  [1, 1, 8],
+      [1, 1, 9],  [1, 1, 10], [1, 1, 11], [1, 1, 12],
+      [1, 1, 13], [1, 1, 14], [1, 1, 15]
+    ]
+  },
+  "eac3-online/overlapping-fragments__at1.html": {
+    "playout": [
+      [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
+      [1, 1, 5],  [1, 1, 6],  [1, 1, 7],  [1, 1, 8],
+      [1, 1, 9],  [1, 1, 10], [1, 1, 11], [1, 1, 12],
+      [1, 1, 13], [1, 1, 14], [1, 1, 15]
+    ]
+  },
+  "ac4-local/overlapping-fragments__at1.html": {
+    "playout": [
+      [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
+      [1, 1, 5],  [1, 1, 6],  [1, 1, 7],  [1, 1, 8],
+      [1, 1, 9],  [1, 1, 10], [1, 1, 11], [1, 1, 12],
+      [1, 1, 13], [1, 1, 14], [1, 1, 15]
+    ]
+  },
+  "ac4-online/overlapping-fragments__at1.html": {
     "playout": [
       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  [1, 1, 4],
       [1, 1, 5],  [1, 1, 6],  [1, 1, 7],  [1, 1, 8],
@@ -621,6 +681,104 @@
        [1, 1, 1],  [1, 1, 2],  [1, 1, 3],  
        [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
        [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
+  "caac_sets-local/playback-over-wave-baseline-splice-constraints__at13_at14.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
+  "caac_sets-local/restricted-splicing-of-encrypted-content-https__at15_at16.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
+  "caac_sets-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__at15_at14.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
+  "caac_sets-online/playback-over-wave-baseline-splice-constraints__at13_at14.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
+  "caac_sets-online/restricted-splicing-of-encrypted-content-https__at15_at16.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
+  "caac_sets-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__at15_at14.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5],  [1, 1, 6]
+     ]
+  },
+  "ac4-local/playback-over-wave-baseline-splice-constraints__at3_at4.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5]
+     ]
+  },
+  "ac4-local/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad_at3_at4.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5]
+     ]
+  },
+  "ac4-online/playback-over-wave-baseline-splice-constraints__at3_at4.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5]
+     ]
+  },
+  "ac4-online/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad_at3_at4.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5]
+     ]
+  },
+  "eac3-local/playback-over-wave-baseline-splice-constraints__at3_at4.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5]
+     ]
+  },
+  "eac3-local/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad_at3_at4.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5]
+     ]
+  },
+  "eac3-online/playback-over-wave-baseline-splice-constraints__at3_at4.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5]
+     ]
+  },
+  "eac3-online/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad_at3_at4.html": {
+     "playout": [
+       [1, 1, 1],  [1, 1, 2],  [1, 1, 3],
+       [2, 1, 1],  [2, 1, 2],  [2, 1, 3],
+       [1, 1, 4],  [1, 1, 5]
      ]
   }
 }
