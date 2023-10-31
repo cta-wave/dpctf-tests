@@ -37,11 +37,11 @@
 
 "playback-of-encrypted-content-https","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1-cenc/2023-09-01/stream.mpd","","cfhd_15_30_60-online"
 
-"source-buffer-re-initialization-without-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","chh1-15_30_60-online"
-"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1-15_30_60-online"
+"source-buffer-re-initialization-without-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","chh1_15_30_60-online"
+"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1_15_30_60-online"
 
-"source-buffer-re-initialization-with-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","chh1-15_30_60-online"
-"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1-15_30_60-online"
+"source-buffer-re-initialization-with-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","chh1_15_30_60-online"
+"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1_15_30_60-online"
 
 "buffer-underrun-and-recovery","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t2/2023-09-01/stream.mpd","","cfhd_15_30_60-online"
 
@@ -59,7 +59,7 @@
 
 "random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_15_30_60-online"
 
-"long-duration-playback","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","cfhd_15_30_60-long-online"
+"long-duration-playback","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/tLD/2023-09-01/stream.mpd","","cfhd_15_30_60-long-online"
 
 
 "sequential-track-playback","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","cfhd_15_30_60-local"
@@ -101,11 +101,11 @@
 
 "playback-of-encrypted-content-https","/content/cfhd_sets/15_30_60/t1-cenc/2023-09-01/stream.mpd","","cfhd_15_30_60-local"
 
-"source-buffer-re-initialization-without-changetype","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","chh1-15_30_60-local"
-"","/content/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1-15_30_60-local"
+"source-buffer-re-initialization-without-changetype","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","chh1_15_30_60-local"
+"","/content/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1_15_30_60-local"
 
-"source-buffer-re-initialization-with-changetype","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","chh1-15_30_60-local"
-"","/content/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1-15_30_60-local"
+"source-buffer-re-initialization-with-changetype","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","chh1_15_30_60-local"
+"","/content/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1_15_30_60-local"
 
 "buffer-underrun-and-recovery","/content/cfhd_sets/15_30_60/t2/2023-09-01/stream.mpd","","cfhd_15_30_60-local"
 
@@ -123,7 +123,7 @@
 
 "random-access-of-a-wave-presentation","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_15_30_60-local"
 
-"long-duration-playback","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","cfhd_15_30_60-long-local"
+"long-duration-playback","/content/cfhd_sets/15_30_60/tLD/2023-09-01/stream.mpd","","cfhd_15_30_60-long-local"
 
 
 
@@ -209,7 +209,7 @@
 "splicing-of-wave-program-with-baseline-constraints","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-09-01/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at13/2023-04-27/stream.mpd","cfhd_12.5_25_50-online"
 "","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-09-01/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","cfhd_12.5_25_50-online"
 
-"long-duration-playback","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","cfhd_12.5_25_50-long-online"
+"long-duration-playback","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/tLD/2023-09-01/stream.mpd","","cfhd_12.5_25_50-long-online"
 
 
 "sequential-track-playback","/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local"
@@ -292,7 +292,7 @@
 "splicing-of-wave-program-with-baseline-constraints","/content/cfhd_sets/12.5_25_50/splice_main/2023-09-01/stream.mpd","/content/caac_sets/aac_lc/at13/2023-04-27/stream.mpd","cfhd_12.5_25_50-local"
 "","/content/cfhd_sets/12.5_25_50/splice_ad/2023-09-01/stream.mpd","/content/caac_sets/aac_lc/at14/2023-04-27/stream.mpd","cfhd_12.5_25_50-online"
 
-"long-duration-playback","/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","cfhd_12.5_25_50-long-local"
+"long-duration-playback","/content/cfhd_sets/12.5_25_50/tLD/2023-09-01/stream.mpd","","cfhd_12.5_25_50-long-local"
 
 
 
@@ -359,8 +359,6 @@
 
 "random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_14.985_29.97_59.94-online"
 
-"long-duration-playback","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-long-online"
-
 
 "sequential-track-playback","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-local"
 "sequential-track-playback","/content/cfhd_sets/14.985_29.97_59.94/t3/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-local"
@@ -422,8 +420,6 @@
 "regular-playback-of-a-cmaf-presentation","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_14.985_29.97_59.94-local"
 
 "random-access-of-a-wave-presentation","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_14.985_29.97_59.94-local"
-
-"long-duration-playback","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-long-local"
 
 
 

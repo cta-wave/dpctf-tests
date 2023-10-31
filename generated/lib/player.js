@@ -131,7 +131,10 @@ function Player(video) {
           });
       } else {
         var loadedEvent = "onVideoSegmentLoaded";
-        if (!_videoBufferManager || _videoBufferManager.getManifests().length === 0)
+        if (
+          !_videoBufferManager ||
+          _videoBufferManager.getManifests().length === 0
+        )
           loadedEvent = "onAudioSegmentLoaded";
         var handler = function (event) {
           if (
@@ -406,20 +409,24 @@ function Player(video) {
     let currentTime = 0;
     let bufferManager = _videoBufferManager || _audioBufferManager;
     let currentSegment = bufferManager.getPlayingSegment();
-    for (let segment of bufferManager.getSegments()) {
+
+    let segments = bufferManager.getSegments();
+    for (let segmentIndex in segments) {
+      let segment = segments[segmentIndex];
       currentTime += segment.getDuration();
       if (segment === currentSegment) break;
     }
     video.removeAttribute("src");
     video.load();
     createMediaSource().then(function (mediaSource) {
-      setCurrentTime(currentTime);
       if (_videoBufferManager) {
         _videoBufferManager.setMediaSource(mediaSource);
+        setCurrentTime(currentTime);
         _videoBufferManager.startBuffering();
       }
       if (_audioBufferManager) {
         _audioBufferManager.setMediaSource(mediaSource);
+        setCurrentTime(currentTime);
         _audioBufferManager.startBuffering();
       }
     });
@@ -1000,7 +1007,6 @@ function BufferManager(manifests, mediaSource, video, options) {
 
     var initSegmentUrl = bufferInfo.segment.getInitSegmentUrl();
     var isInitSegmentChange = initSegmentUrl !== _lastInitSegmentUrl;
-    _lastInitSegmentUrl = initSegmentUrl;
 
     var timestampOffset = bufferInfo.segment.getTimestampOffset();
     var segmentNumber = bufferInfo.segment.getNumber();
