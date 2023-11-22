@@ -62,7 +62,9 @@
         initCallback: handleVideoInitialized,
       });
 
+      var isVideoInitialized = false;
       function handleVideoInitialized(player, done, parameters) {
+        if (isVideoInitialized) done();
         var READY_STATE_HAVE_METADATA = 1;
         var waitingTime = parameters.waitingTime || 500;
         var handlePlay = function () {
@@ -73,6 +75,7 @@
           setTimeout(function () {
             done();
             dpctfTest.setVideoState("appended");
+            isVideoInitialized = true;
           }, waitingTime);
         };
         video.addEventListener("play", handlePlay);
