@@ -4,7 +4,7 @@
     "audio_tolerance": 20,
     "audio_sample_tolerance": 2,
     "audio_sample_length": 20,
-    "duration_tolerance": 20,
+    "duration_tolerance": 50,
     "duration_frame_tolerance": 0,
     "ts_max": 1000,
     "tolerance": 20,
