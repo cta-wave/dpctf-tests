@@ -130,12 +130,6 @@ function Player(video) {
             done(error);
           });
       } else {
-        var loadedEvent = "onVideoSegmentLoaded";
-        if (
-          !_videoBufferManager ||
-          _videoBufferManager.getManifests().length === 0
-        )
-          loadedEvent = "onAudioSegmentLoaded";
         var handler = function (event) {
           if (
             getPreBufferedTime() >= duration ||
@@ -153,7 +147,16 @@ function Player(video) {
               });
           }
         };
-        on(loadedEvent, handler);
+        if (
+          _videoBufferManager &&
+          _videoBufferManager.getManifests().length > 0
+        )
+          on("onVideoSegmentLoaded", handler);
+        if (
+          _audioBufferManager &&
+          _audioBufferManager.getManifests().length > 0
+        )
+          on("onAudioSegmentLoaded", handler);
       }
     });
   }
