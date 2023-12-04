@@ -76,8 +76,10 @@
 
           var newRepresentationIndex = 1;
 
-          var totalSegmentsCount = player
-            .getVideoManifests()[0]
+          var manifest = player.getVideoManifests()[0];
+          if (!manifest) manifest = player.getAudioManifests()[0];
+
+          var totalSegmentsCount = manifest
             .getRepresentation(newRepresentationIndex)
             .getTotalSegmentsCount();
           var switchingSegment = player.getPlayingVideoSegment().getNumber();
