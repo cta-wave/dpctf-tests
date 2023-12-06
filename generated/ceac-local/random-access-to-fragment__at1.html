@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Overlapping Fragments</title>
+    <title>Random Access to Fragment</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -37,20 +37,18 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Overlapping Fragments",
+        id: "random-access-to-fragment",
+        title: "Random Access to Fragment",
         description:
-          "Playback of overlapping fragments assumes that the application can overwrite the buffer with other fragments. This is for example useful in case that a fragment is loaded in lower quality but may then be replaced by a better-quality fragment.",
-        code: "overlapping-fragments.html",
-        params: urlParams,
+          "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
+        code: "random-access-to-fragment.html",
       };
-
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
-      var overwriteCurrentFragment = true;
 
       var videoContentModel = [];
-      var audioContentModel = ["/content/ceac_sets/eac3/at1/2023-10-13/stream.mpd"];
+      var audioContentModel = ["/content/ceac_sets/eac3/at1/2023-11-08/stream.mpd"];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -61,42 +59,33 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        usePlayout: true,
+        setupTest: setupTest,
       });
+
+      function setupTest(player, done, parameters) {
+        var randomAccessFragment = parameters.randomAccessFragment;
+        var segments = player.getVideoSegments();
+        var totalSegments = player.getVideoSegmentsCount();
+        if (!segments) {
+          totalSegments = player.getAudioSegmentsCount();
+          segments = player.getAudioSegments();
+        }
+
+        var fragmentTime = 0;
+        for (var i = 0; i < randomAccessFragment; i++) {
+          var segmentDuration = segments[i].getDuration();
+          fragmentTime += segmentDuration;
+        }
+        player.setCurrentTime(fragmentTime);
+
+        done();
+      }
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-
-        var handleRandomSwitch = function (currentTime) {
-          var duration = player.getDuration();
-          var switchingTime = duration * 0.3;
-
-          if (currentTime < switchingTime) return;
-          if (Math.random() > 0.05) return;
-
-          var newRepresentationIndex = 1;
-
-          var manifest = player.getVideoManifests()[0];
-          if (!manifest) manifest = player.getAudioManifests()[0];
-
-          var newRepresentation = manifest.getRepresentation(
-            newRepresentationIndex
-          );
-          throw new Error("Unable to find representation ", newRepresentationIndex)
-          var totalSegmentsCount = newRepresentation.getTotalSegmentsCount();
-          var switchingSegment = player.getPlayingVideoSegment().getNumber();
-          if (!overwriteCurrentFragment) {
-            switchingSegment += 1;
-          }
-          player.setVideoSegments({
-            representationNumber: 1,
-            startSegment: switchingSegment,
-            endSegment: totalSegmentsCount - 1,
-          });
-          player.off(handleRandomSwitch);
-        };
-        player.on("onTimeUpdate", handleRandomSwitch);
-
+        var currentTime = player.getCurrentTime();
+        var totalTime = player.getDuration();
+        var timeLeft = parseInt(totalTime - currentTime);
         player.startBuffering();
         player.playOnBufferLoaded(minBufferDuration).then(done);
 

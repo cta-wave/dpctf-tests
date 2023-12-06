@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Random Access to Fragment</title>
+    <title>Regular Playback of Chunked Content</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -37,18 +37,19 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "random-access-to-fragment",
-        title: "Random Access to Fragment",
+        id: "regular-playback-of-chunked-content",
+        title: "Regular Playback of Chunked Content",
         description:
-          "A track is randomly accessed, and playback is started from a specific time onwards.\nThe random access happens at a Fragment boundary.",
-        code: "random-access-to-fragment.html",
+          "Sequential Chunked Playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF chunks to the source buffer after initialization.",
+        code: "regular-playback-of-chunked-content.html",
       };
+
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
       var videoContentModel = [];
-      var audioContentModel = ["https://dash.akamaized.net/WAVE/vectors/releases/1/ceac_sets/eac3/at1/2023-10-13/stream.mpd"];
+      var audioContentModel = ["https://dash.akamaized.net/WAVE/vectors/releases/1/ceac_sets/eac3/at2/2023-11-08/stream.mpd"];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -59,33 +60,11 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        setupTest: setupTest,
+        usePlayout: false,
       });
-
-      function setupTest(player, done, parameters) {
-        var randomAccessFragment = parameters.randomAccessFragment;
-        var segments = player.getVideoSegments();
-        var totalSegments = player.getVideoSegmentsCount();
-        if (!segments) {
-          totalSegments = player.getAudioSegmentsCount();
-          segments = player.getAudioSegments();
-        }
-
-        var fragmentTime = 0;
-        for (var i = 0; i < randomAccessFragment; i++) {
-          var segmentDuration = segments[i].getDuration();
-          fragmentTime += segmentDuration;
-        }
-        player.setCurrentTime(fragmentTime);
-
-        done();
-      }
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-        var currentTime = player.getCurrentTime();
-        var totalTime = player.getDuration();
-        var timeLeft = parseInt(totalTime - currentTime);
         player.startBuffering();
         player.playOnBufferLoaded(minBufferDuration).then(done);
 

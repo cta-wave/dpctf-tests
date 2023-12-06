@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Regular Playback of Chunked Content, non-aligned append</title>
+    <title>Splicing of WAVE Program with Baseline Constraints</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -37,18 +37,20 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Regular Playback of Chunked Content, non-aligned append",
+        id: "splicing-of-wave-program-with-baseline-constraints",
+        title: "Splicing of WAVE Program with Baseline Constraints",
         description:
-          "Sequential Chunked Playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF chunks to the source buffer after initialization.  Non-aligned refers to the situation where the data that is appended to the source buffer is appended progressively in pieces that do not necessarily align with the boundaries of the CMAF chunks.",
-        code: "regular-playback-of-chunked-content-non-aligned-append.html",
+          "Apps want to splice content that was properly conditioned based on the WAVE Program Baseline Constraints. The expectation is that the device plays back these splices seamlessly.",
+        code: "splicing-of-wave-program-with-baseline-constraints.html",
         params: urlParams,
       };
+
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = [];
-      var audioContentModel = ["/content/ceac_sets/eac3/at2/2023-08-01/stream.mpd"];
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main/2023-09-01/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-09-01/stream.mpd"];
+      var audioContentModel = ["https://dash.akamaized.net/WAVE/vectors/releases/1/ceac_sets/eac3/at3/2023-11-08/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/releases/1/ceac_sets/eac3/at4/2023-11-08/stream.mpd"];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -59,10 +61,12 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
+        usePlayout: true,
       });
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
+
         player.startBuffering();
         player.playOnBufferLoaded(minBufferDuration).then(done);
 
