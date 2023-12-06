@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Out-Of-Order Loading</title>
+    <title>Regular Playback of a CMAF Presentation</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -15,7 +15,9 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>To show/hide debug overlay press up/down or button beneath</div>
+      <div>
+        To show/hide debug overlay press up/down or button beneath
+      </div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -37,18 +39,19 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title: "Out-Of-Order Loading",
+        id: "regular-playback-of-a-cmaf-presentation",
+        title: "Regular Playback of a CMAF Presentation",
         description:
-          "Out of order loading refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization, but CMAF fragments are loaded out of order within the buffer duration.",
-        code: "out-of-order-loading.html",
-        params: urlParams,
+          "This case refers to the case for which a CMAF Presentation is provided and is played back. The playback instructs the player to play multiple tracks, but at most one of each media type.",
+        code: "regular-playback-of-a-cmaf-presentation.html"
       };
+
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = [];
-      var audioContentModel = ["https://dash.akamaized.net/WAVE/vectors/releases/1/ceac_sets/eac3/at1/2023-10-13/stream.mpd"];
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd"];
+      var audioContentModel = ["https://dash.akamaized.net/WAVE/vectors/releases/1/ceac_sets/eac3/at1/2023-11-08/stream.mpd"];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -59,7 +62,7 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        outOfOrderLoading: true,
+        usePlayout: false,
       });
 
       function executeTest(player, done, parameters) {

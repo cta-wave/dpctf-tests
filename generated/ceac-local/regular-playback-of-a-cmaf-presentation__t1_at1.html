@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Random Access of a WAVE Presentation</title>
+    <title>Regular Playback of a CMAF Presentation</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -15,7 +15,9 @@
         <div><div id="qr-code"></div></div>
         <div><div id="status-text"></div></div>
       </div>
-      <div>To show/hide debug overlay press up/down or button beneath</div>
+      <div>
+        To show/hide debug overlay press up/down or button beneath
+      </div>
       <div id="debug-wrapper">
         <div>
           <div class="button" id="debug-button">Debug Overlay</div>
@@ -37,18 +39,19 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "random-access-of-a-wave-presentation",
-        title: "Random Access of a WAVE Presentation",
+        id: "regular-playback-of-a-cmaf-presentation",
+        title: "Regular Playback of a CMAF Presentation",
         description:
-          "In scenarios such as live programs, the client accesses an ongoing Presentation to join in the live event. This is a typical case that media needs to be accessed and played back at a random access time.",
-        code: "random-access-of-a-wave-presentation.html",
+          "This case refers to the case for which a CMAF Presentation is provided and is played back. The playback instructs the player to play multiple tracks, but at most one of each media type.",
+        code: "regular-playback-of-a-cmaf-presentation.html"
       };
+
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
       var videoContentModel = ["/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd"];
-      var audioContentModel = ["/content/ceac_sets/eac3/at1/2023-10-13/stream.mpd"];
+      var audioContentModel = ["/content/ceac_sets/eac3/at1/2023-11-08/stream.mpd"];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -59,30 +62,11 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        setupTest: setupTest,
         usePlayout: false,
       });
 
-      function setupTest(player, done, parameters) {
-        var randomAccessFragment = parameters.randomAccessFragment;
-        var segments = player.getVideoSegments();
-        if (!segments) segments = player.getAudioSegments();
-
-        var fragmentTime = 0;
-        for (var i = 0; i < randomAccessFragment; i++) {
-          var segmentDuration = segments[i].getDuration();
-          fragmentTime += segmentDuration;
-        }
-        player.setCurrentTime(fragmentTime);
-
-        done();
-      }
-
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-        var currentTime = player.getCurrentTime();
-        var totalTime = player.getDuration();
-        var timeLeft = parseInt(totalTime - currentTime);
         player.startBuffering();
         player.playOnBufferLoaded(minBufferDuration).then(done);
 

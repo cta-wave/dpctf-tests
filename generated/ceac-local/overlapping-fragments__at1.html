@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Sequential Track Playback</title>
+    <title>Overlapping Fragments</title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -37,19 +37,20 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "sequential-track-playback",
-        title: "Sequential Track Playback",
+        title: "Overlapping Fragments",
         description:
-          "Sequential track playback refers to the case that a CMAF/WAVE track is played from the beginning by providing CMAF fragments to the source buffer after initialization.",
-        code: "sequential-track-playback.html",
+          "Playback of overlapping fragments assumes that the application can overwrite the buffer with other fragments. This is for example useful in case that a fragment is loaded in lower quality but may then be replaced by a better-quality fragment.",
+        code: "overlapping-fragments.html",
+        params: urlParams,
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
+      var overwriteCurrentFragment = true;
 
       var videoContentModel = [];
-      var audioContentModel = ["https://dash.akamaized.net/WAVE/vectors/releases/1/ceac_sets/eac3/at1/2023-10-13/stream.mpd"];
+      var audioContentModel = ["/content/ceac_sets/eac3/at1/2023-11-08/stream.mpd"];
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -60,12 +61,44 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        usePlayout: false,
+        usePlayout: true,
       });
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
+
+        var handleRandomSwitch = function (currentTime) {
+          var duration = player.getDuration();
+          var switchingTime = duration * 0.3;
+
+          if (currentTime < switchingTime) return;
+          if (Math.random() > 0.05) return;
+
+          var newRepresentationIndex = 1;
+
+          var manifest = player.getVideoManifests()[0];
+          if (!manifest) manifest = player.getAudioManifests()[0];
+
+          var newRepresentation = manifest.getRepresentation(
+            newRepresentationIndex
+          );
+          throw new Error("Unable to find representation ", newRepresentationIndex)
+          var totalSegmentsCount = newRepresentation.getTotalSegmentsCount();
+          var switchingSegment = player.getPlayingVideoSegment().getNumber();
+          if (!overwriteCurrentFragment) {
+            switchingSegment += 1;
+          }
+          player.setVideoSegments({
+            representationNumber: 1,
+            startSegment: switchingSegment,
+            endSegment: totalSegmentsCount - 1,
+          });
+          player.off(handleRandomSwitch);
+        };
+        player.on("onTimeUpdate", handleRandomSwitch);
+
         player.startBuffering();
+        player.playOnBufferLoaded(minBufferDuration).then(done);
 
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
@@ -77,8 +110,6 @@
             test.done();
           });
         }, "video ended event fired");
-
-        player.playOnBufferLoaded(minBufferDuration).then(done);
       }
     </script>
   </body>
