@@ -17736,60 +17736,6 @@
                 ]
             }
         },
-        "cdcfedca000f6f63586b2a1d04307e41": {
-            "path": "audio-only-online/sequential-track-playback__t1.html",
-            "video": [],
-            "audio": [
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd"
-            ],
-            "code": "sequential-track-playback.html",
-            "switchingSets": {
-                "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H0M30.000S",
-                        "fragment_duration": "PT0H0M2.000S",
-                        "timescale": 15360,
-                        "segmentTimeline": [
-                            {
-                                "r": 14,
-                                "t": 0,
-                                "d": 30720
-                            }
-                        ],
-                        "source": "tos_L1_1920x1080@30_30 version 4 (2023-02-13)",
-                        "representations": {}
-                    }
-                ]
-            }
-        },
-        "b9f849ad3bfe8a3f9aa596e4c4013b4c": {
-            "path": "audio-only-local/sequential-track-playback__t1.html",
-            "video": [],
-            "audio": [
-                "/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd"
-            ],
-            "code": "sequential-track-playback.html",
-            "switchingSets": {
-                "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT0H0M30.000S",
-                        "fragment_duration": "PT0H0M2.000S",
-                        "timescale": 15360,
-                        "segmentTimeline": [
-                            {
-                                "r": 14,
-                                "t": 0,
-                                "d": 30720
-                            }
-                        ],
-                        "source": "tos_L1_1920x1080@30_30 version 4 (2023-02-13)",
-                        "representations": {}
-                    }
-                ]
-            }
-        },
         "1c9f9713ecf02d817f9cdfcd33a1c6b1": {
             "path": "cfhd_15_30_60-online/switching-set-playback__ss1-1.html",
             "video": [

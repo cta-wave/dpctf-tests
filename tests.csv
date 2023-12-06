@@ -553,7 +553,3 @@
 "random-access-of-a-wave-presentation","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","/content/ca4s_sets/ac4/at1/2023-08-01/stream.mpd","ca4s-local"
 "splicing-of-wave-program-with-baseline-constraints","/content/cfhd_sets/12.5_25_50/splice_main/2023-09-01/stream.mpd","/content/ca4s_sets/ac4/at3/2023-08-01/stream.mpd","ca4s-local"
 "","/content/cfhd_sets/12.5_25_50/splice_ad/2023-09-01/stream.mpd","/content/ca4s_sets/ac4/at4/2023-08-01/stream.mpd","ca4s-local"
-
-"sequential-track-playback","","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","audio-only-online"
-
-"sequential-track-playback","","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","audio-only-local"
