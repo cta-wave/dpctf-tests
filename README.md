@@ -92,3 +92,7 @@ To create new tests proceed as follows:
 ### Video not scaled properly
 
 It may occur that the browser fails to load the required css stylesheet. As a result the video is not scale across the entire viewport. If you encouter this bug, please raise an issue.
+
+### "Script error."
+
+Some DUTs may throw a "Script error" which is not part of the tests but included in the test results. Therefore, when evaluating test results, this error should be ignored.
