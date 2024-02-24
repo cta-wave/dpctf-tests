@@ -49,7 +49,7 @@
       var statusText = document.getElementById("status-text");
       var overwriteCurrentFragment = true;
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd"];
+      var videoContentModel = ["/content/switching_sets/14.985_29.97_59.94/ss1/2023-10-05/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
@@ -67,35 +67,35 @@
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
 
-        var handleRandomSwitch = function (currentTime) {
-          var duration = player.getDuration();
-          var switchingTime = duration * 0.3;
+        //var handleRandomSwitch = function (currentTime) {
+        //  var duration = player.getDuration();
+        //  var switchingTime = duration * 0.3;
 
-          if (currentTime < switchingTime) return;
-          if (Math.random() > 0.05) return;
+        //  if (currentTime < switchingTime) return;
+        //  if (Math.random() > 0.05) return;
 
-          var newRepresentationIndex = 1;
+        //  var newRepresentationIndex = 1;
 
-          var manifest = player.getVideoManifests()[0];
-          if (!manifest) manifest = player.getAudioManifests()[0];
+        //  var manifest = player.getVideoManifests()[0];
+        //  if (!manifest) manifest = player.getAudioManifests()[0];
 
-          var newRepresentation = manifest.getRepresentation(
-            newRepresentationIndex
-          );
-          throw new Error("Unable to find representation ", newRepresentationIndex)
-          var totalSegmentsCount = newRepresentation.getTotalSegmentsCount();
-          var switchingSegment = player.getPlayingVideoSegment().getNumber();
-          if (!overwriteCurrentFragment) {
-            switchingSegment += 1;
-          }
-          player.setVideoSegments({
-            representationNumber: 1,
-            startSegment: switchingSegment,
-            endSegment: totalSegmentsCount - 1,
-          });
-          player.off(handleRandomSwitch);
-        };
-        player.on("onTimeUpdate", handleRandomSwitch);
+        //  var newRepresentation = manifest.getRepresentation(
+        //    newRepresentationIndex
+        //  );
+        //  throw new Error("Unable to find representation ", newRepresentationIndex)
+        //  var totalSegmentsCount = newRepresentation.getTotalSegmentsCount();
+        //  var switchingSegment = player.getPlayingVideoSegment().getNumber();
+        //  if (!overwriteCurrentFragment) {
+        //    switchingSegment += 1;
+        //  }
+        //  player.setVideoSegments({
+        //    representationNumber: 1,
+        //    startSegment: switchingSegment,
+        //    endSegment: totalSegmentsCount - 1,
+        //  });
+        //  player.off(handleRandomSwitch);
+        //};
+        //player.on("onTimeUpdate", handleRandomSwitch);
 
         player.startBuffering();
         player.playOnBufferLoaded(minBufferDuration).then(done);
