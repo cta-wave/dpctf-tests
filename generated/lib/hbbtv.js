@@ -42,12 +42,16 @@ function stopBroadcastOnHbbTV() {
         }
 
         // create hbbtv objects and add to body
-        var broadcastObj = '<object id="broadcast-object" type="video/broadcast" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 720px;">';
+        var broadcastTag = '<object id="broadcast-object" type="video/broadcast" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 720px;">';
 
-        document.body.appendChild(broadcastObj);
+        var elem = document.createElement("div");
+        elem.innerHTML = broadcastTag;
+	    elem.style = "visibility:hidden;width:0px;height:0px;"
+        document.body.appendChild(elem);
+        var broadcastObj = document.getElementById("broadcast-object");
 
         // already stopped?
-        if (broadcastObj.state === 3) {
+        if (broadcastObj.playState === 3) {
             return resolve();
         }
 
@@ -55,25 +59,31 @@ function stopBroadcastOnHbbTV() {
             resolve("error on stopping broadcast: timeout");
         }, 10000);
 
-        var onPlayStateChangeStopping = function (state, error) {
+        broadcastObj.onPlayStateChange = function (state, error) {
             if (error !== undefined) {
-                return resolve("error on stopping broadcast");
+                return resolve("error on stopping broadcast: error number " + error);
             }
-
-            if (state !== 3) {
-                return;
+            switch (state) {
+                case 0: // Uninitialized
+                    break;
+                case 1: // Connecting
+                case 2: // Presenting
+                    broadcastObj.stop();
+                    break;
+                case 3: // Stopped
+                    broadcastObj.onPlayStateChange = function(){};
+                    clearTimeout(stopBroadcastTimeout);
+                    resolve();
+                    break;
+                default:
+                    break;
             }
-
-            clearTimeout(stopBroadcastTimeout);
-            resolve();
         }
 
-        // stop broadcast
         try {
-            broadcast.onPlayStateChange = onPlayStateChangeStopping;
-            broadcastObj.stop();
+            broadcastObj.bindToCurrentChannel();
         } catch (err) {
-            return resolve("error on stopping broadcast");
+            return resolve("error on stopping broadcast:" + err);
         }
     });
 }
