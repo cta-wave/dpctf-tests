@@ -78,7 +78,6 @@ function DpctfTest(config) {
       .then(initializeWaveService)
       .then(sendTestReadyEvent)
       .then(waitForObservationReady)
-      .then(stopBroadcastOnHbbTV)
       .then(executeTest)
       .then(waitForObservationResults)
       .then(handleError)

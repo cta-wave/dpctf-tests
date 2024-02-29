@@ -1,4 +1,4 @@
-(function () {
+(function() {
 
     function setKeyset(mask) {
         try {
@@ -32,48 +32,3 @@
 
     setTimeout(activate, 1000);
 })();
-
-
-function stopBroadcastOnHbbTV() {
-    return new Promise(function (resolve) {
-        // stop broadcast only on hbbtv terminals
-        if (navigator.userAgent.toLowerCase().indexOf('hbbtv') === -1) {
-            resolve();
-        }
-
-        // create hbbtv objects and add to body
-        var broadcastObj = '<object id="broadcast-object" type="video/broadcast" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 720px;">';
-
-        document.body.appendChild(broadcastObj);
-
-        // already stopped?
-        if (broadcastObj.state === 3) {
-            return resolve();
-        }
-
-        var stopBroadcastTimeout = setTimeout(function () {
-            resolve("error on stopping broadcast: timeout");
-        }, 10000);
-
-        var onPlayStateChangeStopping = function (state, error) {
-            if (error !== undefined) {
-                return resolve("error on stopping broadcast");
-            }
-
-            if (state !== 3) {
-                return;
-            }
-
-            clearTimeout(stopBroadcastTimeout);
-            resolve();
-        }
-
-        // stop broadcast
-        try {
-            broadcast.onPlayStateChange = onPlayStateChangeStopping;
-            broadcastObj.stop();
-        } catch (err) {
-            return resolve("error on stopping broadcast");
-        }
-    });
-}
