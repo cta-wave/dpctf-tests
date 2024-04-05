@@ -60,7 +60,7 @@ def main():
         audio_file_name = str(audio_mpd_url).split("/")[-1]
         audio_file_name = ".".join(audio_file_name.split(".")[0:-1])
         test_id = generate_test_id(
-            template_file + "video" + video_mpd_url + "audio" + audio_mpd_url)
+            template_file + "video" + video_mpd_url + "audio" + audio_mpd_url + grouping_dir)
 
         duplicate_test = None
         if test[0] != "":
@@ -419,7 +419,7 @@ def load_file(path):
 
 def write_file(path, content):
     parent = Path(path).parent
-    if not parent.exists():
+    if not os.path.exists(parent):
         os.makedirs(parent)
 
     with open(path, "w+") as file:
