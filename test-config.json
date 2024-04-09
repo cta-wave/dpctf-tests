@@ -72,7 +72,8 @@
     "min_buffer_duration": 10000
   },
   "long-duration-playback.html": {
-    "max_backward_buffer": 5
+    "max_backward_buffer": 5,
+    "test_timeout": 10800000
   },
   "mse-appendwindow.html": {
     "append_window_boundaries": [
