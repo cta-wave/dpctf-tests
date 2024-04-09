@@ -19053,6 +19053,49 @@
                 "audio": []
             }
         },
+        "7cd5d61ec55fa3324d157703d43db31e": {
+            "path": "cfhd_12.5_25_50-local-t2/buffer-underrun-and-recovery__t2.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t2/2023-09-01/stream.mpd"
+            ],
+            "audio": [],
+            "code": "buffer-underrun-and-recovery.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M5.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 5,
+                                "t": 0,
+                                "d": 64000
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 5.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 5,
+                                        "t": 0,
+                                        "d": 64000
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
         "1fe1156eb3586135054ee252d81cf9bb": {
             "path": "cfhd_12.5_25_50-local-t2/low-latency-initialization__t2.html",
             "video": [
@@ -20360,6 +20403,49 @@
                 "audio": []
             }
         },
+        "fcd5c56558f27fbbc15581400bccf0ed": {
+            "path": "cfhd_12.5_25_50-local-t1/buffer-underrun-and-recovery__t1.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd"
+            ],
+            "audio": [],
+            "code": "buffer-underrun-and-recovery.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 14,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
         "6812d8806d86e2c40f43966ff36fee3c": {
             "path": "cfhd_12.5_25_50-local-t1/low-latency-initialization__t1.html",
             "video": [
@@ -20875,8 +20961,8 @@
                 "audio": []
             }
         },
-        "ecde5c31ca9fefa0de0c4407d54b7fa0": {
-            "path": "cfhd_14.985_29.97_59.94-local-t1/low-latency-playback-over-gaps__t1.html",
+        "964e4fe4854e2f0b48c01e78249dc873": {
+            "path": "cfhd_14.985_29.97_59.94-local-t/low-latency-playback-over-gaps__t1.html",
             "video": [
                 "/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd"
             ],
@@ -21013,6 +21099,178 @@
                                     },
                                     {
                                         "d": 59059
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "c8056062167763ac4a0b8180b334c503": {
+            "path": "cfhd_12.5_25_50-local-chunked/low-latency-initialization__chunked.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/chunked/2023-09-01/stream.mpd"
+            ],
+            "audio": [],
+            "code": "low-latency-initialization.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 14,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "347c79dfec2dfe693cfe6dbfd1326852": {
+            "path": "cfhd_12.5_25_50-local-chunked/low-latency-playback-over-gaps__chunked.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/chunked/2023-09-01/stream.mpd"
+            ],
+            "audio": [],
+            "code": "low-latency-playback-over-gaps.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 14,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "5854583fabd364ce4df03e4e732a24a9": {
+            "path": "cfhd_12.5_25_50-local-chunked/low-latency-short-buffer-playback__chunked.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/chunked/2023-09-01/stream.mpd"
+            ],
+            "audio": [],
+            "code": "low-latency-short-buffer-playback.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 14,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "b7811ed45a9ce458bc03933662d983ed": {
+            "path": "cfhd_12.5_25_50-local-chunked/random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream__chunked.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/chunked/2023-09-01/stream.mpd"
+            ],
+            "audio": [],
+            "code": "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 14,
+                                        "t": 0,
+                                        "d": 25600
                                     }
                                 ]
                             }

@@ -573,6 +573,7 @@
 "low-latency-short-buffer-playback","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t2/2023-09-01/stream.mpd","","cfhd_12.5_25_50-online-t2"
 "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t2/2023-09-01/stream.mpd","","cfhd_12.5_25_50-online-t2"
 
+"buffer-underrun-and-recovery","/content/cfhd_sets/12.5_25_50/t2/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local-t2"
 "low-latency-initialization","/content/cfhd_sets/12.5_25_50/t2/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local-t2"
 "low-latency-playback-over-gaps","/content/cfhd_sets/12.5_25_50/t2/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local-t2"
 "low-latency-short-buffer-playback","/content/cfhd_sets/12.5_25_50/t2/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local-t2"
@@ -611,6 +612,7 @@
 "low-latency-short-buffer-playback","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","cfhd_12.5_25_50-online-t1"
 "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","cfhd_12.5_25_50-online-t1"
 
+"buffer-underrun-and-recovery","/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local-t1"
 "low-latency-initialization","/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local-t1"
 "low-latency-playback-over-gaps","/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local-t1"
 "low-latency-short-buffer-playback","/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local-t1"
@@ -624,6 +626,13 @@
 
 "buffer-underrun-and-recovery","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-local-t1"
 "low-latency-initialization","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-local-t1"
-"low-latency-playback-over-gaps","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-local-t1"
+"low-latency-playback-over-gaps","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-local-t1
 "low-latency-short-buffer-playback","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-local-t1"
 "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-local-t1"
+
+
+
+"low-latency-initialization","/content/cfhd_sets/12.5_25_50/chunked/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local-chunked"
+"low-latency-playback-over-gaps","/content/cfhd_sets/12.5_25_50/chunked/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local-chunked"
+"low-latency-short-buffer-playback","/content/cfhd_sets/12.5_25_50/chunked/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local-chunked"
+"random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","/content/cfhd_sets/12.5_25_50/chunked/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local-chunked"
