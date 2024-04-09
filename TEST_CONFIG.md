@@ -1,6 +1,6 @@
 # Test Configuration
 
-There are 2 configuration files for the tests: 1) [`test-config.json`](test-config.json) includes the tests paramters as defined in the DPC Test specification and 2) [generated/tests.json](generated/tests.json) which includes information extracted from the MPD of the audio/video streams used in the tests. The structure of both configutation files is described in this document. 
+There are 2 configuration files for the tests: 1) [`test-config.json`](test-config.json) includes the tests paramters as defined in the DPC Test specification and 2) [generated/tests.json](generated/tests.json) which includes information extracted from the MPD of the audio/video streams used in the tests. The structure of both configutation files is described in this document.
 
 ## test-config.json
 
@@ -41,8 +41,8 @@ When specifying a parameter for a specific test, it will override corresponding 
 
 ## Test Parameters
 
-| name                     | description                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name                       | description                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `duration`                 | The duration of the video in seconds.                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `loading`                  | Describes the order in which to load segments. Provides the CMAF Fragment number that is loaded at step i, constrained such that `(MAX(i-loading[i]) + MAX(loading[i]-i)) * MAX(df[k,i]) < max_buffer_duration`. For example: `[3, 2, 1, 6, 5, 4, 9, 8, 7]`                                                                                                                                                                             |
 | `min_buffer_duration`      | Expresses the minimum buffer that the Source Buffer maintains in the playback in ms.                                                                                                                                                                                                                                                                                                                                                    |
@@ -64,14 +64,15 @@ When specifying a parameter for a specific test, it will override corresponding 
 | `waiting_timeout`          | Expresses the maximum time to wait for the video element to transition into playing state after the buffer has been filled. This value shall be provided in milliseconds.                                                                                                                                                                                                                                                               |
 | `random_access_to`         | Expresses the playback time to seek to. This value shall be smaller than the total CMAF track duration and shall be defined in milliseconds.                                                                                                                                                                                                                                                                                            |
 | `random_access_from`       | Expresses the playback time at which the seek is to be done. This value shall be smaller than random_access_to and shall be defined in milliseconds.                                                                                                                                                                                                                                                                                    |
-## generated/tests.json 
+| `test_timeout`             | Overrides the default test timeout.                                                                                                                                                                                                                                                                                                                                                                                                     |
 
-The [generated/tests.json](generated/tests.json) is auto-generated via the [generate-tests.py](generate-tests.py) and should not be edited. It includes information about the test streams defined in [tests.csv](tests.csv). The example below shows an example of a single entry in the tests.json. 
+## generated/tests.json
 
+The [generated/tests.json](generated/tests.json) is auto-generated via the [generate-tests.py](generate-tests.py) and should not be edited. It includes information about the test streams defined in [tests.csv](tests.csv). The example below shows an example of a single entry in the tests.json.
 
 ```json
 {
-    "tests": { 
+    "tests": {
         "d9666abb4a59ca7c6ad8bb8c9b8c0377": {
             "path": "avc_15_30_60-2021-09-09-online/sequential-track-playback__t1.html",
             "video": [
@@ -103,21 +104,23 @@ The [generated/tests.json](generated/tests.json) is auto-generated via the [gene
 }
 ```
 
-This is a brief description of the main elements in the example above: 
+This is a brief description of the main elements in the example above:
 
-* `tests`: the root element of the configuration object. It includes all tests declared in tests.csv. 
-    * `d9666abb4a59ca7c6ad8bb8c9b8c0377`: The ID of the test. It is auto-generated by the test-generation script.
-         *  `path`: the path of the corresponding test file within the generated folder.
-         *  `video`: array of the MPD URLs of video switching sets declared in the tests.csv
-         *  `audio`: array of the MPD URLs of audio switching sets declared in the tests.csv
-         *  `switchingSets`: includes video and audio switching sets declared in the tests.csv
-         
-            *  `video`/`audio`: array that includes details about the video/audio switching sets extracted form the corresponding MPDs. Each item in the array represents a video switching set with the following properties (all values are extracted from the MPD): 
-            *  `cmaf_track_duration`: the CMAF Track duration extracted from the corresponding audio or video MPD
-            *  `fragment_duration`: the fragment duration extracted from the corresponding audio or video MPD
-            *  `representations`: the audio or video representations extracted from the corresponding audio or video MPD. Each representation includes the following properties:
-               * `period`: the period index associated with the representation. The index of the first period is `1`. 
-               * `duration`: the duration of the representation in seconds.
-               * `type` (Deprecated): it is always `video` for video representations and `audio` representations. 
-               * `frame_rate`: the frame rate.
-               * `fragment_duration`: the fragment duration in seconds.
+- `tests`: the root element of the configuration object. It includes all tests declared in tests.csv.
+
+  - `d9666abb4a59ca7c6ad8bb8c9b8c0377`: The ID of the test. It is auto-generated by the test-generation script.
+
+    - `path`: the path of the corresponding test file within the generated folder.
+    - `video`: array of the MPD URLs of video switching sets declared in the tests.csv
+    - `audio`: array of the MPD URLs of audio switching sets declared in the tests.csv
+    - `switchingSets`: includes video and audio switching sets declared in the tests.csv
+
+      - `video`/`audio`: array that includes details about the video/audio switching sets extracted form the corresponding MPDs. Each item in the array represents a video switching set with the following properties (all values are extracted from the MPD):
+      - `cmaf_track_duration`: the CMAF Track duration extracted from the corresponding audio or video MPD
+      - `fragment_duration`: the fragment duration extracted from the corresponding audio or video MPD
+      - `representations`: the audio or video representations extracted from the corresponding audio or video MPD. Each representation includes the following properties:
+        - `period`: the period index associated with the representation. The index of the first period is `1`.
+        - `duration`: the duration of the representation in seconds.
+        - `type` (Deprecated): it is always `video` for video representations and `audio` representations.
+        - `frame_rate`: the frame rate.
+        - `fragment_duration`: the fragment duration in seconds.

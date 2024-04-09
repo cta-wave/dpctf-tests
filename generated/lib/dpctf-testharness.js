@@ -138,6 +138,10 @@ function DpctfTest(config) {
         explicit_done: true,
       });
 
+      if (parameters.testTimeout) {
+        setTestTimeout(parameters.testTimeout);
+      }
+
       video.addEventListener("play", function () {
         if (_videoState === VIDEO_STATE_ERROR) return;
         _lastAction = ACTION_PLAY;
@@ -762,6 +766,7 @@ function DpctfTest(config) {
           timestampOffsets: determineValue("timestamp_offsets"),
           secondPlayoutSwitchingTime:
             determineValue("second_playout_switching_time") || 5,
+          testTimeout: determineValue("test_timeout"),
         };
 
         function calcPlayout(playout) {
