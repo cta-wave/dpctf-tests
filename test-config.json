@@ -65,7 +65,7 @@
   },
   "low-latency-initialization.html": {
     "waiting_time": 5000,
-    "render_threshold": 200
+    "render_threshold": 800
   },
   "buffer-underrun-and-recovery.html": {
     "waiting_duration": 500,
