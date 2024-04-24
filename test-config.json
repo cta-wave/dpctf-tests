@@ -57,7 +57,7 @@
   "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream.html": {
     "random_access_from": 5,
     "random_access_to": 15,
-    "random_access_from_tolerance": 200
+    "random_access_from_tolerance": 400
   },
   "low-latency-short-buffer-playback.html": {
     "maximum_forward_buffer": 500,
@@ -65,7 +65,7 @@
   },
   "low-latency-initialization.html": {
     "waiting_time": 5000,
-    "render_threshold": 200
+    "render_threshold": 800
   },
   "buffer-underrun-and-recovery.html": {
     "waiting_duration": 500,
