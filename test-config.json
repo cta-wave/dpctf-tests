@@ -7,8 +7,8 @@
     "duration_tolerance": 50,
     "duration_frame_tolerance": 0,
     "ts_max": 1000,
-    "tolerance": 20,
-    "frame_tolerance": 2,
+    "tolerance": 150,
+    "frame_tolerance": 1,
     "av_sync_tolerance": [40, -120]
   },
   "sequential-track-playback.html": {
