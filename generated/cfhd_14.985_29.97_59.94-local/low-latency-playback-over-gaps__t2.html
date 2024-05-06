@@ -95,23 +95,39 @@
           });
         }, "video ended event fired");
 
-        function onPlayerWaiting() {
-          var playbackMode = parameters.playbackMode;
-          var gapDuration = parameters.gapDuration;
-          var waitingDuration = 0;
-          if (playbackMode === dpctfTest.PLAYBACK_MODE_LIVE) {
-            waitingDuration = gapDuration;
+        dpctfTest.asyncTest(function (test) {
+          function onPlayerWaiting() {
+            var playbackMode = parameters.playbackMode;
+            var gapDuration = parameters.gapDuration;
+            var waitingDuration = 0;
+            if (playbackMode === dpctfTest.PLAYBACK_MODE_LIVE) {
+              waitingDuration = gapDuration;
+            }
+            video.addEventListener("playing", onPlayerPlaying);
+            setTimeout(function () {
+              video.removeEventListener("waiting", onPlayerWaiting);
+              player.setCurrentTime(video.buffered.start(1));
+              test.step(function () {
+                assert_true(true);
+              });
+              done();
+              test.done();
+            }, waitingDuration);
           }
-          setTimeout(function () {
-            video.removeEventListener("waiting", onPlayerWaiting);
-            player.setCurrentTime(video.buffered.start(1));
-            done();
-          }, waitingDuration);
-        }
 
-        player
-          .playOnBufferLoaded(minBufferDuration)
-          .then(video.addEventListener("waiting", onPlayerWaiting));
+          function onPlayerPlaying() {
+            video.removeEventListener("waiting", onPlayerWaiting);
+            test.step(function () {
+              assert_true(false);
+            });
+            test.done();
+            done();
+          }
+
+          player.playOnBufferLoaded(minBufferDuration).then(function () {
+            video.addEventListener("waiting", onPlayerWaiting);
+          });
+        }, "video remains in waiting state until skipping over the gap");
       }
     </script>
   </body>
