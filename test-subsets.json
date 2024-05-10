@@ -1,0 +1,62 @@
+{
+  "subsets": [
+    {
+      "title": "HbbTV online",
+      "tests": [
+        "/cfhd_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1.html",
+        "/cfhd_12.5_25_50-local/out-of-order-loading__t1.html",
+        "/cfhd_12.5_25_50-local/overlapping-fragments__ss1.html",
+        "/cfhd_12.5_25_50-local/playback-of-encrypted-content-https__t1-cenc.html",
+        "/cfhd_12.5_25_50-local/playback-over-wave-baseline-splice-constraints__splice_main_splice_ad.html",
+        "/cfhd_12.5_25_50-local/random-access-of-a-wave-presentation__t1_at1.html",
+        "/cfhd_12.5_25_50-local/random-access-to-fragment__t1.html",
+        "/cfhd_12.5_25_50-local/random-access-to-time__t1.html",
+        "/cfhd_12.5_25_50-local/regular-playback-of-a-cmaf-presentation__t1_at1.html",
+        "/cfhd_12.5_25_50-local/regular-playback-of-chunked-content-non-aligned-append__chunked.html",
+        "/cfhd_12.5_25_50-local/regular-playback-of-chunked-content__chunked.html",
+        "/cfhd_12.5_25_50-local/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html",
+        "/cfhd_12.5_25_50-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__splice_main-cenc_splice_ad.html",
+        "/cfhd_12.5_25_50-local/sequential-track-playback__t1.html",
+        "/cfhd_12.5_25_50-local/sequential-track-playback__t10.html",
+        "/cfhd_12.5_25_50-local/sequential-track-playback__t11.html",
+        "/cfhd_12.5_25_50-local/sequential-track-playback__t12.html",
+        "/cfhd_12.5_25_50-local/sequential-track-playback__t13.html",
+        "/cfhd_12.5_25_50-local/sequential-track-playback__t14.html",
+        "/cfhd_12.5_25_50-local/sequential-track-playback__t15.html",
+        "/cfhd_12.5_25_50-local/sequential-track-playback__t3.html",
+        "/cfhd_12.5_25_50-local/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad_at13_at14.html",
+        "/cfhd_12.5_25_50-local/switching-set-playback__ss1-1.html",
+        "/cfhd_12.5_25_50-local/switching-set-playback__ss1-2.html"
+      ]
+    },
+    {
+      "title": "HbbTV local",
+      "tests": [
+        "/cfhd_12.5_25_50-online/fullscreen-playback-of-switching-sets__ss1.html",
+        "/cfhd_12.5_25_50-online/out-of-order-loading__t1.html",
+        "/cfhd_12.5_25_50-online/overlapping-fragments__ss1.html",
+        "/cfhd_12.5_25_50-online/playback-of-encrypted-content-https__t1-cenc.html",
+        "/cfhd_12.5_25_50-online/playback-over-wave-baseline-splice-constraints__splice_main_splice_ad.html",
+        "/cfhd_12.5_25_50-online/random-access-of-a-wave-presentation__t1_at1.html",
+        "/cfhd_12.5_25_50-online/random-access-to-fragment__t1.html",
+        "/cfhd_12.5_25_50-online/random-access-to-time__t1.html",
+        "/cfhd_12.5_25_50-online/regular-playback-of-a-cmaf-presentation__t1_at1.html",
+        "/cfhd_12.5_25_50-online/regular-playback-of-chunked-content-non-aligned-append__chunked.html",
+        "/cfhd_12.5_25_50-online/regular-playback-of-chunked-content__chunked.html",
+        "/cfhd_12.5_25_50-online/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html",
+        "/cfhd_12.5_25_50-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__splice_main-cenc_splice_ad.html",
+        "/cfhd_12.5_25_50-online/sequential-track-playback__t1.html",
+        "/cfhd_12.5_25_50-online/sequential-track-playback__t10.html",
+        "/cfhd_12.5_25_50-online/sequential-track-playback__t11.html",
+        "/cfhd_12.5_25_50-online/sequential-track-playback__t12.html",
+        "/cfhd_12.5_25_50-online/sequential-track-playback__t13.html",
+        "/cfhd_12.5_25_50-online/sequential-track-playback__t14.html",
+        "/cfhd_12.5_25_50-online/sequential-track-playback__t15.html",
+        "/cfhd_12.5_25_50-online/sequential-track-playback__t3.html",
+        "/cfhd_12.5_25_50-online/splicing-of-wave-program-with-baseline-constraints__splice_main_splice_ad_at13_at14.html",
+        "/cfhd_12.5_25_50-online/switching-set-playback__ss1-1.html",
+        "/cfhd_12.5_25_50-online/switching-set-playback__ss1-2.html"
+      ]
+    }
+  ]
+}
