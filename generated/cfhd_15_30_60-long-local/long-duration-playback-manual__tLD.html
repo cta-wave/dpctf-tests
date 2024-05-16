@@ -41,14 +41,14 @@
         title: "Long Duration Playback",
         description:
           "This requirement addresses the proper playback of a WAVE presentation over a longer time; in particular, no drift in the playout occurs.",
-        code: "long-duration-playback.html",
+        code: "long-duration-playback-manual.html",
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["/content/cfhd_sets/12.5_25_50/tLD/2023-09-01/stream.mpd"];
+      var videoContentModel = ["/content/cfhd_sets/15_30_60/tLD/2023-09-01/stream.mpd"];
       var audioContentModel = [];
 
       var dpctfTest = new DpctfTest({
