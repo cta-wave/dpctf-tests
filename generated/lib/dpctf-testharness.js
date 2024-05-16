@@ -587,6 +587,7 @@ function DpctfTest(config) {
 
   function finishSubTest(test) {
     var index = _runningTests.indexOf(test);
+    if (index === -1) return;
     _runningTests.splice(index, 1);
 
     if (_runningTests.length > 0) return;
