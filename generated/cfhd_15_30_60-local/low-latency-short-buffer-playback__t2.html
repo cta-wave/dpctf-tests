@@ -82,31 +82,39 @@
           });
         }, "video ended event fired");
 
-        function handleSegmentLoaded(event) {
-          if (player.getPreBufferedTime() < maximumForwardBuffer) return;
-          var timeout = {};
-          video.addEventListener("playing", function () {
-            clearTimeout(timeout.handle);
-            player.off(handleSegmentLoaded);
-            done();
-          });
-          timeout.handle = setTimeout(function () {
-            player.off(handleSegmentLoaded);
-            done(
-              "Video did not change to playing state in time (" +
-                waitingDuration +
-                "ms)"
-            );
-          }, waitingDuration);
-          player
-            .play()
-            .then(function () {})
-            .catch(function (error) {
-              done(error);
+        dpctfTest.asyncTest(function (test) {
+          function handleSegmentLoaded(event) {
+            if (player.getPreBufferedTime() < maximumForwardBuffer) return;
+            var timeout = {};
+            video.addEventListener("playing", function () {
+              clearTimeout(timeout.handle);
+              player.off(handleSegmentLoaded);
+              test.step(function () {
+                assert_true(true);
+              });
+              test.done();
+              done();
             });
-        }
-        player.on("onVideoSegmentLoaded", handleSegmentLoaded);
-        player.startBuffering();
+            timeout.handle = setTimeout(function () {
+              player.off(handleSegmentLoaded);
+              test.step(function () {
+                assert_true(false);
+              });
+              test.done();
+              done();
+            }, waitingDuration);
+            player
+              .play()
+              .then(function () {})
+              .catch(function (error) {
+                done(error);
+              });
+          }
+          player.on("onVideoSegmentLoaded", handleSegmentLoaded);
+          player.startBuffering();
+        }, "video should change to playing state in time (" +
+          waitingDuration +
+          "ms)");
       }
     </script>
   </body>
