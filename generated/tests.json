@@ -1848,13 +1848,13 @@
                 ]
             }
         },
-        "ced4d831a94da4cea7a8cc5a47e42739": {
-            "path": "cfhd_15_30_60-long-online/long-duration-playback__tLD.html",
+        "26c8211f5e89a8eec22fd8b3dbb2333f": {
+            "path": "cfhd_15_30_60-long-online/long-duration-playback-manual__tLD.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/tLD/2023-09-01/stream.mpd"
             ],
             "audio": [],
-            "code": "long-duration-playback.html",
+            "code": "long-duration-playback-manual.html",
             "switchingSets": {
                 "video": [
                     {
@@ -3739,13 +3739,13 @@
                 ]
             }
         },
-        "878b2d4e4021ebbfca75a4556c2d0c1f": {
-            "path": "cfhd_15_30_60-long-local/long-duration-playback__tLD.html",
+        "286d9a0400ac918f789241dde52f32f8": {
+            "path": "cfhd_15_30_60-long-local/long-duration-playback-manual__tLD.html",
             "video": [
                 "/content/cfhd_sets/15_30_60/tLD/2023-09-01/stream.mpd"
             ],
             "audio": [],
-            "code": "long-duration-playback.html",
+            "code": "long-duration-playback-manual.html",
             "switchingSets": {
                 "video": [
                     {
@@ -6202,13 +6202,13 @@
                 ]
             }
         },
-        "ecb4ff4b23eff2f0d1c597bc727997a8": {
-            "path": "cfhd_12.5_25_50-long-online/long-duration-playback__tLD.html",
+        "aadbefd917dff287a63f3e5cf483cb5d": {
+            "path": "cfhd_12.5_25_50-long-online/long-duration-playback-manual__tLD.html",
             "video": [
                 "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/tLD/2023-09-01/stream.mpd"
             ],
             "audio": [],
-            "code": "long-duration-playback.html",
+            "code": "long-duration-playback-manual.html",
             "switchingSets": {
                 "video": [
                     {
@@ -8665,13 +8665,13 @@
                 ]
             }
         },
-        "2c61fd3e9a4444d544ba49974490d6bf": {
-            "path": "cfhd_12.5_25_50-long-local/long-duration-playback__tLD.html",
+        "78707ea5bc401ae7495ec8657c9d8959": {
+            "path": "cfhd_12.5_25_50-long-local/long-duration-playback-manual__tLD.html",
             "video": [
                 "/content/cfhd_sets/12.5_25_50/tLD/2023-09-01/stream.mpd"
             ],
             "audio": [],
-            "code": "long-duration-playback.html",
+            "code": "long-duration-playback-manual.html",
             "switchingSets": {
                 "video": [
                     {
