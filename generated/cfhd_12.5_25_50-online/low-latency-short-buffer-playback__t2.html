@@ -65,11 +65,11 @@
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
         var maximumForwardBuffer = parameters.maximumForwardBuffer / 1000;
-        var waitingTimeout = parameters.waitingTimeout;
+        var waitingDuration = parameters.waitingDuration;
 
         if (!maximumForwardBuffer)
           done("Missing parameter 'maximum_froward_buffer'");
-        if (!waitingTimeout) done("Missing parameter 'waiting_timeout'");
+        if (!waitingDuration) done("Missing parameter 'waiting_duration'");
 
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
@@ -94,10 +94,10 @@
             player.off(handleSegmentLoaded);
             done(
               "Video did not change to playing state in time (" +
-                waitingTimeout +
+                waitingDuration +
                 "ms)"
             );
-          }, waitingTimeout);
+          }, waitingDuration);
           player
             .play()
             .then(function () {})
