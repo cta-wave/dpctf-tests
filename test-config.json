@@ -61,7 +61,7 @@
   },
   "low-latency-short-buffer-playback.html": {
     "maximum_forward_buffer": 500,
-    "waiting_timeout": 500
+    "waiting_duration": 500
   },
   "low-latency-initialization.html": {
     "waiting_time": 5000,
