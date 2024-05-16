@@ -1,9 +1,10 @@
 {
   "subsets": [
     {
-      "title": "HbbTV online",
+      "title": "HbbTV local",
       "tests": [
-        "/cfhd_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1.html",
+        "/cfhd_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1-1.html",
+        "/cfhd_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1-2.html",
         "/cfhd_12.5_25_50-local/out-of-order-loading__t1.html",
         "/cfhd_12.5_25_50-local/overlapping-fragments__ss1.html",
         "/cfhd_12.5_25_50-local/playback-of-encrypted-content-https__t1-cenc.html",
@@ -30,9 +31,10 @@
       ]
     },
     {
-      "title": "HbbTV local",
+      "title": "HbbTV online",
       "tests": [
-        "/cfhd_12.5_25_50-online/fullscreen-playback-of-switching-sets__ss1.html",
+        "/cfhd_12.5_25_50-online/fullscreen-playback-of-switching-sets__ss1-1.html",
+        "/cfhd_12.5_25_50-online/fullscreen-playback-of-switching-sets__ss1-2.html",
         "/cfhd_12.5_25_50-online/out-of-order-loading__t1.html",
         "/cfhd_12.5_25_50-online/overlapping-fragments__ss1.html",
         "/cfhd_12.5_25_50-online/playback-of-encrypted-content-https__t1-cenc.html",
