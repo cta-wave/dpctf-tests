@@ -4,7 +4,7 @@ var messageFormat = "utf8";
 const VIDEO = "video";
 const AUDIO = "audio";
 
-function Player(video) {
+function Player(video, options) {
   let instance;
   let _settings;
   let _video = video;
@@ -24,6 +24,8 @@ function Player(video) {
   var PLAYER_EVENT_START_BUFFERING = Player.PLAYER_EVENT_START_BUFFERING;
   var PLAYER_EVENT_TRIGGER_PLAY = Player.PLAYER_EVENT_TRIGGER_PLAY;
   var PLAYER_EVENT_TRIGGER_PAUSE = Player.PLAYER_EVENT_TRIGGER_PAUSE;
+  
+  var logger = options.logger;
 
   function init(settings) {
     if (_mediaSource) throw new Error("Player already initialized");
@@ -201,7 +203,7 @@ function Player(video) {
 
   function loadVideo(vectorUrls) {
     if (!vectorUrls || vectorUrls.length === 0) {
-      console.log("Warning: No video mpd provided!");
+      logger.log("Warning: No video mpd provided!");
       return;
     }
     return loadMedia({ vectorUrls, mediaType: VIDEO }).then(
@@ -214,7 +216,7 @@ function Player(video) {
 
   function loadAudio(vectorUrls) {
     if (!vectorUrls || vectorUrls.length === 0) {
-      console.log("Warning: No audio mpd provided!");
+      logger.log("Warning: No audio mpd provided!");
       return;
     }
     return loadMedia({ vectorUrls, mediaType: AUDIO }).then(
@@ -313,7 +315,8 @@ function Player(video) {
     _protectionController = new EncryptionController(
       video,
       videoMimeCodec,
-      audioMimeCodec
+      audioMimeCodec,
+      { logger: logger }
     );
   }
 
@@ -1315,10 +1318,11 @@ function EventEmitter() {
   return instance;
 }
 
-function EncryptionController(video, videoMimeCodec, audioMimeCodec) {
+function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
   var mediaKeysObject;
   var KEYSYSTEM_NAME = "org.w3.clearkey";
   var contentKey;
+  var logger = options.logger;
 
   function handleEncryption(config) {
     var initDataType = config.initDataType;
@@ -1371,11 +1375,9 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec) {
       false
     );
     //keySession.closed.then(console.log.bind(console, "Session closed"));
-    keySession
-      .generateRequest(initDataType, initData)
-      .catch(
-        console.log("WARNING: Unable to create or initialize key session")
-      );
+    keySession.generateRequest(initDataType, initData).catch(function () {
+      logger.log("WARNING: Unable to create or initialize key session");
+    });
   }
 
   function licenseRequestReady(event) {
@@ -1399,13 +1401,13 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec) {
     event.target.keyStatuses.forEach(function (status, keyId) {
       switch (status) {
         case "usable":
-          console.log("Key Status Change: Usable");
+          logger.log("Key Status Change: Usable");
           break;
         case "expired":
-          console.log("Key Status Change: Expired");
+          logger.log("Key Status Change: Expired");
           break;
         case "status-pending":
-          console.log("Key Status Change: Status-Pending");
+          logger.log("Key Status Change: Status-Pending");
           break;
         default:
         // Do something with |keyId| and |status|.
