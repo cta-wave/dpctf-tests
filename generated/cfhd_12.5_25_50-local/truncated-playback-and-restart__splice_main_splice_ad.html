@@ -65,6 +65,7 @@
       });
 
       function executeTest(player, done, parameters) {
+        var logger = dpctfTest.getLogger();
         var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
 
@@ -73,7 +74,9 @@
             if (video.currentTime < parameters.secondPlayoutSwitchingTime)
               return;
             player.pause();
+            logger.log("setting play position to 0")
             player.setCurrentTime(0);
+            logger.log("truncating buffer")
             player.truncateBuffer().then(function () {
               player.on("onAllVideoSegmentsLoaded", function () {
                 player.closeStream();

@@ -63,7 +63,9 @@
       });
 
       function setupTest(player, done, parameters) {
+        var logger = dpctfTest.getLogger();
         var randomAccessTime = parameters.randomAccessTime;
+        logger.log("seeking to " + randomAccessTime);
         player.setCurrentTime(randomAccessTime);
         done();
       }

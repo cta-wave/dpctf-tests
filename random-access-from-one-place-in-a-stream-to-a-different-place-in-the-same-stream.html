@@ -2,7 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Random access from one place in a stream to a different place in the same stream</title>
+    <title>
+      Random access from one place in a stream to a different place in the same
+      stream
+    </title>
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -64,6 +67,7 @@
       });
 
       function executeTest(player, done, parameters) {
+        var logger = dpctfTest.getLogger();
         var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
 
@@ -82,6 +86,7 @@
         var randomAccessTo = parameters.randomAccessTo;
         function handleRandomAccess(currentTime) {
           if (currentTime < randomAccessFrom) return;
+          logger.log("seeking to " + randomAccessTo);
           player.setCurrentTime(randomAccessTo);
           player.off(handleRandomAccess);
         }

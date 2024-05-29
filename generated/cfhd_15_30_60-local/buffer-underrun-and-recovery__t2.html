@@ -64,6 +64,7 @@
       });
 
       function executeTest(player, done, parameters) {
+        var logger = dpctfTest.getLogger();
         var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
 
@@ -80,6 +81,7 @@
 
         function onPlayerWaiting() {
           var waitingDuration = parameters.waitingDuration || 1000;
+          logger.log("buffer underrun, waiting " + waitingDuration + "ms")
           setTimeout(function () {
             player.startBuffering();
             done();
