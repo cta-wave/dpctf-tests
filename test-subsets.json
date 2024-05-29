@@ -61,7 +61,6 @@
       ]
     },
     {
-      "title": "released",
       "tag": {
         "text": "released",
         "color": "success"
@@ -90,7 +89,6 @@
       ]
     },
     {
-      "title": "beta",
       "tag": {
         "text": "beta",
         "color": "warning"
