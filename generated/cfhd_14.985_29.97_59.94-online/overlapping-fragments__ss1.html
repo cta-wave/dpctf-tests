@@ -67,36 +67,6 @@
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
 
-        //var handleRandomSwitch = function (currentTime) {
-        //  var duration = player.getDuration();
-        //  var switchingTime = duration * 0.3;
-
-        //  if (currentTime < switchingTime) return;
-        //  if (Math.random() > 0.05) return;
-
-        //  var newRepresentationIndex = 1;
-
-        //  var manifest = player.getVideoManifests()[0];
-        //  if (!manifest) manifest = player.getAudioManifests()[0];
-
-        //  var newRepresentation = manifest.getRepresentation(
-        //    newRepresentationIndex
-        //  );
-        //  throw new Error("Unable to find representation ", newRepresentationIndex)
-        //  var totalSegmentsCount = newRepresentation.getTotalSegmentsCount();
-        //  var switchingSegment = player.getPlayingVideoSegment().getNumber();
-        //  if (!overwriteCurrentFragment) {
-        //    switchingSegment += 1;
-        //  }
-        //  player.setVideoSegments({
-        //    representationNumber: 1,
-        //    startSegment: switchingSegment,
-        //    endSegment: totalSegmentsCount - 1,
-        //  });
-        //  player.off(handleRandomSwitch);
-        //};
-        //player.on("onTimeUpdate", handleRandomSwitch);
-
         player.startBuffering();
         player.playOnBufferLoaded(minBufferDuration).then(done);
 

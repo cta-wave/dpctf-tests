@@ -63,6 +63,7 @@
       });
 
       function setupTest(player, done, parameters) {
+        var logger = dpctfTest.getLogger();
         var randomAccessFragment = parameters.randomAccessFragment;
         var segments = player.getVideoSegments();
         var totalSegments = player.getVideoSegmentsCount();
@@ -76,6 +77,7 @@
           var segmentDuration = segments[i].getDuration();
           fragmentTime += segmentDuration;
         }
+        logger.log("seeking to " + fragmentTime);
         player.setCurrentTime(fragmentTime);
 
         done();

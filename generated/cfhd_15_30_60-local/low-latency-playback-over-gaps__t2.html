@@ -81,6 +81,7 @@
       }
 
       function executeTest(player, done, parameters) {
+        var logger = dpctfTest.getLogger();
         var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
 
@@ -97,6 +98,7 @@
 
         dpctfTest.asyncTest(function (test) {
           function onPlayerWaiting() {
+            logger.log("play position reached gap");
             var playbackMode = parameters.playbackMode;
             var gapDuration = parameters.gapDuration;
             var waitingDuration = 0;
@@ -104,8 +106,16 @@
               waitingDuration = gapDuration;
             }
             video.addEventListener("playing", onPlayerPlaying);
+            logger.log(
+              "playback mode: " +
+                playbackMode +
+                ", waiting " +
+                waitingDuration +
+                "ms"
+            );
             setTimeout(function () {
               video.removeEventListener("waiting", onPlayerWaiting);
+              logger.log("seeking to end of gap");
               player.setCurrentTime(video.buffered.start(1));
               test.step(function () {
                 assert_true(true);
@@ -120,6 +130,7 @@
             test.step(function () {
               assert_true(false);
             });
+            logger.log("video started playing early");
             test.done();
             done();
           }
