@@ -63,8 +63,10 @@
     {
       "tag": {
         "text": "released",
-        "color": "success"
+        "color": "success",
+        "default_filter": true
       },
+      "default": true,
       "tests": [
         "/cfhd_12.5_25_50-local/buffer-underrun-and-recovery__t2.html",
         "/cfhd_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1-1.html",
@@ -85,13 +87,34 @@
         "/cfhd_12.5_25_50-local/sequential-track-playback__t1.html",
         "/cfhd_12.5_25_50-local/sequential-track-playback__t3.html",
         "/cfhd_12.5_25_50-local/switching-set-playback__ss1-1.html",
-        "/cfhd_12.5_25_50-local/switching-set-playback__ss1-2.html"
+        "/cfhd_12.5_25_50-local/switching-set-playback__ss1-2.html",
+        "/cfhd_12.5_25_50-online/buffer-underrun-and-recovery__t2.html",
+        "/cfhd_12.5_25_50-online/fullscreen-playback-of-switching-sets__ss1-1.html",
+        "/cfhd_12.5_25_50-online/fullscreen-playback-of-switching-sets__ss1-2.html",
+        "/cfhd_12.5_25_50-online/low-latency-initialization__t2.html",
+        "/cfhd_12.5_25_50-online/low-latency-short-buffer-playback__t2.html",
+        "/cfhd_12.5_25_50-online/mse-appendwindow__t1.html",
+        "/cfhd_12.5_25_50-online/out-of-order-loading__t1.html",
+        "/cfhd_12.5_25_50-online/overlapping-fragments__ss1.html",
+        "/cfhd_12.5_25_50-online/playback-of-encrypted-content-https__t1-cenc.html",
+        "/cfhd_12.5_25_50-online/random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream__t2.html",
+        "/cfhd_12.5_25_50-online/random-access-to-fragment__t1.html",
+        "/cfhd_12.5_25_50-online/random-access-to-time__t1.html",
+        "/cfhd_12.5_25_50-online/regular-playback-of-chunked-content-non-aligned-append__chunked.html",
+        "/cfhd_12.5_25_50-online/regular-playback-of-chunked-content__chunked.html",
+        "/cfhd_12.5_25_50-online/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html",
+        "/cfhd_12.5_25_50-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__splice_main-cenc_splice_ad.html",
+        "/cfhd_12.5_25_50-online/sequential-track-playback__t1.html",
+        "/cfhd_12.5_25_50-online/sequential-track-playback__t3.html",
+        "/cfhd_12.5_25_50-online/switching-set-playback__ss1-1.html",
+        "/cfhd_12.5_25_50-online/switching-set-playback__ss1-2.html"
       ]
     },
     {
       "tag": {
         "text": "beta",
-        "color": "warning"
+        "color": "warning",
+        "default_filter": true
       },
       "message": {
         "text": "One or more beta test selected. For more information please see [the docs](https://github.com/cta-wave/dpctf-tests/wiki/DPCTF-test-case-status-for-inclusion-in-release)",
@@ -99,10 +122,15 @@
       },
       "tests": [
         "/cfhd_12.5_25_50-local/truncated-playback-and-restart__splice_main_splice_ad.html",
-        "/cfhd_12.5_25_50-long-local/long-duration-playback-manual__tLD.html",
         "/cfhd_12.5_25_50-local/low-latency-playback-over-gaps__t2.html",
         "/chh1_12.5_25_50-local/source-buffer-re-initialization-with-changetype__t1.html",
-        "/chh1_12.5_25_50-local/source-buffer-re-initialization-without-changetype__t1.html"
+        "/chh1_12.5_25_50-local/source-buffer-re-initialization-without-changetype__t1.html",
+        "/cfhd_12.5_25_50-long-local/long-duration-playback-manual__tLD.html",
+        "/cfhd_12.5_25_50-online/truncated-playback-and-restart__splice_main_splice_ad.html",
+        "/cfhd_12.5_25_50-online/low-latency-playback-over-gaps__t2.html",
+        "/chh1_12.5_25_50-online/source-buffer-re-initialization-with-changetype__t1.html",
+        "/chh1_12.5_25_50-online/source-buffer-re-initialization-without-changetype__t1.html",
+        "/cfhd_12.5_25_50-long-online/long-duration-playback-manual__tLD.html"
       ]
     }
   ]
