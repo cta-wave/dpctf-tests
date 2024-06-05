@@ -62,7 +62,7 @@
     },
     {
       "tag": {
-        "text": "released",
+        "text": "validated",
         "color": "success",
         "default_filter": true
       },
