@@ -140,6 +140,14 @@
         "/chh1_12.5_25_50-online/source-buffer-re-initialization-without-changetype__t1.html",
         "/cfhd_12.5_25_50-long-online/long-duration-playback-manual__tLD.html"
       ]
+    },
+    {
+      "tag": {
+        "text": "long duration",
+        "color": "info",
+        "default_exclude": true
+      },
+      "tests": ["*long-duration*"]
     }
   ]
 }
