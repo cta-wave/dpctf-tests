@@ -6,4 +6,4 @@ A DPCTF test can have one or multiple tags representing its validation status or
 
 A current list of tests with assigned tags is available in [test-subsets.json](test-subsets.json), used in the test runner's web client as in the screenshot below.
 
-![test-tags-ui](./assets/1138409/f7e814dd-59fd-4381-a365-7bd4075172cc)
+![test-tags-ui](../../assets/1138409/f7e814dd-59fd-4381-a365-7bd4075172cc)
