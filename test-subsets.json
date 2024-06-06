@@ -125,7 +125,7 @@
         "default_filter": true
       },
       "message": {
-        "text": "One or more beta test selected. For more information please see [the docs](https://github.com/cta-wave/dpctf-tests/wiki/DPCTF-test-case-status-for-inclusion-in-release)",
+        "text": "One or more beta test selected. For more information please see [the docs](https://github.com/cta-wave/dpctf-tests/blob/v2.0.0/TEST_TAGS.md)",
         "color": "warning"
       },
       "tests": [
@@ -146,6 +146,10 @@
         "text": "long duration",
         "color": "info",
         "default_exclude": true
+      },
+      "message": {
+        "text": "One or more long duration test selected. For more information please see [the docs](https://github.com/cta-wave/dpctf-tests/blob/v2.0.0/TEST_TAGS.md)",
+        "color": "info"
       },
       "tests": ["*long-duration*"]
     }
