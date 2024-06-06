@@ -1,6 +1,15 @@
 {
   "subsets": [
     {
+      "title": "All local",
+      "default_subset": true,
+      "tests": ["*-local/*"]
+    },
+    {
+      "title": "All online",
+      "tests": ["*-online/*"]
+    },
+    {
       "title": "HbbTV local",
       "tests": [
         "/cfhd_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1-1.html",
@@ -66,7 +75,6 @@
         "color": "success",
         "default_filter": true
       },
-      "default": true,
       "tests": [
         "/cfhd_12.5_25_50-local/buffer-underrun-and-recovery__t2.html",
         "/cfhd_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1-1.html",
