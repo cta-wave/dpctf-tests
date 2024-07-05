@@ -70,6 +70,8 @@ function DpctfTest(config) {
   var contentWrapper = document.getElementById("content-wrapper");
   contentWrapper.appendChild(screenConsole);
 
+  HbbTV.setLogger(getLogger());
+
   promise_test(function () {
     // Specify workflow
     return loadParameters()
@@ -79,7 +81,7 @@ function DpctfTest(config) {
       .then(initializeWaveService)
       .then(sendTestReadyEvent)
       .then(waitForObservationReady)
-      .then(stopBroadcastOnHbbTV)
+      .then(HbbTV.stopBroadcast)
       .then(executeTest)
       .then(waitForObservationResults)
       .then(handleError)
