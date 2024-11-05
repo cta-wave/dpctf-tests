@@ -70,6 +70,7 @@
         dpctfTest.asyncTest(function (test) {
           var query = location.search.replace(/\?/, "");
           var match = query.match(/redirect_time=([^&]+)/);
+          console.log("log");
           var REDIRECT_TIME = match ? match[1] : null;
           if (!REDIRECT_TIME) REDIRECT_TIME = 5;
           video.addEventListener("ended", function (event) {
