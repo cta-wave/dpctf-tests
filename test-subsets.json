@@ -133,7 +133,7 @@
         "/cfhd_14.985_29.97_59.94-online/playback-of-encrypted-content-https__t1-cenc.html",
         "/cfhd_14.985_29.97_59.94-online/random-access-to-fragment__t1.html",
         "/cfhd_14.985_29.97_59.94-online/sequential-track-playback__t1.html",
-        "/cfhd_14.985_29.97_59.94-online/sequential-track-playback__t3.html",
+        "/cfhd_14.985_29.97_59.94-online/sequential-track-playback__t3.html"
       ]
     },
     {
@@ -208,7 +208,7 @@
         "/cfhd_14.985_29.97_59.94-online/low-latency-short-buffer-playback__t2.html",
         "/cfhd_14.985_29.97_59.94-online/overlapping-fragments__ss1.html",
         "/cfhd_14.985_29.97_59.94-online/random-access-to-time__t1.html",
-        "/cfhd_14.985_29.97_59.94-online/random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream__t2.html",
+        "/cfhd_14.985_29.97_59.94-online/random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream__t2.html"
       ]
     },
     {
