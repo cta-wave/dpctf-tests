@@ -11,6 +11,7 @@ import urllib.request
 import urllib.error
 import http.client
 import re
+import traceback
 from xml.dom.minidom import parseString
 from python_lib.gweis.isoduration import parse_duration
 
@@ -86,8 +87,9 @@ def main():
                 try:
                     video_parameters = parse_mpd_parameters(
                         mpd_content, [TYPE_VIDEO])
-                except:
+                except Exception as e:
                     print("ERROR: Failed to parse " + video_mpd_url)
+                    print(traceback.format_exc())
                 mpd_video_parameters[video_mpd_url] = video_parameters
 
         audio_parameters = None
@@ -200,67 +202,78 @@ def parse_mpd_parameters(content, types):
         periodDuration = period.getAttribute("duration")
         if periodDuration != "":
             periodDuration = parse_duration(periodDuration).seconds
-        segmentTemplates = period.getElementsByTagName("SegmentTemplate")
-        for segmentTemplate in segmentTemplates:
-            if segmentTemplate.parentNode.tagName == "Representation":
-                continue
+            
+        adaptationSets = period.getAttribute("AdaptationSet")
+        for adaptationSet in adaptationSets:
+            content_type = ""
+            if adaptationSet.hasAttribute("mimeType"):
+                mime_type = adaptationSet.getAttribute("mimeType")
+                content_type = re.search("^(.+)\/", mime_type).group(1)
+                if content_type not in types:
+                    continue
 
-            if segmentTemplate.hasAttribute("timescale"):
-                timescale = segmentTemplate.getAttribute("timescale")
-                parameters["timescale"] = int(timescale)
+            segmentTemplates = adaptationSet.getElementsByTagName("SegmentTemplate")
+            for segmentTemplate in segmentTemplates:
+                if segmentTemplate.parentNode.tagName == "Representation":
+                    continue
 
-            segment_timeline_nodes = segmentTemplate.getElementsByTagName(
-                "SegmentTimeline")
-            if len(segment_timeline_nodes) != 0:
-                segment_timelines = parse_segment_timelines(
-                    segment_timeline_nodes[0])
-                parameters["segmentTimeline"] = segment_timelines
-            break
+                if segmentTemplate.hasAttribute("timescale"):
+                    timescale = segmentTemplate.getAttribute("timescale")
+                    parameters["timescale"] = int(timescale)
 
-        source = dom_tree.getElementsByTagName("Source")
-        if len(source) > 0:
-            parameters["source"] = source[0].firstChild.nodeValue
+                segment_timeline_nodes = segmentTemplate.getElementsByTagName(
+                    "SegmentTimeline")
+                if len(segment_timeline_nodes) != 0:
+                    segment_timelines = parse_segment_timelines(
+                        segment_timeline_nodes[0])
+                    parameters["segmentTimeline"] = segment_timelines
+                break
 
-        representations = period.getElementsByTagName("Representation")
-        for representation in representations:
-            representationId = representation.getAttribute("id")
-            rep_parameters = {}
-            rep_parameters["period"] = periodNumber
+            source = dom_tree.getElementsByTagName("Source")
+            if len(source) > 0:
+                parameters["source"] = source[0].firstChild.nodeValue
 
-            if representation.hasAttribute("audioSamplingRate"):
-                audioSamplingRate = representation.getAttribute(
-                    "audioSamplingRate")
-                rep_parameters["audioSamplingRate"] = int(audioSamplingRate)
+            representations = adaptationSet.getElementsByTagName("Representation")
+            for representation in representations:
+                representationId = representation.getAttribute("id")
+                rep_parameters = {}
+                rep_parameters["period"] = periodNumber
 
-            if periodDuration != "":
-                rep_parameters["duration"] = periodDuration
+                if representation.hasAttribute("audioSamplingRate"):
+                    audioSamplingRate = representation.getAttribute(
+                        "audioSamplingRate")
+                    rep_parameters["audioSamplingRate"] = int(audioSamplingRate)
 
-            mime_type = representation.getAttribute("mimeType")
-            content_type = re.search("^(.+)\/", mime_type).group(1)
-            if content_type not in types:
-                continue
-            rep_parameters["type"] = content_type
+                if periodDuration != "":
+                    rep_parameters["duration"] = periodDuration
 
-            if representation.hasAttribute("frameRate"):
-                frame_rate = representation.getAttribute("frameRate")
-                rep_parameters["frame_rate"] = frame_rate
+                if representation.hasAttribute("mimeType"):
+                    mime_type = representation.getAttribute("mimeType")
+                    content_type = re.search("^(.+)\/", mime_type).group(1)
+                    if content_type not in types:
+                        continue
+                rep_parameters["type"] = content_type
 
-            segment_templates = representation.getElementsByTagName(
-                "SegmentTemplate")
-            if len(segment_templates) == 0 or len(segment_templates[0].getElementsByTagName("S")) == 0:
-                adaptation_set = get_parent_by_name(
-                    representation, "AdaptationSet")
-                segment_templates = adaptation_set.getElementsByTagName(
+                if representation.hasAttribute("frameRate"):
+                    frame_rate = representation.getAttribute("frameRate")
+                    rep_parameters["frame_rate"] = frame_rate
+
+                segment_templates = representation.getElementsByTagName(
                     "SegmentTemplate")
+                if len(segment_templates) == 0 or len(segment_templates[0].getElementsByTagName("S")) == 0:
+                    adaptation_set = get_parent_by_name(
+                        representation, "AdaptationSet")
+                    segment_templates = adaptation_set.getElementsByTagName(
+                        "SegmentTemplate")
 
-            seg_template_params = parse_segment_template(
-                segment_templates[0])
-            rep_parameters = merge_parameters(
-                rep_parameters, seg_template_params)
+                seg_template_params = parse_segment_template(
+                    segment_templates[0])
+                rep_parameters = merge_parameters(
+                    rep_parameters, seg_template_params)
 
-            representation_parameters[representationId] = rep_parameters
+                representation_parameters[representationId] = rep_parameters
 
-        parameters["representations"] = representation_parameters
+            parameters["representations"] = representation_parameters
 
     return parameters
 
