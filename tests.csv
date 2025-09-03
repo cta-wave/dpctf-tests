@@ -25,23 +25,17 @@
 
 "random-access-to-time","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","cfhd_15_30_60-online"
 
-"switching-set-playback","https://dash.akamaized.net/WAVE/vectors/switching_sets/15_30_60/ss1/2023-10-05/stream.mpd","","cfhd_15_30_60-online"
-"switching-set-playback","https://dash.akamaized.net/WAVE/vectors/switching_sets/15_30_60/ss1/2023-10-05/stream.mpd","","cfhd_15_30_60-online"
+"switching-set-playback","https://dash.akamaized.net/WAVE/vectors/switching_sets/15_30_60/ss1/2025-05-24/stream.mpd","","cfhd_15_30_60-online"
+"switching-set-playback","https://dash.akamaized.net/WAVE/vectors/switching_sets/15_30_60/ss1/2025-05-24/stream.mpd","","cfhd_15_30_60-online"
 
 "out-of-order-loading","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","cfhd_15_30_60-online"
 
-"overlapping-fragments","https://dash.akamaized.net/WAVE/vectors/switching_sets/15_30_60/ss1/2023-10-05/stream.mpd","","cfhd_15_30_60-online"
+"overlapping-fragments","https://dash.akamaized.net/WAVE/vectors/switching_sets/15_30_60/ss1/2025-05-24/stream.mpd","","cfhd_15_30_60-online"
 
-"fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/switching_sets/15_30_60/ss1/2023-10-05/stream.mpd","","cfhd_15_30_60-online"
-"fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/switching_sets/15_30_60/ss1/2023-10-05/stream.mpd","","cfhd_15_30_60-online"
+"fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/switching_sets/15_30_60/ss1/2025-05-24/stream.mpd","","cfhd_15_30_60-online"
+"fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/switching_sets/15_30_60/ss1/2025-05-24/stream.mpd","","cfhd_15_30_60-online"
 
 "playback-of-encrypted-content-https","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1-cenc/2023-09-01/stream.mpd","","cfhd_15_30_60-online"
-
-"source-buffer-re-initialization-without-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","chh1_15_30_60-online"
-"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1_15_30_60-online"
-
-"source-buffer-re-initialization-with-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","chh1_15_30_60-online"
-"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1_15_30_60-online"
 
 "buffer-underrun-and-recovery","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t2/2023-09-01/stream.mpd","","cfhd_15_30_60-online"
 
@@ -89,23 +83,17 @@
 
 "random-access-to-time","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","cfhd_15_30_60-local"
 
-"switching-set-playback","/content/switching_sets/15_30_60/ss1/2023-10-05/stream.mpd","","cfhd_15_30_60-local"
-"switching-set-playback","/content/switching_sets/15_30_60/ss1/2023-10-05/stream.mpd","","cfhd_15_30_60-local"
+"switching-set-playback","/content/switching_sets/15_30_60/ss1/2025-05-24/stream.mpd","","cfhd_15_30_60-local"
+"switching-set-playback","/content/switching_sets/15_30_60/ss1/2025-05-24/stream.mpd","","cfhd_15_30_60-local"
 
 "out-of-order-loading","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","cfhd_15_30_60-local"
 
-"overlapping-fragments","/content/switching_sets/15_30_60/ss1/2023-10-05/stream.mpd","","cfhd_15_30_60-local"
+"overlapping-fragments","/content/switching_sets/15_30_60/ss1/2025-05-24/stream.mpd","","cfhd_15_30_60-local"
 
-"fullscreen-playback-of-switching-sets","/content/switching_sets/15_30_60/ss1/2023-10-05/stream.mpd","","cfhd_15_30_60-local"
-"fullscreen-playback-of-switching-sets","/content/switching_sets/15_30_60/ss1/2023-10-05/stream.mpd","","cfhd_15_30_60-local"
+"fullscreen-playback-of-switching-sets","/content/switching_sets/15_30_60/ss1/2025-05-24/stream.mpd","","cfhd_15_30_60-local"
+"fullscreen-playback-of-switching-sets","/content/switching_sets/15_30_60/ss1/2025-05-24/stream.mpd","","cfhd_15_30_60-local"
 
 "playback-of-encrypted-content-https","/content/cfhd_sets/15_30_60/t1-cenc/2023-09-01/stream.mpd","","cfhd_15_30_60-local"
-
-"source-buffer-re-initialization-without-changetype","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","chh1_15_30_60-local"
-"","/content/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1_15_30_60-local"
-
-"source-buffer-re-initialization-with-changetype","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","chh1_15_30_60-local"
-"","/content/chh1_sets/15_30_60/t1/2023-05-12/stream.mpd","","chh1_15_30_60-local"
 
 "buffer-underrun-and-recovery","/content/cfhd_sets/15_30_60/t2/2023-09-01/stream.mpd","","cfhd_15_30_60-local"
 
@@ -156,8 +144,8 @@
 
 "random-access-to-time","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","cfhd_12.5_25_50-online"
 
-"switching-set-playback","https://dash.akamaized.net/WAVE/vectors/switching_sets/12.5_25_50/ss1/2023-10-05/stream.mpd","","cfhd_12.5_25_50-online"
-"switching-set-playback","https://dash.akamaized.net/WAVE/vectors/switching_sets/12.5_25_50/ss1/2023-10-05/stream.mpd","","cfhd_12.5_25_50-online"
+"switching-set-playback","https://dash.akamaized.net/WAVE/vectors/switching_sets/12.5_25_50/ss1/2025-05-24/stream.mpd","","cfhd_12.5_25_50-online"
+"switching-set-playback","https://dash.akamaized.net/WAVE/vectors/switching_sets/12.5_25_50/ss1/2025-05-24/stream.mpd","","cfhd_12.5_25_50-online"
 
 "regular-playback-of-chunked-content","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/chunked/2023-09-01/stream.mpd","","cfhd_12.5_25_50-online"
 
@@ -166,10 +154,10 @@
 
 "out-of-order-loading","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","cfhd_12.5_25_50-online"
 
-"overlapping-fragments","https://dash.akamaized.net/WAVE/vectors/switching_sets/12.5_25_50/ss1/2023-10-05/stream.mpd","","cfhd_12.5_25_50-online"
+"overlapping-fragments","https://dash.akamaized.net/WAVE/vectors/switching_sets/12.5_25_50/ss1/2025-05-24/stream.mpd","","cfhd_12.5_25_50-online"
 
-"fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/switching_sets/12.5_25_50/ss1/2023-10-05/stream.mpd","","cfhd_12.5_25_50-online"
-"fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/switching_sets/12.5_25_50/ss1/2023-10-05/stream.mpd","","cfhd_12.5_25_50-online"
+"fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/switching_sets/12.5_25_50/ss1/2025-05-24/stream.mpd","","cfhd_12.5_25_50-online"
+"fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/switching_sets/12.5_25_50/ss1/2025-05-24/stream.mpd","","cfhd_12.5_25_50-online"
 
 "playback-of-encrypted-content-https","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1-cenc/2023-09-01/stream.mpd","","cfhd_12.5_25_50-online"
 
@@ -178,12 +166,6 @@
 
 "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_main-cenc/2023-09-01/stream.mpd","","cfhd_12.5_25_50-online"
 "","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-09-01/stream.mpd","","cfhd_12.5_25_50-online"
-
-"source-buffer-re-initialization-without-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","chh1_12.5_25_50-online"
-"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/t1/2023-05-12/stream.mpd","","chh1_12.5_25_50-online"
-
-"source-buffer-re-initialization-with-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","chh1_12.5_25_50-online"
-"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/t1/2023-05-12/stream.mpd","","chh1_12.5_25_50-online"
 
 "buffer-underrun-and-recovery","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t2/2023-09-01/stream.mpd","","cfhd_12.5_25_50-online"
 
@@ -239,8 +221,8 @@
 
 "random-access-to-time","/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local"
 
-"switching-set-playback","/content/switching_sets/12.5_25_50/ss1/2023-10-05/stream.mpd","","cfhd_12.5_25_50-local"
-"switching-set-playback","/content/switching_sets/12.5_25_50/ss1/2023-10-05/stream.mpd","","cfhd_12.5_25_50-local"
+"switching-set-playback","/content/switching_sets/12.5_25_50/ss1/2025-05-24/stream.mpd","","cfhd_12.5_25_50-local"
+"switching-set-playback","/content/switching_sets/12.5_25_50/ss1/2025-05-24/stream.mpd","","cfhd_12.5_25_50-local"
 
 "regular-playback-of-chunked-content","/content/cfhd_sets/12.5_25_50/chunked/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local"
 
@@ -251,10 +233,10 @@
 
 "out-of-order-loading","/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local"
 
-"overlapping-fragments","/content/switching_sets/12.5_25_50/ss1/2023-10-05/stream.mpd","","cfhd_12.5_25_50-local"
+"overlapping-fragments","/content/switching_sets/12.5_25_50/ss1/2025-05-24/stream.mpd","","cfhd_12.5_25_50-local"
 
-"fullscreen-playback-of-switching-sets","/content/switching_sets/12.5_25_50/ss1/2023-10-05/stream.mpd","","cfhd_12.5_25_50-local"
-"fullscreen-playback-of-switching-sets","/content/switching_sets/12.5_25_50/ss1/2023-10-05/stream.mpd","","cfhd_12.5_25_50-local"
+"fullscreen-playback-of-switching-sets","/content/switching_sets/12.5_25_50/ss1/2025-05-24/stream.mpd","","cfhd_12.5_25_50-local"
+"fullscreen-playback-of-switching-sets","/content/switching_sets/12.5_25_50/ss1/2025-05-24/stream.mpd","","cfhd_12.5_25_50-local"
 
 "playback-of-encrypted-content-https","/content/cfhd_sets/12.5_25_50/t1-cenc/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local"
 
@@ -278,12 +260,6 @@
 "low-latency-short-buffer-playback","/content/cfhd_sets/12.5_25_50/t2/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local"
 
 "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","/content/cfhd_sets/12.5_25_50/t2/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local"
-
-"source-buffer-re-initialization-without-changetype","/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","chh1_12.5_25_50-local"
-"","/content/chh1_sets/12.5_25_50/t1/2023-05-12/stream.mpd","","chh1_12.5_25_50-local"
-
-"source-buffer-re-initialization-with-changetype","/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","chh1_12.5_25_50-local"
-"","/content/chh1_sets/12.5_25_50/t1/2023-05-12/stream.mpd","","chh1_12.5_25_50-local"
 
 "regular-playback-of-a-cmaf-presentation","/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_12.5_25_50-local"
 
@@ -325,23 +301,17 @@
 
 "random-access-to-time","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-online"
 
-"switching-set-playback","https://dash.akamaized.net/WAVE/vectors/switching_sets/14.985_29.97_59.94/ss1/2023-10-05/stream.mpd","","cfhd_14.985_29.97_59.94-online"
-"switching-set-playback","https://dash.akamaized.net/WAVE/vectors/switching_sets/14.985_29.97_59.94/ss1/2023-10-05/stream.mpd","","cfhd_14.985_29.97_59.94-online"
+"switching-set-playback","https://dash.akamaized.net/WAVE/vectors/switching_sets/14.985_29.97_59.94/ss1/2025-05-24/stream.mpd","","cfhd_14.985_29.97_59.94-online"
+"switching-set-playback","https://dash.akamaized.net/WAVE/vectors/switching_sets/14.985_29.97_59.94/ss1/2025-05-24/stream.mpd","","cfhd_14.985_29.97_59.94-online"
 
 "out-of-order-loading","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-online"
 
-"overlapping-fragments","https://dash.akamaized.net/WAVE/vectors/switching_sets/14.985_29.97_59.94/ss1/2023-10-05/stream.mpd","","cfhd_14.985_29.97_59.94-online"
+"overlapping-fragments","https://dash.akamaized.net/WAVE/vectors/switching_sets/14.985_29.97_59.94/ss1/2025-05-24/stream.mpd","","cfhd_14.985_29.97_59.94-online"
 
-"fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/switching_sets/14.985_29.97_59.94/ss1/2023-10-05/stream.mpd","","cfhd_14.985_29.97_59.94-online"
-"fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/switching_sets/14.985_29.97_59.94/ss1/2023-10-05/stream.mpd","","cfhd_14.985_29.97_59.94-online"
+"fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/switching_sets/14.985_29.97_59.94/ss1/2025-05-24/stream.mpd","","cfhd_14.985_29.97_59.94-online"
+"fullscreen-playback-of-switching-sets","https://dash.akamaized.net/WAVE/vectors/switching_sets/14.985_29.97_59.94/ss1/2025-05-24/stream.mpd","","cfhd_14.985_29.97_59.94-online"
 
 "playback-of-encrypted-content-https","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1-cenc/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-online"
-
-"source-buffer-re-initialization-without-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","chh1_14.985_29.97_59.94-online"
-"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/14.985_29.97_59.94/t1/2023-05-12/stream.mpd","","chh1_14.985_29.97_59.94-online"
-
-"source-buffer-re-initialization-with-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","chh1_14.985_29.97_59.94-online"
-"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/14.985_29.97_59.94/t1/2023-05-12/stream.mpd","","chh1_14.985_29.97_59.94-online"
 
 "buffer-underrun-and-recovery","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/14.985_29.97_59.94/t2/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-online"
 
@@ -387,23 +357,17 @@
 
 "random-access-to-time","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-local"
 
-"switching-set-playback","/content/switching_sets/14.985_29.97_59.94/ss1/2023-10-05/stream.mpd","","cfhd_14.985_29.97_59.94-local"
-"switching-set-playback","/content/switching_sets/14.985_29.97_59.94/ss1/2023-10-05/stream.mpd","","cfhd_14.985_29.97_59.94-local"
+"switching-set-playback","/content/switching_sets/14.985_29.97_59.94/ss1/2025-05-24/stream.mpd","","cfhd_14.985_29.97_59.94-local"
+"switching-set-playback","/content/switching_sets/14.985_29.97_59.94/ss1/2025-05-24/stream.mpd","","cfhd_14.985_29.97_59.94-local"
 
 "out-of-order-loading","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-local"
 
-"overlapping-fragments","/content/switching_sets/14.985_29.97_59.94/ss1/2023-10-05/stream.mpd","","cfhd_14.985_29.97_59.94-local"
+"overlapping-fragments","/content/switching_sets/14.985_29.97_59.94/ss1/2025-05-24/stream.mpd","","cfhd_14.985_29.97_59.94-local"
 
-"fullscreen-playback-of-switching-sets","/content/switching_sets/14.985_29.97_59.94/ss1/2023-10-05/stream.mpd","","cfhd_14.985_29.97_59.94-local"
-"fullscreen-playback-of-switching-sets","/content/switching_sets/14.985_29.97_59.94/ss1/2023-10-05/stream.mpd","","cfhd_14.985_29.97_59.94-local"
+"fullscreen-playback-of-switching-sets","/content/switching_sets/14.985_29.97_59.94/ss1/2025-05-24/stream.mpd","","cfhd_14.985_29.97_59.94-local"
+"fullscreen-playback-of-switching-sets","/content/switching_sets/14.985_29.97_59.94/ss1/2025-05-24/stream.mpd","","cfhd_14.985_29.97_59.94-local"
 
 "playback-of-encrypted-content-https","/content/cfhd_sets/14.985_29.97_59.94/t1-cenc/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-local"
-
-"source-buffer-re-initialization-without-changetype","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","chh1_14.985_29.97_59.94-local"
-"","/content/chh1_sets/14.985_29.97_59.94/t1/2023-05-12/stream.mpd","","chh1_14.985_29.97_59.94-local"
-
-"source-buffer-re-initialization-with-changetype","/content/cfhd_sets/14.985_29.97_59.94/t1/2023-09-01/stream.mpd","","chh1_14.985_29.97_59.94-local"
-"","/content/chh1_sets/14.985_29.97_59.94/t1/2023-05-12/stream.mpd","","chh1_14.985_29.97_59.94-local"
 
 "buffer-underrun-and-recovery","/content/cfhd_sets/14.985_29.97_59.94/t2/2023-09-01/stream.mpd","","cfhd_14.985_29.97_59.94-local"
 
