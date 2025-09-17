@@ -202,8 +202,8 @@ def parse_mpd_parameters(content, types):
         periodDuration = period.getAttribute("duration")
         if periodDuration != "":
             periodDuration = parse_duration(periodDuration).seconds
-            
-        adaptationSets = period.getAttribute("AdaptationSet")
+
+        adaptationSets = period.getElementsByTagName("AdaptationSet")
         for adaptationSet in adaptationSets:
             content_type = ""
             if adaptationSet.hasAttribute("mimeType"):
