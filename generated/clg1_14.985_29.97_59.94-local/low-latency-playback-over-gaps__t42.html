@@ -27,13 +27,16 @@
     <div id="info-overlay"></div>
     <script src="../lib/mozilla/object-keys-polyfill.js"></script>
     <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+
+    <script src="../lib/logger.js"></script>
+    <script src="../lib/event-emitter.js"></script>
     <script src="../lib/player.js"></script>
+    <script src="../lib/hbbtv.js"></script>
     <script src="../lib/manifest_parser.js"></script>
     <script src="../lib/mpd-parser.js"></script>
     <script src="../lib/wave-service.js"></script>
-    <script src="../lib/davidshimjs/qrcode.js"></script>
     <script src="../lib/dpctf-testharness.js"></script>
-    <script src="../lib/hbbtv.js"></script>
     <script>
       // Global variables
       var TEST_INFO = {
@@ -50,6 +53,8 @@
       var videoContentModel = ["/content/clg1_sets/14.985_29.97_59.94/t42/2025-06-13/stream.mpd"];
       var audioContentModel = [];
 
+      var logger = new Logger();
+
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
         videoContentModel: videoContentModel,
@@ -61,6 +66,7 @@
         executeTest: executeTest,
         setupTest: setupTest,
         usePlayout: false,
+        logger: logger,
       });
 
       function setupTest(player, done, parameters) {
@@ -81,15 +87,10 @@
       }
 
       function executeTest(player, done, parameters) {
-        var logger = dpctfTest.getLogger();
         var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
 
         dpctfTest.asyncTest(function (test) {
-          var query = location.search.replace(/\?/, "");
-          var match = query.match(/redirect_time=([^&]+)/);
-          var REDIRECT_TIME = match ? match[1] : null;
-          if (!REDIRECT_TIME) REDIRECT_TIME = 5;
           video.addEventListener("ended", function (event) {
             assert_true(true);
             test.done();
@@ -98,7 +99,7 @@
 
         dpctfTest.asyncTest(function (test) {
           function onPlayerWaiting() {
-            logger.log("play position reached gap");
+            logger.info("play position reached gap");
             var playbackMode = parameters.playbackMode;
             var gapDuration = parameters.gapDuration;
             var waitingDuration = 0;
@@ -106,7 +107,7 @@
               waitingDuration = gapDuration;
             }
             video.addEventListener("playing", onPlayerPlaying);
-            logger.log(
+            logger.info(
               "playback mode: " +
                 playbackMode +
                 ", waiting " +
@@ -115,7 +116,7 @@
             );
             setTimeout(function () {
               video.removeEventListener("waiting", onPlayerWaiting);
-              logger.log("seeking to end of gap");
+              logger.info("seeking to end of gap");
               player.setCurrentTime(video.buffered.start(1));
               test.step(function () {
                 assert_true(true);
@@ -130,7 +131,7 @@
             test.step(function () {
               assert_true(false);
             });
-            logger.log("video started playing early");
+            logger.info("video started playing early");
             test.done();
             done();
           }

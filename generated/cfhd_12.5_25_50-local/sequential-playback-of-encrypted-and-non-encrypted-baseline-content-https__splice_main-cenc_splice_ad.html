@@ -29,13 +29,16 @@
     <div id="info-overlay"></div>
     <script src="../lib/mozilla/object-keys-polyfill.js"></script>
     <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+
+    <script src="../lib/logger.js"></script>
+    <script src="../lib/event-emitter.js"></script>
     <script src="../lib/player.js"></script>
+    <script src="../lib/hbbtv.js"></script>
     <script src="../lib/manifest_parser.js"></script>
     <script src="../lib/mpd-parser.js"></script>
     <script src="../lib/wave-service.js"></script>
-    <script src="../lib/davidshimjs/qrcode.js"></script>
     <script src="../lib/dpctf-testharness.js"></script>
-    <script src="../lib/hbbtv.js"></script>
     <script>
       // Global variables
       var TEST_INFO = {
@@ -53,6 +56,8 @@
       var videoContentModel = ["/content/cfhd_sets/12.5_25_50/splice_main-cenc/2023-09-01/stream.mpd", "/content/cfhd_sets/12.5_25_50/splice_ad/2023-09-01/stream.mpd"];
       var audioContentModel = [];
 
+      var logger = new Logger();
+
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
         videoContentModel: videoContentModel,
@@ -64,6 +69,7 @@
         executeTest: executeTest,
         isEncryptedContent: true,
         usePlayout: true,
+        logger: logger,
       });
 
       function executeTest(player, done, parameters) {
@@ -72,10 +78,6 @@
         player.playOnBufferLoaded(minBufferDuration).then(done);
 
         dpctfTest.asyncTest(function (test) {
-          var query = location.search.replace(/\?/, "");
-          var match = query.match(/redirect_time=([^&]+)/);
-          var REDIRECT_TIME = match ? match[1] : null;
-          if (!REDIRECT_TIME) REDIRECT_TIME = 5;
           video.addEventListener("ended", function (event) {
             assert_true(true);
             test.done();
