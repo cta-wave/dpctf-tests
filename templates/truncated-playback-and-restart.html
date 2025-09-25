@@ -27,13 +27,16 @@
     <div id="info-overlay"></div>
     <script src="../lib/mozilla/object-keys-polyfill.js"></script>
     <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+
+    <script src="../lib/logger.js"></script>
+    <script src="../lib/event-emitter.js"></script>
     <script src="../lib/player.js"></script>
+    <script src="../lib/hbbtv.js"></script>
     <script src="../lib/manifest_parser.js"></script>
     <script src="../lib/mpd-parser.js"></script>
     <script src="../lib/wave-service.js"></script>
-    <script src="../lib/davidshimjs/qrcode.js"></script>
     <script src="../lib/dpctf-testharness.js"></script>
-    <script src="../lib/hbbtv.js"></script>
     <script>
       // Global variables
       var TEST_INFO = {
@@ -51,6 +54,8 @@
       var videoContentModel = "{{VIDEO_MPD_URL}}";
       var audioContentModel = "{{AUDIO_MPD_URL}}";
 
+      var logger = new Logger();
+
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
         videoContentModel: videoContentModel,
@@ -62,10 +67,10 @@
         executeTest: executeTest,
         usePlayout: false,
         autoCloseStream: false,
+        logger: logger,
       });
 
       function executeTest(player, done, parameters) {
-        var logger = dpctfTest.getLogger();
         var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
 
@@ -74,9 +79,9 @@
             if (video.currentTime < parameters.secondPlayoutSwitchingTime)
               return;
             player.pause();
-            logger.log("setting play position to 0")
+            logger.info("setting play position to 0");
             player.setCurrentTime(0);
-            logger.log("truncating buffer")
+            logger.info("truncating buffer");
             player.truncateBuffer().then(function () {
               player.on("onAllVideoSegmentsLoaded", function () {
                 player.closeStream();

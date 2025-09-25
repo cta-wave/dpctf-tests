@@ -9,7 +9,8 @@
     "ts_max": 1000,
     "tolerance": 150,
     "frame_tolerance": 1,
-    "av_sync_tolerance": [40, -120]
+    "av_sync_tolerance": [40, -120],
+    "log_level": "info"
   },
   "sequential-track-playback.html": {
     "min_buffer_duration": 40000
