@@ -24,7 +24,7 @@ function Player(video, options) {
   var PLAYER_EVENT_START_BUFFERING = Player.PLAYER_EVENT_START_BUFFERING;
   var PLAYER_EVENT_TRIGGER_PLAY = Player.PLAYER_EVENT_TRIGGER_PLAY;
   var PLAYER_EVENT_TRIGGER_PAUSE = Player.PLAYER_EVENT_TRIGGER_PAUSE;
-  
+
   var logger = options.logger;
 
   function init(settings) {
@@ -621,6 +621,7 @@ function BufferManager(manifests, mediaSource, video, options) {
   let _currentAppendWindow = 0;
   let _timestampOffsets = options.timestampOffsets;
   let _autoCloseStream = options.autoCloseStream;
+  let _maxBufferSizeReached = false;
 
   let _eventEmitter = new EventEmitter();
 
@@ -786,12 +787,20 @@ function BufferManager(manifests, mediaSource, video, options) {
   function bufferVideo() {
     if (!_isBuffering) return;
     var preBufferedTime = getPreBufferedTime();
-    if (preBufferedTime >= _bufferTime) return;
+    if (preBufferedTime >= _bufferTime) {
+      if (!_maxBufferSizeReached) {
+        _maxBufferSizeReached = true;
+        logger.debug("reached maximum buffer time, stop buffering");
+      }
+      return;
+    }
+    _maxBufferSizeReached = false;
     if (_isBufferingSegment) return;
     _isBufferingSegment = true;
 
     var segment = getNextBufferSegment();
     if (!segment) {
+      logger.info("no more segments to buffer");
       _isBuffering = false;
       _isBufferingSegment = false;
       var updating = _sourceBuffer.updating;
@@ -829,6 +838,7 @@ function BufferManager(manifests, mediaSource, video, options) {
   }
 
   function bufferSegment(segment) {
+    logger.debug("buffering segment " + segment.getNumber());
     var representationNumber = segment.getRepresentationNumber();
     var manifestIndex = segment.getManifestIndex();
     var representation = _manifests[manifestIndex].getRepresentation(
@@ -1142,11 +1152,31 @@ function BufferManager(manifests, mediaSource, video, options) {
       );
       return;
     }
+    logger.debug("appending buffer, size: " + arrayBuffer.byteLength);
     _sourceBuffer.appendBuffer(arrayBuffer);
-    return waitForSourceBufferUpdate();
+    return waitForSourceBufferUpdate().then(function () {
+      logger.debug(
+        "source buffer updated, buffered ranges: " +
+          JSON.stringify(getBufferedRange(_sourceBuffer))
+      );
+    });
+  }
+  
+  function getBufferedRange(sourceBuffer) {
+    if (!sourceBuffer) return [];
+    var buffered = sourceBuffer.buffered;
+    var ranges = [];
+    for (var i = 0; i < buffered.length; i++) {
+      ranges.push({
+        start: buffered.start(i),
+        end: buffered.end(i),
+      });
+    }
+    return ranges;
   }
 
   function fetchSegment(url) {
+    logger.debug("fetching segment " + url);
     return new Promise(function (resolve) {
       var xhr = new XMLHttpRequest();
       xhr.open("GET", url, true);
@@ -1219,6 +1249,7 @@ function BufferManager(manifests, mediaSource, video, options) {
   function closeBuffer() {
     if (!_mediaSource) return;
     if (_mediaSource.readyState !== "open") return;
+    logger.debug("closing source buffer");
     _mediaSource.endOfStream();
     _eventEmitter.dispatchEvent(Player.EVENT_CLOSE_BUFFER);
   }
