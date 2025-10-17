@@ -774,8 +774,19 @@ function BufferManager(manifests, mediaSource, video, options) {
   }
 
   function startBuffering() {
-    if (_isBuffering) return;
-    if (!_segments) return;
+    if (_isBuffering) {
+      logger.debug("start buffering: already buffering");
+      return;
+    }
+    if (!_segments) {
+      logger.debug("start buffering: no segments to buffer");
+      return;
+    }
+    if (_parallelLoading) {
+      logger.info("start buffering in parallel");
+    } else {
+      logger.info("start buffering sequentially");
+    }
     _isBuffering = true;
     bufferVideo();
   }
@@ -790,12 +801,19 @@ function BufferManager(manifests, mediaSource, video, options) {
     if (preBufferedTime >= _bufferTime) {
       if (!_maxBufferSizeReached) {
         _maxBufferSizeReached = true;
-        logger.debug("forward buffer has 'min_buffer_duration', stop buffering (ct: " + video.currentTime + ")");
+        logger.debug(
+          "forward buffer has 'min_buffer_duration', stop buffering (ct: " +
+            video.currentTime +
+            ")"
+        );
       }
       return;
     }
     _maxBufferSizeReached = false;
-    if (_isBufferingSegment) return;
+    if (_isBufferingSegment) {
+      logger.debug("stop buffer video request: already buffering segment");
+      return;
+    }
     _isBufferingSegment = true;
 
     var segment = getNextBufferSegment();
@@ -838,7 +856,7 @@ function BufferManager(manifests, mediaSource, video, options) {
   }
 
   function bufferSegment(segment) {
-    logger.debug("buffering segment " + segment.getNumber() + " (ct: " + video.currentTime + ")");
+    var segmentNumber = segment.getNumber();
     var representationNumber = segment.getRepresentationNumber();
     var manifestIndex = segment.getManifestIndex();
     var representation = _manifests[manifestIndex].getRepresentation(
@@ -846,8 +864,22 @@ function BufferManager(manifests, mediaSource, video, options) {
       segment.getPeriodNumber()
     );
     var mimeCodec = representation.getMimeCodec();
+    logger.debug(
+      "buffering segment [" +
+        manifestIndex +
+        ", " +
+        representationNumber +
+        ", " +
+        segmentNumber +
+        "] (" +
+        mimeCodec +
+        ") (ct: " +
+        video.currentTime +
+        ")"
+    );
 
     if (!_sourceBuffer) {
+      logger.debug("adding source buffer for mimeCodec: " + mimeCodec);
       _sourceBuffer = _mediaSource.addSourceBuffer(mimeCodec);
       _currentMimeCodec = mimeCodec;
       if (_appendWindowBoundaries) {
@@ -872,6 +904,7 @@ function BufferManager(manifests, mediaSource, video, options) {
           url: segment.getUrl(),
         });
       } else {
+        logger.debug("segment has " + segment.getChunks().length + " chunks");
         for (var chunk of segment.getChunks()) {
           fetchJobs.push({
             url: chunk.resolvedUri,
@@ -884,6 +917,7 @@ function BufferManager(manifests, mediaSource, video, options) {
       }
 
       if (_concatAndSplit && fetchJobs.length > 1) {
+        logger.debug("concatenate and split segment chunks");
         Promise.all(
           fetchJobs.map(function (job) {
             return fetchSegment(job.url).then(function (arrayBuffer) {
@@ -979,6 +1013,15 @@ function BufferManager(manifests, mediaSource, video, options) {
       var gapStart = gap.start;
       var gapEnd = gapStart + gap.duration;
       if (segmentTime >= gapStart && segmentTime < gapEnd) {
+        logger.debug(
+          "discarding buffer for segment [" +
+            currentSegment.getManifestIndex() +
+            ", " +
+            currentSegment.getRepresentationNumber() +
+            ", " +
+            currentSegment.getNumber() +
+            "] to create gap"
+        );
         bufferInfo.resolve();
         appendQueuedBuffers();
         _bufferingSegment++;
@@ -1016,6 +1059,12 @@ function BufferManager(manifests, mediaSource, video, options) {
       for (let i = 1; i <= bufferInfo.segment.getNumber(); i++) {
         timestamp += _segments[i].getDuration();
       }
+      logger.debug(
+        "signaling external codec change at " +
+          timestamp +
+          " to " +
+          nextMimeCodec
+      );
       _registerMimeCodecChange(timestamp, nextMimeCodec);
       _isBuffering = false;
       _isBufferingSegment = false;
@@ -1047,9 +1096,12 @@ function BufferManager(manifests, mediaSource, video, options) {
       _bufferingPeriodNumber = periodNumber;
 
       if (isCodecChange && _useChangeType) {
+        logger.debug("changing source buffer type to: " + nextMimeCodec);
+        _currentMimeCodec = nextMimeCodec;
         _sourceBuffer.changeType(nextMimeCodec);
       }
 
+      logger.debug("fetching init segment");
       return fetchSegment(initSegmentUrl)
         .then(function (arrayBuffer) {
           return appendBuffer(arrayBuffer);
@@ -1152,16 +1204,25 @@ function BufferManager(manifests, mediaSource, video, options) {
       );
       return;
     }
-    logger.debug("appending buffer, size: " + arrayBuffer.byteLength + " (ct: " + video.currentTime + ")");
+    logger.debug(
+      "appending buffer, size: " +
+        arrayBuffer.byteLength +
+        " (ct: " +
+        video.currentTime +
+        ")"
+    );
     _sourceBuffer.appendBuffer(arrayBuffer);
     return waitForSourceBufferUpdate().then(function () {
       logger.debug(
         "source buffer updated, buffered ranges: " +
-          JSON.stringify(getBufferedRange(_sourceBuffer)) + " (ct: " + video.currentTime + ")"
+          JSON.stringify(getBufferedRange(_sourceBuffer)) +
+          " (ct: " +
+          video.currentTime +
+          ")"
       );
     });
   }
-  
+
   function getBufferedRange(sourceBuffer) {
     if (!sourceBuffer) return [];
     var buffered = sourceBuffer.buffered;
@@ -1176,7 +1237,9 @@ function BufferManager(manifests, mediaSource, video, options) {
   }
 
   function fetchSegment(url) {
-    logger.debug("fetching segment " + url + " (ct: " + video.currentTime + ")");
+    logger.debug(
+      "fetching segment " + url + " (ct: " + video.currentTime + ")"
+    );
     return new Promise(function (resolve) {
       var xhr = new XMLHttpRequest();
       xhr.open("GET", url, true);
@@ -1184,7 +1247,15 @@ function BufferManager(manifests, mediaSource, video, options) {
       xhr.send();
 
       xhr.onload = function () {
-        logger.debug("finished fetch request: " + xhr.status + " " + url + " (ct: " + video.currentTime + ")");
+        logger.debug(
+          "finished fetch request: " +
+            xhr.status +
+            " " +
+            url +
+            " (ct: " +
+            video.currentTime +
+            ")"
+        );
         if (xhr.status !== 200) {
           return false;
         }
