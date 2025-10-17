@@ -790,7 +790,7 @@ function BufferManager(manifests, mediaSource, video, options) {
     if (preBufferedTime >= _bufferTime) {
       if (!_maxBufferSizeReached) {
         _maxBufferSizeReached = true;
-        logger.debug("reached maximum buffer time, stop buffering");
+        logger.debug("forward buffer has 'min_buffer_duration', stop buffering (ct: " + video.currentTime + ")");
       }
       return;
     }
@@ -838,7 +838,7 @@ function BufferManager(manifests, mediaSource, video, options) {
   }
 
   function bufferSegment(segment) {
-    logger.debug("buffering segment " + segment.getNumber());
+    logger.debug("buffering segment " + segment.getNumber() + " (ct: " + video.currentTime + ")");
     var representationNumber = segment.getRepresentationNumber();
     var manifestIndex = segment.getManifestIndex();
     var representation = _manifests[manifestIndex].getRepresentation(
@@ -1152,12 +1152,12 @@ function BufferManager(manifests, mediaSource, video, options) {
       );
       return;
     }
-    logger.debug("appending buffer, size: " + arrayBuffer.byteLength);
+    logger.debug("appending buffer, size: " + arrayBuffer.byteLength + " (ct: " + video.currentTime + ")");
     _sourceBuffer.appendBuffer(arrayBuffer);
     return waitForSourceBufferUpdate().then(function () {
       logger.debug(
         "source buffer updated, buffered ranges: " +
-          JSON.stringify(getBufferedRange(_sourceBuffer))
+          JSON.stringify(getBufferedRange(_sourceBuffer)) + " (ct: " + video.currentTime + ")"
       );
     });
   }
@@ -1176,7 +1176,7 @@ function BufferManager(manifests, mediaSource, video, options) {
   }
 
   function fetchSegment(url) {
-    logger.debug("fetching segment " + url);
+    logger.debug("fetching segment " + url + " (ct: " + video.currentTime + ")");
     return new Promise(function (resolve) {
       var xhr = new XMLHttpRequest();
       xhr.open("GET", url, true);
@@ -1184,6 +1184,7 @@ function BufferManager(manifests, mediaSource, video, options) {
       xhr.send();
 
       xhr.onload = function () {
+        logger.debug("finished fetch request: " + xhr.status + " " + url + " (ct: " + video.currentTime + ")");
         if (xhr.status !== 200) {
           return false;
         }
