@@ -251,7 +251,6 @@ function DpctfTest(config) {
       player = new Player(video, { logger: logger });
 
       player.on(Player.PLAYER_EVENT_START_BUFFERING, function () {
-        logger.info("start buffering");
         _videoState = VIDEO_STATE_BUFFERING;
         var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
