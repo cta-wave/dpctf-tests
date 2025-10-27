@@ -811,7 +811,7 @@ function BufferManager(manifests, mediaSource, video, options) {
     }
     _maxBufferSizeReached = false;
     if (_isBufferingSegment) {
-      logger.debug("stop buffer video request: already buffering segment");
+      logger.debug("already buffering segment");
       return;
     }
     _isBufferingSegment = true;
