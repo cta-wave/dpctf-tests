@@ -2,16 +2,11 @@
   "subsets": [
     {
       "title": "All local",
-      "default_subset": true,
-      "tests": [
-        "*-local/*"
-      ]
+      "tests": ["*-local/*"]
     },
     {
       "title": "All online",
-      "tests": [
-        "*-online/*"
-      ]
+      "tests": ["*-online/*"]
     },
     {
       "title": "HbbTV local",
@@ -76,8 +71,7 @@
     {
       "tag": {
         "text": "validated",
-        "color": "success",
-        "default_filter": true
+        "color": "success"
       },
       "tests": [
         "/cfhd_12.5_25_50-local/buffer-underrun-and-recovery__t2.html",
@@ -199,8 +193,7 @@
     {
       "tag": {
         "text": "beta",
-        "color": "warning",
-        "default_filter": true
+        "color": "warning"
       },
       "message": {
         "text": "One or more beta test selected. For more information please see [the docs](https://github.com/cta-wave/dpctf-tests/blob/v2.0.0/TEST_TAGS.md)",
@@ -274,15 +267,38 @@
     {
       "tag": {
         "text": "long duration",
-        "color": "info",
-        "default_exclude": true
+        "color": "info"
       },
       "message": {
         "text": "One or more long duration test selected. For more information please see [the docs](https://github.com/cta-wave/dpctf-tests/blob/v2.0.0/TEST_TAGS.md)",
         "color": "info"
       },
+      "tests": ["*long-duration*"]
+    },
+    {
+      "title": "Berlin Plugfest 2025",
+      "default_subset": true,
       "tests": [
-        "*long-duration*"
+        "/cfhd_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1-1.html",
+        "/cfhd_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1-2.html",
+        "/cfhd_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1-3.html",
+        "/cfhd_12.5_25_50-local/overlapping-fragments__ss1.html",
+        "/cfhd_12.5_25_50-local/random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream__t2.html",
+        "/cfhd_12.5_25_50-local/random-access-to-time__t1.html",
+        "/cfhd_12.5_25_50-local/switching-set-playback__ss1-1.html",
+        "/cfhd_12.5_25_50-local/switching-set-playback__ss1-2.html",
+        "/cfhd_12.5_25_50-local/random-access-of-a-wave-presentation__t1_at1.html",
+        "/cfhd_12.5_25_50-local/regular-playback-of-a-cmaf-presentation__t1_at1.html",
+        "/chh1_12.5_25_50-local/sequential-track-playback__t1.html",
+        "/cud1_12.5_25_50-local/sequential-track-playback__t21.html",
+        "/clg1_12.5_25_50-local/sequential-track-playback__t41.html",
+        "/chd1_12.5_25_50-local/sequential-track-playback__t61.html",
+        "/chh1_12.5_25_50-local/random-access-to-fragment__t1.html",
+        "/chh1_12.5_25_50-local/random-access-to-time__t1.html",
+        "/chh1_12.5_25_50-local/playback-of-encrypted-content-https__t1-cenc.html",
+        "/cud1_12.5_25_50-local/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html",
+        "/chh1_12.5_25_50-online/fullscreen-playback-of-switching-sets__ss2_chh1.html",
+        "/chh1_12.5_25_50-online/switching-set-playback__ss2_chh1.html"
       ]
     }
   ]
