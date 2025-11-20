@@ -228,7 +228,7 @@ def parse_mpd_parameters(content, types):
             content_type = ""
             if adaptationSet.hasAttribute("mimeType"):
                 mime_type = adaptationSet.getAttribute("mimeType")
-                content_type = re.search("^(.+)\/", mime_type).group(1)
+                content_type = re.search("^(.+)\\/", mime_type).group(1)
                 if content_type not in types:
                     continue
 
@@ -269,7 +269,7 @@ def parse_mpd_parameters(content, types):
 
                 if representation.hasAttribute("mimeType"):
                     mime_type = representation.getAttribute("mimeType")
-                    content_type = re.search("^(.+)\/", mime_type).group(1)
+                    content_type = re.search("^(.+)\\/", mime_type).group(1)
                     if content_type not in types:
                         continue
                 rep_parameters["type"] = content_type
