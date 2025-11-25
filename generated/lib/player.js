@@ -4,6 +4,12 @@ var messageFormat = "utf8";
 const VIDEO = "video";
 const AUDIO = "audio";
 
+var PLAYER_EVENT_START_BUFFERING = "onPlayerStartBuffering";
+var PLAYER_EVENT_TRIGGER_PLAY = "onPlayerTriggerPlay";
+var PLAYER_EVENT_TRIGGER_PAUSE = "onPlayerTriggerPause";
+var CLOSE_BUFFER_EVENT = "close_buffer";
+var ALL_SEGMENTS_LOADED_EVENT = "onAllSegmentsLoaded";
+
 function Player(video, options) {
   let instance;
   let _settings;
@@ -20,10 +26,6 @@ function Player(video, options) {
   let _audioBufferManager;
   let _protectionController;
   let _mimeCodecChanges = {};
-
-  var PLAYER_EVENT_START_BUFFERING = Player.PLAYER_EVENT_START_BUFFERING;
-  var PLAYER_EVENT_TRIGGER_PLAY = Player.PLAYER_EVENT_TRIGGER_PLAY;
-  var PLAYER_EVENT_TRIGGER_PAUSE = Player.PLAYER_EVENT_TRIGGER_PAUSE;
 
   var logger = options.logger;
 
@@ -243,6 +245,9 @@ function Player(video, options) {
         _video,
         _settings
       );
+      bufferManager.on(ALL_SEGMENTS_LOADED_EVENT, function () {
+        closeStream();
+      });
       var promises = [];
       for (let manifest of manifests) {
         var bufferOffset = 0;
@@ -436,6 +441,16 @@ function Player(video, options) {
   }
 
   function closeStream() {
+    logger.debug("attempting to close stream");
+    if (_videoBufferManager && !_videoBufferManager.hasLoadedAllSegments()) {
+      logger.debug("cannot close stream, video segments still loading");
+      return;
+    }
+    if (_audioBufferManager && !_audioBufferManager.hasLoadedAllSegments()) {
+      logger.debug("cannot close stream, audio segments still loading");
+      return;
+    }
+    logger.debug("closing stream");
     if (_videoBufferManager) _videoBufferManager.closeBuffer();
     if (_audioBufferManager) _audioBufferManager.closeBuffer();
   }
@@ -581,9 +596,9 @@ function Player(video, options) {
   return instance;
 }
 
-Player.PLAYER_EVENT_START_BUFFERING = "onPlayerStartBuffering";
-Player.PLAYER_EVENT_TRIGGER_PLAY = "onPlayerTriggerPlay";
-Player.EVENT_CLOSE_BUFFER = "close_buffer";
+Player.PLAYER_EVENT_START_BUFFERING = PLAYER_EVENT_START_BUFFERING;
+Player.PLAYER_EVENT_TRIGGER_PLAY = PLAYER_EVENT_TRIGGER_PLAY;
+Player.EVENT_CLOSE_BUFFER = CLOSE_BUFFER_EVENT;
 
 function BufferManager(manifests, mediaSource, video, options) {
   let instance;
@@ -609,19 +624,17 @@ function BufferManager(manifests, mediaSource, video, options) {
   let _useChangeType = options.useChangeType;
   let _sourceBuffer;
   let _bufferQueue;
-  let _bufferingRepresentationNumber;
   let _bufferingPeriodNumber;
   let _lastInitSegmentUrl;
   let _currentMimeCodec;
   let _registerMimeCodecChange = options.registerMimeCodecChange;
   let _initCallback = options.initCallback;
   let _maxBackwardBuffer = options.maxBackwardBuffer;
-  let _duration = options.duration;
   let _appendWindowBoundaries = options.appendWindowBoundaries;
   let _currentAppendWindow = 0;
   let _timestampOffsets = options.timestampOffsets;
-  let _autoCloseStream = options.autoCloseStream;
   let _maxBufferSizeReached = false;
+  let _loadedAllSegments = false;
 
   let _eventEmitter = new EventEmitter();
 
@@ -822,8 +835,8 @@ function BufferManager(manifests, mediaSource, video, options) {
       _isBuffering = false;
       _isBufferingSegment = false;
       var updating = _sourceBuffer.updating;
-      _eventEmitter.dispatchEvent("onAllSegmentsLoaded");
-      if (_autoCloseStream) closeBuffer();
+      _loadedAllSegments = true;
+      _eventEmitter.dispatchEvent(ALL_SEGMENTS_LOADED_EVENT);
       return;
     }
     bufferSegment(segment).then(function () {
@@ -1356,6 +1369,10 @@ function BufferManager(manifests, mediaSource, video, options) {
     _mediaSource.duration = duration;
   }
 
+  function hasLoadedAllSegments() {
+    return _loadedAllSegments;
+  }
+
   instance = {
     setSegments,
     getSegments,
@@ -1379,6 +1396,7 @@ function BufferManager(manifests, mediaSource, video, options) {
     closeBuffer,
     truncateBuffer,
     handleCurrentTimeChange,
+    hasLoadedAllSegments,
   };
 
   return instance;
