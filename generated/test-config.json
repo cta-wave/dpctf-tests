@@ -10,9 +10,9 @@
     "tolerance": 150,
     "frame_tolerance": 1,
     "av_sync_tolerance": [40, -120],
-	  "max_tolerance": 400,
-	  "max_consecutive_fails": 1,
-	  "adjacent_pass_count": 4,
+    "max_tolerance": 400,
+    "max_consecutive_fails": 1,
+    "adjacent_pass_count": 4,
     "log_level": "debug"
   },
   "sequential-track-playback.html": {
