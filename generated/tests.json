@@ -24019,11 +24019,11 @@
                 "audio": []
             }
         },
-        "21a95e5bd99b59489365dbe61d28d7a4": {
-            "path": "cud1_12.5_25_50-online/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html",
+        "6ef86ab47e8dcc3154089ae13f5f5831": {
+            "path": "chh1_12.5_25_50-local/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cud1_sets/12.5_25_50/splice_main-cenc/2025-06-30/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/cud1_sets/12.5_25_50/splice_ad-cenc/2025-06-30/stream.mpd"
+                "/content/chh1_sets/12.5_25_50/splice_main-cenc/2025-06-30/stream.mpd",
+                "/content/chh1_sets/12.5_25_50/splice_ad-cenc/2025-06-30/stream.mpd"
             ],
             "audio": [],
             "code": "restricted-splicing-of-encrypted-content-https.html",
@@ -24043,7 +24043,7 @@
                                 "d": 5120
                             }
                         ],
-                        "source": "splice_main_sol_sdr_bt2020_C1_3840x2160@50_10 version 5 (2024-11-26)",
+                        "source": "splice_main_croatia_B1_1920x1080@50_10 version 5 (2024-11-25)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -24076,7 +24076,7 @@
                                 "d": 24576
                             }
                         ],
-                        "source": "splice_ad_sol_sdr_bt2020_AD-C1_3840x2160@50_5.76 version 5 (2024-11-26)",
+                        "source": "splice_ad_bbb_AD-B1_1920x1080@50_5.76 version 5 (2024-11-25)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -24099,11 +24099,11 @@
                 "audio": []
             }
         },
-        "0b1b6769609d43633b6401a0f8d52d68": {
-            "path": "cfhd_12.5_25_50-online/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__splice_main_splice_ad.html",
+        "3de840bd32ff5179c397852099abd859": {
+            "path": "chh1_12.5_25_50-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__splice_main_splice_ad-cenc.html",
             "video": [
-                "https://dash.akamaized.net/WAVE/vectors/cud1_sets/12.5_25_50/splice_main/2025-06-30/stream.mpd",
-                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-09-01/stream.mpd"
+                "/content/chh1_sets/12.5_25_50/splice_main/2025-06-30/stream.mpd",
+                "/content/chh1_sets/12.5_25_50/splice_ad-cenc/2025-06-30/stream.mpd"
             ],
             "audio": [],
             "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
@@ -24123,7 +24123,7 @@
                                 "d": 5120
                             }
                         ],
-                        "source": "splice_main_sol_sdr_bt2020_C1_3840x2160@50_10 version 5 (2024-11-26)",
+                        "source": "splice_main_croatia_B1_1920x1080@50_10 version 5 (2024-11-25)",
                         "representations": {
                             "1": {
                                 "period": 1,
@@ -24156,13 +24156,13 @@
                                 "d": 24576
                             }
                         ],
-                        "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
+                        "source": "splice_ad_bbb_AD-B1_1920x1080@50_5.76 version 5 (2024-11-25)",
                         "representations": {
                             "1": {
                                 "period": 1,
                                 "duration": 5,
                                 "type": "video",
-                                "frame_rate": "25",
+                                "frame_rate": "50",
                                 "fragment_duration": 1.92,
                                 "timescale": 12800,
                                 "segmentTimeline": [
@@ -36594,166 +36594,6 @@
                                         "r": 14,
                                         "t": 0,
                                         "d": 25600
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "af9d49120875721dea24d9adca66ff23": {
-            "path": "cud1_12.5_25_50-local/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html",
-            "video": [
-                "/content/cud1_sets/12.5_25_50/splice_main-cenc/2025-06-30/stream.mpd",
-                "/content/cud1_sets/12.5_25_50/splice_ad-cenc/2025-06-30/stream.mpd"
-            ],
-            "audio": [],
-            "code": "restricted-splicing-of-encrypted-content-https.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M10.000S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 12800,
-                        "segmentTimeline": [
-                            {
-                                "r": 4,
-                                "t": 0,
-                                "d": 24576
-                            },
-                            {
-                                "d": 5120
-                            }
-                        ],
-                        "source": "splice_main_sol_sdr_bt2020_C1_3840x2160@50_10 version 5 (2024-11-26)",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 10,
-                                "type": "video",
-                                "frame_rate": "50",
-                                "fragment_duration": 1.92,
-                                "timescale": 12800,
-                                "segmentTimeline": [
-                                    {
-                                        "r": 4,
-                                        "t": 0,
-                                        "d": 24576
-                                    },
-                                    {
-                                        "d": 5120
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "cmaf_track_duration": "PT0H0M5.760S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 12800,
-                        "segmentTimeline": [
-                            {
-                                "r": 2,
-                                "t": 0,
-                                "d": 24576
-                            }
-                        ],
-                        "source": "splice_ad_sol_sdr_bt2020_AD-C1_3840x2160@50_5.76 version 5 (2024-11-26)",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 5,
-                                "type": "video",
-                                "frame_rate": "50",
-                                "fragment_duration": 1.92,
-                                "timescale": 12800,
-                                "segmentTimeline": [
-                                    {
-                                        "r": 2,
-                                        "t": 0,
-                                        "d": 24576
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ],
-                "audio": []
-            }
-        },
-        "6cebba4a81e6bd5c7ef1f886f4c96bdb": {
-            "path": "cfhd_12.5_25_50-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__splice_main_splice_ad.html",
-            "video": [
-                "/content/cud1_sets/12.5_25_50/splice_main/2025-06-30/stream.mpd",
-                "/content/cfhd_sets/12.5_25_50/splice_ad/2023-09-01/stream.mpd"
-            ],
-            "audio": [],
-            "code": "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
-            "switchingSets": {
-                "video": [
-                    {
-                        "cmaf_track_duration": "PT0H0M10.000S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 12800,
-                        "segmentTimeline": [
-                            {
-                                "r": 4,
-                                "t": 0,
-                                "d": 24576
-                            },
-                            {
-                                "d": 5120
-                            }
-                        ],
-                        "source": "splice_main_sol_sdr_bt2020_C1_3840x2160@50_10 version 5 (2024-11-26)",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 10,
-                                "type": "video",
-                                "frame_rate": "50",
-                                "fragment_duration": 1.92,
-                                "timescale": 12800,
-                                "segmentTimeline": [
-                                    {
-                                        "r": 4,
-                                        "t": 0,
-                                        "d": 24576
-                                    },
-                                    {
-                                        "d": 5120
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "cmaf_track_duration": "PT0H0M5.760S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 12800,
-                        "segmentTimeline": [
-                            {
-                                "r": 2,
-                                "t": 0,
-                                "d": 24576
-                            }
-                        ],
-                        "source": "splice_ad_bbb_AD-A1_1280x720@25_5.76 version 4",
-                        "representations": {
-                            "1": {
-                                "period": 1,
-                                "duration": 5,
-                                "type": "video",
-                                "frame_rate": "25",
-                                "fragment_duration": 1.92,
-                                "timescale": 12800,
-                                "segmentTimeline": [
-                                    {
-                                        "r": 2,
-                                        "t": 0,
-                                        "d": 24576
                                     }
                                 ]
                             }

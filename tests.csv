@@ -690,11 +690,11 @@
 
 "playback-of-encrypted-content-https","https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/t1-cenc/2025-01-15/stream.mpd","","chh1_12.5_25_50-online"
 
-"restricted-splicing-of-encrypted-content-https","https://dash.akamaized.net/WAVE/vectors/cud1_sets/12.5_25_50/splice_main-cenc/2025-06-30/stream.mpd","","cud1_12.5_25_50-online"
-"","https://dash.akamaized.net/WAVE/vectors/cud1_sets/12.5_25_50/splice_ad-cenc/2025-06-30/stream.mpd","","cud1_12.5_25_50-online"
+"restricted-splicing-of-encrypted-content-https","https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/splice_main-cenc/2025-06-30/stream.mpd","","chh1_12.5_25_50-local"
+"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/splice_ad-cenc/2025-06-30/stream.mpd","","chh1_12.5_25_50-local"
 
-"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","https://dash.akamaized.net/WAVE/vectors/cud1_sets/12.5_25_50/splice_main/2025-06-30/stream.mpd","","cfhd_12.5_25_50-online"
-"","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-09-01/stream.mpd","","cfhd_12.5_25_50-online"
+"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/splice_main/2025-06-30/stream.mpd","","chh1_12.5_25_50-local"
+"","https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/splice_ad-cenc/2025-06-30/stream.mpd","","chh1_12.5_25_50-local"
 
 "source-buffer-re-initialization-with-changetype","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","chh1_12.5_25_50-online"
 "","https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/t1/2025-01-15/stream.mpd","","chh1_12.5_25_50-online"
@@ -1011,11 +1011,11 @@
 
 "playback-of-encrypted-content-https","/content/chh1_sets/12.5_25_50/t1-cenc/2025-01-15/stream.mpd","","chh1_12.5_25_50-local"
 
-"restricted-splicing-of-encrypted-content-https","/content/cud1_sets/12.5_25_50/splice_main-cenc/2025-06-30/stream.mpd","","cud1_12.5_25_50-local"
-"","/content/cud1_sets/12.5_25_50/splice_ad-cenc/2025-06-30/stream.mpd","","cud1_12.5_25_50-local"
+"restricted-splicing-of-encrypted-content-https","/content/chh1_sets/12.5_25_50/splice_main-cenc/2025-06-30/stream.mpd","","chh1_12.5_25_50-local"
+"","/content/chh1_sets/12.5_25_50/splice_ad-cenc/2025-06-30/stream.mpd","","chh1_12.5_25_50-local"
 
-"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","/content/cud1_sets/12.5_25_50/splice_main/2025-06-30/stream.mpd","","cfhd_12.5_25_50-local"
-"","/content/cfhd_sets/12.5_25_50/splice_ad/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local"
+"sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https","/content/chh1_sets/12.5_25_50/splice_main/2025-06-30/stream.mpd","","chh1_12.5_25_50-local"
+"","/content/chh1_sets/12.5_25_50/splice_ad-cenc/2025-06-30/stream.mpd","","chh1_12.5_25_50-local"
 
 "source-buffer-re-initialization-with-changetype","/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","chh1_12.5_25_50-local"
 "","/content/chh1_sets/12.5_25_50/t1/2025-01-15/stream.mpd","","chh1_12.5_25_50-local"

@@ -2,9 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>
-      Sequential Playback of Encrypted and Non-Encrypted Baseline Content
-    </title>
+    <title>Restricted Splicing of Encrypted Content</title>
+    <link rel="stylesheet" href="../lib/dummy.css" />
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -42,10 +41,9 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        title:
-          "Sequential Playback of Encrypted and Non-Encrypted Baseline Content",
+        title: "Restricted Splicing of Encrypted Content",
         description: "",
-        code: "sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https.html",
+        code: "restricted-splicing-of-encrypted-content-https.html",
         params: urlParams,
       };
 
@@ -53,7 +51,7 @@
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cud1_sets/12.5_25_50/splice_main/2025-06-30/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-09-01/stream.mpd"];
+      var videoContentModel = ["/content/chh1_sets/12.5_25_50/splice_main-cenc/2025-06-30/stream.mpd", "/content/chh1_sets/12.5_25_50/splice_ad-cenc/2025-06-30/stream.mpd"];
       var audioContentModel = [];
 
       var logger = new Logger();
@@ -67,13 +65,14 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        isEncryptedContent: true,
         usePlayout: true,
+        isEncryptedContent: true,
         logger: logger,
       });
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
+
         player.startBuffering();
         player.playOnBufferLoaded(minBufferDuration).then(done);
 
