@@ -74,19 +74,42 @@
         if (isVideoInitialized) done();
         var READY_STATE_HAVE_METADATA = 1;
         var waitingTime = parameters.waitingTime || 500;
-        var handlePlay = function () {
-          video.removeEventListener("play", handlePlay);
-          dpctfTest.test(function () {
-            assert_true(video.readyState === READY_STATE_HAVE_METADATA);
-          }, "video ready state is 'HAVE_METADATA'");
-          setTimeout(function () {
-            done();
-            dpctfTest.setVideoState("appended");
-            isVideoInitialized = true;
-          }, waitingTime);
-        };
-        video.addEventListener("play", handlePlay);
-        player.play();
+
+        dpctfTest.asyncTest(function (test) {
+          video.addEventListener(
+            "loadedmetadata",
+            function handleLoadedMetadata() {
+              if (video.readyState < READY_STATE_HAVE_METADATA) return;
+              video.removeEventListener("loadedmetadata", handleLoadedMetadata);
+              logger.info("video loaded metadata");
+              assert_true(true);
+              test.done();
+              setTimeout(function () {
+                done();
+                dpctfTest.setVideoState("appended");
+                isVideoInitialized = true;
+              }, waitingTime);
+            }
+          );
+        }, "video ready state 'HAVE_METADATA' reached");
+
+        dpctfTest.asyncTest(function (test) {
+          var testTimeout = setTimeout(function () {
+            logger.warn(
+              "video did not transition into waiting state within expected time"
+            );
+            assert_true(false);
+            test.done();
+          }, 10000);
+          video.addEventListener("waiting", function handleWaiting() {
+            clearTimeout(testTimeout);
+            video.removeEventListener("waiting", handleWaiting);
+            logger.info("video is waiting for data");
+            assert_true(true);
+            test.done();
+          });
+          player.play();
+        }, "video waiting event fired");
       }
 
       function executeTest(player, done, parameters) {
