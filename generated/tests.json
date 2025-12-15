@@ -3524,44 +3524,7 @@
                         }
                     }
                 ],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT02H00M00.000S",
-                        "fragment_duration": "PT0H0M1.984S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "r": 3628,
-                                "t": 0,
-                                "d": 95232
-                            },
-                            {
-                                "d": 3072
-                            }
-                        ],
-                        "source": "PN01_128000@48000_7200 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN01_128000@48000_30": {
-                                "period": 1,
-                                "audioSamplingRate": 48000,
-                                "duration": 7200,
-                                "type": "audio",
-                                "fragment_duration": 1.984,
-                                "timescale": 48000,
-                                "segmentTimeline": [
-                                    {
-                                        "r": 3628,
-                                        "t": 0,
-                                        "d": 95232
-                                    },
-                                    {
-                                        "d": 3072
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "e8af129476fa925eb951d9e4d55a7638": {
@@ -8088,74 +8051,7 @@
                         }
                     }
                 ],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT00H00M10.000S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "r": 4,
-                                "t": 0,
-                                "d": 92160
-                            },
-                            {
-                                "d": 19200
-                            }
-                        ],
-                        "source": "PN03_128000@48000_10 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN03_128000@48000_60": {
-                                "period": 1,
-                                "audioSamplingRate": 48000,
-                                "duration": 10,
-                                "type": "audio",
-                                "fragment_duration": 1.92,
-                                "timescale": 48000,
-                                "segmentTimeline": [
-                                    {
-                                        "r": 4,
-                                        "t": 0,
-                                        "d": 92160
-                                    },
-                                    {
-                                        "d": 19200
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "cmaf_track_duration": "PT00H00M05.760S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "r": 2,
-                                "t": 0,
-                                "d": 92160
-                            }
-                        ],
-                        "source": "PN04_128000@48000_5.76 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN04_128000@48000_30": {
-                                "period": 1,
-                                "audioSamplingRate": 48000,
-                                "duration": 5,
-                                "type": "audio",
-                                "fragment_duration": 1.92,
-                                "timescale": 48000,
-                                "segmentTimeline": [
-                                    {
-                                        "r": 2,
-                                        "t": 0,
-                                        "d": 92160
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "87e30cc4a6eced0d8c13a06295ec9426": {
@@ -8200,44 +8096,7 @@
                         }
                     }
                 ],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT02H00M00.000S",
-                        "fragment_duration": "PT0H0M1.984S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "r": 3628,
-                                "t": 0,
-                                "d": 95232
-                            },
-                            {
-                                "d": 3072
-                            }
-                        ],
-                        "source": "PN01_128000@48000_7200 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN01_128000@48000_30": {
-                                "period": 1,
-                                "audioSamplingRate": 48000,
-                                "duration": 7200,
-                                "type": "audio",
-                                "fragment_duration": 1.984,
-                                "timescale": 48000,
-                                "segmentTimeline": [
-                                    {
-                                        "r": 3628,
-                                        "t": 0,
-                                        "d": 95232
-                                    },
-                                    {
-                                        "d": 3072
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "ab31d884761721a87c2b9cbccdd6d1ba": {
@@ -14232,74 +14091,7 @@
             "code": "playback-over-wave-baseline-splice-constraints.html",
             "switchingSets": {
                 "video": [],
-                "audio": [
-                    {
-                        "cmaf_track_duration": "PT00H00M10.000S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "r": 4,
-                                "t": 0,
-                                "d": 92160
-                            },
-                            {
-                                "d": 19200
-                            }
-                        ],
-                        "source": "PN03_128000@48000_10 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN03_128000@48000_60": {
-                                "period": 1,
-                                "audioSamplingRate": 48000,
-                                "duration": 10,
-                                "type": "audio",
-                                "fragment_duration": 1.92,
-                                "timescale": 48000,
-                                "segmentTimeline": [
-                                    {
-                                        "r": 4,
-                                        "t": 0,
-                                        "d": 92160
-                                    },
-                                    {
-                                        "d": 19200
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "cmaf_track_duration": "PT00H00M05.760S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "r": 2,
-                                "t": 0,
-                                "d": 92160
-                            }
-                        ],
-                        "source": "PN04_128000@48000_5.76 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN04_128000@48000_30": {
-                                "period": 1,
-                                "audioSamplingRate": 48000,
-                                "duration": 5,
-                                "type": "audio",
-                                "fragment_duration": 1.92,
-                                "timescale": 48000,
-                                "segmentTimeline": [
-                                    {
-                                        "r": 2,
-                                        "t": 0,
-                                        "d": 92160
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
+                "audio": []
             }
         },
         "0316d8cf0f61940c1c3f2033f60644c0": {
@@ -14446,36 +14238,6 @@
                                     },
                                     {
                                         "d": 5888
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "cmaf_track_duration": "PT00H00M05.760S",
-                        "fragment_duration": "PT0H0M1.920S",
-                        "timescale": 48000,
-                        "segmentTimeline": [
-                            {
-                                "r": 2,
-                                "t": 0,
-                                "d": 92160
-                            }
-                        ],
-                        "source": "PN04_128000@48000_5.76 version 4 (2023-02-28)",
-                        "representations": {
-                            "PN04_128000@48000_30": {
-                                "period": 1,
-                                "audioSamplingRate": 48000,
-                                "duration": 5,
-                                "type": "audio",
-                                "fragment_duration": 1.92,
-                                "timescale": 48000,
-                                "segmentTimeline": [
-                                    {
-                                        "r": 2,
-                                        "t": 0,
-                                        "d": 92160
                                     }
                                 ]
                             }
