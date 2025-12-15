@@ -75,8 +75,9 @@
     "waiting_duration": 500,
     "min_buffer_duration": 10000
   },
-  "long-duration-playback.html": {
+  "long-duration-playback-manual.html": {
     "max_backward_buffer": 5,
+    "min_buffer_duration": 20000,
     "test_timeout": 10800000
   },
   "mse-appendwindow.html": {
