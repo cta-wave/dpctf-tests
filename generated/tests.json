@@ -45150,6 +45150,154 @@
                 "audio": []
             }
         },
+        "c1fe3fb4b4ede290e12a2b9d37b40131": {
+            "path": "cfhd_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1-3.html",
+            "video": [
+                "/content/switching_sets/12.5_25_50/ss1/2025-05-24/stream.mpd"
+            ],
+            "audio": [],
+            "code": "fullscreen-playback-of-switching-sets.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H1M0.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 29,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_L1_1920x1080@25_30 version 4",
+                        "representations": {
+                            "../../../../cfhd_sets/12.5_25_50/t19/2023-09-01/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 29,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            },
+                            "../../../../chdf_sets/12.5_25_50/t20/2023-09-01/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 29,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t23/2023-09-01/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 29,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t24/2023-09-01/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 29,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t25/2023-09-01/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 29,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t28/2023-09-01/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 29,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t32/2023-09-01/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 29,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            },
+                            "../../../../cfhd_sets/12.5_25_50/t34/2023-09-01/1": {
+                                "period": 1,
+                                "duration": 60,
+                                "type": "video",
+                                "frame_rate": "12800/1024",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 29,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
         "f2b80d2350ca63fa175c11322749f6da": {
             "path": "cfhd_14.985_29.97_59.94-online/switching-set-playback__ss1-1.html",
             "video": [
