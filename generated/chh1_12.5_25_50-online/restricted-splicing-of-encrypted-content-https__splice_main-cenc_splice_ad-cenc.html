@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Long Duration Playback</title>
+    <title>Restricted Splicing of Encrypted Content</title>
+    <link rel="stylesheet" href="../lib/dummy.css" />
     <link rel="stylesheet" href="../lib/style.css" />
     <script src="/resources/testharness.js"></script>
     <script src="/resources/testharnessreport.js"></script>
@@ -40,19 +41,18 @@
     <script>
       // Global variables
       var TEST_INFO = {
-        id: "long-duration-playback",
-        title: "Long Duration Playback",
-        description:
-          "This requirement addresses the proper playback of a WAVE presentation over a longer time; in particular, no drift in the playout occurs.",
-        code: "long-duration-playback-manual.html",
+        title: "Restricted Splicing of Encrypted Content",
+        description: "",
+        code: "restricted-splicing-of-encrypted-content-https.html",
+        params: urlParams,
       };
 
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
       var statusText = document.getElementById("status-text");
 
-      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/tLD/2023-09-01/stream.mpd"];
-      var audioContentModel = ["https://dash-large-files.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at17/2025-11-20/stream.mpd"];
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/splice_main-cenc/2025-06-30/stream.mpd", "https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/splice_ad-cenc/2025-06-30/stream.mpd"];
+      var audioContentModel = [];
 
       var logger = new Logger();
 
@@ -65,37 +65,23 @@
         statusTextElement: statusText,
         infoOverlayElement: document.getElementById("info-overlay"),
         executeTest: executeTest,
-        usePlayout: false,
+        usePlayout: true,
+        isEncryptedContent: true,
         logger: logger,
       });
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-        var playbackDuration = parameters.playbackDuration;
+
         player.startBuffering();
-
-        if (playbackDuration) {
-          dpctfTest.asyncTest(function (test) {
-            video.addEventListener("timeupdate", function (event) {
-              if (video.currentTime >= parameters.playbackDuration) {
-                player.pause().then(function () {
-                  dpctfTest.setVideoState(dpctfTest.VIDEO_STATE_FINISHED);
-                  assert_true(true);
-                  test.done();
-                });
-              }
-            });
-          }, "video played specified duration");
-        } else {
-          dpctfTest.asyncTest(function (test) {
-            video.addEventListener("ended", function (event) {
-              assert_true(true);
-              test.done();
-            });
-          }, "video ended event fired");
-        }
-
         player.playOnBufferLoaded(minBufferDuration).then(done);
+
+        dpctfTest.asyncTest(function (test) {
+          video.addEventListener("ended", function (event) {
+            assert_true(true);
+            test.done();
+          });
+        }, "video ended event fired");
       }
     </script>
   </body>
