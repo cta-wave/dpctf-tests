@@ -442,6 +442,36 @@
         "/cfhd_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss1-3.html",
         "/cfhd_12.5_25_50-local/switching-set-playback__ss1-2.html"
       ]
+    },
+    {
+      "title": "hevc-cud1",
+      "tag": {
+        "text": "hevc-cud1",
+        "color": "info"
+      },
+      "tests": [
+        "/cud1_12.5_25_50-local/*"
+      ]
+    },
+    {
+      "title": "hevc-clg1",
+      "tag": {
+        "text": "hevc-clg1",
+        "color": "info"
+      },
+      "tests": [
+        "/clg1_12.5_25_50-local/*"
+      ]
+    },
+    {
+      "title": "hevc-chd1",
+      "tag": {
+        "text": "hevc-clg1",
+        "color": "info"
+      },
+      "tests": [
+        "/chd1_12.5_25_50-local/*"
+      ]
     }
   ]
 }
