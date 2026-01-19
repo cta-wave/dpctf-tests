@@ -54,6 +54,7 @@
 "random-access-of-a-wave-presentation","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","https://dash-large-files.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_15_30_60-online"
 
 "long-duration-playback-manual","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/tLD/2023-09-01/stream.mpd","https://dash-large-files.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at17/2025-11-20/stream.mpd","cfhd_15_30_60-long-online"
+"long-duration-playback-manual","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/tLD/2023-09-01/stream.mpd","","cfhd_15_30_60-long-online"
 
 
 "sequential-track-playback","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","cfhd_15_30_60-local"
@@ -112,6 +113,7 @@
 "random-access-of-a-wave-presentation","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","/content/caac_sets/aac_lc/at1/2023-04-27/stream.mpd","cfhd_15_30_60-local"
 
 "long-duration-playback-manual","/content/cfhd_sets/15_30_60/tLD/2023-09-01/stream.mpd","/content/caac_sets/aac_lc/at17/2025-11-20/stream.mpd","cfhd_15_30_60-long-local"
+"long-duration-playback-manual","/content/cfhd_sets/15_30_60/tLD/2023-09-01/stream.mpd","","cfhd_15_30_60-long-local"
 
 
 
@@ -193,6 +195,7 @@
 "","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/splice_ad/2023-09-01/stream.mpd","https://dash.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at14/2025-11-20/stream.mpd","cfhd_12.5_25_50-online"
 
 "long-duration-playback-manual","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/tLD/2023-09-01/stream.mpd","https://dash-large-files.akamaized.net/WAVE/vectors/releases/1/caac_sets/aac_lc/at17/2025-11-20/stream.mpd","cfhd_12.5_25_50-long-online"
+"long-duration-playback-manual","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/tLD/2023-09-01/stream.mpd","","cfhd_12.5_25_50-long-online"
 
 
 "sequential-track-playback","/content/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd","","cfhd_12.5_25_50-local"
@@ -271,6 +274,7 @@
 "","/content/cfhd_sets/12.5_25_50/splice_ad/2023-09-01/stream.mpd","/content/caac_sets/aac_lc/at14/2025-11-20/stream.mpd","cfhd_12.5_25_50-online"
 
 "long-duration-playback-manual","/content/cfhd_sets/12.5_25_50/tLD/2023-09-01/stream.mpd","/content/caac_sets/aac_lc/at17/2025-11-20/stream.mpd","cfhd_12.5_25_50-long-local"
+"long-duration-playback-manual","/content/cfhd_sets/12.5_25_50/tLD/2023-09-01/stream.mpd","","cfhd_12.5_25_50-long-local"
 
 
 
