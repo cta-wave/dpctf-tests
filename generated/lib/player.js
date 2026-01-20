@@ -1224,6 +1224,9 @@ function BufferManager(manifests, mediaSource, video, options) {
         return appendBuffer(arrayBuffer);
       })
       .then(function () {
+        return handleMaxBackwardBuffer();
+      })
+      .then(function () {
         _isAppendingBuffer = false;
         bufferInfo.resolve();
         appendQueuedBuffers();
@@ -1238,16 +1241,14 @@ function BufferManager(manifests, mediaSource, video, options) {
         _eventEmitter.dispatchEvent("onSegmentLoaded", {
           totalSegmentsLoaded: _bufferingSegment,
         });
-        handleMaxBackwardBuffer();
       });
   }
 
   function handleMaxBackwardBuffer() {
-    if (_maxBackwardBuffer) {
-      var end = video.currentTime - _maxBackwardBuffer;
-      if (end <= 0) return;
-      _sourceBuffer.remove(0, end);
-    }
+    if (!_maxBackwardBuffer) return Promise.resolve();
+    var end = video.currentTime - _maxBackwardBuffer;
+    if (end <= 0) return;
+    return removeBufferedRange(0, end);
   }
 
   function truncateBuffer() {
@@ -1347,6 +1348,43 @@ function BufferManager(manifests, mediaSource, video, options) {
         );
       });
   }
+
+  function removeBufferedRange(start, end) {
+    if (!_sourceBuffer) return Promise.resolve();
+    var startTime = null;
+    return waitForSourceBufferUpdate()
+      .then(function () {
+        logger.debug(
+          "removing buffered range from " +
+            start +
+            " to " +
+            end +
+            " (ct: " +
+            video.currentTime +
+            ")",
+        );
+        startTime = performance.now();
+        try {
+          _sourceBuffer.remove(start, end);
+        } catch (error) {
+          logger.error("source buffer remove error: " + error);
+          dispatchVideoErrorEvent(error);
+          return Promise.reject(error);
+        }
+        return Promise.resolve();
+      })
+      .then(waitForSourceBufferUpdate)
+      .then(function () {
+        var duration = performance.now() - startTime;
+        logger.debug(
+          "buffered range removed, buffered ranges: " +
+            JSON.stringify(getBufferedRange(_sourceBuffer)) +
+            " (ct: " +
+            video.currentTime +
+            ")" +
+            " (dur: " +
+            duration +
+            " ms)",
         );
       });
   }
