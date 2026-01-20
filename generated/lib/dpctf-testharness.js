@@ -1,4 +1,5 @@
 function DpctfTest(config) {
+  var urlParams = getUrlParams();
   var testInfo = config.testInfo;
   var logger = config.logger;
   var video = config.videoElement;
@@ -1332,8 +1333,8 @@ InfoOverlay.parseTimeStampFromSeconds = function (seconds) {
 };
 
 //https://stackoverflow.com/questions/979975/how-to-get-the-value-from-the-get-parameters
-var urlParams;
-(window.onpopstate = function () {
+function getUrlParams() {
+  var urlParams;
   var match,
     pl = /\+/g, // Regex for replacing addition symbol with a space
     search = /([^&=]+)=?([^&]*)/g,
@@ -1345,4 +1346,5 @@ var urlParams;
   urlParams = {};
   while ((match = search.exec(query)))
     urlParams[decode(match[1])] = decode(match[2]);
-})();
+  return urlParams;
+}
