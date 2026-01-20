@@ -657,7 +657,9 @@ function BufferManager(manifests, mediaSource, video, options) {
   _video.addEventListener("timeupdate", handleTimeUpdate);
   _video.addEventListener("seeking", handleSeeking);
   let _segments = {};
+  let _segmentsKeys = [];
   let _playingSegment;
+  let _playingSegmentIndex = 0;
   let _gaps = [];
   let _playingRepresentation;
   let _bufferingSegment = 0;
@@ -742,6 +744,8 @@ function BufferManager(manifests, mediaSource, video, options) {
       segment.setManifestIndex(manifestIndex);
       _segments[i + bufferOffset] = segment;
     }
+    _segmentsKeys = Object.keys(_segments);
+    setSegmentsDuration();
     updatePlayingSegment();
 
     var playingSegment = _playingSegment.getNumber();
@@ -755,11 +759,12 @@ function BufferManager(manifests, mediaSource, video, options) {
     }
 
     var totalDuration = 0;
-    for (var segment of Object.values(_segments)) {
+    for (var key of _segmentsKeys) {
+      var segment = _segments[key];
       if (!segment) continue;
       totalDuration += segment.getDuration();
     }
-    setDuration(totalDuration);
+    setDuration(totalDuration); // TODO calculate total duration in setSegmentsDuration();
     return waitForSourceBufferUpdate().then(function () {
       return Promise.resolve(totalDuration);
     });
@@ -767,18 +772,33 @@ function BufferManager(manifests, mediaSource, video, options) {
 
   function clearSegments() {
     _segments = {};
+    _segmentsKeys = [];
+    _playingSegmentIndex = 0;
   }
 
   function getSegmentsCount() {
-    return Object.keys(_segments).length;
+    return _segmentsKeys.length;
+  }
+
+  function setSegmentsDuration(){
+    var segmentTime = 0;
+    for (var i = 0; i < getSegmentsCount(); i++) {
+      var segment = _segments[i];
+      segment.startTime = segmentTime;
+      segmentTime += segment.getDuration();
+      segment.endTime = segmentTime;
+    }
   }
 
   function updatePlayingSegment() {
-    var segmentTime = 0;
-    for (var i = 0; i < Object.keys(_segments).length; i++) {
-      var segment = _segments[i];
-      segmentTime += segment.getDuration();
-      if (segmentTime <= _video.currentTime) continue;
+    for (var i = 0; i < getSegmentsCount(); i++) {
+      var index = (i + _playingSegmentIndex) % getSegmentsCount();
+      var segment = _segments[index];
+      if (
+        _video.currentTime >= segment.endTime ||
+        _video.currentTime < segment.startTime
+      )
+        continue;
       var manifestIndex = segment.getManifestIndex();
       var representation = _manifests[manifestIndex].getRepresentation(
         segment.getRepresentationNumber(),
@@ -786,6 +806,7 @@ function BufferManager(manifests, mediaSource, video, options) {
       );
       setPlayingRepresentation(representation);
       setPlayingSegment(segment);
+      _playingSegmentIndex = index;
       break;
     }
   }
