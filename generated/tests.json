@@ -1782,6 +1782,49 @@
                 ]
             }
         },
+        "26c8211f5e89a8eec22fd8b3dbb2333f": {
+            "path": "cfhd_15_30_60-long-online/long-duration-playback-manual__tLD.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/tLD/2023-09-01/stream.mpd"
+            ],
+            "audio": [],
+            "code": "long-duration-playback-manual.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT2H0M0.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 15360,
+                        "segmentTimeline": [
+                            {
+                                "r": 3599,
+                                "t": 0,
+                                "d": 30720
+                            }
+                        ],
+                        "source": "tos_LD1_1920x1080@30_7200 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 7200,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0,
+                                "timescale": 15360,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 3599,
+                                        "t": 0,
+                                        "d": 30720
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
         "2ae7403491c0a1745bdb33543196ac27": {
             "path": "cfhd_15_30_60-local/sequential-track-playback__t1.html",
             "video": [
@@ -3562,6 +3605,49 @@
                         }
                     }
                 ]
+            }
+        },
+        "286d9a0400ac918f789241dde52f32f8": {
+            "path": "cfhd_15_30_60-long-local/long-duration-playback-manual__tLD.html",
+            "video": [
+                "/content/cfhd_sets/15_30_60/tLD/2023-09-01/stream.mpd"
+            ],
+            "audio": [],
+            "code": "long-duration-playback-manual.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT2H0M0.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 15360,
+                        "segmentTimeline": [
+                            {
+                                "r": 3599,
+                                "t": 0,
+                                "d": 30720
+                            }
+                        ],
+                        "source": "tos_LD1_1920x1080@30_7200 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 7200,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0,
+                                "timescale": 15360,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 3599,
+                                        "t": 0,
+                                        "d": 30720
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
             }
         },
         "e8af129476fa925eb951d9e4d55a7638": {
@@ -5902,6 +5988,49 @@
                 ]
             }
         },
+        "aadbefd917dff287a63f3e5cf483cb5d": {
+            "path": "cfhd_12.5_25_50-long-online/long-duration-playback-manual__tLD.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/tLD/2023-09-01/stream.mpd"
+            ],
+            "audio": [],
+            "code": "long-duration-playback-manual.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT2H0M0.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 3599,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_LD1_1920x1080@25_7200 version 4 (2023-02-15)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 7200,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 3599,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
         "ccebba2d231becc5b17612e2612e3a98": {
             "path": "cfhd_12.5_25_50-local/sequential-track-playback__t1.html",
             "video": [
@@ -8238,6 +8367,49 @@
                         }
                     }
                 ]
+            }
+        },
+        "78707ea5bc401ae7495ec8657c9d8959": {
+            "path": "cfhd_12.5_25_50-long-local/long-duration-playback-manual__tLD.html",
+            "video": [
+                "/content/cfhd_sets/12.5_25_50/tLD/2023-09-01/stream.mpd"
+            ],
+            "audio": [],
+            "code": "long-duration-playback-manual.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT2H0M0.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 3599,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "croatia_LD1_1920x1080@25_7200 version 4 (2023-02-15)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 7200,
+                                "type": "video",
+                                "frame_rate": "25",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 3599,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
             }
         },
         "ab31d884761721a87c2b9cbccdd6d1ba": {

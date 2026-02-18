@@ -395,9 +395,7 @@
         "text": "low-latency-init",
         "color": "info"
       },
-      "tests": [
-        "/cfhd_12.5_25_50-local/low-latency-initialization__t2.html"
-      ]
+      "tests": ["/cfhd_12.5_25_50-local/low-latency-initialization__t2.html"]
     },
     {
       "title": "source-buffer-reinit",
@@ -427,9 +425,7 @@
         "text": "hevc-chh1",
         "color": "info"
       },
-      "tests": [
-        "/chh1_12.5_25_50-local/*"
-      ]
+      "tests": ["/chh1_12.5_25_50-local/*"]
     },
     {
       "title": "select",
@@ -449,9 +445,7 @@
         "text": "hevc-cud1",
         "color": "info"
       },
-      "tests": [
-        "/cud1_12.5_25_50-local/*"
-      ]
+      "tests": ["/cud1_12.5_25_50-local/*"]
     },
     {
       "title": "hevc-clg1",
@@ -459,18 +453,74 @@
         "text": "hevc-clg1",
         "color": "info"
       },
-      "tests": [
-        "/clg1_12.5_25_50-local/*"
-      ]
+      "tests": ["/clg1_12.5_25_50-local/*"]
     },
     {
       "title": "hevc-chd1",
       "tag": {
-        "text": "hevc-clg1",
+        "text": "hevc-chd1",
+        "color": "info"
+      },
+      "tests": ["/chd1_12.5_25_50-local/*"]
+    },
+    {
+      "title": "malfunctioning",
+      "tag": {
+        "text": "malfunctioning",
         "color": "info"
       },
       "tests": [
-        "/chd1_12.5_25_50-local/*"
+        "/chd1_12.5_25_50-local/buffer-underrun-and-recovery__t62.html",
+        "/chd1_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss5_chd1.html",
+        "/chd1_12.5_25_50-local/low-latency-playback-over-gaps__t62.html",
+        "/chd1_12.5_25_50-local/low-latency-short-buffer-playback__t62.html",
+        "/chd1_12.5_25_50-local/random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream__t62.html",
+        "/chd1_12.5_25_50-local/random-access-of-a-wave-presentation__t61_at1.html",
+        "/chd1_12.5_25_50-local/random-access-to-fragment__t61.html",
+        "/chd1_12.5_25_50-local/random-access-to-time__t61.html",
+        "/chd1_12.5_25_50-local/regular-playback-of-a-cmaf-presentation__t61_at1.html",
+        "/chd1_12.5_25_50-local/regular-playback-of-chunked-content-non-aligned-append__t62.html",
+        "/chd1_12.5_25_50-local/regular-playback-of-chunked-content__t62.html",
+        "/chd1_12.5_25_50-local/sequential-track-playback__t61.html",
+        "/chd1_12.5_25_50-local/sequential-track-playback__t70.html",
+        "/chd1_12.5_25_50-local/sequential-track-playback__t71.html",
+        "/chd1_12.5_25_50-local/sequential-track-playback__t72.html",
+        "/chd1_12.5_25_50-local/sequential-track-playback__t73.html",
+        "/chd1_12.5_25_50-local/switching-set-playback__ss5_chd1.html"
+      ]
+    },
+    {
+      "title": "HEVC ALL FAIL (19-01-26)",
+      "tag": {
+        "text": "HEVC ALL FAIL (19-01-26)",
+        "color": "info"
+      },
+      "tests": [
+        "/cud1_12.5_25_50-online/fullscreen-playback-of-switching-sets__ss3_cud1.html",
+        "/cud1_12.5_25_50-local/playback-over-wave-baseline-splice-constraints__splice_main_splice_ad.html",
+        "/cud1_12.5_25_50-local/random-access-to-time__t21.html",
+        "/cud1_12.5_25_50-local/regular-playback-of-a-cmaf-presentation__t21_at1.html",
+        "/cud1_12.5_25_50-local/regular-playback-of-chunked-content-non-aligned-append__t22.html",
+        "/cud1_12.5_25_50-online/switching-set-playback__ss3_cud1.html",
+        "/chd1_12.5_25_50-online/fullscreen-playback-of-switching-sets__ss5_chd1.html",
+        "/chd1_12.5_25_50-local/random-access-to-time__t61.html",
+        "/chd1_12.5_25_50-local/regular-playback-of-chunked-content-non-aligned-append__t62.html",
+        "/chd1_12.5_25_50-online/switching-set-playback__ss5_chd1.html",
+        "/clg1_12.5_25_50-local/fullscreen-playback-of-switching-sets__ss4_clg1.html",
+        "/clg1_12.5_25_50-local/random-access-of-a-wave-presentation__t41_at1.html",
+        "/clg1_12.5_25_50-local/random-access-to-time__t41.html",
+        "/clg1_12.5_25_50-local/regular-playback-of-chunked-content-non-aligned-append__t42.html",
+        "/clg1_12.5_25_50-online/switching-set-playback__ss4_clg1.html",
+        "/chh1_12.5_25_50-online/fullscreen-playback-of-switching-sets__ss2_chh1.html",
+        "/chh1_12.5_25_50-local/out-of-order-loading__t1.html",
+        "/chh1_12.5_25_50-local/overlapping-fragments__t1.html",
+        "/chh1_12.5_25_50-local/playback-over-wave-baseline-splice-constraints__splice_main_splice_ad.html",
+        "/chh1_12.5_25_50-local/random-access-to-time__t1.html",
+        "/chh1_12.5_25_50-local/regular-playback-of-chunked-content-non-aligned-append__t2.html",
+        "/chh1_12.5_25_50-local/source-buffer-re-initialization-without-changetype__t1.html",
+        "/chh1_12.5_25_50-online/switching-set-playback__ss2_chh1.html",
+        "/chh1_12.5_25_50-local/restricted-splicing-of-encrypted-content-https__splice_main-cenc_splice_ad-cenc.html",
+        "/chh1_12.5_25_50-local/sequential-playback-of-encrypted-and-non-encrypted-baseline-content-https__splice_main_splice_ad-cenc.html"
       ]
     }
   ]
