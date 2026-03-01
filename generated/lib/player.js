@@ -482,9 +482,25 @@ function Player(video, options) {
       logger.debug("cannot close stream, audio segments still loading");
       return;
     }
+
     logger.debug("closing stream");
-    if (_videoBufferManager) _videoBufferManager.closeBuffer();
-    if (_audioBufferManager) _audioBufferManager.closeBuffer();
+    return Promise.resolve()
+      .then(function () {
+        if (!_videoBufferManager) return Promise.resolve();
+        return _videoBufferManager.waitForSourceBufferUpdate();
+      })
+      .then(function () {
+        if (!_audioBufferManager) return Promise.resolve();
+        return _audioBufferManager.waitForSourceBufferUpdate();
+      })
+      .then(function () {
+        try {
+          _mediaSource.endOfStream();
+        } catch (error) {
+          logger.error("error closing media source: " + error);
+          return;
+        }
+      });
   }
 
   function truncateBuffer() {
@@ -1224,12 +1240,15 @@ function BufferManager(manifests, mediaSource, video, options) {
   function waitForSourceBufferUpdate() {
     if (!_sourceBuffer) return Promise.resolve();
     if (!_sourceBuffer.updating) return Promise.resolve();
+    logger.debug("waiting for source buffer update");
     return new Promise(function (resolve) {
-      var handleBufferAppended = function () {
-        _sourceBuffer.removeEventListener("updateend", handleBufferAppended);
-        resolve();
-      };
-      _sourceBuffer.addEventListener("updateend", handleBufferAppended);
+      _sourceBuffer.addEventListener(
+        "updateend",
+        function handleBufferAppended() {
+          _sourceBuffer.removeEventListener("updateend", handleBufferAppended);
+          resolve();
+        }
+      );
     });
   }
 
@@ -1274,33 +1293,38 @@ function BufferManager(manifests, mediaSource, video, options) {
       return;
     }
     var start = null;
-    logger.debug(
-      "appending buffer, size: " +
-        arrayBuffer.byteLength +
-        " (ct: " +
-        video.currentTime +
-        ")"
-    );
-    start = performance.now();
-    try {
-      _sourceBuffer.appendBuffer(arrayBuffer);
-    } catch (error) {
-      logger.error("source buffer append error: " + error);
-      dispatchVideoErrorEvent(error);
-      return Promise.reject(error);
-    }
-    return waitForSourceBufferUpdate().then(function () {
-      var duration = performance.now() - start;
-      logger.debug(
-        "source buffer updated, buffered ranges: " +
-          JSON.stringify(getBufferedRange(_sourceBuffer)) +
-          " (ct: " +
-          video.currentTime +
-          ") (dur: " +
-          duration +
-          " ms)"
-      );
-    });
+    return waitForSourceBufferUpdate()
+      .then(function () {
+        logger.debug(
+          "appending buffer, size: " +
+            arrayBuffer.byteLength +
+            " (ct: " +
+            video.currentTime +
+            ")"
+        );
+        start = performance.now();
+        try {
+          _sourceBuffer.appendBuffer(arrayBuffer);
+        } catch (error) {
+          logger.error("source buffer append error: " + error);
+          dispatchVideoErrorEvent(error);
+          return Promise.reject(error);
+        }
+        return Promise.resolve();
+      })
+      .then(waitForSourceBufferUpdate)
+      .then(function () {
+        var duration = performance.now() - start;
+        logger.debug(
+          "source buffer updated, buffered ranges: " +
+            JSON.stringify(getBufferedRange(_sourceBuffer)) +
+            " (ct: " +
+            video.currentTime +
+            ") (dur: " +
+            duration +
+            " ms)"
+        );
+      });
   }
 
   function getBufferedRange(sourceBuffer) {
@@ -1432,14 +1456,6 @@ function BufferManager(manifests, mediaSource, video, options) {
     bufferVideo();
   }
 
-  function closeBuffer() {
-    if (!_mediaSource) return;
-    if (_mediaSource.readyState !== "open") return;
-    logger.debug("closing source buffer");
-    _mediaSource.endOfStream();
-    _eventEmitter.dispatchEvent(Player.EVENT_CLOSE_BUFFER);
-  }
-
   function dispatchVideoErrorEvent(error) {
     _eventEmitter.dispatchEvent("onVideoError", error);
   }
@@ -1505,10 +1521,10 @@ function BufferManager(manifests, mediaSource, video, options) {
     off: _eventEmitter.off,
     setGaps,
     setAppendWindow,
-    closeBuffer,
     truncateBuffer,
     handleCurrentTimeChange,
     hasLoadedAllSegments,
+    waitForSourceBufferUpdate,
     setRole,
   };
 
