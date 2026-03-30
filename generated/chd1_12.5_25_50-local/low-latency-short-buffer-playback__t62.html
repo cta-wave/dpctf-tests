@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Low-Latency (2): Short Buffer Playback</title>
+    <link rel="stylesheet" href="../lib/style.css" />
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+
+  <body>
+    <div id="content-wrapper">
+      <div id="video-wrapper">
+        <video></video>
+        <div><div id="qr-code"></div></div>
+        <div><div id="status-text"></div></div>
+      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
+      <div id="debug-wrapper">
+        <div>
+          <div class="button" id="debug-button">Debug Overlay</div>
+        </div>
+        <div id="debug"></div>
+        <div id="log"></div>
+      </div>
+    </div>
+    <div id="info-overlay"></div>
+    <script src="../lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+
+    <script src="../lib/logger.js"></script>
+    <script src="../lib/event-emitter.js"></script>
+    <script src="../lib/player.js"></script>
+    <script src="../lib/hbbtv.js"></script>
+    <script src="../lib/manifest_parser.js"></script>
+    <script src="../lib/mpd-parser.js"></script>
+    <script src="../lib/wave-service.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
+    <script>
+      // Global variables
+      var TEST_INFO = {
+        id: "low-latency-short-buffer-playback",
+        title: "Low-Latency (2): Short Buffer Playback",
+        description: "",
+        code: "low-latency-short-buffer-playback.html",
+      };
+
+      var video = document.querySelector("video");
+      var qrCode = document.getElementById("qr-code");
+      var statusText = document.getElementById("status-text");
+
+      var videoContentModel = ["/content/chd1_sets/12.5_25_50/t62/2025-06-13/stream.mpd"];
+      var audioContentModel = [];
+
+      var logger = new Logger();
+
+      var dpctfTest = new DpctfTest({
+        testInfo: TEST_INFO,
+        videoContentModel: videoContentModel,
+        audioContentModel: audioContentModel,
+        videoElement: video,
+        qrCodeElement: qrCode,
+        statusTextElement: statusText,
+        infoOverlayElement: document.getElementById("info-overlay"),
+        executeTest: executeTest,
+        usePlayout: false,
+        logger: logger,
+      });
+
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
+        var maximumForwardBuffer = parameters.maximumForwardBuffer / 1000;
+        var waitingDuration = parameters.waitingDuration;
+
+        if (!maximumForwardBuffer)
+          done("Missing parameter 'maximum_froward_buffer'");
+        if (!waitingDuration) done("Missing parameter 'waiting_duration'");
+
+        dpctfTest.asyncTest(function (test) {
+          video.addEventListener("ended", function (event) {
+            assert_true(true);
+            test.done();
+          });
+        }, "video ended event fired");
+
+        dpctfTest.asyncTest(function (test) {
+          function handleSegmentLoaded(event) {
+            if (player.getPreBufferedTime() < maximumForwardBuffer) return;
+            var timeout = {};
+            video.addEventListener("playing", function () {
+              clearTimeout(timeout.handle);
+              player.off(handleSegmentLoaded);
+              test.step(function () {
+                assert_true(true);
+              });
+              test.done();
+              done();
+            });
+            timeout.handle = setTimeout(function () {
+              player.off(handleSegmentLoaded);
+              test.step(function () {
+                assert_true(false);
+              });
+              test.done();
+              done();
+            }, waitingDuration);
+            player
+              .play()
+              .then(function () {})
+              .catch(function (error) {
+                done(error);
+              });
+          }
+          player.on("onVideoSegmentLoaded", handleSegmentLoaded);
+          player.startBuffering();
+        }, "video should change to playing state in time (" +
+          waitingDuration +
+          "ms)");
+      }
+    </script>
+  </body>
+</html>

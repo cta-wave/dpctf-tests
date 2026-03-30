@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Low-Latency: Playback over Gaps</title>
+    <link rel="stylesheet" href="../lib/style.css" />
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+
+  <body>
+    <div id="content-wrapper">
+      <div id="video-wrapper">
+        <video></video>
+        <div><div id="qr-code"></div></div>
+        <div><div id="status-text"></div></div>
+      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
+      <div id="debug-wrapper">
+        <div>
+          <div class="button" id="debug-button">Debug Overlay</div>
+        </div>
+        <div id="debug"></div>
+        <div id="log"></div>
+      </div>
+    </div>
+    <div id="info-overlay"></div>
+    <script src="../lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+
+    <script src="../lib/logger.js"></script>
+    <script src="../lib/event-emitter.js"></script>
+    <script src="../lib/player.js"></script>
+    <script src="../lib/hbbtv.js"></script>
+    <script src="../lib/manifest_parser.js"></script>
+    <script src="../lib/mpd-parser.js"></script>
+    <script src="../lib/wave-service.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
+    <script>
+      // Global variables
+      var TEST_INFO = {
+        id: "low-latency-playback-over-gaps",
+        title: "Low-Latency: Playback over Gaps",
+        description: "",
+        code: "low-latency-playback-over-gaps.html",
+      };
+
+      var video = document.querySelector("video");
+      var qrCode = document.getElementById("qr-code");
+      var statusText = document.getElementById("status-text");
+
+      var videoContentModel = ["/content/clg1_sets/14.985_29.97_59.94/t42/2025-06-13/stream.mpd"];
+      var audioContentModel = [];
+
+      var logger = new Logger();
+
+      var dpctfTest = new DpctfTest({
+        testInfo: TEST_INFO,
+        videoContentModel: videoContentModel,
+        audioContentModel: audioContentModel,
+        videoElement: video,
+        qrCodeElement: qrCode,
+        statusTextElement: statusText,
+        infoOverlayElement: document.getElementById("info-overlay"),
+        executeTest: executeTest,
+        setupTest: setupTest,
+        usePlayout: false,
+        logger: logger,
+      });
+
+      function setupTest(player, done, parameters) {
+        var firstSegment = player.getVideoSegments()[0];
+        var segmentDuration = firstSegment.getDuration();
+        var chunks = firstSegment.getChunks();
+        var chunkDuration = segmentDuration / chunks.length;
+        if (chunks.length === 0) chunkDuration = segmentDuration;
+        var minBufferDuration = parameters.minBufferDuration;
+        var maxBufferDuration = parameters.maxBufferDuration;
+        var gapDuration = parameters.gapDuration || segmentDuration * 1000;
+        var gapStart = segmentDuration;
+        if (gapStart > minBufferDuration) gapStart = minBufferDuration;
+        if (gapStart < chunkDuration) gapStart = chunkDuration;
+        dpctfTest.setMinBufferDuration(maxBufferDuration);
+        dpctfTest.setGap(gapStart, gapDuration);
+        done();
+      }
+
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
+        player.startBuffering();
+
+        dpctfTest.asyncTest(function (test) {
+          video.addEventListener("ended", function (event) {
+            assert_true(true);
+            test.done();
+          });
+        }, "video ended event fired");
+
+        dpctfTest.asyncTest(function (test) {
+          function onPlayerWaiting() {
+            logger.info("play position reached gap");
+            var playbackMode = parameters.playbackMode;
+            var gapDuration = parameters.gapDuration;
+            var waitingDuration = 0;
+            if (playbackMode === dpctfTest.PLAYBACK_MODE_LIVE) {
+              waitingDuration = gapDuration;
+            }
+            video.addEventListener("playing", onPlayerPlaying);
+            logger.info(
+              "playback mode: " +
+                playbackMode +
+                ", waiting " +
+                waitingDuration +
+                "ms"
+            );
+            setTimeout(function () {
+              video.removeEventListener("waiting", onPlayerWaiting);
+              logger.info("seeking to end of gap");
+              player.setCurrentTime(video.buffered.start(1));
+              test.step(function () {
+                assert_true(true);
+              });
+              done();
+              test.done();
+            }, waitingDuration);
+          }
+
+          function onPlayerPlaying() {
+            video.removeEventListener("waiting", onPlayerWaiting);
+            test.step(function () {
+              assert_true(false);
+            });
+            logger.info("video started playing early");
+            test.done();
+            done();
+          }
+
+          player.playOnBufferLoaded(minBufferDuration).then(function () {
+            video.addEventListener("waiting", onPlayerWaiting);
+          });
+        }, "video remains in waiting state until skipping over the gap");
+      }
+    </script>
+  </body>
+</html>

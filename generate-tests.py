@@ -1,4 +1,4 @@
-#!python
+#!/usr/bin/env python
 
 import sys
 import os
@@ -11,6 +11,7 @@ import urllib.request
 import urllib.error
 import http.client
 import re
+import traceback
 from xml.dom.minidom import parseString
 from python_lib.gweis.isoduration import parse_duration
 
@@ -31,6 +32,7 @@ MPD_ROOT_DIR = "."
 if len(sys.argv) >= 4:
     MPD_ROOT_DIR = sys.argv[3]
 LIB_DEST_DIR = Path(DEST_DIR, "lib")
+TEMPLATE_DIR = Path(TESTS_DIR, "templates")
 
 MPD_PARAMETERS = {
     "cmaf_track_duration": r'<MPD .*mediaPresentationDuration="([^"]+)"',
@@ -60,7 +62,13 @@ def main():
         audio_file_name = str(audio_mpd_url).split("/")[-1]
         audio_file_name = ".".join(audio_file_name.split(".")[0:-1])
         test_id = generate_test_id(
-            template_file + "video" + video_mpd_url + "audio" + audio_mpd_url + grouping_dir)
+            template_file
+            + "video"
+            + video_mpd_url
+            + "audio"
+            + audio_mpd_url
+            + grouping_dir
+        )
 
         duplicate_test = None
         if test[0] != "":
@@ -84,10 +92,10 @@ def main():
             else:
                 mpd_content = load_mpd_content(video_mpd_url)
                 try:
-                    video_parameters = parse_mpd_parameters(
-                        mpd_content, [TYPE_VIDEO])
+                    video_parameters = parse_mpd_parameters(mpd_content, [TYPE_VIDEO])
                 except:
                     print("ERROR: Failed to parse " + video_mpd_url)
+                    print(traceback.format_exc())
                 mpd_video_parameters[video_mpd_url] = video_parameters
 
         audio_parameters = None
@@ -96,8 +104,11 @@ def main():
                 audio_parameters = mpd_audio_parameters[audio_mpd_url]
             else:
                 mpd_content = load_mpd_content(audio_mpd_url)
-                audio_parameters = parse_mpd_parameters(
-                    mpd_content, [TYPE_AUDIO])
+                try:
+                    audio_parameters = parse_mpd_parameters(mpd_content, [TYPE_AUDIO])
+                except:
+                    print("ERROR: Failed to parse " + audio_mpd_url)
+                    print(traceback.format_exc())
                 mpd_audio_parameters[audio_mpd_url] = audio_parameters
 
         if test[0] == "":
@@ -126,15 +137,20 @@ def main():
             if audio_parameters:
                 audio_switching_sets.append(audio_parameters)
 
-            tests.append({
-                "id": test_id,
-                "template": test_template_path,
-                "video": video_urls,
-                "audio": audio_urls,
-                "switching_sets": {"video": video_switching_sets, "audio": audio_switching_sets},
-                "template_file": template_file,
-                "group": grouping_dir
-            })
+            tests.append(
+                {
+                    "id": test_id,
+                    "template": test_template_path,
+                    "video": video_urls,
+                    "audio": audio_urls,
+                    "switching_sets": {
+                        "video": video_switching_sets,
+                        "audio": audio_switching_sets,
+                    },
+                    "template_file": template_file,
+                    "group": grouping_dir,
+                }
+            )
 
             current_test_id = test_id
 
@@ -162,13 +178,19 @@ def main():
         if "copy_number" in test:
             copy_number = test["copy_number"]
         test_path_relative = generate_test_path(
-            grouping_dir, template_file_name, video_mpd_urls, audio_mpd_urls, copy_number)
+            grouping_dir,
+            template_file_name,
+            video_mpd_urls,
+            audio_mpd_urls,
+            copy_number,
+        )
         test["id"] = generate_test_id(test_path_relative)
         test_path = "{}/{}".format(DEST_DIR, test_path_relative)
         test["path"] = test_path
         content = load_file(test_template_path)
         content = generate_test(
-            content, video_mpd_urls, audio_mpd_urls, test_path_relative, template_file)
+            content, video_mpd_urls, audio_mpd_urls, test_path_relative, template_file
+        )
 
         write_file(test_path, content)
 
@@ -180,7 +202,7 @@ def main():
 
 def parse_mpd_parameters(content, types):
     parameters = {}
-    if (content == ""):
+    if content == "":
         return parameters
     if type(content) != str:
         content = content.decode("utf-8")
@@ -200,67 +222,78 @@ def parse_mpd_parameters(content, types):
         periodDuration = period.getAttribute("duration")
         if periodDuration != "":
             periodDuration = parse_duration(periodDuration).seconds
-        segmentTemplates = period.getElementsByTagName("SegmentTemplate")
-        for segmentTemplate in segmentTemplates:
-            if segmentTemplate.parentNode.tagName == "Representation":
-                continue
 
-            if segmentTemplate.hasAttribute("timescale"):
-                timescale = segmentTemplate.getAttribute("timescale")
-                parameters["timescale"] = int(timescale)
+        adaptationSets = period.getElementsByTagName("AdaptationSet")
+        for adaptationSet in adaptationSets:
+            content_type = ""
+            if adaptationSet.hasAttribute("mimeType"):
+                mime_type = adaptationSet.getAttribute("mimeType")
+                content_type = re.search("^(.+)\\/", mime_type).group(1)
+                if content_type not in types:
+                    continue
 
-            segment_timeline_nodes = segmentTemplate.getElementsByTagName(
-                "SegmentTimeline")
-            if len(segment_timeline_nodes) != 0:
-                segment_timelines = parse_segment_timelines(
-                    segment_timeline_nodes[0])
-                parameters["segmentTimeline"] = segment_timelines
-            break
+            segmentTemplates = adaptationSet.getElementsByTagName("SegmentTemplate")
+            for segmentTemplate in segmentTemplates:
+                if segmentTemplate.parentNode.tagName == "Representation":
+                    continue
 
-        source = dom_tree.getElementsByTagName("Source")
-        if len(source) > 0:
-            parameters["source"] = source[0].firstChild.nodeValue
+                if segmentTemplate.hasAttribute("timescale"):
+                    timescale = segmentTemplate.getAttribute("timescale")
+                    parameters["timescale"] = int(timescale)
 
-        representations = period.getElementsByTagName("Representation")
-        for representation in representations:
-            representationId = representation.getAttribute("id")
-            rep_parameters = {}
-            rep_parameters["period"] = periodNumber
+                segment_timeline_nodes = segmentTemplate.getElementsByTagName(
+                    "SegmentTimeline")
+                if len(segment_timeline_nodes) != 0:
+                    segment_timelines = parse_segment_timelines(
+                        segment_timeline_nodes[0])
+                    parameters["segmentTimeline"] = segment_timelines
+                break
 
-            if representation.hasAttribute("audioSamplingRate"):
-                audioSamplingRate = representation.getAttribute(
-                    "audioSamplingRate")
-                rep_parameters["audioSamplingRate"] = int(audioSamplingRate)
+            source = dom_tree.getElementsByTagName("Source")
+            if len(source) > 0:
+                parameters["source"] = source[0].firstChild.nodeValue
 
-            if periodDuration != "":
-                rep_parameters["duration"] = periodDuration
+            representations = adaptationSet.getElementsByTagName("Representation")
+            for representation in representations:
+                representationId = representation.getAttribute("id")
+                rep_parameters = {}
+                rep_parameters["period"] = periodNumber
 
-            mime_type = representation.getAttribute("mimeType")
-            content_type = re.search("^(.+)\/", mime_type).group(1)
-            if content_type not in types:
-                continue
-            rep_parameters["type"] = content_type
+                if representation.hasAttribute("audioSamplingRate"):
+                    audioSamplingRate = representation.getAttribute(
+                        "audioSamplingRate")
+                    rep_parameters["audioSamplingRate"] = int(audioSamplingRate)
 
-            if representation.hasAttribute("frameRate"):
-                frame_rate = representation.getAttribute("frameRate")
-                rep_parameters["frame_rate"] = frame_rate
+                if periodDuration != "":
+                    rep_parameters["duration"] = periodDuration
 
-            segment_templates = representation.getElementsByTagName(
-                "SegmentTemplate")
-            if len(segment_templates) == 0 or len(segment_templates[0].getElementsByTagName("S")) == 0:
-                adaptation_set = get_parent_by_name(
-                    representation, "AdaptationSet")
-                segment_templates = adaptation_set.getElementsByTagName(
+                if representation.hasAttribute("mimeType"):
+                    mime_type = representation.getAttribute("mimeType")
+                    content_type = re.search("^(.+)\\/", mime_type).group(1)
+                    if content_type not in types:
+                        continue
+                rep_parameters["type"] = content_type
+
+                if representation.hasAttribute("frameRate"):
+                    frame_rate = representation.getAttribute("frameRate")
+                    rep_parameters["frame_rate"] = frame_rate
+
+                segment_templates = representation.getElementsByTagName(
                     "SegmentTemplate")
+                if len(segment_templates) == 0 or len(segment_templates[0].getElementsByTagName("S")) == 0:
+                    adaptation_set = get_parent_by_name(
+                        representation, "AdaptationSet")
+                    segment_templates = adaptation_set.getElementsByTagName(
+                        "SegmentTemplate")
 
-            seg_template_params = parse_segment_template(
-                segment_templates[0])
-            rep_parameters = merge_parameters(
-                rep_parameters, seg_template_params)
+                seg_template_params = parse_segment_template(
+                    segment_templates[0])
+                rep_parameters = merge_parameters(
+                    rep_parameters, seg_template_params)
 
-            representation_parameters[representationId] = rep_parameters
+                representation_parameters[representationId] = rep_parameters
 
-        parameters["representations"] = representation_parameters
+            parameters["representations"] = representation_parameters
 
     return parameters
 
@@ -446,14 +479,14 @@ def load_csv(path):
             continue
         line = line[1:-1]
         row = []
-        for column in line.split("\",\""):
+        for column in line.split('","'):
             row.append(column)
         csv.append(row)
     return csv
 
 
 def get_test_path(test_id):
-    return Path(TESTS_DIR, test_id + ".html")
+    return Path(TEMPLATE_DIR, test_id + ".html")
 
 
 def generate_test(template, video_mpd_url, audio_mpd_url, test_path, template_name):
@@ -465,7 +498,13 @@ def generate_test(template, video_mpd_url, audio_mpd_url, test_path, template_na
     return template
 
 
-def generate_test_path(grouping_dir, template_file_name, video_file_paths, audio_file_paths, copy_number):
+def generate_test_path(
+    grouping_dir,
+    template_file_name,
+    video_file_paths,
+    audio_file_paths,
+    copy_number,
+):
     identifiers = []
     for video_file_path in video_file_paths:
         if video_file_path.startswith("http"):
@@ -495,8 +534,9 @@ def generate_test_path(grouping_dir, template_file_name, video_file_paths, audio
         if audio_identifier not in identifiers:
             identifiers.append(audio_identifier)
 
-    test_path = "{}/{}__{}".format(grouping_dir,
-                                   template_file_name, "_".join(identifiers), "_")
+    test_path = "{}/{}__{}".format(
+        grouping_dir, template_file_name, "_".join(identifiers), "_"
+    )
     count = 1
     suffix = ""
     while os.path.exists(test_path + suffix + ".html"):

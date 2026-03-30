@@ -27,20 +27,22 @@
     <div id="info-overlay"></div>
     <script src="../lib/mozilla/object-keys-polyfill.js"></script>
     <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+
+    <script src="../lib/logger.js"></script>
+    <script src="../lib/event-emitter.js"></script>
     <script src="../lib/player.js"></script>
+    <script src="../lib/hbbtv.js"></script>
     <script src="../lib/manifest_parser.js"></script>
     <script src="../lib/mpd-parser.js"></script>
     <script src="../lib/wave-service.js"></script>
-    <script src="../lib/davidshimjs/qrcode.js"></script>
     <script src="../lib/dpctf-testharness.js"></script>
-    <script src="../lib/hbbtv.js"></script>
     <script>
       var TEST_INFO = {
         title: "Random Access to Time",
         description:
           "A track is randomly accessed and played back, starting from a specific time onwards.\nThe random access in this case may occur in the middle of any Fragment.",
         code: "random-access-to-time.html",
-        params: urlParams,
       };
       var video = document.querySelector("video");
       var qrCode = document.getElementById("qr-code");
@@ -48,6 +50,8 @@
 
       var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/cfhd_sets/12.5_25_50/t1/2023-09-01/stream.mpd"];
       var audioContentModel = [];
+
+      var logger = new Logger();
 
       var dpctfTest = new DpctfTest({
         testInfo: TEST_INFO,
@@ -60,12 +64,12 @@
         setupTest: setupTest,
         executeTest: executeTest,
         outOfOrderLoading: true,
+        logger: logger,
       });
 
       function setupTest(player, done, parameters) {
-        var logger = dpctfTest.getLogger();
         var randomAccessTime = parameters.randomAccessTime;
-        logger.log("seeking to " + randomAccessTime);
+        logger.info("seeking to " + randomAccessTime);
         player.setCurrentTime(randomAccessTime);
         done();
       }
@@ -79,10 +83,6 @@
         player.playOnBufferLoaded(minBufferDuration).then(done);
 
         dpctfTest.asyncTest(function (test) {
-          var query = location.search.replace(/\?/, "");
-          var match = query.match(/redirect_time=([^&]+)/);
-          var REDIRECT_TIME = match ? match[1] : null;
-          if (!REDIRECT_TIME) REDIRECT_TIME = 5;
           video.addEventListener("ended", function (event) {
             assert_true(true);
             test.done();

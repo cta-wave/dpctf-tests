@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Low-Latency (1): Initialization</title>
+    <link rel="stylesheet" href="../lib/style.css" />
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+
+  <body>
+    <div id="content-wrapper">
+      <div id="video-wrapper">
+        <video></video>
+        <div><div id="qr-code"></div></div>
+        <div><div id="status-text"></div></div>
+      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
+      <div id="debug-wrapper">
+        <div>
+          <div class="button" id="debug-button">Debug Overlay</div>
+        </div>
+        <div id="debug"></div>
+        <div id="log"></div>
+      </div>
+    </div>
+    <div id="info-overlay"></div>
+    <script src="../lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+
+    <script src="../lib/logger.js"></script>
+    <script src="../lib/event-emitter.js"></script>
+    <script src="../lib/player.js"></script>
+    <script src="../lib/hbbtv.js"></script>
+    <script src="../lib/manifest_parser.js"></script>
+    <script src="../lib/mpd-parser.js"></script>
+    <script src="../lib/wave-service.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
+    <script>
+      // Global variables
+      var TEST_INFO = {
+        id: "low-latency-initialization",
+        title: "Low-Latency (1): Initialization",
+        description: "",
+        code: "low-latency-initialization.html",
+      };
+
+      var video = document.querySelector("video");
+      var qrCode = document.getElementById("qr-code");
+      var statusText = document.getElementById("status-text");
+
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/chh1_sets/14.985_29.97_59.94/t2/2025-06-13/stream.mpd"];
+      var audioContentModel = [];
+
+      var logger = new Logger();
+
+      var dpctfTest = new DpctfTest({
+        testInfo: TEST_INFO,
+        videoContentModel: videoContentModel,
+        audioContentModel: audioContentModel,
+        videoElement: video,
+        qrCodeElement: qrCode,
+        statusTextElement: statusText,
+        infoOverlayElement: document.getElementById("info-overlay"),
+        executeTest: executeTest,
+        usePlayout: false,
+        initCallback: handleVideoInitialized,
+        logger: logger,
+      });
+
+      var isVideoInitialized = false;
+      function handleVideoInitialized(player, done, parameters) {
+        if (isVideoInitialized) done();
+        var READY_STATE_HAVE_METADATA = 1;
+        var waitingTime = parameters.waitingTime || 500;
+
+        dpctfTest.asyncTest(function (test) {
+          video.addEventListener(
+            "loadedmetadata",
+            function handleLoadedMetadata() {
+              if (video.readyState < READY_STATE_HAVE_METADATA) return;
+              video.removeEventListener("loadedmetadata", handleLoadedMetadata);
+              logger.info("video loaded metadata");
+              assert_true(true);
+              test.done();
+              setTimeout(function () {
+                done();
+                dpctfTest.setVideoState("appended");
+                isVideoInitialized = true;
+              }, waitingTime);
+            }
+          );
+        }, "video ready state 'HAVE_METADATA' reached");
+
+        dpctfTest.asyncTest(function (test) {
+          var testTimeout = setTimeout(function () {
+            logger.warn(
+              "video did not transition into waiting state within expected time"
+            );
+            assert_true(false);
+            test.done();
+          }, 10000);
+          video.addEventListener("waiting", function handleWaiting() {
+            clearTimeout(testTimeout);
+            video.removeEventListener("waiting", handleWaiting);
+            logger.info("video is waiting for data");
+            assert_true(true);
+            test.done();
+          });
+          player.play();
+        }, "video waiting event fired");
+      }
+
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
+        player.startBuffering();
+
+        dpctfTest.asyncTest(function (test) {
+          video.addEventListener("ended", function (event) {
+            assert_true(true);
+            test.done();
+          });
+        }, "video ended event fired");
+
+        done();
+      }
+    </script>
+  </body>
+</html>

@@ -1,5 +1,7 @@
 function DpctfTest(config) {
+  var urlParams = getUrlParams();
   var testInfo = config.testInfo;
+  var logger = config.logger;
   var video = config.videoElement;
   var qrCode = config.qrCodeElement;
   var statusText = config.statusTextElement;
@@ -17,12 +19,13 @@ function DpctfTest(config) {
   if ("autoCloseStream" in config) {
     autoCloseStream = !!config.autoCloseStream;
   }
+  var logToConsole = urlParams["console"] === "1";
+  logger.setLogToConsole(logToConsole);
 
   testInfo.path = location.pathname.substring(1);
 
   var parameters = null;
 
-  var waveService = null;
   var player = null;
   var ignoreObservations = false;
   var resolveWaitForObservation = null;
@@ -74,11 +77,13 @@ function DpctfTest(config) {
 
   promise_test(function () {
     // Specify workflow
-    return loadParameters()
+    return setupLogBuffer()
+      .then(registerErrorHandler)
+      .then(loadParameters)
+      .then(setLogLevel)
       .then(setupTest)
       .then(checkMseAvailable)
       .then(checkCodecs)
-      .then(initializeWaveService)
       .then(sendTestReadyEvent)
       .then(waitForObservationReady)
       .then(HbbTV.stopBroadcast)
@@ -88,6 +93,22 @@ function DpctfTest(config) {
       .then(finishTest)
       .catch((error) => handleError(error));
   }, "Test workflow");
+
+  function setupLogBuffer() {
+    var bufferedLogs = [];
+    logger.on("log", function (log) {
+      bufferedLogs.push(log);
+    });
+    setInterval(function () {
+      if (bufferedLogs.length > 0) {
+        var test = "/" + testInfo.path;
+        var logs = bufferedLogs.slice();
+        bufferedLogs = [];
+        WaveService.sendLogs(token, test, logs);
+      }
+    }, 3000);
+    return Promise.resolve();
+  }
 
   function handleError(error) {
     if (!error) return;
@@ -103,7 +124,7 @@ function DpctfTest(config) {
 
   function checkMseAvailable(error) {
     if (error) return error;
-    log("Checking MSE API support");
+    logger.info("checking MSE API support");
     try {
       checkMseSupport();
     } catch (error) {
@@ -114,7 +135,7 @@ function DpctfTest(config) {
 
   function checkCodecs(error) {
     if (error) return error;
-    log("Checking Codec support");
+    logger.info("checking codec support");
     try {
       var videoManifests = player.getVideoManifests();
       for (var videoManifest of videoManifests) {
@@ -132,7 +153,7 @@ function DpctfTest(config) {
 
   function setupTest(error) {
     if (error) return error;
-    log("Setting up test");
+    logger.info("setting up test");
     updateQrCode();
     updateStatusText();
     return new Promise(function (resolve) {
@@ -147,7 +168,7 @@ function DpctfTest(config) {
       }
 
       video.addEventListener("play", function () {
-        log("video play");
+        logger.info("video play");
         if (_videoState === VIDEO_STATE_ERROR) return;
         _lastAction = ACTION_PLAY;
         _videoState = VIDEO_STATE_PLAYING;
@@ -157,7 +178,7 @@ function DpctfTest(config) {
       });
 
       video.addEventListener("pause", function () {
-        log("video pause");
+        logger.info("video pause");
         if (_videoState === VIDEO_STATE_ERROR) return;
         _lastAction = ACTION_PAUSE;
         _videoState = VIDEO_STATE_PAUSED;
@@ -167,7 +188,7 @@ function DpctfTest(config) {
       });
 
       video.addEventListener("playing", function () {
-        log("video is playing");
+        logger.info("video is playing");
         if (_videoState === VIDEO_STATE_ERROR) return;
         _videoState = VIDEO_STATE_PLAYING;
         var currentTime = player.getCurrentTime();
@@ -176,7 +197,7 @@ function DpctfTest(config) {
       });
 
       video.addEventListener("waiting", function () {
-        log("video is waiting");
+        logger.info("video is waiting");
         if (_videoState === VIDEO_STATE_ERROR) return;
         _videoState = VIDEO_STATE_WAITING;
         var currentTime = player.getCurrentTime();
@@ -185,7 +206,7 @@ function DpctfTest(config) {
       });
 
       video.addEventListener("stalled", function () {
-        log("video is stalled");
+        logger.info("video is stalled");
         if (_videoState === VIDEO_STATE_ERROR) return;
         _videoState = VIDEO_STATE_STALLED;
         var currentTime = player.getCurrentTime();
@@ -194,7 +215,7 @@ function DpctfTest(config) {
       });
 
       video.addEventListener("pause", function () {
-        log("video is paused");
+        logger.info("video is paused");
         if (_videoState === VIDEO_STATE_ERROR) return;
         _videoState = VIDEO_STATE_PAUSED;
         var currentTime = player.getCurrentTime();
@@ -203,7 +224,7 @@ function DpctfTest(config) {
       });
 
       video.addEventListener("ended", function () {
-        log("video ended");
+        logger.info("video ended");
         if (_videoState === VIDEO_STATE_ERROR) return;
         _videoState = VIDEO_STATE_ENDED;
         var currentTime = player.getCurrentTime();
@@ -221,7 +242,7 @@ function DpctfTest(config) {
       });
 
       video.addEventListener("canplay", function () {
-        log("video can play");
+        logger.info("video can play");
         updateQrCodePosition();
       });
 
@@ -230,10 +251,9 @@ function DpctfTest(config) {
       });
 
       //// Player Setup ////
-      player = new Player(video, { logger: getLogger() });
+      player = new Player(video, { logger: logger });
 
       player.on(Player.PLAYER_EVENT_START_BUFFERING, function () {
-        log("start buffering");
         _videoState = VIDEO_STATE_BUFFERING;
         var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
@@ -241,7 +261,7 @@ function DpctfTest(config) {
       });
 
       player.on(Player.PLAYER_EVENT_TRIGGER_PLAY, function () {
-        log("play triggered");
+        logger.info("play triggered");
         _videoState = VIDEO_STATE_PLAYING;
         _lastAction = ACTION_PLAY;
         var currentTime = player.getCurrentTime();
@@ -339,7 +359,7 @@ function DpctfTest(config) {
         .then(function () {
           video.addEventListener("play", function (event) {
             var eventData = { type: "play" };
-            waveService.sendSessionEvent(
+            WaveService.sendSessionEvent(
               token,
               WaveService.PLAYBACK_EVENT,
               eventData
@@ -348,7 +368,7 @@ function DpctfTest(config) {
 
           video.addEventListener("ended", function (event) {
             var eventData = { type: "ended" };
-            waveService.sendSessionEvent(
+            WaveService.sendSessionEvent(
               token,
               WaveService.PLAYBACK_EVENT,
               eventData
@@ -390,10 +410,12 @@ function DpctfTest(config) {
           player.on(
             "onPlayingVideoRepresentationChange",
             function (representation) {
-              log("representation change: " + representation.toString());
+              logger.info(
+                "representation change: " + representation.toString()
+              );
               infoOverlay.updateOverlayInfo(player, testInfo);
               var eventData = { type: "representation_changed" };
-              waveService.sendSessionEvent(
+              WaveService.sendSessionEvent(
                 token,
                 WaveService.PLAYBACK_EVENT,
                 eventData
@@ -407,7 +429,7 @@ function DpctfTest(config) {
           player
             .getVideoBufferManager()
             .on(Player.EVENT_CLOSE_BUFFER, function () {
-              log("close buffer");
+              logger.info("close buffer");
               _lastAction = ACTION_CLOSE_BUFFER;
               var currentTime = player.getCurrentTime();
               updateQrCode(currentTime);
@@ -416,7 +438,7 @@ function DpctfTest(config) {
 
           if (!player.getVideoManifests()) {
             player.on("onVideoManifestParsed", function () {
-              log("video manifest parsed");
+              logger.info("video manifest parsed");
               resolve();
             });
           } else {
@@ -434,7 +456,7 @@ function DpctfTest(config) {
 
   function executeTest(error) {
     if (error) return error;
-    log("Executing test");
+    logger.info("executing test");
     return new Promise(function (resolve) {
       try {
         executeTestCallback(player, resolve, parameters);
@@ -444,32 +466,22 @@ function DpctfTest(config) {
     });
   }
 
-  function initializeWaveService(error) {
-    if (error) return error;
-    log("Initializing WAVE service");
-    return new Promise(function (resolve) {
-      waveService = new WaveService();
-      waveService.initialize("resources/wave-config").then(function (error) {
-        if (error) resolve("Failed to initialize wave service: " + error);
-        resolve();
-      });
-    });
-  }
-
   function sendTestReadyEvent(error) {
     if (error) return error;
     if (_execution_mode !== EXECUTION_MODE_PRGRAMMATIC) return;
-    log("Sending test ready event");
+    logger.info("sending test ready event");
     return new Promise(function (resolve) {
       if (!token) {
         resolve("No session token provided");
         return;
       }
-      waveService
-        .sendSessionEvent(token, WaveService.TEST_READY_EVENT, testInfo)
-        .then(function () {
-          resolve();
-        });
+      WaveService.sendSessionEvent(
+        token,
+        WaveService.TEST_READY_EVENT,
+        testInfo
+      ).then(function () {
+        resolve();
+      });
     });
   }
 
@@ -477,20 +489,20 @@ function DpctfTest(config) {
     if (error) return error;
     if (_execution_mode !== EXECUTION_MODE_PRGRAMMATIC) return;
     if (ignoreObservations) return Promise.resolve();
-    log("Waiting for observation framework to be ready");
+    logger.info("waiting for observation framework to be ready");
     return new Promise(function (resolve) {
       resolveWaitForObservation = resolve;
       var listener = function (event) {
         if (event.type !== WaveService.OBSERVATION_READY_EVENT) return;
         if (event.data.test_path !== testInfo.path) return;
-        waveService.removeSessionEventListener(listener);
+        WaveService.removeSessionEventListener(listener);
         resolve();
       };
       if (!token) {
         resolve("No session token provided");
         return;
       }
-      waveService.addSessionEventListener(token, listener);
+      WaveService.addSessionEventListener(token, listener);
     });
   }
 
@@ -498,7 +510,7 @@ function DpctfTest(config) {
     if (error) return error;
     if (_execution_mode !== EXECUTION_MODE_PRGRAMMATIC) return;
     if (ignoreObservations) return Promise.resolve();
-    log("Waiting for observation results");
+    logger.info("waiting for observation results");
     return new Promise(function (resolve) {
       resolveWaitingForResults = resolve;
       var observations = testInfo.observations;
@@ -519,17 +531,17 @@ function DpctfTest(config) {
           break;
         }
         if (!allResultsReceived) return;
-        waveService.removeSessionEventListener(listener);
+        WaveService.removeSessionEventListener(listener);
         //tests.tests = tests.tests.concat(observationResults);
         resolve();
       };
-      waveService.addSessionEventListener(token, listener);
+      WaveService.addSessionEventListener(token, listener);
     });
   }
 
   function loadParameters(error) {
     if (error) return error;
-    log("Loading test parameters ...");
+    logger.info("loading test parameters");
     return new Promise((resolve) => {
       fetchParameters().then(function (fetchedParameters) {
         parameters = fetchedParameters;
@@ -537,6 +549,30 @@ function DpctfTest(config) {
         resolve();
       });
     });
+  }
+
+  function setLogLevel() {
+    return Promise.resolve().then(() => {
+      if (!parameters.log_level) return;
+      let logLevel = {
+        debug: logger.LEVEL_DEBUG,
+        info: logger.LEVEL_INFO,
+        warning: logger.LEVEL_WARNING,
+        error: logger.LEVEL_ERROR,
+      }[parameters.log_level.toLowerCase()];
+      logger.setLogLevel(logLevel);
+      logger.info("set log level to", logLevel);
+    });
+  }
+
+  function registerErrorHandler() {
+    addEventListener("error", function (event) {
+      logger.error("Unhandled error:", event.message);
+    });
+    addEventListener("unhandledrejection", function (event) {
+      logger.error("Unhandled promise rejection:", event.reason);
+    });
+    return Promise.resolve();
   }
 
   function applyPlayout(playout) {
@@ -610,17 +646,6 @@ function DpctfTest(config) {
     }, _redirect_time * 1000);
   }
 
-  function log() {
-    var text = "";
-    for (var i = 0; i < arguments.length; i++) {
-      text += arguments[i] + " ";
-    }
-    var prefix = "[" + new Date(Date.now()).toISOString() + "] ";
-    if (console && console.log) {
-      console.log(prefix + text);
-    }
-  }
-
   function updateQrCode(currentTime) {
     if (!qrCode) return;
     var object = { s: _videoState, a: _lastAction };
@@ -633,6 +658,8 @@ function DpctfTest(config) {
       text: content,
       colorDark: "#ffffff",
       colorLight: "#000000",
+      width: 100,
+      height: 100,
     });
     lastQrTime = new Date().getTime() - start;
   }
@@ -797,6 +824,7 @@ function DpctfTest(config) {
           secondPlayoutSwitchingTime:
             determineValue("second_playout_switching_time") || 5,
           testTimeout: determineValue("test_timeout"),
+          log_level: determineValue("log_level") || "info",
         };
 
         function calcPlayout(playout) {
@@ -941,9 +969,7 @@ function DpctfTest(config) {
   }
 
   function getLogger() {
-    return {
-      log: log,
-    };
+    return logger;
   }
 
   return {
@@ -1311,8 +1337,8 @@ InfoOverlay.parseTimeStampFromSeconds = function (seconds) {
 };
 
 //https://stackoverflow.com/questions/979975/how-to-get-the-value-from-the-get-parameters
-var urlParams;
-(window.onpopstate = function () {
+function getUrlParams() {
+  var urlParams;
   var match,
     pl = /\+/g, // Regex for replacing addition symbol with a space
     search = /([^&=]+)=?([^&]*)/g,
@@ -1324,4 +1350,5 @@ var urlParams;
   urlParams = {};
   while ((match = search.exec(query)))
     urlParams[decode(match[1])] = decode(match[2]);
-})();
+  return urlParams;
+}
