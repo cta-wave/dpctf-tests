@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>WebCodecs Surface API</title>
+    <link rel="stylesheet" href="../lib/style.css" />
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+
+  <body>
+    <div id="content-wrapper">
+      <div id="video-wrapper">
+        <video></video>
+        <div><div id="qr-code"></div></div>
+        <div><div id="status-text"></div></div>
+      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
+      <div id="debug-wrapper">
+        <div>
+          <div class="button" id="debug-button">Debug Overlay</div>
+        </div>
+        <div id="debug"></div>
+        <div id="log"></div>
+      </div>
+    </div>
+    <div id="info-overlay"></div>
+    <script src="../lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+
+    <script src="../lib/logger.js"></script>
+    <script src="../lib/event-emitter.js"></script>
+    <script src="../lib/player.js"></script>
+    <script src="../lib/hbbtv.js"></script>
+    <script src="../lib/manifest_parser.js"></script>
+    <script src="../lib/mpd-parser.js"></script>
+    <script src="../lib/wave-service.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
+    <script>
+      // Global variables
+      var TEST_INFO = {
+        id: "webcodecs-surface-api",
+        title: "WebCodecs Surface API",
+        description:
+          "Validate WebCodecs API surface and parameter availability without creating or decoding media streams.",
+        code: "{{TEMPLATE_NAME}}",
+      };
+
+      var video = document.querySelector("video");
+      var qrCode = document.getElementById("qr-code");
+      var statusText = document.getElementById("status-text");
+
+      var logger = new Logger();
+
+      var dpctfTest = new DpctfTest({
+        testInfo: TEST_INFO,
+        videoElement: video,
+        qrCodeElement: qrCode,
+        statusTextElement: statusText,
+        infoOverlayElement: document.getElementById("info-overlay"),
+        executeTest: executeTest,
+        usePlayout: false,
+        logger: logger,
+      });
+
+      function executeTest(player, done, parameters) {
+        function addAssertionTest(name, assertion) {
+          dpctfTest.asyncTest(function (test) {
+            assertion();
+            test.done();
+          }, name);
+        }
+
+        addAssertionTest("VideoDecoder constructor exists", function () {
+          assert_true(
+            "VideoDecoder" in window,
+            "VideoDecoder constructor should exist on window"
+          );
+        });
+
+        addAssertionTest("VideoDecoder is a constructor function", function () {
+          assert_true("VideoDecoder" in window, "VideoDecoder should exist");
+          assert_equals(
+            typeof window.VideoDecoder,
+            "function",
+            "VideoDecoder should be a constructor function"
+          );
+        });
+
+        addAssertionTest("VideoDecoder.isConfigSupported exists", function () {
+          assert_true(
+            "VideoDecoder" in window,
+            "VideoDecoder constructor should exist on window"
+          );
+          assert_true(
+            "isConfigSupported" in window.VideoDecoder,
+            "VideoDecoder.isConfigSupported should exist"
+          );
+        });
+
+        addAssertionTest("VideoDecoder.configure exists", function () {
+          assert_true(
+            "VideoDecoder" in window,
+            "VideoDecoder constructor should exist on window"
+          );
+          assert_true(
+            "configure" in window.VideoDecoder.prototype,
+            "VideoDecoder.prototype.configure should exist"
+          );
+        });
+
+        addAssertionTest("VideoDecoder.decode exists", function () {
+          assert_true(
+            "VideoDecoder" in window,
+            "VideoDecoder constructor should exist on window"
+          );
+          assert_true(
+            "decode" in window.VideoDecoder.prototype,
+            "VideoDecoder.prototype.decode should exist"
+          );
+        });
+
+        addAssertionTest("VideoDecoder.flush exists", function () {
+          assert_true(
+            "VideoDecoder" in window,
+            "VideoDecoder constructor should exist on window"
+          );
+          assert_true(
+            "flush" in window.VideoDecoder.prototype,
+            "VideoDecoder.prototype.flush should exist"
+          );
+        });
+
+        addAssertionTest("VideoDecoder.close exists", function () {
+          assert_true(
+            "VideoDecoder" in window,
+            "VideoDecoder constructor should exist on window"
+          );
+          assert_true(
+            "close" in window.VideoDecoder.prototype,
+            "VideoDecoder.prototype.close should exist"
+          );
+        });
+
+        addAssertionTest("AudioDecoder constructor exists", function () {
+          assert_true(
+            "AudioDecoder" in window,
+            "AudioDecoder constructor should exist on window"
+          );
+        });
+
+        addAssertionTest("AudioDecoder.isConfigSupported exists", function () {
+          assert_true(
+            "AudioDecoder" in window,
+            "AudioDecoder constructor should exist on window"
+          );
+          assert_true(
+            "isConfigSupported" in window.AudioDecoder,
+            "AudioDecoder.isConfigSupported should exist"
+          );
+        });
+
+        addAssertionTest("VideoEncoder constructor exists", function () {
+          assert_true(
+            "VideoEncoder" in window,
+            "VideoEncoder constructor should exist on window"
+          );
+        });
+
+        addAssertionTest("VideoEncoder.isConfigSupported exists", function () {
+          assert_true(
+            "VideoEncoder" in window,
+            "VideoEncoder constructor should exist on window"
+          );
+          assert_true(
+            "isConfigSupported" in window.VideoEncoder,
+            "VideoEncoder.isConfigSupported should exist"
+          );
+        });
+
+        addAssertionTest("AudioEncoder constructor exists", function () {
+          assert_true(
+            "AudioEncoder" in window,
+            "AudioEncoder constructor should exist on window"
+          );
+        });
+
+        addAssertionTest("AudioEncoder.isConfigSupported exists", function () {
+          assert_true(
+            "AudioEncoder" in window,
+            "AudioEncoder constructor should exist on window"
+          );
+          assert_true(
+            "isConfigSupported" in window.AudioEncoder,
+            "AudioEncoder.isConfigSupported should exist"
+          );
+        });
+
+        addAssertionTest("EncodedVideoChunk constructor exists", function () {
+          assert_true(
+            "EncodedVideoChunk" in window,
+            "EncodedVideoChunk constructor should exist on window"
+          );
+        });
+
+        addAssertionTest("EncodedAudioChunk constructor exists", function () {
+          assert_true(
+            "EncodedAudioChunk" in window,
+            "EncodedAudioChunk constructor should exist on window"
+          );
+        });
+
+        addAssertionTest("VideoFrame constructor exists", function () {
+          assert_true(
+            "VideoFrame" in window,
+            "VideoFrame constructor should exist on window"
+          );
+        });
+
+        addAssertionTest("AudioData constructor exists", function () {
+          assert_true(
+            "AudioData" in window,
+            "AudioData constructor should exist on window"
+          );
+        });
+
+        addAssertionTest("ImageDecoder constructor exists", function () {
+          assert_true(
+            "ImageDecoder" in window,
+            "ImageDecoder constructor should exist on window"
+          );
+        });
+
+        done();
+      }
+    </script>
+  </body>
+</html>

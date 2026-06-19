@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>WebTransport Surface API</title>
+    <link rel="stylesheet" href="../lib/style.css" />
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+
+  <body>
+    <div id="content-wrapper">
+      <div id="video-wrapper">
+        <video></video>
+        <div><div id="qr-code"></div></div>
+        <div><div id="status-text"></div></div>
+      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
+      <div id="debug-wrapper">
+        <div>
+          <div class="button" id="debug-button">Debug Overlay</div>
+        </div>
+        <div id="debug"></div>
+        <div id="log"></div>
+      </div>
+    </div>
+    <div id="info-overlay"></div>
+    <script src="../lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+
+    <script src="../lib/logger.js"></script>
+    <script src="../lib/event-emitter.js"></script>
+    <script src="../lib/player.js"></script>
+    <script src="../lib/hbbtv.js"></script>
+    <script src="../lib/manifest_parser.js"></script>
+    <script src="../lib/mpd-parser.js"></script>
+    <script src="../lib/wave-service.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
+    <script>
+      // Global variables
+      var TEST_INFO = {
+        id: "webtransport-surface-api",
+        title: "WebTransport Surface API",
+        description:
+          "Validate WebTransport API surface and parameter availability without creating a network connection.",
+        code: "{{TEMPLATE_NAME}}",
+      };
+
+      var video = document.querySelector("video");
+      var qrCode = document.getElementById("qr-code");
+      var statusText = document.getElementById("status-text");
+
+      var logger = new Logger();
+
+      var dpctfTest = new DpctfTest({
+        testInfo: TEST_INFO,
+        videoElement: video,
+        qrCodeElement: qrCode,
+        statusTextElement: statusText,
+        infoOverlayElement: document.getElementById("info-overlay"),
+        executeTest: executeTest,
+        usePlayout: false,
+        logger: logger,
+      });
+
+      function executeTest(player, done, parameters) {
+        function addAssertionTest(name, assertion) {
+          dpctfTest.asyncTest(function (test) {
+            assertion();
+            test.done();
+          }, name);
+        }
+
+        var hasWebTransport = "WebTransport" in window;
+        var WebTransportCtor = hasWebTransport ? window.WebTransport : undefined;
+        var prototype = WebTransportCtor ? WebTransportCtor.prototype : undefined;
+
+        addAssertionTest("WebTransport constructor exists on window", function () {
+          assert_true(hasWebTransport, "WebTransport constructor should exist on window");
+        });
+
+        addAssertionTest("WebTransport is a constructor function", function () {
+          assert_true(hasWebTransport, "WebTransport constructor should exist on window");
+          assert_equals(
+            typeof WebTransportCtor,
+            "function",
+            "WebTransport should be a constructor function"
+          );
+        });
+
+        addAssertionTest("WebTransport constructor has URL parameter", function () {
+          assert_true(hasWebTransport, "WebTransport constructor should exist on window");
+          assert_true(
+            WebTransportCtor.length >= 1,
+            "WebTransport constructor should expose at least one URL parameter"
+          );
+        });
+
+        addAssertionTest("WebTransport prototype exists", function () {
+          assert_true(hasWebTransport, "WebTransport constructor should exist on window");
+          assert_true(!!prototype, "WebTransport prototype should exist");
+        });
+
+        addAssertionTest("WebTransport.ready exists", function () {
+          assert_true(hasWebTransport, "WebTransport constructor should exist on window");
+          assert_true(!!prototype, "WebTransport prototype should exist");
+          assert_true("ready" in prototype, "WebTransport.ready should exist");
+        });
+
+        addAssertionTest("WebTransport.closed exists", function () {
+          assert_true(hasWebTransport, "WebTransport constructor should exist on window");
+          assert_true(!!prototype, "WebTransport prototype should exist");
+          assert_true("closed" in prototype, "WebTransport.closed should exist");
+        });
+
+        addAssertionTest("WebTransport.datagrams exists", function () {
+          assert_true(hasWebTransport, "WebTransport constructor should exist on window");
+          assert_true(!!prototype, "WebTransport prototype should exist");
+          assert_true("datagrams" in prototype, "WebTransport.datagrams should exist");
+        });
+
+        addAssertionTest("WebTransport.createBidirectionalStream exists", function () {
+          assert_true(hasWebTransport, "WebTransport constructor should exist on window");
+          assert_true(!!prototype, "WebTransport prototype should exist");
+          assert_true(
+            "createBidirectionalStream" in prototype,
+            "WebTransport.createBidirectionalStream should exist"
+          );
+        });
+
+        addAssertionTest(
+          "WebTransport.incomingBidirectionalStreams exists",
+          function () {
+            assert_true(hasWebTransport, "WebTransport constructor should exist on window");
+            assert_true(!!prototype, "WebTransport prototype should exist");
+            assert_true(
+              "incomingBidirectionalStreams" in prototype,
+              "WebTransport.incomingBidirectionalStreams should exist"
+            );
+          }
+        );
+
+        addAssertionTest("WebTransport.createUnidirectionalStream exists", function () {
+          assert_true(hasWebTransport, "WebTransport constructor should exist on window");
+          assert_true(!!prototype, "WebTransport prototype should exist");
+          assert_true(
+            "createUnidirectionalStream" in prototype,
+            "WebTransport.createUnidirectionalStream should exist"
+          );
+        });
+
+        addAssertionTest(
+          "WebTransport.incomingUnidirectionalStreams exists",
+          function () {
+            assert_true(hasWebTransport, "WebTransport constructor should exist on window");
+            assert_true(!!prototype, "WebTransport prototype should exist");
+            assert_true(
+              "incomingUnidirectionalStreams" in prototype,
+              "WebTransport.incomingUnidirectionalStreams should exist"
+            );
+          }
+        );
+
+        addAssertionTest("WebTransport.close exists", function () {
+          assert_true(hasWebTransport, "WebTransport constructor should exist on window");
+          assert_true(!!prototype, "WebTransport prototype should exist");
+          assert_true("close" in prototype, "WebTransport.close should exist");
+        });
+
+        done();
+      }
+    </script>
+  </body>
+</html>

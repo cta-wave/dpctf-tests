@@ -44432,6 +44432,26 @@
                 ]
             }
         },
+        "0b04921d8760f16958a324487c260ecb": {
+            "path": "moq-capabilities/webtransport-surface-api-https__.html",
+            "video": [],
+            "audio": [],
+            "code": "webtransport-surface-api-https.html",
+            "switchingSets": {
+                "video": [],
+                "audio": []
+            }
+        },
+        "4c8705f38188da37cd30e4877a926845": {
+            "path": "moq-capabilities/webcodecs-surface-api-https__.html",
+            "video": [],
+            "audio": [],
+            "code": "webcodecs-surface-api-https.html",
+            "switchingSets": {
+                "video": [],
+                "audio": []
+            }
+        },
         "1c9f9713ecf02d817f9cdfcd33a1c6b1": {
             "path": "cfhd_15_30_60-online/switching-set-playback__ss1-1.html",
             "video": [
