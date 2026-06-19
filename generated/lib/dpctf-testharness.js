@@ -825,6 +825,7 @@ function DpctfTest(config) {
             determineValue("second_playout_switching_time") || 5,
           testTimeout: determineValue("test_timeout"),
           log_level: determineValue("log_level") || "info",
+          webTransportServerUrl: determineValue("web_transport_server_url"),
         };
 
         function calcPlayout(playout) {

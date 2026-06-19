@@ -44442,6 +44442,16 @@
                 "audio": []
             }
         },
+        "b2968551501b62bb9f8b868ff69f3136": {
+            "path": "moq-capabilities/webtransport-connect-to-server-https__.html",
+            "video": [],
+            "audio": [],
+            "code": "webtransport-connect-to-server-https.html",
+            "switchingSets": {
+                "video": [],
+                "audio": []
+            }
+        },
         "4c8705f38188da37cd30e4877a926845": {
             "path": "moq-capabilities/webcodecs-surface-api-https__.html",
             "video": [],
