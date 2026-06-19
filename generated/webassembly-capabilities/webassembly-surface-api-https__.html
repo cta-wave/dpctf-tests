@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>WebAssembly Surface API</title>
+    <link rel="stylesheet" href="../lib/style.css" />
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+
+  <body>
+    <div id="content-wrapper">
+      <div id="video-wrapper">
+        <video></video>
+        <div><div id="qr-code"></div></div>
+        <div><div id="status-text"></div></div>
+      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
+      <div id="debug-wrapper">
+        <div>
+          <div class="button" id="debug-button">Debug Overlay</div>
+        </div>
+        <div id="debug"></div>
+        <div id="log"></div>
+      </div>
+    </div>
+    <div id="info-overlay"></div>
+    <script src="../lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+
+    <script src="../lib/logger.js"></script>
+    <script src="../lib/event-emitter.js"></script>
+    <script src="../lib/player.js"></script>
+    <script src="../lib/hbbtv.js"></script>
+    <script src="../lib/manifest_parser.js"></script>
+    <script src="../lib/mpd-parser.js"></script>
+    <script src="../lib/wave-service.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
+    <script>
+      // Global variables
+      var TEST_INFO = {
+        id: "webassembly-surface-api",
+        title: "WebAssembly Surface API",
+        description:
+          "Validate WebAssembly API surface and constructor parameter availability.",
+        code: "webassembly-surface-api-https.html",
+      };
+
+      var video = document.querySelector("video");
+      var qrCode = document.getElementById("qr-code");
+      var statusText = document.getElementById("status-text");
+
+      var logger = new Logger();
+
+      var dpctfTest = new DpctfTest({
+        testInfo: TEST_INFO,
+        videoElement: video,
+        qrCodeElement: qrCode,
+        statusTextElement: statusText,
+        infoOverlayElement: document.getElementById("info-overlay"),
+        executeTest: executeTest,
+        usePlayout: false,
+        logger: logger,
+      });
+
+      function executeTest(player, done, parameters) {
+        function addAssertionTest(name, assertion) {
+          dpctfTest.asyncTest(function (test) {
+            assertion();
+            test.done();
+          }, name);
+        }
+
+        addAssertionTest("WebAssembly global exists", function () {
+          assert_true(
+            "WebAssembly" in window,
+            "WebAssembly global should exist on window"
+          );
+        });
+
+        addAssertionTest("WebAssembly is an object", function () {
+          assert_true("WebAssembly" in window, "WebAssembly should exist");
+          assert_equals(
+            typeof window.WebAssembly,
+            "object",
+            "WebAssembly should be an object"
+          );
+        });
+
+        addAssertionTest("WebAssembly.Module constructor exists", function () {
+          assert_true(
+            "WebAssembly" in window,
+            "WebAssembly global should exist on window"
+          );
+          assert_true(
+            "Module" in window.WebAssembly,
+            "WebAssembly.Module constructor should exist"
+          );
+        });
+
+        addAssertionTest("WebAssembly.Instance constructor exists", function () {
+          assert_true(
+            "WebAssembly" in window,
+            "WebAssembly global should exist on window"
+          );
+          assert_true(
+            "Instance" in window.WebAssembly,
+            "WebAssembly.Instance constructor should exist"
+          );
+        });
+
+        addAssertionTest("WebAssembly.Memory constructor exists", function () {
+          assert_true(
+            "WebAssembly" in window,
+            "WebAssembly global should exist on window"
+          );
+          assert_true(
+            "Memory" in window.WebAssembly,
+            "WebAssembly.Memory constructor should exist"
+          );
+        });
+
+        addAssertionTest("WebAssembly.Table constructor exists", function () {
+          assert_true(
+            "WebAssembly" in window,
+            "WebAssembly global should exist on window"
+          );
+          assert_true(
+            "Table" in window.WebAssembly,
+            "WebAssembly.Table constructor should exist"
+          );
+        });
+
+        addAssertionTest("WebAssembly.Global constructor exists", function () {
+          assert_true(
+            "WebAssembly" in window,
+            "WebAssembly global should exist on window"
+          );
+          assert_true(
+            "Global" in window.WebAssembly,
+            "WebAssembly.Global constructor should exist"
+          );
+        });
+
+        addAssertionTest("WebAssembly.compile exists", function () {
+          assert_true(
+            "WebAssembly" in window,
+            "WebAssembly global should exist on window"
+          );
+          assert_true(
+            "compile" in window.WebAssembly,
+            "WebAssembly.compile should exist"
+          );
+        });
+
+        addAssertionTest("WebAssembly.instantiate exists", function () {
+          assert_true(
+            "WebAssembly" in window,
+            "WebAssembly global should exist on window"
+          );
+          assert_true(
+            "instantiate" in window.WebAssembly,
+            "WebAssembly.instantiate should exist"
+          );
+        });
+
+        addAssertionTest("WebAssembly.validate exists", function () {
+          assert_true(
+            "WebAssembly" in window,
+            "WebAssembly global should exist on window"
+          );
+          assert_true(
+            "validate" in window.WebAssembly,
+            "WebAssembly.validate should exist"
+          );
+        });
+
+        addAssertionTest("WebAssembly.compileStreaming exists", function () {
+          assert_true(
+            "WebAssembly" in window,
+            "WebAssembly global should exist on window"
+          );
+          assert_true(
+            "compileStreaming" in window.WebAssembly,
+            "WebAssembly.compileStreaming should exist"
+          );
+          assert_equals(
+            typeof window.WebAssembly.compileStreaming,
+            "function",
+            "WebAssembly.compileStreaming should be a function"
+          );
+        });
+
+        addAssertionTest("WebAssembly.instantiateStreaming exists", function () {
+          assert_true(
+            "WebAssembly" in window,
+            "WebAssembly global should exist on window"
+          );
+          assert_true(
+            "instantiateStreaming" in window.WebAssembly,
+            "WebAssembly.instantiateStreaming should exist"
+          );
+          assert_equals(
+            typeof window.WebAssembly.instantiateStreaming,
+            "function",
+            "WebAssembly.instantiateStreaming should be a function"
+          );
+        });
+
+        addAssertionTest("WebAssembly error constructors exist", function () {
+          assert_true(
+            "CompileError" in window.WebAssembly,
+            "WebAssembly.CompileError should exist"
+          );
+          assert_true(
+            "LinkError" in window.WebAssembly,
+            "WebAssembly.LinkError should exist"
+          );
+          assert_true(
+            "RuntimeError" in window.WebAssembly,
+            "WebAssembly.RuntimeError should exist"
+          );
+        });
+
+        addAssertionTest("WebAssembly error constructors are functions", function () {
+          assert_equals(
+            typeof window.WebAssembly.CompileError,
+            "function",
+            "WebAssembly.CompileError should be a function"
+          );
+          assert_equals(
+            typeof window.WebAssembly.LinkError,
+            "function",
+            "WebAssembly.LinkError should be a function"
+          );
+          assert_equals(
+            typeof window.WebAssembly.RuntimeError,
+            "function",
+            "WebAssembly.RuntimeError should be a function"
+          );
+        });
+
+        addAssertionTest("WebAssembly constructor types are functions", function () {
+          assert_equals(
+            typeof window.WebAssembly.Module,
+            "function",
+            "WebAssembly.Module should be a function"
+          );
+          assert_equals(
+            typeof window.WebAssembly.Instance,
+            "function",
+            "WebAssembly.Instance should be a function"
+          );
+          assert_equals(
+            typeof window.WebAssembly.Memory,
+            "function",
+            "WebAssembly.Memory should be a function"
+          );
+          assert_equals(
+            typeof window.WebAssembly.Table,
+            "function",
+            "WebAssembly.Table should be a function"
+          );
+          assert_equals(
+            typeof window.WebAssembly.Global,
+            "function",
+            "WebAssembly.Global should be a function"
+          );
+        });
+
+        addAssertionTest("WebAssembly.Module static helpers exist", function () {
+          assert_true(
+            "imports" in window.WebAssembly.Module,
+            "WebAssembly.Module.imports should exist"
+          );
+          assert_true(
+            "exports" in window.WebAssembly.Module,
+            "WebAssembly.Module.exports should exist"
+          );
+          assert_true(
+            "customSections" in window.WebAssembly.Module,
+            "WebAssembly.Module.customSections should exist"
+          );
+          assert_equals(
+            typeof window.WebAssembly.Module.imports,
+            "function",
+            "WebAssembly.Module.imports should be a function"
+          );
+          assert_equals(
+            typeof window.WebAssembly.Module.exports,
+            "function",
+            "WebAssembly.Module.exports should be a function"
+          );
+          assert_equals(
+            typeof window.WebAssembly.Module.customSections,
+            "function",
+            "WebAssembly.Module.customSections should be a function"
+          );
+        });
+
+        addAssertionTest("WebAssembly.prototype members exist", function () {
+          assert_true(
+            "exports" in window.WebAssembly.Instance.prototype,
+            "WebAssembly.Instance.prototype.exports should exist"
+          );
+          assert_true(
+            "buffer" in window.WebAssembly.Memory.prototype,
+            "WebAssembly.Memory.prototype.buffer should exist"
+          );
+          assert_true(
+            "length" in window.WebAssembly.Table.prototype,
+            "WebAssembly.Table.prototype.length should exist"
+          );
+          assert_true(
+            "value" in window.WebAssembly.Global.prototype,
+            "WebAssembly.Global.prototype.value should exist"
+          );
+        });
+
+        addAssertionTest("WebAssembly.Module accepts wasm bytes", function () {
+          var emptyModuleBytes = new Uint8Array([0, 97, 115, 109, 1, 0, 0, 0]);
+          var module = new window.WebAssembly.Module(emptyModuleBytes);
+          assert_true(
+            module instanceof window.WebAssembly.Module,
+            "WebAssembly.Module should be constructible from valid wasm bytes"
+          );
+        });
+
+        addAssertionTest("WebAssembly.validate accepts BufferSource", function () {
+          var emptyModuleBytes = new Uint8Array([0, 97, 115, 109, 1, 0, 0, 0]);
+          assert_true(
+            window.WebAssembly.validate(emptyModuleBytes),
+            "WebAssembly.validate should return true for a valid empty module"
+          );
+        });
+
+        addAssertionTest("WebAssembly.Memory requires descriptor.initial", function () {
+          var memory = new window.WebAssembly.Memory({ initial: 1 });
+          assert_true(
+            memory instanceof window.WebAssembly.Memory,
+            "WebAssembly.Memory should be constructible with an initial descriptor value"
+          );
+        });
+
+        addAssertionTest("WebAssembly.Table requires element and initial", function () {
+          var table = new window.WebAssembly.Table({
+            element: "externref",
+            initial: 1,
+          });
+          assert_true(
+            table instanceof window.WebAssembly.Table,
+            "WebAssembly.Table should be constructible with element and initial descriptor values"
+          );
+        });
+
+        addAssertionTest("WebAssembly.Global requires value type", function () {
+          var global = new window.WebAssembly.Global({ value: "i32" }, 0);
+          assert_true(
+            global instanceof window.WebAssembly.Global,
+            "WebAssembly.Global should be constructible with a value type"
+          );
+        });
+
+        addAssertionTest("WebAssembly Memory exposes buffer and grow", function () {
+          var memory = new window.WebAssembly.Memory({ initial: 1 });
+          assert_true(
+            "buffer" in memory,
+            "WebAssembly.Memory instance should expose a buffer property"
+          );
+          assert_true(
+            "grow" in window.WebAssembly.Memory.prototype,
+            "WebAssembly.Memory.prototype.grow should exist"
+          );
+        });
+
+        addAssertionTest("WebAssembly.Table exposes get/set/grow", function () {
+          assert_true(
+            "get" in window.WebAssembly.Table.prototype,
+            "WebAssembly.Table.prototype.get should exist"
+          );
+          assert_true(
+            "set" in window.WebAssembly.Table.prototype,
+            "WebAssembly.Table.prototype.set should exist"
+          );
+          assert_true(
+            "grow" in window.WebAssembly.Table.prototype,
+            "WebAssembly.Table.prototype.grow should exist"
+          );
+        });
+
+        addAssertionTest("WebAssembly.Global exposes valueOf", function () {
+          assert_true(
+            "valueOf" in window.WebAssembly.Global.prototype,
+            "WebAssembly.Global.prototype.valueOf should exist"
+          );
+        });
+
+        done();
+      }
+    </script>
+  </body>
+</html>
