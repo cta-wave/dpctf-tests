@@ -1,3 +1,4 @@
 .vscode/*
 content
 python_lib
+.python-version
