@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Disable Motion Compensation Warning</title>
+    <link rel="stylesheet" href="../lib/style.css" />
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <style>
+      #manual-instruction {
+        position: absolute;
+        top: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.75);
+        color: #ffffff;
+        padding: 0.6em 1em;
+        font-size: 2.2vw;
+        font-family: sans-serif;
+        text-align: center;
+        border: 2px solid #ffffff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="content-wrapper">
+      <div id="video-wrapper">
+        <video></video>
+        <div><div id="qr-code"></div></div>
+        <div><div id="status-text"></div></div>
+        <div id="manual-instruction"></div>
+      </div>
+      <div>To show/hide debug overlay press up/down or button beneath</div>
+      <div id="debug-wrapper">
+        <div>
+          <div class="button" id="debug-button">Debug Overlay</div>
+        </div>
+        <div id="debug"></div>
+        <div id="log"></div>
+      </div>
+    </div>
+    <div id="info-overlay"></div>
+    <script src="../lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+
+    <script src="../lib/logger.js"></script>
+    <script src="../lib/event-emitter.js"></script>
+    <script src="../lib/player.js"></script>
+    <script src="../lib/hbbtv.js"></script>
+    <script src="../lib/manifest_parser.js"></script>
+    <script src="../lib/mpd-parser.js"></script>
+    <script src="../lib/wave-service.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
+    <script>
+      // Global variables
+      var TEST_INFO = {
+        id: "disable-motion-compensation-warning",
+        title: "Disable Motion Compensation Warning",
+        description:
+          "Manual utility test: play HDR content while user disables motion compensation features, then confirm with OK.",
+        code: "{{TEMPLATE_NAME}}",
+      };
+
+      var video = document.querySelector("video");
+      var qrCode = document.getElementById("qr-code");
+      var statusText = document.getElementById("status-text");
+
+      var videoContentModel = "{{VIDEO_MPD_URL}}";
+      var audioContentModel = "{{AUDIO_MPD_URL}}";
+
+      var logger = new Logger();
+
+      var dpctfTest = new DpctfTest({
+        testInfo: TEST_INFO,
+        videoContentModel: videoContentModel,
+        audioContentModel: audioContentModel,
+        videoElement: video,
+        qrCodeElement: qrCode,
+        statusTextElement: statusText,
+        infoOverlayElement: document.getElementById("info-overlay"),
+        executeTest: executeTest,
+        usePlayout: false,
+        logger: logger,
+      });
+
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
+        var instructionElement = document.getElementById("manual-instruction");
+        instructionElement.textContent =
+          "Disable Motion Compensation Features and Press OK";
+
+        video.loop = true;
+        player.startBuffering();
+
+        dpctfTest.asyncTest(function (test) {
+          function onKeyDown(event) {
+            if (
+              event.keyCode !== 13 &&
+              event.key !== "Enter" &&
+              event.key !== "OK"
+            ) {
+              return;
+            }
+
+            document.removeEventListener("keydown", onKeyDown);
+            instructionElement.textContent = "Confirmed";
+            player.pause().then(function () {
+              dpctfTest.setVideoState(dpctfTest.VIDEO_STATE_FINISHED);
+              assert_true(true);
+              test.done();
+            });
+          }
+
+          document.addEventListener("keydown", onKeyDown);
+        }, "wait for manual OK confirmation");
+
+        player.playOnBufferLoaded(minBufferDuration).then(done);
+      }
+    </script>
+  </body>
+</html>

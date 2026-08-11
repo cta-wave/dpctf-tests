@@ -80,6 +80,10 @@
     "min_buffer_duration": 15000,
     "test_timeout": 10800000
   },
+  "disable-motion-compensation-warning-manual.html": {
+    "min_buffer_duration": 5000,
+    "test_timeout": 10800000
+  },
   "mse-appendwindow.html": {
     "append_window_boundaries": [
 	    {"start": 0, "end": 6000, "lastPlayoutEntry": 3},
