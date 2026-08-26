@@ -13,6 +13,7 @@
     "max_tolerance": 400,
     "max_consecutive_fails": 1,
     "adjacent_pass_count": 4,
+    "max_waiting_states": 10,
     "log_level": "debug"
   },
   "sequential-track-playback.html": {
