@@ -45,6 +45,8 @@
 
 "mse-appendwindow","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","cfhd_15_30_60-online"
 
+"playback-rates","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","cfhd_15_30_60-online"
+
 "low-latency-short-buffer-playback","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t2/2023-09-01/stream.mpd","","cfhd_15_30_60-online"
 
 "random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream","https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t2/2023-09-01/stream.mpd","","cfhd_15_30_60-online"
@@ -102,6 +104,8 @@
 "low-latency-playback-over-gaps","/content/cfhd_sets/15_30_60/t2/2023-09-01/stream.mpd","","cfhd_15_30_60-local"
 
 "mse-appendwindow","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","cfhd_15_30_60-local"
+
+"playback-rates","/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd","","cfhd_15_30_60-local"
 
 "low-latency-short-buffer-playback","/content/cfhd_sets/15_30_60/t2/2023-09-01/stream.mpd","","cfhd_15_30_60-local"
 

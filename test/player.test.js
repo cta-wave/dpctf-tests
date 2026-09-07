@@ -51,6 +51,16 @@ test("setPlaybackRate then getPlaybackRate round-trips through the video element
   }
 });
 
+test("setPlaybackRate dispatches an onPlaybackRateChange event with the rate", () => {
+  const video = mockVideo();
+  const player = buildPlayer(video);
+  const received = [];
+  player.on("onPlaybackRateChange", (rate) => received.push(rate));
+  player.setPlaybackRate(1.1);
+  player.setPlaybackRate(0.9);
+  assert.deepStrictEqual(received, [1.1, 0.9]);
+});
+
 test("existing player methods remain available unchanged", () => {
   const video = mockVideo();
   const player = buildPlayer(video);

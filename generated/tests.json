@@ -1438,6 +1438,49 @@
                 "audio": []
             }
         },
+        "b06abbd384d488dcf312087e2af17f7f": {
+            "path": "cfhd_15_30_60-online/playback-rates__t1.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-rates.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 15360,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 30720
+                            }
+                        ],
+                        "source": "tos_L1_1920x1080@30_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0,
+                                "timescale": 15360,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 14,
+                                        "t": 0,
+                                        "d": 30720
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
         "d907e31de3ff6970c5d753cc124e8f33": {
             "path": "cfhd_15_30_60-online/low-latency-short-buffer-playback__t2.html",
             "video": [
@@ -3184,6 +3227,49 @@
             ],
             "audio": [],
             "code": "mse-appendwindow.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 15360,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 30720
+                            }
+                        ],
+                        "source": "tos_L1_1920x1080@30_30 version 4 (2023-02-13)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "30",
+                                "fragment_duration": 2.0,
+                                "timescale": 15360,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 14,
+                                        "t": 0,
+                                        "d": 30720
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
+        "f265db8ae74950a34ea0f5094f65294d": {
+            "path": "cfhd_15_30_60-local/playback-rates__t1.html",
+            "video": [
+                "/content/cfhd_sets/15_30_60/t1/2023-09-01/stream.mpd"
+            ],
+            "audio": [],
+            "code": "playback-rates.html",
             "switchingSets": {
                 "video": [
                     {
