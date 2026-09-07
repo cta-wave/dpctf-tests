@@ -7,6 +7,7 @@ const AUDIO = "audio";
 var PLAYER_EVENT_START_BUFFERING = "onPlayerStartBuffering";
 var PLAYER_EVENT_TRIGGER_PLAY = "onPlayerTriggerPlay";
 var PLAYER_EVENT_TRIGGER_PAUSE = "onPlayerTriggerPause";
+var PLAYER_EVENT_PLAYBACK_RATE_CHANGE = "onPlaybackRateChange";
 var CLOSE_BUFFER_EVENT = "close_buffer";
 var ALL_SEGMENTS_LOADED_EVENT = "onAllSegmentsLoaded";
 var MEDIA_SOURCE_SHOULD_REINITIALIZE = "media_source_should_reinitialize";
@@ -84,6 +85,15 @@ function Player(video, options) {
       _videoBufferManager.handleCurrentTimeChange(currentTime);
     if (_audioBufferManager)
       _audioBufferManager.handleCurrentTimeChange(currentTime);
+  }
+
+  function getPlaybackRate() {
+    return _video.playbackRate;
+  }
+
+  function setPlaybackRate(rate) {
+    _video.playbackRate = rate;
+    _eventEmitter.dispatchEvent(PLAYER_EVENT_PLAYBACK_RATE_CHANGE, rate);
   }
 
   function getDuration() {
@@ -607,6 +617,8 @@ function Player(video, options) {
     getAudioManifests,
     getCurrentTime,
     setCurrentTime,
+    getPlaybackRate,
+    setPlaybackRate,
     getDuration,
     setDuration,
     getVideo,
@@ -646,6 +658,7 @@ function Player(video, options) {
 
 Player.PLAYER_EVENT_START_BUFFERING = PLAYER_EVENT_START_BUFFERING;
 Player.PLAYER_EVENT_TRIGGER_PLAY = PLAYER_EVENT_TRIGGER_PLAY;
+Player.PLAYER_EVENT_PLAYBACK_RATE_CHANGE = PLAYER_EVENT_PLAYBACK_RATE_CHANGE;
 Player.EVENT_CLOSE_BUFFER = CLOSE_BUFFER_EVENT;
 
 function BufferManager(manifests, mediaSource, video, options) {

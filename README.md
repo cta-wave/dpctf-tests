@@ -61,6 +61,7 @@ You can refer to the [tests.csv](./tests.csv) for examples.
 | mse-appendwindow                                                                 | [mse-appendwindow.html](./mse-appendwindow.html)                                                                                                                                 | 8.22          |
 | low-latency-short-buffer-playback                                                | [low-latency-short-buffer-playback.html](./low-latency-short-buffer-playback.html)                                                                                               | 8.23          |
 | random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream | [random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream.html](./random-access-from-one-place-in-a-stream-to-a-different-place-in-the-same-stream.html) | 8.24          |
+| playback-rates-other-than-1.0                                                  | [playback-rates.html](./templates/playback-rates.html)                                                                                                                           | 8.24          |
 
 Specification numbers refer to section numbers in [the DPCTF specification](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5003-final.pdf).
 
@@ -86,6 +87,8 @@ To create new tests proceed as follows:
 - Run `generate-tests.py my-new-file.csv` script which generates the tests in the generated folder only for entries in the new CSV file.
 - If you are developer of new tests, usually you need a simple way to debug a single dedicated new developed test without the need to setup of whole docker which includes the test-runner. The only thing you need to do as developer of new tests in this phase is to serve the generated files via http/https and debug the test in browser.
 - Once the new tests are implemented and tested, you can add the entries to the CSV file [tests.csv](https://github.com/cta-wave/dpctf-tests/blob/master/tests.csv), generate the tests, push to git (in a feature branch) and test everything together using [dpctf-deploy](https://github.com/cta-wave/dpctf-deploy). Please make sure when you create the docker image to use the new feature branch of [dpctf-tests](https://github.com/cta-wave/dpctf-tests) and not the main branch.
+
+> **Committing generated output:** `generate-tests.py` copies `lib/` into `generated/lib/` on every run. The `generated/` bundle is what gets served and consumed by the deploy step, so it must stay in sync with the sources. If you change a file under `lib/` (or a template that produces a generated HTML test), you must re-run generation **and commit the refreshed `generated/` output** (including `generated/lib/`) in the same change. If you only commit the source `lib/` change and forget the regenerated bundle, the deployed bundle will still serve the old `lib/` — symptoms are a test that runs the new template but behaves like the old code (e.g. new status fields or log lines silently missing). Check the working tree with `git status` after generating to confirm the regenerated files are staged.
 
 ## Known Bugs
 

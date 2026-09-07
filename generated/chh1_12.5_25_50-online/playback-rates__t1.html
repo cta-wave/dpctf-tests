@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Playback Rates Other Than 1.0</title>
+    <link rel="stylesheet" href="../lib/style.css" />
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+
+  <body>
+    <div id="content-wrapper">
+      <div id="video-wrapper">
+        <video></video>
+        <div><div id="qr-code"></div></div>
+        <div><div id="status-text"></div></div>
+      </div>
+      <div>
+        To show/hide debug overlay press up/down or button beneath
+      </div>
+      <div id="debug-wrapper">
+        <div>
+          <div class="button" id="debug-button">Debug Overlay</div>
+        </div>
+        <div id="debug"></div>
+        <div id="log"></div>
+      </div>
+    </div>
+    <div id="info-overlay"></div>
+    <script src="../lib/mozilla/object-keys-polyfill.js"></script>
+    <script src="../lib/stefanpenner/es6-promise.min.js"></script>
+    <script src="../lib/davidshimjs/qrcode.js"></script>
+
+    <script src="../lib/logger.js"></script>
+    <script src="../lib/event-emitter.js"></script>
+    <script src="../lib/player.js"></script>
+    <script src="../lib/hbbtv.js"></script>
+    <script src="../lib/manifest_parser.js"></script>
+    <script src="../lib/mpd-parser.js"></script>
+    <script src="../lib/wave-service.js"></script>
+    <script src="../lib/dpctf-testharness.js"></script>
+    <script>
+      // Global variables
+      var TEST_INFO = {
+        id: "playback-rates",
+        title: "Playback Rates Other Than 1.0",
+        description:
+          "The playback of a WAVE presentation at playback rates other than 1.0. The test drives the presentation through a sequence of playback rates, holding each rate for a fixed amount of media time while continuously refilling the buffer, and stops at the end of the last fragment. The harness reflects the current playback rate and step in the status overlay for external observation.",
+        code: "playback-rates.html"
+      };
+
+      var video = document.querySelector("video");
+      var qrCode = document.getElementById("qr-code");
+      var statusText = document.getElementById("status-text");
+
+      var videoContentModel = ["https://dash.akamaized.net/WAVE/vectors/chh1_sets/12.5_25_50/t1/2025-01-15/stream.mpd"];
+      var audioContentModel = [];
+
+      var logger = new Logger();
+
+      var dpctfTest = new DpctfTest({
+        testInfo: TEST_INFO,
+        videoContentModel: videoContentModel,
+        audioContentModel: audioContentModel,
+        videoElement: video,
+        qrCodeElement: qrCode,
+        statusTextElement: statusText,
+        infoOverlayElement: document.getElementById("info-overlay"),
+        executeTest: executeTest,
+        usePlayout: false,
+        logger: logger,
+      });
+
+      function executeTest(player, done, parameters) {
+        var minBufferDuration = parameters.minBufferDuration / 1000;
+        var rates = parameters.rates || [];
+        var rateStep = parameters.rateStep || 0;
+
+        var observedRates = [];
+        var rateIndex = -1;
+        var stepStartTime = 0;
+
+        function advanceStep() {
+          rateIndex += 1;
+          if (rateIndex >= rates.length) return false;
+          player.setPlaybackRate(rates[rateIndex]);
+          observedRates.push(video.playbackRate);
+          stepStartTime = video.currentTime;
+          return true;
+        }
+
+        dpctfTest.asyncTest(function (test) {
+          video.addEventListener("ended", function () {
+            assert_true(true);
+            test.done();
+          });
+        }, "video ended event fired");
+
+        dpctfTest.asyncTest(function (test) {
+          video.addEventListener("ended", function () {
+            assert_true(rateIndex === rates.length - 1);
+            test.done();
+          });
+        }, "workflow completed the full rate sequence");
+
+        dpctfTest.asyncTest(function (test) {
+          video.addEventListener("ended", function () {
+            assert_array_equals(observedRates, rates);
+            test.done();
+          });
+        }, "video element playbackRate matched each requested rate at each step");
+
+        player.startBuffering();
+        player.playOnBufferLoaded(minBufferDuration).then(function () {
+          advanceStep();
+          video.addEventListener("timeupdate", function () {
+            if (rateIndex < 0 || rateIndex >= rates.length - 1) return;
+            if (video.currentTime - stepStartTime >= rateStep) {
+              advanceStep();
+            }
+          });
+          video.addEventListener("ended", function () {
+            done();
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

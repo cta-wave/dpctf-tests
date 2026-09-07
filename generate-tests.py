@@ -460,10 +460,8 @@ def write_file(path, content):
 
 
 def copy(src, dest):
-    if Path(dest).exists():
-        return
     try:
-        shutil.copytree(src, dest)
+        shutil.copytree(src, dest, dirs_exist_ok=True)
     except OSError as error:
         if error.errno == errno.ENOTDIR:
             shutil.copy(src, dest)
