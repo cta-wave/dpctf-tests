@@ -5,6 +5,8 @@ const path = require("node:path");
 
 global.window = global;
 
+eval(fs.readFileSync(path.join(__dirname, "..", "lib", "player.js"), "utf8"));
+
 function mockVideo() {
   return {
     onerror: null,
@@ -72,4 +74,60 @@ test("existing player methods remain available unchanged", () => {
   player.setCurrentTime(5);
   assert.strictEqual(video.currentTime, 5);
   assert.strictEqual(player.getCurrentTime(), 5);
+});
+
+function mockBuffered(ranges) {
+  const starts = ranges.map((r) => r.start);
+  const ends = ranges.map((r) => r.end);
+  return {
+    length: ranges.length,
+    start: (i) => starts[i],
+    end: (i) => ends[i],
+  };
+}
+
+function buildBufferManager(video) {
+  const options = {
+    logger: { error: () => {}, info: () => {}, debug: () => {} },
+  };
+  return new BufferManager([], null, video, options);
+}
+
+function managerWithBuffered(currentTime, ranges) {
+  return buildBufferManager({
+    currentTime,
+    addEventListener: () => {},
+    buffered: mockBuffered(ranges),
+  });
+}
+
+test("getPreBufferedTime is forward buffer from current position to buffered end", () => {
+  const bm = managerWithBuffered(5, [{ start: 0, end: 20 }]);
+  assert.strictEqual(bm.getPreBufferedTime(), 15);
+});
+
+test("getPreBufferedTime uses the range containing currentTime", () => {
+  const bm = managerWithBuffered(16, [
+    { start: 0, end: 10 },
+    { start: 15, end: 25 },
+  ]);
+  assert.strictEqual(bm.getPreBufferedTime(), 9);
+});
+
+test("getPreBufferedTime returns undefined when currentTime is in a gap", () => {
+  const bm = managerWithBuffered(12, [
+    { start: 0, end: 10 },
+    { start: 15, end: 25 },
+  ]);
+  assert.strictEqual(bm.getPreBufferedTime(), undefined);
+});
+
+test("getPreBufferedTime returns undefined when nothing is buffered", () => {
+  const bm = managerWithBuffered(0, []);
+  assert.strictEqual(bm.getPreBufferedTime(), undefined);
+});
+
+test("getPreBufferedTime returns 0 when currentTime is at the buffered end", () => {
+  const bm = managerWithBuffered(20, [{ start: 0, end: 20 }]);
+  assert.strictEqual(bm.getPreBufferedTime(), 0);
 });
