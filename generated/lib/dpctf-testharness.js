@@ -64,6 +64,8 @@ function DpctfTest(config) {
 
   var _runningTests = [];
 
+  var logBuffer = null;
+
   updateVideoWrapperSize();
 
   var screenConsole = document.createElement("div");
@@ -94,18 +96,7 @@ function DpctfTest(config) {
   }, "Test workflow");
 
   function setupLogBuffer() {
-    var bufferedLogs = [];
-    logger.on("log", function (log) {
-      bufferedLogs.push(log);
-    });
-    setInterval(function () {
-      if (bufferedLogs.length > 0) {
-        var test = "/" + testInfo.path;
-        var logs = bufferedLogs.slice();
-        bufferedLogs = [];
-        WaveService.sendLogs(token, test, logs);
-      }
-    }, 3000);
+    logBuffer = new LogBuffer(logger, "/" + testInfo.path, token);
     return Promise.resolve();
   }
 
@@ -610,6 +601,7 @@ function DpctfTest(config) {
   }
 
   function finishTest() {
+    if (logBuffer) logBuffer.flush();
     done();
   }
 
@@ -934,6 +926,27 @@ function calcPlayout(playout) {
     start = i;
   }
   return objectPlayout;
+}
+
+function LogBuffer(logger, testPath, token) {
+  var bufferedLogs = [];
+
+  logger.on("log", function (log) {
+    bufferedLogs.push(log);
+  });
+
+  setInterval(function () {
+    flush();
+  }, 3000);
+
+  function flush() {
+    if (bufferedLogs.length === 0) return;
+    var logs = bufferedLogs.slice();
+    bufferedLogs = [];
+    WaveService.sendLogs(token, testPath, logs);
+  }
+
+  return { flush: flush };
 }
 
 function buildParameters(testConfig, testInfo) {
