@@ -36,6 +36,7 @@
     <script src="../lib/manifest_parser.js"></script>
     <script src="../lib/mpd-parser.js"></script>
     <script src="../lib/wave-service.js"></script>
+    <script src="../lib/waiting-state-subtest.js"></script>
     <script src="../lib/dpctf-testharness.js"></script>
     <script>
       // Global variables
@@ -115,6 +116,8 @@
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
         player.startBuffering();
+
+        new WaitingStateSubTest(video, parameters.maxWaitingStates || 10, dpctfTest.asyncTest.bind(dpctfTest), function () { return true; }).start();
 
         dpctfTest.asyncTest(function (test) {
           video.addEventListener("ended", function (event) {
