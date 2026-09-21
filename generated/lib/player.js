@@ -931,14 +931,14 @@ function BufferManager(manifests, mediaSource, video, options) {
   }
 
   function getPreBufferedTime() {
-    var bufferedTime = 0;
-    if (_bufferingSegment >= _segments.length) return;
-    for (var i = 0; i < _bufferingSegment; i++) {
-      var segment = _segments[i];
-      bufferedTime += segment.getDuration();
+    var currentTime = _video.currentTime;
+    var buffered = _video.buffered;
+    if (!buffered || buffered.length === 0) return;
+    for (var i = 0; i < buffered.length; i++) {
+      if (buffered.start(i) <= currentTime && currentTime <= buffered.end(i)) {
+        return buffered.end(i) - currentTime;
+      }
     }
-
-    return bufferedTime - _video.currentTime;
   }
 
   function getNextBufferSegment() {
