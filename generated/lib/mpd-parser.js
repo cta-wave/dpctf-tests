@@ -887,6 +887,7 @@
           },
           CODECS: attributes.codecs,
           BANDWIDTH: attributes.bandwidth,
+          FRAME_RATE: attributes.frameRate,
         }),
         (_attributes3["PROGRAM-ID"] = 1),
         _attributes3),
@@ -1649,6 +1650,25 @@
      */
     height: function height(value) {
       return parseInt(value, 10);
+    },
+
+    /**
+     * Specifies the frame rate of the video representation. The value may be an
+     * integer, a decimal, or a rational number ("30000/1001").
+     *
+     * @param {string} value
+     *        value of attribute as a string
+     * @return {number}
+     *         The frame rate in frames per second
+     */
+    frameRate: function frameRate(value) {
+      var parts = String(value).split("/");
+      var numerator = parseInt(parts[0], 10);
+      var denominator = parts[1] ? parseInt(parts[1], 10) : 1;
+      if (isNaN(numerator) || isNaN(denominator) || denominator === 0) {
+        return parseFloat(value);
+      }
+      return numerator / denominator;
     },
 
     /**
