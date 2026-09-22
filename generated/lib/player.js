@@ -447,7 +447,7 @@ function Player(video, options) {
       );
       _eventEmitter.dispatchEvent("onVideoError", error);
       throw error;
-    }, 60000);
+    }, 10000);
   }
 
   function bufferRanges(buffered) {
