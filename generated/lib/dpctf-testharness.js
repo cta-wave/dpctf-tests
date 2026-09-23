@@ -175,6 +175,7 @@ function DpctfTest(config) {
         var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateVideoWrapperSize();
+        logCurrentTimeAndForwardBuffer(currentTime, "state change: play");
       });
 
       video.addEventListener("pause", function () {
@@ -185,6 +186,7 @@ function DpctfTest(config) {
         var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateVideoWrapperSize();
+        logCurrentTimeAndForwardBuffer(currentTime, "state change: pause");
       });
 
       video.addEventListener("playing", function () {
@@ -194,6 +196,7 @@ function DpctfTest(config) {
         var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateVideoWrapperSize();
+        logCurrentTimeAndForwardBuffer(currentTime, "state change: playing");
       });
 
       video.addEventListener("waiting", function () {
@@ -203,6 +206,7 @@ function DpctfTest(config) {
         var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateStatusText();
+        logCurrentTimeAndForwardBuffer(currentTime, "state change: waiting");
       });
 
       video.addEventListener("stalled", function () {
@@ -212,6 +216,7 @@ function DpctfTest(config) {
         var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateStatusText();
+        logCurrentTimeAndForwardBuffer(currentTime, "state change: stalled");
       });
 
       video.addEventListener("pause", function () {
@@ -221,6 +226,7 @@ function DpctfTest(config) {
         var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateStatusText();
+        logCurrentTimeAndForwardBuffer(currentTime, "state change: paused");
       });
 
       video.addEventListener("ended", function () {
@@ -230,6 +236,7 @@ function DpctfTest(config) {
         var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateVideoWrapperSize();
+        logCurrentTimeAndForwardBuffer(currentTime, "state change: ended");
       });
 
       video.addEventListener("error", function () {
@@ -237,6 +244,7 @@ function DpctfTest(config) {
         var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateStatusText();
+        logCurrentTimeAndForwardBuffer(currentTime, "state change: error");
         abortTests();
         throw new Error(video.error.message);
       });
@@ -258,6 +266,7 @@ function DpctfTest(config) {
         var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateStatusText();
+        logCurrentTimeAndForwardBuffer(currentTime, "state change: buffering");
       });
 
       player.on(Player.PLAYER_EVENT_TRIGGER_PLAY, function () {
@@ -267,6 +276,7 @@ function DpctfTest(config) {
         var currentTime = player.getCurrentTime();
         updateQrCode(currentTime);
         updateStatusText();
+        logCurrentTimeAndForwardBuffer(currentTime, "state change: play-triggered");
       });
 
       function makeInitCallback(initCallback) {
@@ -405,6 +415,29 @@ function DpctfTest(config) {
             infoOverlay.updateOverlayInfo(player, testInfo);
             updateQrCode(currentTime);
             updateStatusText();
+            logCurrentTimeAndForwardBuffer(currentTime, "ct update");
+          });
+
+          player.on("onVideoSourceBufferUpdate", function (event) {
+            var currentTime = event && event.currentTime;
+            if (!(typeof currentTime === "number" && isFinite(currentTime))) {
+              currentTime = player.getCurrentTime();
+            }
+            logCurrentTimeAndForwardBuffer(
+              currentTime,
+              "sourceBuffer update: video"
+            );
+          });
+
+          player.on("onAudioSourceBufferUpdate", function (event) {
+            var currentTime = event && event.currentTime;
+            if (!(typeof currentTime === "number" && isFinite(currentTime))) {
+              currentTime = player.getCurrentTime();
+            }
+            logCurrentTimeAndForwardBuffer(
+              currentTime,
+              "sourceBuffer update: audio"
+            );
           });
 
           player.on(
@@ -447,6 +480,10 @@ function DpctfTest(config) {
           updateQrCodePosition();
           _videoState = VIDEO_STATE_READY;
           updateStatusText();
+          logCurrentTimeAndForwardBuffer(
+            player.getCurrentTime(),
+            "state change: ready"
+          );
         })
         .catch(function (error) {
           resolve(error);
@@ -636,6 +673,7 @@ function DpctfTest(config) {
     var currentTime = player.getCurrentTime();
     updateQrCode(currentTime);
     updateVideoWrapperSize();
+    logCurrentTimeAndForwardBuffer(currentTime, "state change: finished");
   }
 
   function abortTests() {
@@ -644,6 +682,55 @@ function DpctfTest(config) {
         test.done();
       }
     }, _redirect_time * 1000);
+  }
+
+  function logCurrentTimeAndForwardBuffer(currentTime, reason) {
+    if (!player || !video) return;
+    if (typeof currentTime !== "number" || !isFinite(currentTime)) return;
+
+    var ct = Math.round(currentTime * 1000) / 1000;
+    var forwardBuffer = null;
+
+    // Fallback to player prebuffer metric used by this codebase's player.js.
+    if (
+      !(typeof forwardBuffer === "number" && isFinite(forwardBuffer)) &&
+      typeof player.getPreBufferedTime === "function"
+    ) {
+      forwardBuffer = player.getPreBufferedTime();
+    }
+
+    // Last fallback: derive from HTMLMediaElement buffered ranges.
+    if (
+      !(typeof forwardBuffer === "number" && isFinite(forwardBuffer)) &&
+      video &&
+      video.buffered
+    ) {
+      var derivedForwardBuffer = null;
+      for (var i = 0; i < video.buffered.length; i++) {
+        var start = video.buffered.start(i);
+        var end = video.buffered.end(i);
+        if (ct < start) {
+          derivedForwardBuffer = Math.max(0, end - ct);
+          break;
+        }
+        if (ct >= start && ct <= end) {
+          derivedForwardBuffer = Math.max(0, end - ct);
+          break;
+        }
+      }
+      forwardBuffer = derivedForwardBuffer;
+    }
+
+    if (typeof forwardBuffer === "number" && isFinite(forwardBuffer)) {
+      forwardBuffer = Math.round(forwardBuffer * 1000) / 1000;
+    } else {
+      forwardBuffer = "n/a";
+    }
+
+    var trigger = reason || "update";
+    logger.debug(
+      trigger + "; ct: " + ct + "; forward buffer: " + forwardBuffer + ";"
+    );
   }
 
   function updateQrCode(currentTime) {
