@@ -74,7 +74,7 @@
 
         player.startBuffering();
 
-        new WaitingStateSubTest(video, parameters.maxWaitingStates || 10, dpctfTest.asyncTest.bind(dpctfTest), function () { return true; }).start();
+        new WaitingStateSubTest(video, parameters.maxWaitingStates || 10, dpctfTest.asyncTest.bind(dpctfTest)).start();
         player.playOnBufferLoaded(minBufferDuration).then(done);
 
         dpctfTest.asyncTest(function (test) {

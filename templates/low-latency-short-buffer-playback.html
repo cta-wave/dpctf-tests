@@ -116,7 +116,7 @@
           player.on("onVideoSegmentLoaded", handleSegmentLoaded);
           player.startBuffering();
 
-        new WaitingStateSubTest(video, parameters.maxWaitingStates || 10, dpctfTest.asyncTest.bind(dpctfTest), function () { return true; }).start();
+        new WaitingStateSubTest(video, parameters.maxWaitingStates || 10, dpctfTest.asyncTest.bind(dpctfTest)).start();
         }, "video should change to playing state in time (" +
           waitingDuration +
           "ms)");
