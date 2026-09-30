@@ -346,7 +346,7 @@ function Player(video, options) {
       video,
       videoMimeCodec,
       audioMimeCodec,
-      { logger: logger },
+      { logger: logger, dispatchEvent: _eventEmitter.dispatchEvent },
     );
   }
 
@@ -360,6 +360,7 @@ function Player(video, options) {
       initData,
       initDataType,
       contentKey,
+      keyId,
     });
   }
 
@@ -1658,34 +1659,167 @@ function EventEmitter() {
 
 function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
   var mediaKeysObject;
-  var associationPending = false;
-  var associationFailed = false;
   var KEYSYSTEM_NAME = "org.w3.clearkey";
-  var contentKey;
   var logger = options.logger;
+  var dispatchEvent = options.dispatchEvent;
+
+  // Per-key state machine (see docs/adr/0001):
+  //   none -> pending -> usable | failed-under-cap -> gave-up
+  var KEY_STATUS_NONE = "none";
+  var KEY_STATUS_PENDING = "pending";
+  var KEY_STATUS_USABLE = "usable";
+  var KEY_STATUS_FAILED_UNDER_CAP = "failed-under-cap";
+  var KEY_STATUS_GAVE_UP = "gave-up";
+
+  // Bounded retry: each key gets at most this many session-init attempts
+  // (2 attempts = 1 event-driven retry). Counts session-init only; a later
+  // usable->not-usable transition does not reset it.
+  var ATTEMPT_CAP = 2;
+  var ENCRYPTION_ERROR_EVENT = "onEncryptionError";
+
+  // key identity (FNV-1a hash of initData) -> { status, attempts, session,
+  // contentKey, keyId, identity, processing }
+  var keyMap = {};
+  // Single serialized per-controller job queue. One session-init per key in
+  // flight; every job awaits the memoized association gate.
+  var jobQueue = [];
+  var queueRunning = false;
+  var associationPromise = null;
+  var associationFailed = false;
 
   function handleEncryption(config) {
-    var initDataType = config.initDataType;
     var initData = config.initData;
-    contentKey = config.contentKey;
-    if (!mediaKeysObject && !associationFailed) {
-      if (associationPending) {
-        return;
-      }
-      associationPending = true;
-      requestMediaKeySystemAccess(initDataType)
+    var initDataType = config.initDataType;
+    var keyIdentity = hashInitData(initData);
+    var entry = keyMap[keyIdentity];
+
+    if (!entry) {
+      entry = keyMap[keyIdentity] = {
+        status: KEY_STATUS_NONE,
+        attempts: 0,
+        session: null,
+        contentKey: config.contentKey,
+        keyId: config.keyId,
+        identity: keyIdentity,
+        processing: false,
+      };
+    } else {
+      // Merge protection data provisioned on a later call.
+      if (config.keyId) entry.keyId = config.keyId;
+      if (config.contentKey) entry.contentKey = config.contentKey;
+    }
+
+    enqueue(keyIdentity, initData, initDataType);
+  }
+
+  function enqueue(keyIdentity, initData, initDataType) {
+    // Dedupe: drop the job if this key is already queued or in flight.
+    var entry = keyMap[keyIdentity];
+    for (var i = 0; i < jobQueue.length; i++) {
+      if (jobQueue[i].keyIdentity === keyIdentity) return;
+    }
+    if (entry && entry.processing) return;
+    jobQueue.push({
+      keyIdentity: keyIdentity,
+      initData: initData,
+      initDataType: initDataType,
+    });
+    runQueue();
+  }
+
+  function runQueue() {
+    if (queueRunning) return;
+    if (jobQueue.length === 0) return;
+    queueRunning = true;
+    var job = jobQueue.shift();
+    processJob(job).then(function () {
+      queueRunning = false;
+      runQueue();
+    });
+  }
+
+  function processJob(job) {
+    var entry = keyMap[job.keyIdentity];
+    if (!entry) return Promise.resolve();
+
+    if (
+      entry.status === KEY_STATUS_USABLE ||
+      entry.status === KEY_STATUS_GAVE_UP
+    ) {
+      // Reuse a usable session; a gave-up key stays terminal (error emitted).
+      return Promise.resolve();
+    }
+
+    if (
+      entry.status === KEY_STATUS_FAILED_UNDER_CAP &&
+      entry.attempts >= ATTEMPT_CAP
+    ) {
+      // Cap already exhausted on a later encrypted event: give up now.
+      entry.status = KEY_STATUS_GAVE_UP;
+      logger.error(
+        "key '" + keyLabel(entry) + "' gave up after exceeding retry cap",
+      );
+      emitEncryptionError(
+        entry,
+        new Error("key '" + keyLabel(entry) + "' exhausted retry cap"),
+      );
+      return Promise.resolve();
+    }
+
+    if (entry.status === KEY_STATUS_PENDING) {
+      // A session-init is already in flight (guarded by dedupe); no-op.
+      return Promise.resolve();
+    }
+
+    entry.status = KEY_STATUS_PENDING;
+    entry.processing = true;
+    return initSession(job, entry).then(function () {
+      entry.processing = false;
+    });
+  }
+
+  function initSession(job, entry) {
+    var service = function (mediaKeys) {
+      if (entry.status === KEY_STATUS_USABLE) return null;
+      return createAndRequest(mediaKeys, job, entry);
+    };
+    return ensureAssociation(job.initDataType)
+      .then(service)
+      .then(function (sessionError) {
+        if (sessionError) return handleSessionFailure(entry, sessionError);
+        return null;
+      })
+      .catch(function (error) {
+        // Association failure is surfaced once (shared) by ensureAssociation;
+        // do not treat it as a per-key give-up.
+        if (entry.status === KEY_STATUS_PENDING) {
+          entry.status = KEY_STATUS_FAILED_UNDER_CAP;
+        }
+        return null;
+      });
+  }
+
+  function ensureAssociation(initDataType) {
+    if (mediaKeysObject) return Promise.resolve(mediaKeysObject);
+    if (associationFailed) {
+      return Promise.reject(
+        new Error("media key system association failed"),
+      );
+    }
+    if (!associationPromise) {
+      associationPromise = requestMediaKeySystemAccess(initDataType)
         .then(function (keySystemAccess) {
           return keySystemAccess.createMediaKeys();
         })
         .then(function (createdMediaKeys) {
           return video.setMediaKeys(createdMediaKeys).then(function () {
             mediaKeysObject = createdMediaKeys;
-            associationPending = false;
-            makeNewRequest(mediaKeysObject, initDataType, initData);
+            return mediaKeysObject;
           });
         })
         .catch(function (error) {
-          associationPending = false;
+          // Single shared error for this playout; no re-setMediaKeys, no
+          // permanent cross-key latch.
           associationFailed = true;
           logger.error(
             "failed to access media key system '" +
@@ -1693,10 +1827,10 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
               "': " +
               error.message,
           );
+          throw error;
         });
-    } else if (mediaKeysObject) {
-      makeNewRequest(mediaKeysObject, initDataType, initData);
     }
+    return associationPromise;
   }
 
   function requestMediaKeySystemAccess(initDataType) {
@@ -1724,43 +1858,119 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
     );
   }
 
-  function makeNewRequest(mediaKeys, initDataType, initData) {
-    var keySession = mediaKeys.createSession();
-
+  function createAndRequest(mediaKeys, job, entry) {
+    // Surface synchronous createSession() failures (no swallowing).
+    var keySession;
+    try {
+      keySession = mediaKeys.createSession();
+    } catch (error) {
+      return Promise.resolve(error);
+    }
+    keySession.__keyIdentity = entry.identity;
     keySession.addEventListener("message", licenseRequestReady, false);
     keySession.addEventListener(
       "keystatuseschange",
       handleKeyStatusesChange,
       false,
     );
-    //keySession.closed.then(console.log.bind(console, "Session closed"));
-    keySession.generateRequest(initDataType, initData).catch(function () {
-      logger.warn("unable to create or initialize key session");
+    return keySession.generateRequest(job.initDataType, job.initData).then(
+      function () {
+        logger.info("key session initialized: " + keyLabel(entry));
+        return null;
+      },
+      function (error) {
+        // Pass through the real rejection (no generic .catch swallowing).
+        return error;
+      },
+    );
+  }
+
+  function handleSessionFailure(entry, error) {
+    // The key may already be usable: keystatuseschange can fire (setting
+    // status to USABLE) while this generateRequest rejection is still in
+    // flight, even for the attempt whose promise later rejected. A usable
+    // key is usable; do not count the stale failure against the retry cap
+    // or fire a false give-up / onEncryptionError for it.
+    if (entry.status === KEY_STATUS_USABLE) {
+      logger.info(
+        "key '" +
+          keyLabel(entry) +
+          "' usable despite stale generateRequest rejection: " +
+          errorMessage(error),
+      );
+      return null;
+    }
+    entry.attempts++;
+    if (entry.attempts >= ATTEMPT_CAP) {
+      entry.status = KEY_STATUS_GAVE_UP;
+      logger.error(
+        "key '" +
+          keyLabel(entry) +
+          "' gave up after " +
+          entry.attempts +
+          " attempts: " +
+          errorMessage(error),
+      );
+      emitEncryptionError(entry, error);
+    } else {
+      entry.status = KEY_STATUS_FAILED_UNDER_CAP;
+      logger.error(
+        "key '" +
+          keyLabel(entry) +
+          "' session-init failed (attempt " +
+          entry.attempts +
+          "): " +
+          errorMessage(error),
+      );
+    }
+  }
+
+  function emitEncryptionError(entry, error) {
+    if (!dispatchEvent) return;
+    dispatchEvent(ENCRYPTION_ERROR_EVENT, {
+      keyId: keyLabel(entry),
+      error: error,
     });
   }
 
   function licenseRequestReady(event) {
     var keySession = event.target;
     var message = event.message;
+    var entry = keyMap[keySession.__keyIdentity];
 
     // ClearKey is the only system that does not require a license server URL, so we
     // handle it here when keys are specified in protection data
+    if (!entry || !entry.contentKey) {
+      logger.warn("no protection data for key session, cannot update");
+      return;
+    }
     var jsonMsg = JSON.parse(
       String.fromCharCode.apply(null, new Uint8Array(message)),
     );
     var clearkeyID = jsonMsg.kids[0];
-    var keyPairs = [{ keyID: clearkeyID, key: contentKey }];
+    var keyPairs = [{ keyID: clearkeyID, key: entry.contentKey }];
     var data = toJWK(keyPairs);
-    keySession
-      .update(data)
-      .catch(console.error.bind(console, "update() failed"));
+    keySession.update(data).catch(function (error) {
+      // Surfaces a rejected ClearKey license exchange via the test logger only
+      // (browser console is invisible to the runner). Not counted against the
+      // per-key retry cap and does not emit onEncryptionError — diagnosis only.
+      var detail = error && error.message ? error.message : String(error);
+      logger.error(
+        "ClearKey update() (license exchange) failed for key '" +
+          keyLabel(entry) +
+          "': " +
+          detail,
+      );
+    });
   }
 
   function handleKeyStatusesChange(event) {
+    var entry = keyMap[event.target.__keyIdentity];
     event.target.keyStatuses.forEach(function (status, keyId) {
       switch (status) {
         case "usable":
           logger.info("key status change: usable");
+          if (entry) entry.status = KEY_STATUS_USABLE;
           break;
         case "expired":
           logger.warn("key status change: expired");
@@ -1772,6 +1982,34 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
         // Do something with |keyId| and |status|.
       }
     });
+  }
+
+  function hashInitData(initData) {
+    // FNV-1a 32-bit hash over the initData bytes. Gives a stable per-key
+    // identity without crypto.subtle or modern collection APIs.
+    var bytes = new Uint8Array(initData);
+    var hash = 0x811c9dc5;
+    var i;
+    for (i = 0; i < bytes.length; i++) {
+      hash ^= bytes[i];
+      // 32-bit FNV prime; >>> 0 keeps the result unsigned.
+      hash = (hash * 0x01000193) >>> 0;
+    }
+    return hash.toString(16);
+  }
+
+  function keyLabel(entry) {
+    return entry.keyId || entry.identity;
+  }
+
+  function errorMessage(error) {
+    if (error && error.message) {
+      // Surface the stack too so the failure is diagnosable end-to-end
+      // (test logger lands in the result JSON, unlike a browser console).
+      if (error.stack) return error.message + "\n" + error.stack;
+      return error.message;
+    }
+    return String(error);
   }
 
   function toJWK(keyPairs) {
