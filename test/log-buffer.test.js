@@ -4,7 +4,6 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 global.window = global;
-// Capture the periodic flush callback instead of letting the real interval run.
 let periodicFlush;
 global.setInterval = (callback) => {
   periodicFlush = callback;

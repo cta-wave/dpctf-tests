@@ -71,11 +71,32 @@
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
+        var endedTest = null;
 
         player.startBuffering();
         player.playOnBufferLoaded(minBufferDuration).then(done);
 
+        player.on("onEncryptionError", function (payload) {
+          var error = new Error(
+            "encryption failed for key '" +
+              payload.keyId +
+              "': " +
+              (payload.error && payload.error.message
+                ? payload.error.message
+                : String(payload.error))
+          );
+          logger.error(error.message);
+          done(error);
+          if (endedTest) {
+            endedTest.step(function () {
+              assert_unreached(error.message);
+            });
+            endedTest.done();
+          }
+        });
+
         dpctfTest.asyncTest(function (test) {
+          endedTest = test;
           video.addEventListener("ended", function (event) {
             assert_true(true);
             test.done();

@@ -22019,6 +22019,49 @@
                 ]
             }
         },
+        "28be8947eb0aa4fdff1aec2598df77e5": {
+            "path": "utility-online/disable-motion-compensation-warning-manual__t61.html",
+            "video": [
+                "https://dash.akamaized.net/WAVE/vectors/chd1_sets/12.5_25_50/t61/2025-01-15/stream.mpd"
+            ],
+            "audio": [],
+            "code": "disable-motion-compensation-warning-manual.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "sol_hdr10_O1_3840x2160@50_30 version 5 (2024-11-27)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 14,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
+            }
+        },
         "13e9c8d3f32fe5fbf5afa19d5ec9dbe8": {
             "path": "chh1_12.5_25_50-online/sequential-track-playback__t1.html",
             "video": [
@@ -35510,6 +35553,49 @@
                         }
                     }
                 ]
+            }
+        },
+        "ccf679c241d3f6bb0801d133cc03f161": {
+            "path": "utility-local/disable-motion-compensation-warning-manual__t61.html",
+            "video": [
+                "/content/chd1_sets/12.5_25_50/t61/2025-01-15/stream.mpd"
+            ],
+            "audio": [],
+            "code": "disable-motion-compensation-warning-manual.html",
+            "switchingSets": {
+                "video": [
+                    {
+                        "cmaf_track_duration": "PT0H0M30.000S",
+                        "fragment_duration": "PT0H0M2.000S",
+                        "timescale": 12800,
+                        "segmentTimeline": [
+                            {
+                                "r": 14,
+                                "t": 0,
+                                "d": 25600
+                            }
+                        ],
+                        "source": "sol_hdr10_O1_3840x2160@50_30 version 5 (2024-11-27)",
+                        "representations": {
+                            "1": {
+                                "period": 1,
+                                "duration": 30,
+                                "type": "video",
+                                "frame_rate": "50",
+                                "fragment_duration": 2.0,
+                                "timescale": 12800,
+                                "segmentTimeline": [
+                                    {
+                                        "r": 14,
+                                        "t": 0,
+                                        "d": 25600
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "audio": []
             }
         },
         "9416fb8fc0d11c7dae625ccd5a5d9e40": {
