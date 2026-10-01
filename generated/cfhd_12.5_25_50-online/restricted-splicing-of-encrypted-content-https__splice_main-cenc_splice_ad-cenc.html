@@ -76,11 +76,6 @@
         player.startBuffering();
         player.playOnBufferLoaded(minBufferDuration).then(done);
 
-        // Fail fast (instead of a SERVERTIMEOUT) when a key can no longer be
-        // obtained. The surfaced error is routed through both the test promise
-        // (fast path, when buffering has not yet settled `done`) and the
-        // ended-guard subtest, so a late error still FAILs instead of turning
-        // into a silent TIMEOUT once `done` has already been consumed.
         player.on("onEncryptionError", function (payload) {
           var error = new Error(
             "encryption failed for key '" +

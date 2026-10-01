@@ -954,22 +954,12 @@ function BufferManager(manifests, mediaSource, video, options) {
     return segment;
   }
 
-  // Advance the buffering cursor to the global _segments index AFTER the
-  // just-appended segment, located by OBJECT IDENTITY against _segments —
-  // never segment.getNumber() + 1. getNumber() is the representation-local
-  // segment number, which collides across representations in a spliced
-  // multi-manifest playout (the ad clip's segment 1 and the main clip's
-  // segment 1 are both local 0 but sit at different global indices). Using
-  // the local number rewinds the cursor into a main->ad->main loop, so
-  // `ended` never fires.
   function nextBufferingSegmentIndexByIdentity(appendedSegment) {
     for (var key of _segmentsKeys) {
       if (_segments[key] === appendedSegment) {
         return parseInt(key, 10) + 1;
       }
     }
-    // Fallback (should never happen in a normal append): keep the cursor
-    // from stalling by moving one global index past where we were.
     return _bufferingSegment + 1;
   }
 
@@ -1686,25 +1676,16 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
   var logger = options.logger;
   var dispatchEvent = options.dispatchEvent;
 
-  // Per-key state machine (see docs/adr/0001):
-  //   none -> pending -> usable | failed-under-cap -> gave-up
   var KEY_STATUS_NONE = "none";
   var KEY_STATUS_PENDING = "pending";
   var KEY_STATUS_USABLE = "usable";
   var KEY_STATUS_FAILED_UNDER_CAP = "failed-under-cap";
   var KEY_STATUS_GAVE_UP = "gave-up";
 
-  // Bounded retry: each key gets at most this many session-init attempts
-  // (2 attempts = 1 event-driven retry). Counts session-init only; a later
-  // usable->not-usable transition does not reset it.
   var ATTEMPT_CAP = 2;
   var ENCRYPTION_ERROR_EVENT = "onEncryptionError";
 
-  // key identity (FNV-1a hash of initData) -> { status, attempts, session,
-  // contentKey, keyId, identity, processing }
   var keyMap = {};
-  // Single serialized per-controller job queue. One session-init per key in
-  // flight; every job awaits the memoized association gate.
   var jobQueue = [];
   var queueRunning = false;
   var associationPromise = null;
@@ -1727,7 +1708,6 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
         processing: false,
       };
     } else {
-      // Merge protection data provisioned on a later call.
       if (config.keyId) entry.keyId = config.keyId;
       if (config.contentKey) entry.contentKey = config.contentKey;
     }
@@ -1736,7 +1716,6 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
   }
 
   function enqueue(keyIdentity, initData, initDataType) {
-    // Dedupe: drop the job if this key is already queued or in flight.
     var entry = keyMap[keyIdentity];
     for (var i = 0; i < jobQueue.length; i++) {
       if (jobQueue[i].keyIdentity === keyIdentity) return;
@@ -1747,13 +1726,6 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
       entry.status === KEY_STATUS_FAILED_UNDER_CAP &&
       hasUsableKey()
     ) {
-      // H1 re-fired-key guard (drm.md §7.2.2): ignore a re-fired encrypted
-      // event for a key whose session-init already failed under the retry cap
-      // when the playout already holds a usable key. A content playout that is
-      // already decryptable must not be torn down by a redundant second key's
-      // failing session-init — so this re-fire is dropped rather than re-queued
-      // (which would burn the per-key retry cap and eventually surface a false
-      // onEncryptionError).
       logger.debug(
         "ignoring re-fired encrypted event for redundant key '" +
           keyLabel(entry) +
@@ -1769,9 +1741,6 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
     runQueue();
   }
 
-  // Does the playout already hold a usable (decryptable) key? Used by the
-  // H1 re-fired-key guard to decide whether a redundant key's failure may be
-  // safely ignored. ES5-style scan (no modern collection APIs).
   function hasUsableKey() {
     for (var identity in keyMap) {
       if (
@@ -1803,7 +1772,6 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
       entry.status === KEY_STATUS_USABLE ||
       entry.status === KEY_STATUS_GAVE_UP
     ) {
-      // Reuse a usable session; a gave-up key stays terminal (error emitted).
       return Promise.resolve();
     }
 
@@ -1811,7 +1779,6 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
       entry.status === KEY_STATUS_FAILED_UNDER_CAP &&
       entry.attempts >= ATTEMPT_CAP
     ) {
-      // Cap already exhausted on a later encrypted event: give up now.
       entry.status = KEY_STATUS_GAVE_UP;
       logger.error(
         "key '" + keyLabel(entry) + "' gave up after exceeding retry cap",
@@ -1824,7 +1791,6 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
     }
 
     if (entry.status === KEY_STATUS_PENDING) {
-      // A session-init is already in flight (guarded by dedupe); no-op.
       return Promise.resolve();
     }
 
@@ -1847,8 +1813,6 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
         return null;
       })
       .catch(function (error) {
-        // Association failure is surfaced once (shared) by ensureAssociation;
-        // do not treat it as a per-key give-up.
         if (entry.status === KEY_STATUS_PENDING) {
           entry.status = KEY_STATUS_FAILED_UNDER_CAP;
         }
@@ -1875,8 +1839,6 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
           });
         })
         .catch(function (error) {
-          // Single shared error for this playout; no re-setMediaKeys, no
-          // permanent cross-key latch.
           associationFailed = true;
           logger.error(
             "failed to access media key system '" +
@@ -1916,7 +1878,6 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
   }
 
   function createAndRequest(mediaKeys, job, entry) {
-    // Surface synchronous createSession() failures (no swallowing).
     var keySession;
     try {
       keySession = mediaKeys.createSession();
@@ -1936,18 +1897,12 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
         return null;
       },
       function (error) {
-        // Pass through the real rejection (no generic .catch swallowing).
         return error;
       },
     );
   }
 
   function handleSessionFailure(entry, error) {
-    // The key may already be usable: keystatuseschange can fire (setting
-    // status to USABLE) while this generateRequest rejection is still in
-    // flight, even for the attempt whose promise later rejected. A usable
-    // key is usable; do not count the stale failure against the retry cap
-    // or fire a false give-up / onEncryptionError for it.
     if (entry.status === KEY_STATUS_USABLE) {
       logger.info(
         "key '" +
@@ -2008,9 +1963,6 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
     var keyPairs = [{ keyID: clearkeyID, key: entry.contentKey }];
     var data = toJWK(keyPairs);
     keySession.update(data).catch(function (error) {
-      // Surfaces a rejected ClearKey license exchange via the test logger only
-      // (browser console is invisible to the runner). Not counted against the
-      // per-key retry cap and does not emit onEncryptionError — diagnosis only.
       var detail = error && error.message ? error.message : String(error);
       logger.error(
         "ClearKey update() (license exchange) failed for key '" +
@@ -2042,14 +1994,11 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
   }
 
   function hashInitData(initData) {
-    // FNV-1a 32-bit hash over the initData bytes. Gives a stable per-key
-    // identity without crypto.subtle or modern collection APIs.
     var bytes = new Uint8Array(initData);
     var hash = 0x811c9dc5;
     var i;
     for (i = 0; i < bytes.length; i++) {
       hash ^= bytes[i];
-      // 32-bit FNV prime; >>> 0 keeps the result unsigned.
       hash = (hash * 0x01000193) >>> 0;
     }
     return hash.toString(16);
@@ -2061,8 +2010,6 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
 
   function errorMessage(error) {
     if (error && error.message) {
-      // Surface the stack too so the failure is diagnosable end-to-end
-      // (test logger lands in the result JSON, unlike a browser console).
       if (error.stack) return error.message + "\n" + error.stack;
       return error.message;
     }

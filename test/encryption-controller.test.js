@@ -22,11 +22,6 @@ function initDataText(initData) {
   return String.fromCharCode.apply(null, new Uint8Array(initData));
 }
 
-// Configurable mock EME.
-// - options.failGenerate: boolean, or a function (initData) -> boolean deciding
-//   per-key failure.
-// - options.generateError: Error, or a function (initData) -> Error.
-// - Exposes mediaKeys.sessions so tests can inspect/fire keystatuseschange.
 function buildMockEme(record, options) {
   options = options || {};
   const setMediaKeysDeferred = deferred();
@@ -49,10 +44,6 @@ function buildMockEme(record, options) {
         },
         generateRequest: (type, initData) => {
           record.push("generateRequest");
-          // Reproduce the real-world race: the session reports itself usable
-          // via keystatuseschange, yet the generateRequest promise still
-          // rejects afterwards. This used to cause a false give-up even
-          // though the key was usable.
           const failAfterUsable =
             typeof options.failGenerateAfterUsable === "function"
               ? options.failGenerateAfterUsable(initData)
@@ -157,8 +148,6 @@ test("key session is created only after setMediaKeys resolves", async () => {
   player.setProtectionData({ keyId: "key1", contentKey: "secret" });
   await flush();
 
-  // Association work happens, but no CDM session work runs while setMediaKeys
-  // is still pending (the "attaching operation" window).
   assert.deepStrictEqual(record, [
     "requestMediaKeySystemAccess",
     "createMediaKeys",
@@ -188,7 +177,6 @@ test("distinct keys each get their own session after association", async () => {
   player.setProtectionData({ keyId: "key3", contentKey: "secret" });
   await flush();
 
-  // All jobs queue behind one association gate; no session work yet.
   assert.deepStrictEqual(record, [
     "requestMediaKeySystemAccess",
     "createMediaKeys",
@@ -245,10 +233,8 @@ test("a usable key is reused without a second session-init", async () => {
   mockEme.setMediaKeysDeferred.resolve();
   await flush();
 
-  // First session became usable (mock fires keystatuseschange).
   assert.strictEqual(mockEme.mediaKeys.sessions[0].keyStatuses.current, "usable");
 
-  // Re-encountering the same key reuses the session: no new session-init.
   player.setProtectionData({ keyId: "key1", contentKey: "secret" });
   await flush();
 
@@ -286,13 +272,11 @@ test("a failing key surfaces the real error but does not give up under cap", asy
   mockEme.setMediaKeysDeferred.resolve();
   await flush();
 
-  // First failure -> under cap -> no give-up yet, and no onEncryptionError.
   assert.strictEqual(encryptionError, null);
   assert.ok(
     errors.some((msg) => msg.indexOf("bogus license failure") !== -1),
     "real error message should be logged",
   );
-  // AC2: the stack is routed through to the logger, not just the message.
   assert.ok(
     errors.some(
       (msg) => msg.indexOf("bogus license failure") !== -1 && msg.indexOf("\n") !== -1,
@@ -300,11 +284,9 @@ test("a failing key surfaces the real error but does not give up under cap", asy
     "real error stack should be logged with the message",
   );
 
-  // Re-encountering the key drives the second (and final) part of the cap.
   player.setProtectionData({ keyId: "key1", contentKey: "secret" });
   await flush();
 
-  // Cap exhausted -> gave-up -> onEncryptionError emitted.
   assert.ok(encryptionError, "onEncryptionError should fire after cap");
   assert.strictEqual(encryptionError.keyId, "key1");
   assert.match(encryptionError.error.message, /bogus license failure/);
@@ -339,8 +321,6 @@ test("a key that turns usable is never given up on, even if generateRequest reje
   mockEme.setMediaKeysDeferred.resolve();
   await flush();
 
-  // The session fired usable even though generateRequest rejects. No
-  // give-up, no onEncryptionError, no attempt counted against the cap.
   assert.strictEqual(mockEme.mediaKeys.sessions[0].keyStatuses.current, "usable");
   assert.strictEqual(encryptionError, null);
   assert.ok(
@@ -348,8 +328,6 @@ test("a key that turns usable is never given up on, even if generateRequest reje
     "must not give up on a usable key despite the stale rejection",
   );
 
-  // Re-encountering the key reuses the usable session: no new session-init,
-  // and certainly no false give-up even though it rejects again.
   player.setProtectionData({ keyId: "key1", contentKey: "secret" });
   await flush();
 
@@ -376,7 +354,6 @@ test("give-up on one key does not poison another key", async () => {
     debug: () => {},
     warn: () => {},
   };
-  // Only the key whose initData mentions "key1" fails; key2 works.
   const mockEme = buildMockEme(record, {
     failGenerate: (initData) => initDataText(initData).indexOf("key1") !== -1,
     generateError: new Error("key1 broken"),
@@ -388,7 +365,6 @@ test("give-up on one key does not poison another key", async () => {
     erroredKey = payload.keyId;
   });
 
-  // Drive key1 through its cap (attempt 1 then attempt 2 -> gave-up).
   player.setProtectionData({ keyId: "key1", contentKey: "secret" });
   await flush();
   mockEme.setMediaKeysDeferred.resolve();
@@ -398,7 +374,6 @@ test("give-up on one key does not poison another key", async () => {
 
   assert.strictEqual(erroredKey, "key1", "key1 should surface the error");
 
-  // A distinct key2 must still work (no cross-key poison).
   player.setProtectionData({ keyId: "key2", contentKey: "secret" });
   await flush();
 
@@ -418,7 +393,6 @@ test("a re-fired failing key is ignored while another key is usable (H1 guard)",
     debug: () => {},
     warn: () => {},
   };
-  // key1 succeeds (usable); key2's session-init fails under the retry cap.
   const mockEme = buildMockEme(record, {
     failGenerate: (initData) => initDataText(initData).indexOf("key2") !== -1,
     generateError: new Error("key2 broken"),
@@ -433,7 +407,6 @@ test("a re-fired failing key is ignored while another key is usable (H1 guard)",
   const sessionInitCount = () =>
     record.filter((r) => r === "createSession" || r === "generateRequest").length;
 
-  // key1 becomes usable.
   player.setProtectionData({ keyId: "key1", contentKey: "secret" });
   await flush();
   mockEme.setMediaKeysDeferred.resolve();
@@ -441,16 +414,12 @@ test("a re-fired failing key is ignored while another key is usable (H1 guard)",
 
   assert.strictEqual(mockEme.mediaKeys.sessions[0].keyStatuses.current, "usable");
 
-  // key2's first session-init fails -> failed-under-cap (attempt 1, under cap).
   player.setProtectionData({ keyId: "key2", contentKey: "secret" });
   await flush();
 
   assert.strictEqual(encryptionError, null, "no give-up on the first failure");
   const countAfterKey2Failure = sessionInitCount();
 
-  // Re-fire key2 while key1 is usable: the H1 guard ignores it instead of
-  // re-queuing a fresh session-init job, so the per-key retry cap is not
-  // burned and no false onEncryptionError tears down the decryptable playout.
   player.setProtectionData({ keyId: "key2", contentKey: "secret" });
   await flush();
 
@@ -522,25 +491,19 @@ test("a rejected ClearKey update() is surfaced via the logger only (no cap, no o
     encryptionError = payload;
   });
 
-  // Drive a key session to the point where the ClearKey license exchange
-  // (update()) runs and rejects.
   player.setProtectionData({ keyId: "key1", contentKey: "secret" });
   await flush();
   mockEme.setMediaKeysDeferred.resolve();
   await flush();
 
   const session = mockEme.mediaKeys.sessions[0];
-  // Fire a license-request "message" event so licenseRequestReady calls
-  // update() with a fake ClearKey JWK license request.
   const message = String.fromCharCode
-    .apply(null, [123, 34, 107, 105, 100, 115, 34, 58, 91, 34, 107, 105, 100, 49, 34, 93, 125]) // {"kids":["kid1"]}
+    .apply(null, [123, 34, 107, 105, 100, 115, 34, 58, 91, 34, 107, 105, 100, 49, 34, 93, 125])
     .split("")
     .map((c) => c.charCodeAt(0));
   session.fireMessage(new Uint8Array(message));
   await flush();
 
-  // Surfaced via the logger (with the real error), not swallowed and not
-  // routed to raw console.error.
   assert.ok(
     errors.some((msg) => msg.indexOf("license exchange rejected") !== -1),
     "rejected update() should be logged with its real error",
@@ -550,8 +513,6 @@ test("a rejected ClearKey update() is surfaced via the logger only (no cap, no o
     "log should mention the update()/license exchange step",
   );
 
-  // Not counted against the retry cap: re-encountering the key reuses the
-  // session (no new createSession) and never gives up / emits the error.
   player.setProtectionData({ keyId: "key1", contentKey: "secret" });
   await flush();
 
