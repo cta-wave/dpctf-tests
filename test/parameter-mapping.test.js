@@ -71,4 +71,17 @@ test("rates default to undefined when not declared", () => {
   assert.strictEqual(params.rates, undefined);
   assert.strictEqual(params.rateStep, undefined);
   assert.strictEqual(params.framePresentedTolerance, undefined);
+  assert.strictEqual(params.mseResetTolerance, undefined);
+});
+
+test("exposes mseResetTolerance from the config", () => {
+  const params = buildParameters(
+    {
+      all: allConfig({
+        mse_reset_tolerance: 300,
+      }),
+    },
+    { code: "source-buffer-re-initialization.html", path: "x/source-buffer-re-initialization__t1.html" },
+  );
+  assert.strictEqual(params.mseResetTolerance, 300);
 });
