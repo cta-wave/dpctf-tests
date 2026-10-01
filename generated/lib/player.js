@@ -954,6 +954,25 @@ function BufferManager(manifests, mediaSource, video, options) {
     return segment;
   }
 
+  // Advance the buffering cursor to the global _segments index AFTER the
+  // just-appended segment, located by OBJECT IDENTITY against _segments —
+  // never segment.getNumber() + 1. getNumber() is the representation-local
+  // segment number, which collides across representations in a spliced
+  // multi-manifest playout (the ad clip's segment 1 and the main clip's
+  // segment 1 are both local 0 but sit at different global indices). Using
+  // the local number rewinds the cursor into a main->ad->main loop, so
+  // `ended` never fires.
+  function nextBufferingSegmentIndexByIdentity(appendedSegment) {
+    for (var key of _segmentsKeys) {
+      if (_segments[key] === appendedSegment) {
+        return parseInt(key, 10) + 1;
+      }
+    }
+    // Fallback (should never happen in a normal append): keep the cursor
+    // from stalling by moving one global index past where we were.
+    return _bufferingSegment + 1;
+  }
+
   function bufferSegment(segment) {
     var segmentNumber = segment.getNumber();
     var representationNumber = segment.getRepresentationNumber();
@@ -1181,7 +1200,9 @@ function BufferManager(manifests, mediaSource, video, options) {
             logger.debug("media source reinitialized, resuming buffering");
             _eventEmitter.on("onSegmentLoaded", function handleSegmentLoaded() {
               _eventEmitter.off(handleSegmentLoaded);
-              setBufferingSegment(bufferInfo.segment.getNumber() + 1);
+              setBufferingSegment(
+                nextBufferingSegmentIndexByIdentity(bufferInfo.segment),
+              );
               startBuffering();
             });
             appendQueuedBuffers();
@@ -1249,7 +1270,9 @@ function BufferManager(manifests, mediaSource, video, options) {
           !bufferInfo.chunkNumber ||
           (bufferInfo.chunkNumber && bufferInfo.lastChunk)
         ) {
-          setBufferingSegment(bufferInfo.segment.getNumber() + 1);
+          setBufferingSegment(
+            nextBufferingSegmentIndexByIdentity(bufferInfo.segment),
+          );
         }
 
         _eventEmitter.dispatchEvent("onSegmentLoaded", {
