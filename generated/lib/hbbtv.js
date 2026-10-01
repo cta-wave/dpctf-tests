@@ -45,8 +45,9 @@ function HbbTV() {
     return navigator.userAgent.toLowerCase().indexOf("hbbtv") !== -1;
   }
 
-  function stopBroadcast() {
+  function stopBroadcast(error) {
     return new Promise(function (resolve) {
+      if (error) return resolve(error);
       if (!isHbbTvContext()) return resolve();
       log("stopping broadcast");
 

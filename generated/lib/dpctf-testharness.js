@@ -421,15 +421,16 @@ function DpctfTest(config) {
             }
           );
 
-          player
-            .getVideoBufferManager()
-            .on(Player.EVENT_CLOSE_BUFFER, function () {
+          var videoBufferManager = player.getVideoBufferManager();
+          if (videoBufferManager) {
+            videoBufferManager.on(Player.EVENT_CLOSE_BUFFER, function () {
               logger.info("close buffer");
               _lastAction = ACTION_CLOSE_BUFFER;
               var currentTime = player.getCurrentTime();
               updateQrCode(currentTime);
               updateStatusText();
             });
+          }
 
           if (!player.getVideoManifests()) {
             player.on("onVideoManifestParsed", function () {
