@@ -1742,12 +1742,46 @@ function EncryptionController(video, videoMimeCodec, audioMimeCodec, options) {
       if (jobQueue[i].keyIdentity === keyIdentity) return;
     }
     if (entry && entry.processing) return;
+    if (
+      entry &&
+      entry.status === KEY_STATUS_FAILED_UNDER_CAP &&
+      hasUsableKey()
+    ) {
+      // H1 re-fired-key guard (drm.md §7.2.2): ignore a re-fired encrypted
+      // event for a key whose session-init already failed under the retry cap
+      // when the playout already holds a usable key. A content playout that is
+      // already decryptable must not be torn down by a redundant second key's
+      // failing session-init — so this re-fire is dropped rather than re-queued
+      // (which would burn the per-key retry cap and eventually surface a false
+      // onEncryptionError).
+      logger.debug(
+        "ignoring re-fired encrypted event for redundant key '" +
+          keyLabel(entry) +
+          "' (playout already holds a usable key)",
+      );
+      return;
+    }
     jobQueue.push({
       keyIdentity: keyIdentity,
       initData: initData,
       initDataType: initDataType,
     });
     runQueue();
+  }
+
+  // Does the playout already hold a usable (decryptable) key? Used by the
+  // H1 re-fired-key guard to decide whether a redundant key's failure may be
+  // safely ignored. ES5-style scan (no modern collection APIs).
+  function hasUsableKey() {
+    for (var identity in keyMap) {
+      if (
+        Object.prototype.hasOwnProperty.call(keyMap, identity) &&
+        keyMap[identity].status === KEY_STATUS_USABLE
+      ) {
+        return true;
+      }
+    }
+    return false;
   }
 
   function runQueue() {

@@ -409,6 +409,67 @@ test("give-up on one key does not poison another key", async () => {
   assert.strictEqual(erroredKey, "key1", "key2 success must not re-emit error");
 });
 
+test("a re-fired failing key is ignored while another key is usable (H1 guard)", async () => {
+  const record = [];
+  const errors = [];
+  const logger = {
+    error: (msg) => errors.push(msg),
+    info: () => {},
+    debug: () => {},
+    warn: () => {},
+  };
+  // key1 succeeds (usable); key2's session-init fails under the retry cap.
+  const mockEme = buildMockEme(record, {
+    failGenerate: (initData) => initDataText(initData).indexOf("key2") !== -1,
+    generateError: new Error("key2 broken"),
+  });
+  const video = buildMockVideo(record, mockEme.setMediaKeysDeferred);
+  const player = buildPlayer(video, logger);
+  let encryptionError = null;
+  player.on("onEncryptionError", (payload) => {
+    encryptionError = payload;
+  });
+
+  const sessionInitCount = () =>
+    record.filter((r) => r === "createSession" || r === "generateRequest").length;
+
+  // key1 becomes usable.
+  player.setProtectionData({ keyId: "key1", contentKey: "secret" });
+  await flush();
+  mockEme.setMediaKeysDeferred.resolve();
+  await flush();
+
+  assert.strictEqual(mockEme.mediaKeys.sessions[0].keyStatuses.current, "usable");
+
+  // key2's first session-init fails -> failed-under-cap (attempt 1, under cap).
+  player.setProtectionData({ keyId: "key2", contentKey: "secret" });
+  await flush();
+
+  assert.strictEqual(encryptionError, null, "no give-up on the first failure");
+  const countAfterKey2Failure = sessionInitCount();
+
+  // Re-fire key2 while key1 is usable: the H1 guard ignores it instead of
+  // re-queuing a fresh session-init job, so the per-key retry cap is not
+  // burned and no false onEncryptionError tears down the decryptable playout.
+  player.setProtectionData({ keyId: "key2", contentKey: "secret" });
+  await flush();
+
+  assert.strictEqual(
+    sessionInitCount(),
+    countAfterKey2Failure,
+    "a re-fired failing key must not trigger a new session-init while a usable key is held",
+  );
+  assert.strictEqual(
+    encryptionError,
+    null,
+    "no onEncryptionError while the playout holds a usable key",
+  );
+  assert.ok(
+    !errors.some((msg) => msg.indexOf("gave up") !== -1),
+    "must not give up on the redundant second key while a usable key is held",
+  );
+});
+
 test("setMediaKeys rejection is logged once and stops session-init", async () => {
   const record = [];
   const mockEme = buildMockEme(record);
