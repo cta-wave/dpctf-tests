@@ -72,8 +72,33 @@
 
       function executeTest(player, done, parameters) {
         var minBufferDuration = parameters.minBufferDuration / 1000;
-        var rates = parameters.rates || [];
-        var rateStep = parameters.rateStep || 0;
+        var rates = parameters.rates;
+        var rateStep = parameters.rateStep;
+
+        // Fail fast with a clear diagnostic instead of silently running with an
+        // empty rates list. Without `rates`/`rate_step` the first advanceStep()
+        // immediately returns false, never calls setPlaybackRate, and the test
+        // later fails the cryptic `rateIndex === rates.length - 1` assertion and
+        // times out (e.g. when test-config.json is missing these keys).
+        var configError = null;
+        if (!Array.isArray(rates) || rates.length === 0) {
+          configError =
+            "playback-rates requires a non-empty 'rates' list; missing 'rates' in test-config.json ('all' scope)";
+        } else if (
+          typeof rateStep !== "number" ||
+          !isFinite(rateStep) ||
+          rateStep <= 0
+        ) {
+          configError =
+            "playback-rates requires a positive 'rate_step'; got " +
+            rateStep +
+            " from test-config.json ('all' scope)";
+        }
+        if (configError) {
+          logger.error(configError);
+          done(new Error(configError));
+          return;
+        }
 
         var observedRates = [];
         var rateIndex = -1;
