@@ -997,6 +997,7 @@ function buildParameters(testConfig, testInfo) {
     secondPlayoutSwitchingTime:
       determineValue("second_playout_switching_time") || 5,
     testTimeout: determineValue("test_timeout"),
+    maxWaitingStates: determineValue("max_waiting_states") || 10,
     log_level: determineValue("log_level") || "info",
     rates: determineValue("rates"),
     rateStep: determineValue("rate_step"),
