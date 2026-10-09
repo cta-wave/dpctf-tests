@@ -23,16 +23,19 @@ function WaitingStateSubTest(video, maxWaitingStates, asyncTest) {
     asyncTest(function (test) {
       new Promise(function (resolve) {
         resolveWaitingStateSubTest = resolve;
-      }).then(function () {
-        assert_true(
-          waitingStateCount <= maxWaitingStates,
-          "waiting states count (" +
+      }).then(
+        test.step_func(function () {
+          var message =
+            "waiting states count: " +
             waitingStateCount +
-            ") should not exceed " +
-            maxWaitingStates
-        );
-        test.done();
-      });
+            " (limit " +
+            maxWaitingStates +
+            ")";
+          test.message = message;
+          assert_true(waitingStateCount <= maxWaitingStates, message);
+          test.done();
+        })
+      );
     }, "waiting states count should not exceed " + maxWaitingStates);
 
     return this;
