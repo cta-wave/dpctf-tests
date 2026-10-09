@@ -612,8 +612,10 @@ function DpctfTest(config) {
     var test = async_test(function (test) {
       var doneCallback = test.done.bind(test);
       test.done = function () {
+        var message = test.message;
         finishSubTest(test);
         doneCallback();
+        if (message) test.message = message;
       };
       testFunc(test);
     }, testName);
@@ -997,6 +999,7 @@ function buildParameters(testConfig, testInfo) {
     secondPlayoutSwitchingTime:
       determineValue("second_playout_switching_time") || 5,
     testTimeout: determineValue("test_timeout"),
+    maxWaitingStates: determineValue("max_waiting_states") || 4,
     log_level: determineValue("log_level") || "info",
     rates: determineValue("rates"),
     rateStep: determineValue("rate_step"),
