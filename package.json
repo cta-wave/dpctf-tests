@@ -1,0 +1,9 @@
+{
+  "name": "dpctf-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WAVE Streaming Media Test Suite - Devices (DPCTF)",
+  "scripts": {
+    "test": "node --test"
+  }
+}
